@@ -1,0 +1,1369 @@
+{"ABEC120": {"Prerequisites": "Admission to BTeach(ECS)", "Corequisites": ""}}
+{"ABEC121": {"Prerequisites": "Admission to BTeach(ECS)", "Corequisites": ""}}
+{"ABEC150": {"Prerequisites": "Admission to BTeach(ECS)", "Corequisites": ""}}
+{"ABEC213": {"Prerequisites": "12cp and admission to BTeach(ECS)", "Corequisites": ""}}
+{"ABEC215": {"Prerequisites": "12cp and admission to BTeach(ECS)", "Corequisites": ""}}
+{"ABEC222": {"Prerequisites": "12cp and admission to BTeach(ECS)", "Corequisites": ""}}
+{"ABEC240": {"Prerequisites": "ABEP130", "Corequisites": ""}}
+{"ABEC313": {"Prerequisites": "39cp and admission to BTeach(ECS)", "Corequisites": ""}}
+{"ABEC314": {"Prerequisites": "39cp including ABEC150", "Corequisites": ""}}
+{"ABEP130": {"Prerequisites": "ABEC120", "Corequisites": ""}}
+{"ABEP230": {"Prerequisites": "ABEC120 and ABEP130", "Corequisites": ""}}
+{"ABEP330": {"Prerequisites": "(ABEC320 or ECH231) and ABEP230", "Corequisites": ""}}
+{"ABFS111": {"Prerequisites": "Admission to BTeach(ECS)", "Corequisites": ""}}
+{"ABFS131": {"Prerequisites": "Admission to BTeach(ECS)", "Corequisites": ""}}
+{"ABST100": {"Prerequisites": "", "Corequisites": ""}}
+{"ABST200": {"Prerequisites": "12cp", "Corequisites": ""}}
+{"ABST201": {"Prerequisites": "12cp", "Corequisites": ""}}
+{"ABST301": {"Prerequisites": "39cp", "Corequisites": ""}}
+{"ABST311": {"Prerequisites": "39cp", "Corequisites": ""}}
+{"ACBE100": {"Prerequisites": "", "Corequisites": ""}}
+{"ACCG100": {"Prerequisites": "(Admission to BCom or BCom-Accg or BCom-ProfAccg or BAppFin or BComBA-Psych) or (an equivalent admission rank or aggregate) or (12cp and GPA of 2.0)", "Corequisites": ""}}
+{"ACCG101": {"Prerequisites": "ACCG100(P) or ACCG105(P)", "Corequisites": ""}}
+{"ACCG106": {"Prerequisites": "", "Corequisites": ""}}
+{"ACCG200": {"Prerequisites": "ACCG101 or ACCG105(P) or ACCG106(P)", "Corequisites": ""}}
+{"ACCG224": {"Prerequisites": "ACCG101(P)", "Corequisites": ""}}
+{"ACCG250": {"Prerequisites": "18cp including (ACCG100(P) or ACCG106(P))", "Corequisites": ""}}
+{"ACCG251": {"Prerequisites": "18cp including (ACCG101(P) or ACCG105(P))", "Corequisites": ""}}
+{"ACCG260": {"Prerequisites": "18cp", "Corequisites": ""}}
+{"ACCG301": {"Prerequisites": "39cp including ACCG200(P)", "Corequisites": ""}}
+{"ACCG308": {"Prerequisites": "39cp including ACCG224(P)", "Corequisites": ""}}
+{"ACCG315": {"Prerequisites": "ACCG200(P) and ACCG224(P)", "Corequisites": ""}}
+{"ACCG326": {"Prerequisites": "39cp including ACCG224(P)", "Corequisites": ""}}
+{"ACCG330": {"Prerequisites": "39cp including (ACCG201(P) or ACCG301(P))", "Corequisites": ""}}
+{"ACCG340": {"Prerequisites": "39cp including [(ACCG308(P) or ACCG310(P)) and (ACCG250(P) or ACCG251(P))]", "Corequisites": ""}}
+{"ACCG350": {"Prerequisites": "39cp including (ACCG253(P) or ACCG252(P) or AFIN252(P) or AFIN253(P))", "Corequisites": ""}}
+{"ACCG355": {"Prerequisites": "39cp including (ACCG250(P) or ACCG251(P) or ISYS104)", "Corequisites": ""}}
+{"ACCG358": {"Prerequisites": "39cp including (ACCG250 or ACCG251)", "Corequisites": ""}}
+{"ACCG399": {"Prerequisites": "(42cp including ACCG224(P)) or (42cp including ACCG315(P))", "Corequisites": ""}}
+{"ACSC100": {"Prerequisites": "", "Corequisites": ""}}
+{"ACSH100": {"Prerequisites": "", "Corequisites": ""}}
+{"ACST101": {"Prerequisites": "", "Corequisites": ""}}
+{"ACST152": {"Prerequisites": "Admission to BActStud or (18cp and GPA of 3.25)", "Corequisites": "STAT171"}}
+{"ACST201": {"Prerequisites": "15cp including ACST101(P)", "Corequisites": ""}}
+{"ACST202": {"Prerequisites": "ACST101(Cr) and MATH133(P) and GPA of 2.50", "Corequisites": ""}}
+{"ACST212": {"Prerequisites": "Admission to BActStud and STAT171(Cr)", "Corequisites": "MATH133"}}
+{"ACST255": {"Prerequisites": "Admission to BActStud and ACST152(P) and ACST202(P) and STAT272(P) and GPA of 2.5", "Corequisites": ""}}
+{"ACST306": {"Prerequisites": "ACST202(P) and STAT272(P)", "Corequisites": ""}}
+{"ACST307": {"Prerequisites": "ACST306(P)", "Corequisites": ""}}
+{"ACST315": {"Prerequisites": "48cp and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"ACST355": {"Prerequisites": "ACST358(P)", "Corequisites": ""}}
+{"ACST356": {"Prerequisites": "39cp including STAT272(P)", "Corequisites": ""}}
+{"ACST357": {"Prerequisites": "ACST356(P) and STAT271(P)", "Corequisites": ""}}
+{"ACST358": {"Prerequisites": "ACST255(P) and STAT272(P)", "Corequisites": ""}}
+{"ACST359": {"Prerequisites": "ACST358(P)", "Corequisites": ""}}
+{"ACST402": {"Prerequisites": "ACST357(P) and ACST358(P)", "Corequisites": ""}}
+{"ACST403": {"Prerequisites": "ACST402", "Corequisites": ""}}
+{"ACST404": {"Prerequisites": "ACST306(P) and ACST355(P) and ACST357(P)", "Corequisites": ""}}
+{"AFAS300": {"Prerequisites": "39cp", "Corequisites": ""}}
+{"AFIN100": {"Prerequisites": "", "Corequisites": ""}}
+{"AFIN252": {"Prerequisites": "(ACCG100 or ACCG105 or ACCG106) and (ECON111 or BBA103) and (STAT170 or STAT171 or PSY122) and ACST101 and (24cp or GPA of 2.25)", "Corequisites": ""}}
+{"AFIN253": {"Prerequisites": "(ACCG100 or ACCG105 or ACCG106) and (ECON111 or BBA103) and (STAT170 or STAT171 or PSY122) and ACST101 and (24cp or GPA of 2.0)", "Corequisites": ""}}
+{"AFIN310": {"Prerequisites": "3cp in ACST or AFIN units at 300 level", "Corequisites": ""}}
+{"AFIN315": {"Prerequisites": "48cp and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"AFIN328": {"Prerequisites": "39cp including (ACCG252 or AFIN252)", "Corequisites": ""}}
+{"AFIN329": {"Prerequisites": "6cp at 200 level including (ACCG252 or AFIN252)", "Corequisites": ""}}
+{"AFIN331": {"Prerequisites": "39cp including AFIN252 and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"AFIN341": {"Prerequisites": "39cp including AFIN252 and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"AFIN352": {"Prerequisites": "39cp including (ACCG252 or AFIN252)", "Corequisites": ""}}
+{"AFIN353": {"Prerequisites": "39cp including (ACCG252 or AFIN252)", "Corequisites": ""}}
+{"AFIN450": {"Prerequisites": "Permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"AHIS100": {"Prerequisites": "", "Corequisites": ""}}
+{"AHIS110": {"Prerequisites": "", "Corequisites": ""}}
+{"AHIS120": {"Prerequisites": "", "Corequisites": ""}}
+{"AHIS140": {"Prerequisites": "", "Corequisites": ""}}
+{"AHIS150": {"Prerequisites": "", "Corequisites": ""}}
+{"AHIS170": {"Prerequisites": "", "Corequisites": ""}}
+{"AHIS200": {"Prerequisites": "12cp", "Corequisites": ""}}
+{"AHIS201": {"Prerequisites": "12cp", "Corequisites": ""}}
+{"AHIS202": {"Prerequisites": "12cp", "Corequisites": ""}}
+{"AHIS208": {"Prerequisites": "12cp or admission to BAncHist or BAncHist(Hons) or CertAncLang or DipAncLang", "Corequisites": ""}}
+{"AHIS209": {"Prerequisites": "AHIS208 or AHST205", "Corequisites": ""}}
+{"AHIS211": {"Prerequisites": "AHIS110 or AHST103", "Corequisites": ""}}
+{"AHIS212": {"Prerequisites": "12cp", "Corequisites": ""}}
+{"AHIS218": {"Prerequisites": "12cp or admission to BAncHist or BAncHist(Hons) or CertAncLang or DipAncLang", "Corequisites": ""}}
+{"AHIS219": {"Prerequisites": "AHIS218 or AHST207", "Corequisites": ""}}
+{"AHIS220": {"Prerequisites": "12cp", "Corequisites": ""}}
+{"AHIS224": {"Prerequisites": "12cp", "Corequisites": ""}}
+{"AHIS230": {"Prerequisites": "12cp", "Corequisites": ""}}
+{"AHIS249": {"Prerequisites": "Permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"AHIS250": {"Prerequisites": "12cp", "Corequisites": ""}}
+{"AHIS251": {"Prerequisites": "12cp", "Corequisites": ""}}
+{"AHIS253": {"Prerequisites": "12cp or admission to GCertArts", "Corequisites": ""}}
+{"AHIS258": {"Prerequisites": "12cp or admission to BAncHist or BAncHist(Hons) or CertAncLang or DipAncLang", "Corequisites": ""}}
+{"AHIS259": {"Prerequisites": "AHIS258 or AHST241", "Corequisites": ""}}
+{"AHIS260": {"Prerequisites": "12cp or admission to GCertArts", "Corequisites": ""}}
+{"AHIS261": {"Prerequisites": "12cp", "Corequisites": ""}}
+{"AHIS268": {"Prerequisites": "12cp or (admission to BAncHist or BAncHis(Hons) or CertAncLang or DipAncLang or GCertArts)", "Corequisites": ""}}
+{"AHIS269": {"Prerequisites": "AHIS268", "Corequisites": ""}}
+{"AHIS272": {"Prerequisites": "12cp", "Corequisites": ""}}
+{"AHIS278": {"Prerequisites": "12cp or admission to BAncHist or BAncHist(Hons) or CertAncLang or DipAncLang or GCertEgyptology or GDipEgyptology", "Corequisites": ""}}
+{"AHIS280": {"Prerequisites": "AHIS170 or AHST100", "Corequisites": ""}}
+{"AHIS281": {"Prerequisites": "AHIS170 or AHST100", "Corequisites": ""}}
+{"AHIS303": {"Prerequisites": "39cp or (6cp in AHIS units at 200 level)", "Corequisites": ""}}
+{"AHIS308": {"Prerequisites": "6cp at 200 level including (AHIS209 or AHST206)", "Corequisites": ""}}
+{"AHIS309": {"Prerequisites": "AHIS308", "Corequisites": ""}}
+{"AHIS310": {"Prerequisites": "39cp including (AHIS110 or AHIS212 or AHIS312 or AHST103 or AHST232 or AHST332)", "Corequisites": ""}}
+{"AHIS318": {"Prerequisites": "6cp at 200 level including (AHIS219 or AHST208)", "Corequisites": ""}}
+{"AHIS319": {"Prerequisites": "AHIS318", "Corequisites": ""}}
+{"AHIS321": {"Prerequisites": "39cp or (6cp in AHIS or AHST units at 200 level)", "Corequisites": ""}}
+{"AHIS323": {"Prerequisites": "39cp or (6cp in AHIS or AHST units at 200 level)", "Corequisites": ""}}
+{"AHIS331": {"Prerequisites": "39cp or (6cp in AHIS or AHST units at 200 level)", "Corequisites": ""}}
+{"AHIS339": {"Prerequisites": "39cp including 21cp in AHIS or AHST units", "Corequisites": ""}}
+{"AHIS340": {"Prerequisites": "(6cp in AHIS or AHST units at 200 level) or admission to GDipArts", "Corequisites": ""}}
+{"AHIS341": {"Prerequisites": "39cp or (6cp in AHIS or AHST units at 200 level)", "Corequisites": ""}}
+{"AHIS342": {"Prerequisites": "39cp or (6cp in AHIS or AHST units at 200 level)", "Corequisites": ""}}
+{"AHIS343": {"Prerequisites": "39cp or (6cp in AHIS or AHST or MHIS or HIST units at 200 level)", "Corequisites": ""}}
+{"AHIS344": {"Prerequisites": "39cp or (6cp in AHIS or AHST or MHIS or HIST units at 200 level)", "Corequisites": ""}}
+{"AHIS345": {"Prerequisites": "Permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"AHIS347": {"Prerequisites": "Permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"AHIS349": {"Prerequisites": "Permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"AHIS350": {"Prerequisites": "Admission to BAncHist and 39cp", "Corequisites": ""}}
+{"AHIS352": {"Prerequisites": "39cp or (6cp in AHIS or AHST units at 200 level)", "Corequisites": ""}}
+{"AHIS354": {"Prerequisites": "39cp or (6cp in AHIS or AHST units at 200 level)", "Corequisites": ""}}
+{"AHIS355": {"Prerequisites": "39cp or (6cp in AHIS or AHST units at 200 level)\n", "Corequisites": ""}}
+{"AHIS360": {"Prerequisites": "39cp or (6cp in AHIS or AHST units at 200 level)", "Corequisites": ""}}
+{"AHIS368": {"Prerequisites": "39cp and (AHIS268 or AHIS269)", "Corequisites": ""}}
+{"AHIS369": {"Prerequisites": "39cp or (6cp in AHIS or AHST units at 200 level) or admission to GCertArts", "Corequisites": ""}}
+{"AHIS370": {"Prerequisites": "((AHIS170 or AHST100) and 6cp at 200 level including (AHIS280 or AHST261)) or admission to GCertArts or GDipArts", "Corequisites": ""}}
+{"AHIS371": {"Prerequisites": "6cp at 200 level including (AHIS278 or AHST260)", "Corequisites": ""}}
+{"AHIS372": {"Prerequisites": "(AHIS279 or AHST360 or AHIS378) and (AHIS280 or AHST261)", "Corequisites": ""}}
+{"AHIS373": {"Prerequisites": "(AHIS279 or AHST360 or AHIS378) and (AHIS280 or AHST261)", "Corequisites": ""}}
+{"AHIS378": {"Prerequisites": "6cp at 200 level including (AHIS278 or AHST260)", "Corequisites": ""}}
+{"AHIS380": {"Prerequisites": "39cp or (6cp in AHIS or AHST units at 200 level) or admission to  GCertArts or GDipArts", "Corequisites": ""}}
+{"AHIS390": {"Prerequisites": "6cp at 200 level including ((AHIS280 or AHST261) and (AHIS170 or AHIS230 or AHST100 or AHST210)) or admission to GCertArts or GDipArts", "Corequisites": ""}}
+{"AHIS399": {"Prerequisites": "39cp including 21cp in AHIS or AHST units", "Corequisites": ""}}
+{"AHMG101": {"Prerequisites": "", "Corequisites": ""}}
+{"ANTH106": {"Prerequisites": "", "Corequisites": ""}}
+{"ANTH107": {"Prerequisites": "", "Corequisites": ""}}
+{"ANTH150": {"Prerequisites": "", "Corequisites": ""}}
+{"ANTH151": {"Prerequisites": "", "Corequisites": ""}}
+{"ANTH202": {"Prerequisites": "ANTH150 or 12cp or (admission to GDipArts or BHlth)", "Corequisites": ""}}
+{"ANTH203": {"Prerequisites": "ANTH150 or 12cp or admission to GDipArts", "Corequisites": ""}}
+{"ANTH204": {"Prerequisites": "ANTH150 or 12cp or admission to GDipArts\n", "Corequisites": ""}}
+{"ANTH205": {"Prerequisites": "ANTH150 or 12cp or admission to GDipArts\n", "Corequisites": ""}}
+{"ANTH206": {"Prerequisites": "ANTH150 or 12cp or admission to GDipArts", "Corequisites": ""}}
+{"ANTH207": {"Prerequisites": "ANTH150 or ANTH151 or 12cp or admission to GDipArts", "Corequisites": ""}}
+{"ANTH221": {"Prerequisites": "ANTH150 or 12cp or admission to GDipArts", "Corequisites": ""}}
+{"ANTH222": {"Prerequisites": "ANTH150 or 12cp or admission to GDipArts", "Corequisites": ""}}
+{"ANTH224": {"Prerequisites": "12cp or ANTH106 or ANTH150 or admission to GDipArts ", "Corequisites": ""}}
+{"ANTH300": {"Prerequisites": "39cp or admission to GDipArts\n", "Corequisites": ""}}
+{"ANTH301": {"Prerequisites": "39cp or admission to GDipArts\n", "Corequisites": ""}}
+{"ANTH302": {"Prerequisites": "39cp or admission to GDipArts", "Corequisites": ""}}
+{"ANTH303": {"Prerequisites": "39cp or admission to GDipArts", "Corequisites": ""}}
+{"ANTH304": {"Prerequisites": "39cp or admission to GDipArts", "Corequisites": ""}}
+{"ANTH305": {"Prerequisites": "39cp or admission to GDipArts", "Corequisites": ""}}
+{"ANTH307": {"Prerequisites": "39cp or admission to GDipArts\n", "Corequisites": ""}}
+{"ANTH321": {"Prerequisites": "39cp or admission to GDipArts", "Corequisites": ""}}
+{"ANTH322": {"Prerequisites": "39cp or admission to GDipArts\n", "Corequisites": ""}}
+{"ANTH323": {"Prerequisites": "39cp or admission to GDipArts\n", "Corequisites": ""}}
+{"ANTH324": {"Prerequisites": "(39cp including (9cp from ANTH units including 3cp from ANTH units at 300 level)) or admission to GDipArts", "Corequisites": ""}}
+{"ANTH330": {"Prerequisites": "39cp or admission to GDipArts\n", "Corequisites": ""}}
+{"ASN101": {"Prerequisites": "", "Corequisites": ""}}
+{"ASN201": {"Prerequisites": "12cp", "Corequisites": ""}}
+{"ASN301": {"Prerequisites": "39cp", "Corequisites": ""}}
+{"ASN315": {"Prerequisites": "GPA of 2.5 and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"ASN316": {"Prerequisites": "GPA of 2.5 and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"ASN317": {"Prerequisites": "GPA of 2.5 and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"ASN318": {"Prerequisites": "GPA of 2.5 and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"ASTR170": {"Prerequisites": "", "Corequisites": ""}}
+{"ASTR178": {"Prerequisites": "", "Corequisites": ""}}
+{"ASTR278": {"Prerequisites": "(3cp from MATH132-MATH136) and (PHYS106 or PHYS107 or PHYS140 or PHYS143 or PHYS149)", "Corequisites": ""}}
+{"ASTR310": {"Prerequisites": "ASTR377", "Corequisites": ""}}
+{"ASTR377": {"Prerequisites": "PHYS201(P) and PHYS202(P)", "Corequisites": "MATH235"}}
+{"ASTR378": {"Prerequisites": "PHYS202(P) and MATH235(P)", "Corequisites": ""}}
+{"BBA102": {"Prerequisites": "", "Corequisites": ""}}
+{"BBA111": {"Prerequisites": "", "Corequisites": ""}}
+{"BBA220": {"Prerequisites": "24cp", "Corequisites": ""}}
+{"BBA280": {"Prerequisites": "", "Corequisites": "BBA102"}}
+{"BBA310": {"Prerequisites": "39cp including (BBA111 or HRM107)", "Corequisites": ""}}
+{"BBA315": {"Prerequisites": "39cp including (STAT170 or STAT171 or MKTG216)", "Corequisites": ""}}
+{"BBA320": {"Prerequisites": "27cp including [(ECON110 or ECON111) and (6cp in ACCG or ACST or AFIN or ECON or FOBE or MGMT or MKTG units at 200 level)]", "Corequisites": ""}}
+{"BBA340": {"Prerequisites": "42cp", "Corequisites": ""}}
+{"BBA350": {"Prerequisites": "Admission to BBA and MKTG101 and 6cp at 200 level including (ACCG200 or ACCG253 or AFIN253)", "Corequisites": ""}}
+{"BBA360": {"Prerequisites": "Admission to BBA and (BBA103 or ECON110 or ECON111) and (BBA250 or HRM107) and BBA102 and (BBA216 or BUS201) and BBA350 and BUSL250", "Corequisites": ""}}
+{"BBE100": {"Prerequisites": "", "Corequisites": ""}}
+{"BBE101": {"Prerequisites": "", "Corequisites": ""}}
+{"BBE200": {"Prerequisites": "BBE100 or BBE101 or BIOL108 or BIOL114 or PSY104 or PSY105 or PSYC104 or PSYC105", "Corequisites": ""}}
+{"BBE303": {"Prerequisites": "39cp including (BBE200 and (BIOL235 or PSY222 or STAT270 or STAT271)) and GPA of 2.5 and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"BBE304": {"Prerequisites": "39cp including BBE200", "Corequisites": ""}}
+{"BBE305": {"Prerequisites": "39cp including BBE200", "Corequisites": ""}}
+{"BBE306": {"Prerequisites": "39cp including (BBE200 or BIOL208 or BIOL246 or BIOL257 or PSY236)", "Corequisites": ""}}
+{"BCM100": {"Prerequisites": "Admission to BCM", "Corequisites": ""}}
+{"BCM102": {"Prerequisites": "Admission to BCM", "Corequisites": ""}}
+{"BCM103": {"Prerequisites": "Admission to BCM", "Corequisites": ""}}
+{"BCM104": {"Prerequisites": "Admission to BCM", "Corequisites": ""}}
+{"BCM105": {"Prerequisites": "BCM100", "Corequisites": ""}}
+{"BCM106": {"Prerequisites": "Admission to BCM", "Corequisites": ""}}
+{"BCM107": {"Prerequisites": "Admission to BCM", "Corequisites": ""}}
+{"BCM108": {"Prerequisites": "Admission to BCM", "Corequisites": ""}}
+{"BCM200": {"Prerequisites": "12cp in BCM units at 100 level", "Corequisites": ""}}
+{"BCM201": {"Prerequisites": "12cp in BCM units at 100 level", "Corequisites": ""}}
+{"BCM202": {"Prerequisites": "12cp in BCM units at 100 level", "Corequisites": ""}}
+{"BCM203": {"Prerequisites": "Admission to BCM", "Corequisites": ""}}
+{"BCM204": {"Prerequisites": "Admission to BCM", "Corequisites": ""}}
+{"BCM205": {"Prerequisites": "Admission to BCM", "Corequisites": ""}}
+{"BCM206": {"Prerequisites": "Admission to BCM", "Corequisites": ""}}
+{"BCM207": {"Prerequisites": "Admission to BCM", "Corequisites": ""}}
+{"BCM208": {"Prerequisites": "Admission to BCM", "Corequisites": ""}}
+{"BCM305": {"Prerequisites": "21cp in BCM units at 100 level and 21cp in BCM units at 200 level", "Corequisites": ""}}
+{"BCM306": {"Prerequisites": "21cp in BCM units at 100 level and 21cp in BCM units at 200 level", "Corequisites": ""}}
+{"BCM307": {"Prerequisites": "BCM306 and 21cp in BCM units at 100 level and 21cp in BCM units at 200 level", "Corequisites": ""}}
+{"BCM308": {"Prerequisites": "21cp in BCM units at 100 level and 21cp in BCM units at 200 level", "Corequisites": ""}}
+{"BCM309": {"Prerequisites": "21cp in BCM units at 100 level and 21cp in BCM units at 200 level", "Corequisites": ""}}
+{"BCM310": {"Prerequisites": "39cp and admission to BCM", "Corequisites": ""}}
+{"BIOL108": {"Prerequisites": "", "Corequisites": ""}}
+{"BIOL114": {"Prerequisites": "", "Corequisites": ""}}
+{"BIOL115": {"Prerequisites": "", "Corequisites": ""}}
+{"BIOL121": {"Prerequisites": "", "Corequisites": ""}}
+{"BIOL188": {"Prerequisites": "Admission to BAdvSc and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"BIOL206": {"Prerequisites": "12cp(P) including 6cp(P) in BIOL units at 100 level", "Corequisites": "STAT170 or STAT171"}}
+{"BIOL208": {"Prerequisites": "12cp(P) including (BIOL114(P) and 3cp(P) in BIOL units at 100 level) or admission to GCertBiotech", "Corequisites": ""}}
+{"BIOL210": {"Prerequisites": "(12cp(P) including 6cp(P) in BIOL units at 100 level) or admission to GCertBiotech", "Corequisites": ""}}
+{"BIOL227": {"Prerequisites": "[(6cp(P) in BIOL units at 100 level) or (3cp(P) in BIOL units at 100 level and (GEOS117 or ENVE117))] and (STAT170(P) or STAT171(P))", "Corequisites": ""}}
+{"BIOL235": {"Prerequisites": "(6cp(P) in BBE or BIOL or ENV or ENVE or ENVG or GEOS units) and (STAT170(P) or STAT171(P) or PSY122(P))", "Corequisites": ""}}
+{"BIOL247": {"Prerequisites": "6cp(P) from ((BBE101 and BIOL108 and BIOL114 and BIOL115 and (PSY104 or PSYC104) and (PSY105 or PSYC105) and HLTH108 and HLTH109))", "Corequisites": ""}}
+{"BIOL257": {"Prerequisites": "6cp(P) from ((BBE101 and BIOL108 and BIOL114 and BIOL115 and (PSY104 or PSYC104) and (PSY105 or PSYC105) and HLTH108 and HLTH109))", "Corequisites": ""}}
+{"BIOL260": {"Prerequisites": "12cp or admission to GCertBiotech", "Corequisites": ""}}
+{"BIOL261": {"Prerequisites": "12cp", "Corequisites": ""}}
+{"BIOL262": {"Prerequisites": "6cp in BBE or BIOL units at 100 level", "Corequisites": ""}}
+{"BIOL313": {"Prerequisites": "39cp including (BIOL206(P) or BIOL210(P) or BIOL227(P) or ENVE266(P) or BIOL347(P))", "Corequisites": ""}}
+{"BIOL316": {"Prerequisites": "39cp including BIOL208(P)", "Corequisites": ""}}
+{"BIOL318": {"Prerequisites": "39cp including BIOL227(P) or BIOL208(P)", "Corequisites": ""}}
+{"BIOL334": {"Prerequisites": "39cp including BIOL206(P)", "Corequisites": ""}}
+{"BIOL341": {"Prerequisites": "39cp including BIOL208(P)", "Corequisites": ""}}
+{"BIOL345": {"Prerequisites": "39cp including BIOL206(P)", "Corequisites": ""}}
+{"BIOL346": {"Prerequisites": "39cp(P)", "Corequisites": ""}}
+{"BIOL347": {"Prerequisites": "12cp in BIOL or ENV or ENVE or ENVG or GEOS units at 200 level", "Corequisites": ""}}
+{"BIOL349": {"Prerequisites": "BIOL227(P) and BIOL235(P)", "Corequisites": ""}}
+{"BIOL362": {"Prerequisites": "39cp including (BIOL208 or BIOL227 or ENVE334 or ENVE339)", "Corequisites": ""}}
+{"BIOL367": {"Prerequisites": "(12cp in BIOL units at 200 or 300 level) or admission to GCertBiotech", "Corequisites": ""}}
+{"BIOL368": {"Prerequisites": "39cp including BIOL227(P)", "Corequisites": ""}}
+{"BIOL369": {"Prerequisites": "39cp including BIOL208(P)", "Corequisites": ""}}
+{"BIOL372": {"Prerequisites": "39cp including BIOL227(P)", "Corequisites": ""}}
+{"BIOL373": {"Prerequisites": "39cp including BIOL227(P)", "Corequisites": ""}}
+{"BIOL376": {"Prerequisites": "BIOL257 and BIOL247", "Corequisites": ""}}
+{"BIOL379": {"Prerequisites": "39cp including 6cp from (BIOL208 or BIOL227 or BIOL245 or BIOL261 or MAR201 or GEOS206)", "Corequisites": ""}}
+{"BIOL381": {"Prerequisites": "39cp including (BIOL261 or BIOL262)", "Corequisites": ""}}
+{"BIOL382": {"Prerequisites": "39cp including (BIOL208(P) or BIOL261(P))", "Corequisites": ""}}
+{"BIOL388": {"Prerequisites": "39cp including BIOL188 and admission to BAdvSc", "Corequisites": ""}}
+{"BIOL390": {"Prerequisites": "Permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"BIOL391": {"Prerequisites": "39cp", "Corequisites": "3cp from BIOL301-BIOL375 or BBE305 or BBE306"}}
+{"BIOL392": {"Prerequisites": "39cp", "Corequisites": ""}}
+{"BIOL399": {"Prerequisites": "Permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"BUS201": {"Prerequisites": "BBA102 or admission to BeBus", "Corequisites": ""}}
+{"BUS202": {"Prerequisites": "(30cp including BUS201) or (30cp and admission to BeBus)", "Corequisites": ""}}
+{"BUS301": {"Prerequisites": "39cp including BUS202", "Corequisites": ""}}
+{"BUS303": {"Prerequisites": "BUS301", "Corequisites": ""}}
+{"BUS304": {"Prerequisites": "(39cp including BUS202) or (39cp and admission to BCom or BBA)", "Corequisites": ""}}
+{"BUS305": {"Prerequisites": "39cp", "Corequisites": ""}}
+{"BUSL100": {"Prerequisites": "", "Corequisites": ""}}
+{"BUSL201": {"Prerequisites": "12cp or BUSL100", "Corequisites": ""}}
+{"BUSL204": {"Prerequisites": "24cp", "Corequisites": ""}}
+{"BUSL250": {"Prerequisites": "12cp", "Corequisites": ""}}
+{"BUSL301": {"Prerequisites": "39cp including BUSL250", "Corequisites": ""}}
+{"BUSL315": {"Prerequisites": "BUSL201 and (BUSL250 or LAW204)", "Corequisites": ""}}
+{"BUSL320": {"Prerequisites": "BUSL301 or 12cp in LAW units at 200 level", "Corequisites": ""}}
+{"BUSL377": {"Prerequisites": "39cp", "Corequisites": ""}}
+{"BUSL388": {"Prerequisites": "39cp", "Corequisites": ""}}
+{"CBMS101": {"Prerequisites": "", "Corequisites": ""}}
+{"CBMS102": {"Prerequisites": "CBMS101 or HSC Chemistry Band 4", "Corequisites": ""}}
+{"CBMS103": {"Prerequisites": "(CBMS101(P) or HSC Chemistry Band 4) or admission to GCertBiotech ", "Corequisites": ""}}
+{"CBMS123": {"Prerequisites": "", "Corequisites": ""}}
+{"CBMS188": {"Prerequisites": "Admission to BAdvSc", "Corequisites": "CBMS102 and CBMS103"}}
+{"CBMS204": {"Prerequisites": "CBMS103 or admission to GCertBiotech", "Corequisites": ""}}
+{"CBMS207": {"Prerequisites": "CBMS101(Cr) or CBMS102", "Corequisites": ""}}
+{"CBMS208": {"Prerequisites": "CBMS101(Cr) or CBMS102 or admission to GCertBiotech", "Corequisites": ""}}
+{"CBMS215": {"Prerequisites": "(BIOL115 and CBMS101 or HSC Chemistry Band 4) or admission to GCertBiotech", "Corequisites": ""}}
+{"CBMS223": {"Prerequisites": "(BIOL115 and CBMS103) or admission to GCertBiotech or GDipChiroSc or PGQual(Chiro)", "Corequisites": ""}}
+{"CBMS224": {"Prerequisites": "(BIOL115 and CBMS103) or admission to GCertBiotech", "Corequisites": ""}}
+{"CBMS234": {"Prerequisites": "15cp or admission to GCertBiotech", "Corequisites": ""}}
+{"CBMS235": {"Prerequisites": "15cp and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"CBMS302": {"Prerequisites": "", "Corequisites": "6cp from (CBMS303 or CBMS304 or CBMS306 or CBMS307 or CBMS308 or CBMS332)"}}
+{"CBMS303": {"Prerequisites": "CBMS204 and (3cp from CBMS200-CBMS203 or CBMS205-CBMS234)", "Corequisites": ""}}
+{"CBMS304": {"Prerequisites": "CBMS204 and (3cp from CBMS200-CBMS203 or CBMS205-CBMS234)", "Corequisites": ""}}
+{"CBMS306": {"Prerequisites": "CBMS204 and (3cp from CBMS200-CBMS203 or CBMS205-CBMS234)", "Corequisites": ""}}
+{"CBMS307": {"Prerequisites": "39cp including CBMS207", "Corequisites": ""}}
+{"CBMS308": {"Prerequisites": "CBMS208 and (CBMS204 or CBMS207)", "Corequisites": ""}}
+{"CBMS330": {"Prerequisites": "", "Corequisites": "9cp from (CBMS306 or CBMS331-CBMS349)"}}
+{"CBMS331": {"Prerequisites": "CBMS215 and CBMS224", "Corequisites": ""}}
+{"CBMS332": {"Prerequisites": "6cp from CBMS200-CBMS233", "Corequisites": ""}}
+{"CBMS333": {"Prerequisites": "39cp including CBMS224", "Corequisites": ""}}
+{"CBMS335": {"Prerequisites": "(39cp including CBMS215) or admission to GCertBiotech", "Corequisites": ""}}
+{"CBMS336": {"Prerequisites": "39cp including CBMS224", "Corequisites": ""}}
+{"CBMS337": {"Prerequisites": "CBMS223 and CBMS224", "Corequisites": ""}}
+{"CBMS389": {"Prerequisites": "39cp including CBMS188", "Corequisites": ""}}
+{"CHIR113": {"Prerequisites": "Admission to BChiroSc", "Corequisites": "HLTH108 or HLTH107"}}
+{"CHIR114": {"Prerequisites": "Admission to BChiroSc and HLTH108(P) and (CHIR113(P) or CHIR103(P))", "Corequisites": ""}}
+{"CHIR211": {"Prerequisites": "Admission to GDipChiroSc or GCertChiroSc", "Corequisites": ""}}
+{"CHIR213": {"Prerequisites": "Admission to BChiroSc and (CHIR113(P) or CHIR103(P)) and (CHIR114(P) or CHIR104(P))", "Corequisites": ""}}
+{"CHIR214": {"Prerequisites": "Admission to BChiroSc and (CHIR113(P) or CHIR103(P)) and (CHIR213(P) or CHIR201(P))", "Corequisites": ""}}
+{"CHIR311": {"Prerequisites": "6cp at 200 level including CHIR211", "Corequisites": ""}}
+{"CHIR315": {"Prerequisites": "[Admission to BChiroSc and (CHIR213(P) or CHIR201(P)) and (CHIR214(P) or CHIR202(P))] or admission to PGQualChiro", "Corequisites": ""}}
+{"CHIR316": {"Prerequisites": "(Admission to BChiroSc and (CHIR315 or CHIR301)) or admission to PGQualChiro", "Corequisites": ""}}
+{"CHN104": {"Prerequisites": "Permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"CHN105": {"Prerequisites": "CHN104", "Corequisites": ""}}
+{"CHN110": {"Prerequisites": "CHN105 or CHN149", "Corequisites": ""}}
+{"CHN112": {"Prerequisites": "", "Corequisites": ""}}
+{"CHN113": {"Prerequisites": "Permission of Executive Dean of Faculty\n", "Corequisites": ""}}
+{"CHN148": {"Prerequisites": "Permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"CHN149": {"Prerequisites": "CHN148", "Corequisites": ""}}
+{"CHN156": {"Prerequisites": "", "Corequisites": ""}}
+{"CHN157": {"Prerequisites": "", "Corequisites": ""}}
+{"CHN165": {"Prerequisites": "GPA of 2.5 and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"CHN208": {"Prerequisites": "HSC (BS) Chinese", "Corequisites": ""}}
+{"CHN209": {"Prerequisites": "CHN208", "Corequisites": ""}}
+{"CHN212": {"Prerequisites": "12cp", "Corequisites": ""}}
+{"CHN222": {"Prerequisites": "CHN232", "Corequisites": ""}}
+{"CHN223": {"Prerequisites": "CHN233 or CHN209 ", "Corequisites": ""}}
+{"CHN232": {"Prerequisites": "CHN105 or HSC (Non-BS) Chinese or CHN149", "Corequisites": ""}}
+{"CHN233": {"Prerequisites": "CHN232", "Corequisites": ""}}
+{"CHN252": {"Prerequisites": "Permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"CHN253": {"Prerequisites": "Permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"CHN265": {"Prerequisites": "GPA of 2.5 and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"CHN320": {"Prerequisites": "6cp at 200 level including CHN233", "Corequisites": ""}}
+{"CHN321": {"Prerequisites": "CHN320", "Corequisites": ""}}
+{"CHN330": {"Prerequisites": "6cp at 200 level including CHN222", "Corequisites": ""}}
+{"CHN331": {"Prerequisites": "39cp", "Corequisites": ""}}
+{"CHN334": {"Prerequisites": "6cp at 200 level including CHN209", "Corequisites": ""}}
+{"CHN340": {"Prerequisites": "CHN233", "Corequisites": "CHN320"}}
+{"CHN341": {"Prerequisites": "CHN340 or CHN361", "Corequisites": "CHN321 or CHN362"}}
+{"CHN361": {"Prerequisites": "6cp at 200 level including CHN209", "Corequisites": ""}}
+{"CHN362": {"Prerequisites": "39cp including CHN361", "Corequisites": ""}}
+{"CHN365": {"Prerequisites": "GPA of 2.5 and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"CHN378": {"Prerequisites": "39cp and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"CHN385": {"Prerequisites": "39cp including CHN252", "Corequisites": ""}}
+{"CHN386": {"Prerequisites": "39cp and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"CHN387": {"Prerequisites": "39cp including CHN253", "Corequisites": ""}}
+{"CHN388": {"Prerequisites": "CHN386", "Corequisites": ""}}
+{"COGS201": {"Prerequisites": "12cp", "Corequisites": ""}}
+{"COGS202": {"Prerequisites": "12cp", "Corequisites": ""}}
+{"COMP111": {"Prerequisites": "", "Corequisites": ""}}
+{"COMP115": {"Prerequisites": "", "Corequisites": ""}}
+{"COMP125": {"Prerequisites": "COMP115(P) or COMP155(P) or [admission to (BCom-ActStud or BActStud or BAdvSc or Advanced Program BSc) or (an equivalent admission rank or aggregate)]", "Corequisites": ""}}
+{"COMP188": {"Prerequisites": "Admission to BAdvSc", "Corequisites": ""}}
+{"COMP202": {"Prerequisites": "COMP125\n", "Corequisites": ""}}
+{"COMP225": {"Prerequisites": "(COMP125(P) or COMP165(P)) and (3cp(P) from MATH132-MATH136 or DMTH137)", "Corequisites": ""}}
+{"COMP226": {"Prerequisites": "COMP225(P) or COMP229(P) or COMP125(Cr)", "Corequisites": ""}}
+{"COMP229": {"Prerequisites": "COMP125(P) or COMP165(P)", "Corequisites": ""}}
+{"COMP233": {"Prerequisites": "18cp including (COMP115(P) or COMP155(P))", "Corequisites": ""}}
+{"COMP247": {"Prerequisites": "3cp(P) from COMP or ISYS units at 100 level", "Corequisites": ""}}
+{"COMP249": {"Prerequisites": "(COMP115(P) or COMP155(P)) and (ISYS114(P) or ISYS154(P))", "Corequisites": ""}}
+{"COMP255": {"Prerequisites": "18cp including (COMP115(P) or COMP155(P))", "Corequisites": ""}}
+{"COMP260": {"Prerequisites": "COMP115 and (COMP111 or INFO111 or MAS111)", "Corequisites": ""}}
+{"COMP329": {"Prerequisites": "39cp and COMP125(P) or COMP249(P)", "Corequisites": ""}}
+{"COMP330": {"Prerequisites": "39cp and (COMP225(P) or COMP229(P)) and (DMTH137(P) or MATH237(P) or DMTH237(P))", "Corequisites": ""}}
+{"COMP332": {"Prerequisites": "39cp and (COMP225(P) or COMP229(P))", "Corequisites": ""}}
+{"COMP333": {"Prerequisites": "39cp and COMP225(P) and (DMTH237(P) or MATH237(P))", "Corequisites": ""}}
+{"COMP334": {"Prerequisites": "39cp and COMP226(P) and (COMP225(P) or COMP229(P))", "Corequisites": ""}}
+{"COMP343": {"Prerequisites": "39cp and (COMP125(P) or COMP165(P)) and (DMTH137(P) or MATH237(P) or DMTH237(P))", "Corequisites": ""}}
+{"COMP344": {"Prerequisites": "39cp and (COMP224(P) or ISYS224(P)) and COMP249(P)", "Corequisites": ""}}
+{"COMP347": {"Prerequisites": "39cp and COMP247(P) and COMP125(P) and (MATH237(P) or DMTH237(P) or DMTH137(P) or ELEC240(P))", "Corequisites": ""}}
+{"COMP348": {"Prerequisites": "39cp and COMP249(P)", "Corequisites": ""}}
+{"COMP350": {"Prerequisites": "Permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"COMP352": {"Prerequisites": "39cp and COMP260 and MECO319", "Corequisites": "COMP330 or MECO329"}}
+{"COMP355": {"Prerequisites": "39cp including ((COMP225(P) or COMP229(P)) and (COMP255(P) or COMP227(P) or ISYS227(P)))", "Corequisites": "9cp from (COMP323(P) or COMP329(P) or COMP330(P) or COMP332(P) or COMP333(P) or COMP341(P) or COMP342(P) or COMP343(P) or COMP344(P) or COMP347(P) or COMP348(P) or COMP349(P) or COMP350(P) or ISYS326(P))"}}
+{"COMP365": {"Prerequisites": "39cp and COMP225(P) and (COMP227(P) or COMP255(P) or ISYS227(P)) and (admission to BCS or BBABCIS or BBABIT or BITLLB)", "Corequisites": ""}}
+{"COMP388": {"Prerequisites": "39cp and COMP188 and admission to BAdvSc and GPA of 2.75", "Corequisites": ""}}
+{"CRO108": {"Prerequisites": "", "Corequisites": ""}}
+{"CRO150": {"Prerequisites": "", "Corequisites": ""}}
+{"CRO155": {"Prerequisites": "CRO150", "Corequisites": ""}}
+{"CRO161": {"Prerequisites": "CRO155", "Corequisites": ""}}
+{"CRO180": {"Prerequisites": "GPA of 2.5 and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"CRO230": {"Prerequisites": "CRO250", "Corequisites": ""}}
+{"CRO250": {"Prerequisites": "HSC Croatian or CRO155", "Corequisites": ""}}
+{"CRO255": {"Prerequisites": "CRO250", "Corequisites": ""}}
+{"CRO280": {"Prerequisites": "GPA of 2.5 and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"CRO330": {"Prerequisites": "6cp at 200 level including (CRO250 or CRO255)", "Corequisites": ""}}
+{"CRO350": {"Prerequisites": "6cp at 200 level including CRO255", "Corequisites": ""}}
+{"CRO355": {"Prerequisites": "CRO350", "Corequisites": ""}}
+{"CRO360": {"Prerequisites": "CRO355", "Corequisites": ""}}
+{"CRO365": {"Prerequisites": "CRO360", "Corequisites": ""}}
+{"CRO378": {"Prerequisites": "Permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"CRO380": {"Prerequisites": "GPA of 2.5 and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"CUL120": {"Prerequisites": "", "Corequisites": ""}}
+{"CUL121": {"Prerequisites": "", "Corequisites": ""}}
+{"CUL221": {"Prerequisites": "12cp", "Corequisites": ""}}
+{"CUL223": {"Prerequisites": "15cp", "Corequisites": ""}}
+{"CUL230": {"Prerequisites": "12cp", "Corequisites": ""}}
+{"CUL233": {"Prerequisites": "15cp", "Corequisites": ""}}
+{"CUL240": {"Prerequisites": "12cp", "Corequisites": ""}}
+{"CUL260": {"Prerequisites": "12cp", "Corequisites": ""}}
+{"CUL321": {"Prerequisites": "39cp", "Corequisites": ""}}
+{"CUL322": {"Prerequisites": "39cp or admission to GDipArts", "Corequisites": ""}}
+{"CUL323": {"Prerequisites": "39cp", "Corequisites": ""}}
+{"CUL331": {"Prerequisites": "39cp", "Corequisites": ""}}
+{"CUL350": {"Prerequisites": "6cp in CUL units at 300 level", "Corequisites": ""}}
+{"CUL399": {"Prerequisites": "39cp", "Corequisites": ""}}
+{"DANC101": {"Prerequisites": "", "Corequisites": ""}}
+{"DANC200": {"Prerequisites": "15cp", "Corequisites": ""}}
+{"DANC215": {"Prerequisites": "12cp", "Corequisites": ""}}
+{"DANC220": {"Prerequisites": "15cp", "Corequisites": ""}}
+{"DANC320": {"Prerequisites": "39cp", "Corequisites": ""}}
+{"DANC350": {"Prerequisites": "DANC320 or MMCS330", "Corequisites": ""}}
+{"DEM355": {"Prerequisites": "39cp including DEM127", "Corequisites": ""}}
+{"DMTH137": {"Prerequisites": "", "Corequisites": ""}}
+{"DMTH237": {"Prerequisites": "DMTH137 or MATH133 or MATH136", "Corequisites": ""}}
+{"ECH113": {"Prerequisites": "", "Corequisites": ""}}
+{"ECH120": {"Prerequisites": "Admission to BEd(ECE)(0-12) or BTeach(0-5) or BTeach(ECS)", "Corequisites": ""}}
+{"ECH126": {"Prerequisites": "", "Corequisites": ""}}
+{"ECH130": {"Prerequisites": "", "Corequisites": ""}}
+{"ECH131": {"Prerequisites": "", "Corequisites": ""}}
+{"ECH216": {"Prerequisites": "12cp or admission to GDipECTeach or GDipEarlyChildhood or BTeach(0-5)", "Corequisites": ""}}
+{"ECH218": {"Prerequisites": "12cp", "Corequisites": ""}}
+{"ECH230": {"Prerequisites": "12cp", "Corequisites": ""}}
+{"ECH231": {"Prerequisites": "ECHP122 or (12cp and admission to BTeach(ECS))", "Corequisites": ""}}
+{"ECH232": {"Prerequisites": "ECH113 or (12cp and admission to BTeach(ECS))", "Corequisites": ""}}
+{"ECH315": {"Prerequisites": "(39cp including ECH120) or (39cp and admission to BTeach(ECS)) or (admission to GDipECTeach or GDipEarlyChildhood)", "Corequisites": ""}}
+{"ECH319": {"Prerequisites": "39cp including (ECH131 or ECH129)", "Corequisites": ""}}
+{"ECH326": {"Prerequisites": "39cp", "Corequisites": ""}}
+{"ECH332": {"Prerequisites": "39cp", "Corequisites": ""}}
+{"ECH333": {"Prerequisites": "39cp including [(ECH218 or ECH228) or (ECH216 and admission to BTeach(0-5)) or admission to BTeach(ECS)] ", "Corequisites": ""}}
+{"ECH335": {"Prerequisites": "39cp and (ECH232 or ECH215)", "Corequisites": ""}}
+{"ECH400": {"Prerequisites": "39cp including (ECH218 or ECH228) or admission to GDipAdvStEc or GCertTeach(8-12)", "Corequisites": ""}}
+{"ECH430": {"Prerequisites": "ECH335", "Corequisites": ""}}
+{"ECH431": {"Prerequisites": "ECH335 or admission to GDipAdvStEc", "Corequisites": ""}}
+{"ECH433": {"Prerequisites": "(39cp including (ECH231 or ECH214)) or admission to GDipAdvStEc", "Corequisites": ""}}
+{"ECH435": {"Prerequisites": "ECH315 or admission to GDipAdvStEc or GDipECTeach or GDipEarlyChildhood", "Corequisites": ""}}
+{"ECH451": {"Prerequisites": "ECH320 or ECH333 or admission to GDipAdvStEc or GDipEarlyChildhood", "Corequisites": ""}}
+{"ECH452": {"Prerequisites": "6cp at 200 level including (ECH218 or ECH228 or EDUC262 or PSY235) or admission to GDipAdvStEc or GDipECTeach or GDipEarlyChildhood", "Corequisites": ""}}
+{"ECH453": {"Prerequisites": "ECH425 or ECH435 or admission to GDipAdvStEc", "Corequisites": ""}}
+{"ECH454": {"Prerequisites": "60cp or admission to GDipAdvStEc", "Corequisites": ""}}
+{"ECHE350": {"Prerequisites": "Admission to GCertTeach(8-12)", "Corequisites": ""}}
+{"ECHE455": {"Prerequisites": "Admission to GCertTeach(8-12)", "Corequisites": ""}}
+{"ECHL113": {"Prerequisites": "", "Corequisites": ""}}
+{"ECHL213": {"Prerequisites": "12cp", "Corequisites": ""}}
+{"ECHL311": {"Prerequisites": "39cp", "Corequisites": ""}}
+{"ECHL312": {"Prerequisites": "39cp", "Corequisites": ""}}
+{"ECHP122": {"Prerequisites": "ECH113", "Corequisites": ""}}
+{"ECHP222": {"Prerequisites": "(ECH120 and ECHP122) or admission to GDipECTeach or GDipEarlyChildhood", "Corequisites": ""}}
+{"ECHP323": {"Prerequisites": "ECH231 and ECHP222", "Corequisites": "ECH335"}}
+{"ECHP324": {"Prerequisites": "ECHP323", "Corequisites": ""}}
+{"ECHP421": {"Prerequisites": "ECHP324 or admission to GDipAdvStEc", "Corequisites": ""}}
+{"ECHP424": {"Prerequisites": "(ECHP421 or ECHP422) or (ECHP222 and admission to GDipECTeach) or admission to GDipEarlyChildhood or GCertTeach(8-12) ", "Corequisites": ""}}
+{"ECHP499": {"Prerequisites": "ECHP421 or ECST330", "Corequisites": ""}}
+{"ECON110": {"Prerequisites": "", "Corequisites": ""}}
+{"ECON111": {"Prerequisites": "", "Corequisites": ""}}
+{"ECON131": {"Prerequisites": "", "Corequisites": ""}}
+{"ECON203": {"Prerequisites": "15cp including ECON111 and (GPA of 2.0 or (admission to BEc or BCom or BAppFin or BActStud or BCom-Accg or BCom-ProfAccg or BBA))", "Corequisites": ""}}
+{"ECON204": {"Prerequisites": "15cp including ECON110 and (GPA of 2.0 or (admission to BEc or BCom or BAppFin or BActStud or BComAccg or BCom-ProfAccg or BBA))", "Corequisites": ""}}
+{"ECON214": {"Prerequisites": "15cp including (BBA103 or ECON110)", "Corequisites": ""}}
+{"ECON215": {"Prerequisites": "15cp including (BBA103 or ECON111)", "Corequisites": ""}}
+{"ECON232": {"Prerequisites": "ECON141 or ECON241 or STAT272", "Corequisites": ""}}
+{"ECON241": {"Prerequisites": "(STAT122 or STAT170 or STAT171 or PSY122) and (ECON110 or ECON111 or BBA103)", "Corequisites": ""}}
+{"ECON244": {"Prerequisites": "ECON110 or ECON111", "Corequisites": ""}}
+{"ECON303": {"Prerequisites": "6cp at 200 level including (ECON201 or ECON204)", "Corequisites": ""}}
+{"ECON309": {"Prerequisites": "39cp including (6cp at 200 level including (ECON200 or ECON203))", "Corequisites": ""}}
+{"ECON311": {"Prerequisites": "(ECON201 or ECON204) and (ECON232 or ECON241)", "Corequisites": ""}}
+{"ECON315": {"Prerequisites": "48cp and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"ECON333": {"Prerequisites": "6cp at 200 level including (ECON232 or ECON233 or ECON334)", "Corequisites": ""}}
+{"ECON334": {"Prerequisites": "27cp including (6cp at 200 level including (ECON241 or STAT272))", "Corequisites": ""}}
+{"ECON335": {"Prerequisites": "6cp at 200 level including (ECON200 or ECON201 or ECON203 or ECON204)", "Corequisites": ""}}
+{"ECON336": {"Prerequisites": "(STAT122 or STAT170 or STAT171 or PSY122) and 6cp at 200 level including (ECON200 or ECON201 or ECON203 or ECON204 or ECON214 or ECON215 or BBA204 or BBA214)", "Corequisites": ""}}
+{"ECON350": {"Prerequisites": "6cp at 200 level including (ECON200 or ECON201 or ECON203 or ECON204)", "Corequisites": ""}}
+{"ECON356": {"Prerequisites": "ECON110 and ECON111 and 6cp at 200 level in units offered by the Faculty of Business and Economics", "Corequisites": ""}}
+{"ECON359": {"Prerequisites": "6cp at 200 level including (ECON200 or ECON203)", "Corequisites": ""}}
+{"ECON360": {"Prerequisites": "6cp at 200 level including (ECON200 or ECON201 or ECON203 or ECON204)", "Corequisites": ""}}
+{"ECON361": {"Prerequisites": "27cp including (6cp at 200 level including (ECON241 or STAT272))", "Corequisites": ""}}
+{"ECON394": {"Prerequisites": "27cp including [(ECON110 or ECON111 or BBA103) and (6cp at 200 level in units offered by the Faculty of Business and Economics)]", "Corequisites": ""}}
+{"ECST110": {"Prerequisites": "Admission to BTeach(0-5) or BTeach(ECS)", "Corequisites": ""}}
+{"ECST220": {"Prerequisites": "ECST100 or ECST110", "Corequisites": ""}}
+{"ECST330": {"Prerequisites": "39cp and admission to BTeach(ECS) or BTeach(0-5)", "Corequisites": ""}}
+{"EDTE251": {"Prerequisites": "Admission to BEd(Prim) or BEd(Sec) or 24cp including (EDUC105 and EDUC106)", "Corequisites": "EDUC258 and EDUC260"}}
+{"EDTE252": {"Prerequisites": "EDTE251 or TEP290(P) or TEP318(P)", "Corequisites": "EDUC267"}}
+{"EDTE301": {"Prerequisites": "Admission to BEd(Prim) or 39cp including (EDUC258 and EDUC260 and EDUC267) ", "Corequisites": "EDTE353 or EDTE354 or admission to BEd(Prim)"}}
+{"EDTE302": {"Prerequisites": "(39cp including EDUC105 and EDUC106) or admission to BEd(Sec)", "Corequisites": "TEP387 or TEP388 or TEP395"}}
+{"EDTE353": {"Prerequisites": "Admission to BABEd(Prim) or BEd)Primary) or 39cp including (EDUC105 and EDUC106)", "Corequisites": ""}}
+{"EDTE354": {"Prerequisites": "EDTE353(P) or TEP291(P) or (TEP319(P) and TEP320(P))", "Corequisites": ""}}
+{"EDTE403": {"Prerequisites": "(TEP290(P) and TEP291(P)) or (TEP319(P) and TEP320(P)) or (EDTE353 and EDTE354) or (admission to BEd(Primary))", "Corequisites": "EDTE455"}}
+{"EDTE404": {"Prerequisites": "(TEP403(S) or EDTE403(S)) and (EDTE455 or TEP418(P) or TEP419(P))", "Corequisites": "EDTE456"}}
+{"EDTE405": {"Prerequisites": "", "Corequisites": "EDTE455 or EDTE456 or 3cp from TEP421-TEP444"}}
+{"EDTE410": {"Prerequisites": "(TEP387 and TEP388) or admission to BEd(Sec)", "Corequisites": "TEP401"}}
+{"EDTE455": {"Prerequisites": "TEP291(P) or (TEP319(P) and TEP320(P))", "Corequisites": "EDTE403 or TEP403"}}
+{"EDTE456": {"Prerequisites": "(EDTE403(S) or TEP403 or TEP414(S)) and (TEP494(P) or (TEP418(P) and TEP419(P)) or EDTE455(P))", "Corequisites": "EDTE404 "}}
+{"EDTE480": {"Prerequisites": "Admission to GCertTeach(8-12)", "Corequisites": ""}}
+{"EDUC105": {"Prerequisites": "", "Corequisites": ""}}
+{"EDUC106": {"Prerequisites": "", "Corequisites": ""}}
+{"EDUC107": {"Prerequisites": "Admission to GDipEd or BEd(Prim) or BEd(Sec)", "Corequisites": ""}}
+{"EDUC108": {"Prerequisites": "", "Corequisites": ""}}
+{"EDUC221": {"Prerequisites": "36cp and GPA of 2.5", "Corequisites": ""}}
+{"EDUC258": {"Prerequisites": "EDUC105 or (admission to GDipEd or BEd(Prim) or BEd(Sec))", "Corequisites": "EDUC106 or (admission to GDipEd or BEd(Prim) or BEd(Sec))"}}
+{"EDUC260": {"Prerequisites": "EDUC105 or (admission to GDipEd or BEd(Prim) or BEd(Sec))", "Corequisites": "EDUC106 or (admission to GDipEd or BEd(Prim) or BEd(Sec))"}}
+{"EDUC261": {"Prerequisites": "12cp or EDUC105 or EDUC106 or EDUC107", "Corequisites": ""}}
+{"EDUC262": {"Prerequisites": "EDUC105(P) or EDUC107(P)", "Corequisites": "EDUC106 or (admission to GDipEd or BEd(Prim) or BEd(Sec))"}}
+{"EDUC264": {"Prerequisites": "EDUC106(P) or (admission to GDipEd or BEd(Prim) or BEd(Sec))", "Corequisites": "EDUC105(P) or (admission to GDipEd or BEd(Prim) or BEd(Sec))"}}
+{"EDUC267": {"Prerequisites": "EDUC107 or (EDUC105 and EDUC106) or (admission to BEd(Prim) or BEd(Sec))", "Corequisites": ""}}
+{"EDUC270": {"Prerequisites": "EDUC105 or EDUC107", "Corequisites": ""}}
+{"EDUC289": {"Prerequisites": "EDUC105 or EDUC106 or ECH126 or (admission to GDipEd or BEd(Sec))", "Corequisites": ""}}
+{"EDUC362": {"Prerequisites": "30cp", "Corequisites": ""}}
+{"EDUC363": {"Prerequisites": "(39cp including EDUC262) or (admission to GDipEd or BEd(Prim) or BEd(Sec))", "Corequisites": ""}}
+{"EDUC365": {"Prerequisites": "39cp or admission to GDipEd or BEd(Sec)", "Corequisites": ""}}
+{"EDUC371": {"Prerequisites": "39cp including EDUC260", "Corequisites": "EDUC262 or EDUC264 or admission to BEd(Prim)"}}
+{"EDUC373": {"Prerequisites": "6cp at 200 level including (EDUC262 or EDUC264)", "Corequisites": ""}}
+{"EDUC383": {"Prerequisites": "39cp or (admission to GDipEd or BEd(Sec))", "Corequisites": ""}}
+{"EDUC386": {"Prerequisites": "39cp or (admission to GDipEd or BEd(Sec))", "Corequisites": ""}}
+{"EDUC388": {"Prerequisites": "39cp or (admission to GDipEd or BEd(Sec))", "Corequisites": ""}}
+{"EDUC392": {"Prerequisites": "39cp", "Corequisites": ""}}
+{"EDUC399": {"Prerequisites": "", "Corequisites": "6cp in EDUC units at 300 level"}}
+{"ELEC240": {"Prerequisites": "12cp including (MATH136(P) or MATH133)", "Corequisites": ""}}
+{"ELEC241": {"Prerequisites": "12cp including (ELEC141(P) or ENGG141(P) or ELEC274(P))", "Corequisites": ""}}
+{"ELEC260": {"Prerequisites": "ELEC270(P) or ENGG270 or ELEC290(P)", "Corequisites": ""}}
+{"ELEC275": {"Prerequisites": "(ELEC270(P) or ENGG270(P) or ELEC290(P)) and (MATH136(P) or MATH133(P))", "Corequisites": ""}}
+{"ELEC310": {"Prerequisites": "(ELEC324(P) or ELEC342(P) or ELEC343(P) or ELEC374(P) or ELEC375(P) or ELEC376(P)) and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"ELEC321": {"Prerequisites": "ELEC240(P) and (ELEC270(P) or ENGG270(P) or ELEC290(P)) and (MATH232(P) or MATH235(P))", "Corequisites": ""}}
+{"ELEC324": {"Prerequisites": "ELEC240(P) and (ELEC270(P) or ENGG270(P) or ELEC290(P)) and (MATH232(P) or MATH235(P))", "Corequisites": ""}}
+{"ELEC326": {"Prerequisites": "39cp including (ELEC324(P) and ELEC260 (P))", "Corequisites": ""}}
+{"ELEC342": {"Prerequisites": "39cp including ELEC241(P)", "Corequisites": ""}}
+{"ELEC343": {"Prerequisites": "39cp including ELEC241(P)", "Corequisites": ""}}
+{"ELEC345": {"Prerequisites": "39cp including COMP247(P)", "Corequisites": ""}}
+{"ELEC376": {"Prerequisites": "39cp including ELEC275(P)", "Corequisites": ""}}
+{"ELEC380": {"Prerequisites": "39cp including ELEC275(P)   ", "Corequisites": ""}}
+{"ELEC385": {"Prerequisites": "PHYS202(P) and ELEC275(P)", "Corequisites": ""}}
+{"ELEC426": {"Prerequisites": "ELEC321(P) and ELEC345(P)", "Corequisites": ""}}
+{"ELEC436": {"Prerequisites": "COMP333(P) and COMP255(P)", "Corequisites": ""}}
+{"ELEC446": {"Prerequisites": "ELEC342(P) and ELEC343(P)", "Corequisites": ""}}
+{"ELEC466": {"Prerequisites": "ELEC326(P) and ELEC342(P)", "Corequisites": ""}}
+{"ELEC476": {"Prerequisites": "ELEC376(P)", "Corequisites": ""}}
+{"ENGG100": {"Prerequisites": "", "Corequisites": ""}}
+{"ENGG141": {"Prerequisites": "", "Corequisites": ""}}
+{"ENGG150": {"Prerequisites": "", "Corequisites": "MATH132 or MATH135"}}
+{"ENGG170": {"Prerequisites": "", "Corequisites": "MATH132 or MATH135"}}
+{"ENGG200": {"Prerequisites": "12cp and admission to BE or BEBA or BEBBA or BEBCom or BEBSc", "Corequisites": ""}}
+{"ENGG250": {"Prerequisites": "(ENGG170 or ELEC170 or ENGG150) and ((PHYS140 and PHYS143) or (PHYS106 and PHYS107)) and (MATH133 or MATH136)\n", "Corequisites": ""}}
+{"ENGG270": {"Prerequisites": "12cp including (ELEC166(P) or ELEC170(P) or ENGG150 (P) or ENGG170(P))", "Corequisites": "MATH133 or MATH136"}}
+{"ENGG300": {"Prerequisites": "(39cp including ENGG200(P)) and (admission to BE or BEBA or BEBBA or BEBCom or BEBSc)", "Corequisites": ""}}
+{"ENGG400": {"Prerequisites": "39cp and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"ENGG411": {"Prerequisites": "Permission of Executive Dean of Faculty ", "Corequisites": ""}}
+{"ENGG450": {"Prerequisites": "69cp including ENGG300(P) and ISYS360(P) and admission to BE or BEBA or BEBBA or BEBCom or BEBSc", "Corequisites": ""}}
+{"ENGG460": {"Prerequisites": "69cp including ENGG300(P) and ISYS360(P) and admission to BE or BEBA or BEBBA or BEBCom or BEBSc", "Corequisites": ""}}
+{"ENGL106": {"Prerequisites": "", "Corequisites": ""}}
+{"ENGL108": {"Prerequisites": "", "Corequisites": ""}}
+{"ENGL120": {"Prerequisites": "", "Corequisites": ""}}
+{"ENGL200": {"Prerequisites": "12cp", "Corequisites": ""}}
+{"ENGL201": {"Prerequisites": "12cp including ENGL120 or ENGL106 or ENGL108", "Corequisites": ""}}
+{"ENGL202": {"Prerequisites": "ENGL120", "Corequisites": ""}}
+{"ENGL203": {"Prerequisites": "ENGL120", "Corequisites": ""}}
+{"ENGL204": {"Prerequisites": "ENGL120", "Corequisites": ""}}
+{"ENGL205": {"Prerequisites": "ENGL120", "Corequisites": ""}}
+{"ENGL206": {"Prerequisites": "ENGL120", "Corequisites": ""}}
+{"ENGL207": {"Prerequisites": "ENGL120", "Corequisites": ""}}
+{"ENGL208": {"Prerequisites": "12cp including ENGL120", "Corequisites": ""}}
+{"ENGL209": {"Prerequisites": "12cp or ENGL120", "Corequisites": ""}}
+{"ENGL210": {"Prerequisites": "12cp including ENGL120", "Corequisites": ""}}
+{"ENGL219": {"Prerequisites": "ENGL120", "Corequisites": ""}}
+{"ENGL230": {"Prerequisites": "12cp", "Corequisites": ""}}
+{"ENGL303": {"Prerequisites": "6cp in ENGL units at 200 level", "Corequisites": ""}}
+{"ENGL304": {"Prerequisites": "6cp at 200 level including ENGL201", "Corequisites": ""}}
+{"ENGL305": {"Prerequisites": "6cp in ENGL units at 200 level", "Corequisites": ""}}
+{"ENGL306": {"Prerequisites": "6cp in ENGL units at 200 level or admission to GDipArts", "Corequisites": ""}}
+{"ENGL307": {"Prerequisites": "6cp from (CUL240 or ENGL304 or MAS202 or MAS210 or MAS211 or MAS310 or MAS311 or MAS314)", "Corequisites": ""}}
+{"ENGL308": {"Prerequisites": "6cp in ENGL units at 200 level", "Corequisites": ""}}
+{"ENGL309": {"Prerequisites": "6cp in ENGL units at 200 level", "Corequisites": ""}}
+{"ENGL310": {"Prerequisites": "6cp in ENGL units at 200 level", "Corequisites": ""}}
+{"ENGL314": {"Prerequisites": "6cp in ENGL units at 200 level", "Corequisites": ""}}
+{"ENGL370": {"Prerequisites": "6cp in ENGL units at 200 level", "Corequisites": ""}}
+{"ENGL371": {"Prerequisites": "6cp in ENGL units at 200 level", "Corequisites": ""}}
+{"ENGL389": {"Prerequisites": "6cp in ENGL units at 300 level", "Corequisites": ""}}
+{"ENGL390": {"Prerequisites": "(6cp from CUL240 or ENGL201 or MAS202 or MAS210 or MAS211) and (ENGL304 or ENGL307 or MAS310 or MAS311 or MAS314)", "Corequisites": ""}}
+{"ENV118": {"Prerequisites": "", "Corequisites": ""}}
+{"ENV200": {"Prerequisites": "12cp", "Corequisites": ""}}
+{"ENV264": {"Prerequisites": "3cp in COMP(P) or ISYS(P) or STAT(P) units at 100 level", "Corequisites": ""}}
+{"ENV267": {"Prerequisites": "GEOS114(P) or ENV118(P) or GEOS118(P)", "Corequisites": ""}}
+{"ENV300": {"Prerequisites": "39cp including (ENV267(P) or GEOS265(P) or GEOS267(P))", "Corequisites": ""}}
+{"ENV301": {"Prerequisites": "39cp including [(ENV267(P) or GEOS267(P)) and (ENV300 or ENVG340 or ENVE362)]", "Corequisites": ""}}
+{"ENVE117": {"Prerequisites": "", "Corequisites": ""}}
+{"ENVE214": {"Prerequisites": "12cp(P)", "Corequisites": ""}}
+{"ENVE216": {"Prerequisites": "ENVE117(P) or GEOS117(P) or GEOS112(P) or 3cp in PHYS units at 100 level", "Corequisites": ""}}
+{"ENVE237": {"Prerequisites": "18cp(P)", "Corequisites": ""}}
+{"ENVE266": {"Prerequisites": "ENVE117(P) or GEOS117(P) or GEOS112(P)", "Corequisites": ""}}
+{"ENVE270": {"Prerequisites": "ENVE117(P) or GEOS112(P)", "Corequisites": ""}}
+{"ENVE301": {"Prerequisites": "39cp including (ENVE216(P) or GEOS216(P))", "Corequisites": ""}}
+{"ENVE302": {"Prerequisites": "39cp including (ENVE216(P) or GEOS216(P))", "Corequisites": ""}}
+{"ENVE304": {"Prerequisites": "39cp", "Corequisites": "ENVE301(P) or ENVE302(P) or ENVE303(P) or GEOS301(P) or GEOS325(P)"}}
+{"ENVE338": {"Prerequisites": "39cp including [(ENVE266(P) or GEOS266(P)) and (ENVE339 or ENVE340 or ENVE341)]", "Corequisites": ""}}
+{"ENVE339": {"Prerequisites": "39cp including (ENVE266(P) or GEOS266(P))", "Corequisites": ""}}
+{"ENVE340": {"Prerequisites": "39cp including (ENVE214(Cr) or ENVE266(P) or GEOS214(Cr) or GEOS266(P))", "Corequisites": ""}}
+{"ENVE341": {"Prerequisites": "39cp and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"ENVE362": {"Prerequisites": "39cp including [(ENV267(P) or GEOS267(P) or ENVE214) and (3cp in ENV or ENVE or ENVG units at 300 level)]", "Corequisites": ""}}
+{"ENVE383": {"Prerequisites": "ENV264(P) or GEOS264(P)", "Corequisites": ""}}
+{"ENVG111": {"Prerequisites": "", "Corequisites": ""}}
+{"ENVG201": {"Prerequisites": "12cp", "Corequisites": ""}}
+{"ENVG212": {"Prerequisites": "12cp and admission to BPlan", "Corequisites": ""}}
+{"ENVG215": {"Prerequisites": "ENVG111 or GEOS111", "Corequisites": ""}}
+{"ENVG219": {"Prerequisites": "ENVG111 or GEOS111 or GEOS114 or DEM127 or ENV118 or GEOS118", "Corequisites": ""}}
+{"ENVG262": {"Prerequisites": "12cp", "Corequisites": ""}}
+{"ENVG281": {"Prerequisites": "ENVG111 or GEOS111", "Corequisites": ""}}
+{"ENVG330": {"Prerequisites": "(39cp including (ANTH305 or ANTH321 or ANTH322 or ANTH323 or ANTH324 or ENVG340 or ENVG350 or ENVG370 or ENVG380)) or admission to GDipArts", "Corequisites": ""}}
+{"ENVG340": {"Prerequisites": "39cp including (GEOS265(P) or ENV267(P) or GEOS267(P))", "Corequisites": ""}}
+{"ENVG350": {"Prerequisites": "39cp", "Corequisites": ""}}
+{"ENVG370": {"Prerequisites": "39cp including (ENVG281 or GEOS280 or GEOS281)", "Corequisites": ""}}
+{"ENVG380": {"Prerequisites": "39cp including (ENVG330 or ENVG340 or ENVG350 or ENVG370 or ENVG390 or ENVG461 or ENVG462 or ENVG463)", "Corequisites": ""}}
+{"ENVG390": {"Prerequisites": "39cp including (ENV264(P) or GEOS264(P))", "Corequisites": "3cp from ENVE or ENVG or ENV units at 300-level"}}
+{"ENVG461": {"Prerequisites": "Admission to BPlan and 39cp and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"ENVG462": {"Prerequisites": "39cp", "Corequisites": ""}}
+{"ENVG463": {"Prerequisites": "Admission to BPlan and 39cp including ENVG370", "Corequisites": ""}}
+{"EUL101": {"Prerequisites": "", "Corequisites": ""}}
+{"EUL201": {"Prerequisites": "12cp", "Corequisites": ""}}
+{"EUL202": {"Prerequisites": "12cp", "Corequisites": ""}}
+{"EUL301": {"Prerequisites": "GPA of 2.5 and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"EUL302": {"Prerequisites": "GPA of 2.5 and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"EUL307": {"Prerequisites": "39cp", "Corequisites": ""}}
+{"EUL310": {"Prerequisites": "GPA of 2.5 and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"EUL320": {"Prerequisites": "GPA of 2.5 and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"EXLW420": {"Prerequisites": "39cp and admission to BIntStudLLB", "Corequisites": ""}}
+{"FBE204": {"Prerequisites": "24cp", "Corequisites": ""}}
+{"FOAR289": {"Prerequisites": "Permission of Executive Dean of Faculty ", "Corequisites": ""}}
+{"FOAR299": {"Prerequisites": "Permission of Executive Dean of Faculty ", "Corequisites": ""}}
+{"FOAR300": {"Prerequisites": "39cp and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"FOAR301": {"Prerequisites": "45cp and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"FOAR302": {"Prerequisites": "45cp and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"FOBE200": {"Prerequisites": "24cp and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"FOBE201": {"Prerequisites": "18cp and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"FOBE300": {"Prerequisites": "39cp and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"FOBE301": {"Prerequisites": "45cp", "Corequisites": ""}}
+{"FOBE302": {"Prerequisites": "45cp", "Corequisites": ""}}
+{"FOHS300": {"Prerequisites": "39cp and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"FOHS301": {"Prerequisites": "45cp and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"FOHS302": {"Prerequisites": "45cp and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"FOSC300": {"Prerequisites": "39cp and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"FOSC301": {"Prerequisites": "45cp and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"FOSC302": {"Prerequisites": "45cp and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"FPAC001": {"Prerequisites": "", "Corequisites": ""}}
+{"FPAC002": {"Prerequisites": "FPAC001", "Corequisites": ""}}
+{"FPBI001": {"Prerequisites": "", "Corequisites": ""}}
+{"FPBI002": {"Prerequisites": "FPBI001", "Corequisites": ""}}
+{"FPCH001": {"Prerequisites": "", "Corequisites": ""}}
+{"FPCH002": {"Prerequisites": "FPCH001", "Corequisites": ""}}
+{"FPCW001": {"Prerequisites": "", "Corequisites": ""}}
+{"FPEC001": {"Prerequisites": "", "Corequisites": ""}}
+{"FPEC002": {"Prerequisites": "FPEC001", "Corequisites": ""}}
+{"FPEN001": {"Prerequisites": "", "Corequisites": ""}}
+{"FPEN002": {"Prerequisites": "FPEN001", "Corequisites": ""}}
+{"FPEN021": {"Prerequisites": "", "Corequisites": ""}}
+{"FPEN022": {"Prerequisites": "FPEN021", "Corequisites": ""}}
+{"FPEN031": {"Prerequisites": "", "Corequisites": ""}}
+{"FPEN032": {"Prerequisites": "FPRN031", "Corequisites": ""}}
+{"FPEN033": {"Prerequisites": "", "Corequisites": ""}}
+{"FPEN034": {"Prerequisites": "FPEN033", "Corequisites": ""}}
+{"FPIT001": {"Prerequisites": "", "Corequisites": ""}}
+{"FPIT002": {"Prerequisites": "FPIT001", "Corequisites": ""}}
+{"FPLW001": {"Prerequisites": "", "Corequisites": ""}}
+{"FPLW002": {"Prerequisites": "FPLW001", "Corequisites": ""}}
+{"FPME001": {"Prerequisites": "", "Corequisites": ""}}
+{"FPME002": {"Prerequisites": "FPME001", "Corequisites": ""}}
+{"FPMT001": {"Prerequisites": "", "Corequisites": ""}}
+{"FPMT002": {"Prerequisites": "FPMT001", "Corequisites": ""}}
+{"FPMT003": {"Prerequisites": "", "Corequisites": ""}}
+{"FPMT004": {"Prerequisites": "FPMT003", "Corequisites": ""}}
+{"FPMT005": {"Prerequisites": "", "Corequisites": ""}}
+{"FPMT006": {"Prerequisites": "FPMT005", "Corequisites": ""}}
+{"FPSC001": {"Prerequisites": "", "Corequisites": ""}}
+{"FPSC002": {"Prerequisites": "FPSC001", "Corequisites": ""}}
+{"FPTP021": {"Prerequisites": "", "Corequisites": ""}}
+{"FPTP031": {"Prerequisites": "", "Corequisites": ""}}
+{"FPTP032": {"Prerequisites": "FPTP031", "Corequisites": ""}}
+{"FRN119": {"Prerequisites": "", "Corequisites": ""}}
+{"FRN122": {"Prerequisites": "", "Corequisites": ""}}
+{"FRN123": {"Prerequisites": "FRN122 ", "Corequisites": ""}}
+{"FRN125": {"Prerequisites": "FRN123", "Corequisites": ""}}
+{"FRN131": {"Prerequisites": "GPA of 2.5 and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"FRN226": {"Prerequisites": "FRN125 or FRN131 or HSC French Extension or Continuers Band 4 or 5 or 6", "Corequisites": ""}}
+{"FRN227": {"Prerequisites": "FRN226", "Corequisites": ""}}
+{"FRN231": {"Prerequisites": "GPA of 2.5 and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"FRN250": {"Prerequisites": "FRN226", "Corequisites": ""}}
+{"FRN295": {"Prerequisites": "12cp", "Corequisites": ""}}
+{"FRN331": {"Prerequisites": "GPA of 2.5 and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"FRN336": {"Prerequisites": "6cp at 200 level including FRN227", "Corequisites": ""}}
+{"FRN337": {"Prerequisites": "FRN336", "Corequisites": ""}}
+{"FRN347": {"Prerequisites": "FRN336", "Corequisites": ""}}
+{"FRN348": {"Prerequisites": "FRN337", "Corequisites": ""}}
+{"FRN349": {"Prerequisites": "FRN348", "Corequisites": ""}}
+{"FRN370": {"Prerequisites": "FRN336", "Corequisites": ""}}
+{"FRN373": {"Prerequisites": "6cp at 200 level including FRN227", "Corequisites": ""}}
+{"FRN378": {"Prerequisites": "Permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"GEN110": {"Prerequisites": "", "Corequisites": ""}}
+{"GEN210": {"Prerequisites": "12cp or admission to GDipArts\n", "Corequisites": ""}}
+{"GEN312": {"Prerequisites": "39cp or admission to GDipArts\n", "Corequisites": ""}}
+{"GEN320": {"Prerequisites": "39cp or admission to GDipArts\n", "Corequisites": ""}}
+{"GEOS112": {"Prerequisites": "", "Corequisites": ""}}
+{"GEOS125": {"Prerequisites": "", "Corequisites": ""}}
+{"GEOS126": {"Prerequisites": "", "Corequisites": ""}}
+{"GEOS204": {"Prerequisites": "12cp", "Corequisites": ""}}
+{"GEOS205": {"Prerequisites": "GEOS112 or GEOS115 or GEOS116 or GEOS125 or GEOS126 or GEOS204", "Corequisites": ""}}
+{"GEOS206": {"Prerequisites": "GEOS125 or GEOS115 or GEOS126 or GEOS116", "Corequisites": ""}}
+{"GEOS207": {"Prerequisites": "GEOS125", "Corequisites": ""}}
+{"GEOS226": {"Prerequisites": "12cp", "Corequisites": "ENVE117 or GEOS112 or GEOS115 or GEOS116 or GEOS117 or GEOS125 or GEOS126 or GEOS204"}}
+{"GEOS251": {"Prerequisites": "12cp", "Corequisites": ""}}
+{"GEOS272": {"Prerequisites": "GEOS115 or GEOS125", "Corequisites": ""}}
+{"GEOS305": {"Prerequisites": "(GEOS205 or GEOS268) and (GEOS206 or GEOS226)", "Corequisites": ""}}
+{"GEOS306": {"Prerequisites": "GEOS305", "Corequisites": ""}}
+{"GEOS307": {"Prerequisites": "GEOS207 and GEOS226", "Corequisites": ""}}
+{"GEOS309": {"Prerequisites": "(GEOS205 or GEOS268) and (GEOS260 or GEOS206)", "Corequisites": ""}}
+{"GEOS337": {"Prerequisites": "Permission of Executive Dean of Faculty", "Corequisites": "GEOS343 or GEOS314"}}
+{"GEOS343": {"Prerequisites": "GEOS207 and GEOS272", "Corequisites": ""}}
+{"GEOS344": {"Prerequisites": "GEOS207 and (GEOS226 or GEOS272)", "Corequisites": ""}}
+{"GEOS345": {"Prerequisites": "GEOS305", "Corequisites": ""}}
+{"GEOS373": {"Prerequisites": "Permission of Executive Dean of Faculty and GEOS206 and GEOS226", "Corequisites": ""}}
+{"GEOS375": {"Prerequisites": "39cp including (ENVE266 or GEOS206)", "Corequisites": "GEOS207"}}
+{"GEOS384": {"Prerequisites": "Permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"GEOS385": {"Prerequisites": "(GEOS205 or GEOS268) and (GEOS206 or GEOS260 or GEOS272)", "Corequisites": ""}}
+{"GMN104": {"Prerequisites": "", "Corequisites": ""}}
+{"GMN105": {"Prerequisites": "GMN104", "Corequisites": ""}}
+{"GMN133": {"Prerequisites": "GMN105", "Corequisites": ""}}
+{"GMN199": {"Prerequisites": "GPA of 2.5 and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"GMN275": {"Prerequisites": "GMN287", "Corequisites": ""}}
+{"GMN287": {"Prerequisites": "GMN133 or HSC German Extension or Continuers Band 4 or 5 or 6 German", "Corequisites": ""}}
+{"GMN288": {"Prerequisites": "GMN287", "Corequisites": ""}}
+{"GMN295": {"Prerequisites": "12cp", "Corequisites": ""}}
+{"GMN296": {"Prerequisites": "GMN295", "Corequisites": ""}}
+{"GMN299": {"Prerequisites": "GPA of 2.5 and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"GMN310": {"Prerequisites": "6cp at 200 level including GMN288", "Corequisites": ""}}
+{"GMN311": {"Prerequisites": "GMN310", "Corequisites": ""}}
+{"GMN314": {"Prerequisites": "GMN311", "Corequisites": ""}}
+{"GMN315": {"Prerequisites": "GMN314", "Corequisites": ""}}
+{"GMN360": {"Prerequisites": "6cp at 200 level including GMN288", "Corequisites": ""}}
+{"GMN361": {"Prerequisites": "6cp at 200 level including GMN288", "Corequisites": ""}}
+{"GMN362": {"Prerequisites": "GPA of 2.5 and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"GMN363": {"Prerequisites": "6cp at 200 level including GMN288", "Corequisites": ""}}
+{"GMN398": {"Prerequisites": "Permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"HLTH108": {"Prerequisites": "", "Corequisites": ""}}
+{"HLTH109": {"Prerequisites": "HLTH108(P)", "Corequisites": ""}}
+{"HLTH200": {"Prerequisites": "12cp", "Corequisites": ""}}
+{"HLTH213": {"Prerequisites": "HLTH108(P)", "Corequisites": ""}}
+{"HLTH214": {"Prerequisites": "HLTH108(P) and HLTH109(P) and HLTH213(P)", "Corequisites": ""}}
+{"HLTH215": {"Prerequisites": "BIOL115 and (HLTH108 or BIOL108)", "Corequisites": ""}}
+{"HLTH300": {"Prerequisites": "39cp including (HLTH200 and (SOC224 or SOC234)) and admission to (BHlth or BA-PsychBHlth or BSc-PsychBHlth) and permission of Executive Dean of Faculty ", "Corequisites": "HLTH310 or HLTH350"}}
+{"HLTH304": {"Prerequisites": "(39cp including 12cp at 200 level) or admission to GDipChiroSc", "Corequisites": ""}}
+{"HLTH306": {"Prerequisites": "39cp", "Corequisites": ""}}
+{"HLTH310": {"Prerequisites": "39cp including HLTH200", "Corequisites": ""}}
+{"HLTH311": {"Prerequisites": "Admission to GDipChiroSc", "Corequisites": ""}}
+{"HLTH316": {"Prerequisites": "39cp including HLTH215", "Corequisites": ""}}
+{"HLTH317": {"Prerequisites": "(39cp including HLTH215) or admission to GDipChiroSc", "Corequisites": ""}}
+{"HLTH333": {"Prerequisites": "(HLTH215 and HLTH316) or admission to GDipChiroSc", "Corequisites": "HLTH317"}}
+{"HLTH350": {"Prerequisites": "39cp including HLTH200", "Corequisites": ""}}
+{"HRM107": {"Prerequisites": "", "Corequisites": ""}}
+{"HRM201": {"Prerequisites": "HRM107", "Corequisites": ""}}
+{"HRM222": {"Prerequisites": "12cp", "Corequisites": ""}}
+{"HRM250": {"Prerequisites": "HRM107", "Corequisites": ""}}
+{"HRM300": {"Prerequisites": "6cp at 200 level including (HRM201 or HRM222 or HRM250)", "Corequisites": ""}}
+{"HRM307": {"Prerequisites": "6cp at 200 level including (HRM201 or HRM207 or HRM250 or BBA250)", "Corequisites": ""}}
+{"HRM317": {"Prerequisites": "6cp at 200 level including (HRM201 or HRM207 or HRM250 or BBA250)", "Corequisites": ""}}
+{"HRM328": {"Prerequisites": "48cp including (HRM201 and (HRM250 or BBA250))", "Corequisites": "HRM307"}}
+{"ICOM100": {"Prerequisites": "", "Corequisites": ""}}
+{"ICOM101": {"Prerequisites": "", "Corequisites": ""}}
+{"ICOM201": {"Prerequisites": "15cp", "Corequisites": ""}}
+{"ICOM202": {"Prerequisites": "15cp", "Corequisites": ""}}
+{"ICOM203": {"Prerequisites": "15cp", "Corequisites": ""}}
+{"ICOM301": {"Prerequisites": "39cp", "Corequisites": ""}}
+{"ICOM303": {"Prerequisites": "39cp", "Corequisites": ""}}
+{"ICOM304": {"Prerequisites": "39cp", "Corequisites": ""}}
+{"ICOZ202": {"Prerequisites": "Permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"INTS100": {"Prerequisites": "Admission to BIntStud or BIntStudLLB", "Corequisites": ""}}
+{"INTS102": {"Prerequisites": "", "Corequisites": ""}}
+{"INTS103": {"Prerequisites": "GPA of 2.5 and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"INTS202": {"Prerequisites": "Admission to BIntStud or BIntStudLLB", "Corequisites": ""}}
+{"INTS204": {"Prerequisites": "12cp", "Corequisites": ""}}
+{"INTS210": {"Prerequisites": "12cp", "Corequisites": ""}}
+{"INTS300": {"Prerequisites": "GPA of 2.5 and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"INTS304": {"Prerequisites": "INTS300 or EXLW420", "Corequisites": ""}}
+{"INTS305": {"Prerequisites": "GPA of 2.5 and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"ISYS100": {"Prerequisites": "", "Corequisites": ""}}
+{"ISYS104": {"Prerequisites": "", "Corequisites": ""}}
+{"ISYS114": {"Prerequisites": "", "Corequisites": ""}}
+{"ISYS200": {"Prerequisites": "12cp including (ISYS100(P) or 6cp(P) in COMP or ISYS units at 100 level)", "Corequisites": ""}}
+{"ISYS224": {"Prerequisites": "ISYS114(P) or COMP114(P) or ISYS154(P) or COMP154(P)", "Corequisites": ""}}
+{"ISYS254": {"Prerequisites": "ISYS114(P) or COMP114(P) or ISYS154(P) or COMP154(P)", "Corequisites": ""}}
+{"ISYS301": {"Prerequisites": "39cp including [(ISYS254(P) or COMP255(P) or ISYS227(P) or COMP227(P)) and (6cp(P) in COMP or ISYS or ACCG or STAT or BUS or BBA units at 200 level)]", "Corequisites": ""}}
+{"ISYS302": {"Prerequisites": "39cp including [(ISYS254(P) or COMP255(P) or ISYS227(P) or COMP227(P)) and (6cp(P) in COMP or ISYS or ACCG or STAT or BUS or BBA units at 200 level)]", "Corequisites": ""}}
+{"ISYS303": {"Prerequisites": "39cp including 6cp from (ISYS201(P) or ISYS224(P) or ISYS227(P) or ISYS254(P) or COMP224(P) or COMP225(P) or COMP227(P) or COMP229(P) or COMP255(P))", "Corequisites": ""}}
+{"ISYS304": {"Prerequisites": "39cp and (COMP255(P) or ISYS254(P))", "Corequisites": ""}}
+{"ISYS326": {"Prerequisites": "39cp including [(ISYS224(P) or COMP224(P)) and (ISYS254(P) or ISYS227(P) or ISYS201(P) or COMP225(P) or COMP227(P) or COMP229(P) or COMP255(P))]", "Corequisites": ""}}
+{"ISYS355": {"Prerequisites": "39cp including [(ISYS224(P) or COMP224(P)) and (ISYS254(P) or ISYS227(P) or COMP255(P) or COMP227(P)) and (ISYS254(P) or COMP229(P) or COMP249(P) or ISYS201(P))]", "Corequisites": "9cp from (ISYS301(P) or ISYS302(P) or ISYS303(P) or ISYS326(P) or ISYS360(P) or MPCE360(P)) or COMP344(P))"}}
+{"ISYS358": {"Prerequisites": "39cp including (ISYS254(P) or COMP227(P) or ISYS227(P) or COMP255(P)) ", "Corequisites": "9cp from (ACCG355(P) or ACCG358(P) or ISYS301(P) or ISYS302(P) or ISYS360(P) or MPCE360(P))"}}
+{"ISYS360": {"Prerequisites": "39cp", "Corequisites": ""}}
+{"ITL102": {"Prerequisites": "", "Corequisites": ""}}
+{"ITL103": {"Prerequisites": "ITL102", "Corequisites": ""}}
+{"ITL106": {"Prerequisites": "ITL103", "Corequisites": ""}}
+{"ITL109": {"Prerequisites": "GPA of 2.5 and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"ITL203": {"Prerequisites": "ITL103 or HSC Italian Extension or Continuers Band 4 or 5 or 6", "Corequisites": ""}}
+{"ITL204": {"Prerequisites": "ITL103 or HSC Italian Extension or Continuers Band 4 or 5 or 6", "Corequisites": ""}}
+{"ITL209": {"Prerequisites": "GPA of 2.5 and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"ITL210": {"Prerequisites": "ITL103 or HSC Italian Extension or Continuers Band 4 or 5 or 6", "Corequisites": ""}}
+{"ITL211": {"Prerequisites": "ITL210", "Corequisites": ""}}
+{"ITL302": {"Prerequisites": "6cp at 200 level including ITL211", "Corequisites": ""}}
+{"ITL305": {"Prerequisites": "GPA of 2.5 and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"ITL306": {"Prerequisites": "6cp at 200 level including ITL211", "Corequisites": ""}}
+{"ITL308": {"Prerequisites": "6cp in units at 200 level", "Corequisites": ""}}
+{"ITL310": {"Prerequisites": "6cp at 200 level including ITL211", "Corequisites": ""}}
+{"ITL311": {"Prerequisites": "ITL310", "Corequisites": ""}}
+{"ITL348": {"Prerequisites": "ITL311", "Corequisites": ""}}
+{"ITL349": {"Prerequisites": "ITL348", "Corequisites": ""}}
+{"ITL378": {"Prerequisites": "Permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"JPS101": {"Prerequisites": "", "Corequisites": ""}}
+{"JPS102": {"Prerequisites": "JPS101 or JPN110", "Corequisites": ""}}
+{"JPS111": {"Prerequisites": "", "Corequisites": "JPS101"}}
+{"JPS112": {"Prerequisites": "", "Corequisites": "JPS102"}}
+{"JPS113": {"Prerequisites": "", "Corequisites": "JPS102"}}
+{"JPS114": {"Prerequisites": "JPS102 or JPN111", "Corequisites": ""}}
+{"JPS121": {"Prerequisites": "", "Corequisites": ""}}
+{"JPS122": {"Prerequisites": "", "Corequisites": ""}}
+{"JPS124": {"Prerequisites": "", "Corequisites": ""}}
+{"JPS130": {"Prerequisites": "GPA of 2.5 and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"JPS201": {"Prerequisites": "JPS102 or JPN111 or HSC Japanese Beginners or HSC Japanese Continuers", "Corequisites": ""}}
+{"JPS202": {"Prerequisites": "JPS201 or JPN221", "Corequisites": ""}}
+{"JPS211": {"Prerequisites": "", "Corequisites": "JPS201"}}
+{"JPS212": {"Prerequisites": "", "Corequisites": "JPS202"}}
+{"JPS213": {"Prerequisites": "", "Corequisites": "JPS202"}}
+{"JPS214": {"Prerequisites": "JPS202", "Corequisites": ""}}
+{"JPS221": {"Prerequisites": "12cp", "Corequisites": ""}}
+{"JPS222": {"Prerequisites": "12cp", "Corequisites": ""}}
+{"JPS223": {"Prerequisites": "12cp", "Corequisites": ""}}
+{"JPS224": {"Prerequisites": "JPS124 or JPN123", "Corequisites": ""}}
+{"JPS230": {"Prerequisites": "GPA of 2.5 and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"JPS301": {"Prerequisites": "(6cp at 200 level including JPS202 or JPN222) or (6cp at 200 level and HSC Japanese Extension)", "Corequisites": ""}}
+{"JPS302": {"Prerequisites": "JPS301", "Corequisites": ""}}
+{"JPS303": {"Prerequisites": "JPS302", "Corequisites": ""}}
+{"JPS304": {"Prerequisites": "JPS303", "Corequisites": ""}}
+{"JPS311": {"Prerequisites": "", "Corequisites": "JPS302 or JPS304"}}
+{"JPS313": {"Prerequisites": "", "Corequisites": "JPS301 or JPS303"}}
+{"JPS314": {"Prerequisites": "", "Corequisites": "JPS301 or JPS303"}}
+{"JPS316": {"Prerequisites": "JPS301", "Corequisites": ""}}
+{"JPS324": {"Prerequisites": "39cp including JPS124", "Corequisites": ""}}
+{"JPS330": {"Prerequisites": "GPA of 2.5 and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"JPS341": {"Prerequisites": "Permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"JPS350": {"Prerequisites": "39cp", "Corequisites": ""}}
+{"LAW109": {"Prerequisites": "LAW115", "Corequisites": ""}}
+{"LAW115": {"Prerequisites": "(Admission to LLB or BAppFinLLB or BALLB or BA-MediaLLB or BA-PsychLLB or BBALLB or BComLLB or BCom-ProfAccgLLB or BEnvLLB or BITLLB or BIntStudLLB or BPsych(Hons)LLB or BScLLB or BSocScLLB) or (admission to the pre-law pathway)", "Corequisites": ""}}
+{"LAW203": {"Prerequisites": "LAW109 and (LAW204 or LAWS104) and (admission to LLB or BAppFinLLB or BALLB or BA-MediaLLB or BA-PsychLLB or BBALLB or BComLLB or BCom-ProfAccgLLB or BEnvLLB or BITLLB or BIntStudLLB or BPsych(Hons)LLB or BScLLB or BSocScLLB)", "Corequisites": ""}}
+{"LAW204": {"Prerequisites": "LAW115 and (admission prior to 2014 to LLB or BAppFinLLB or BALLB or BA-MediaLLB or BA-PsychLLB or BBALLB or BComLLB or BCom-ProfAccgLLB or BEnvLLB or BITLLB or BIntStudLLB or BScLLB or BSocScLLB)", "Corequisites": ""}}
+{"LAW208": {"Prerequisites": "LAW115 and (admission prior to 2014 to LLB or BAppFinLLB or BALLB or BA-MediaLLB or BA-PsychLLB or BBALLB or BComLLB or BCom-ProfAccgLLB or BEnvLLB or BITLLB or BIntStudLLB or BScLLB or BSocScLLB)", "Corequisites": ""}}
+{"LAW209": {"Prerequisites": "3cp in LAW or LAWS units at 100 level and (admission prior to 2010 to LLB or BAppFinLLB or BALLB or BA-PsychLLB or BBALLB or BComLLB or BCom-AccgLLB or BComActStudLLB or BComMktgLLB or BEnvMgmtLLB or BITLLB or BIntStudLLB or BMediaLLB or BScLLB or BSocScLLB)", "Corequisites": ""}}
+{"LAW214": {"Prerequisites": "6cp in LAW or LAWS units including LAW115 and (admission to LLB or BAppFinLLB or BALLB or BA-MediaLLB or BA-PsychLLB or BBALLB or BComLLB or BCom-ProfAccgLLB or BEnvLLB or BITLLB or BIntStudLLB or BPsych(Hons)LLB or BScLLB or BSocScLLB)", "Corequisites": ""}}
+{"LAW314": {"Prerequisites": "6cp in LAW or LAWS units at 200 level including LAW214", "Corequisites": ""}}
+{"LAW315": {"Prerequisites": "LAW314(P)", "Corequisites": ""}}
+{"LAW316": {"Prerequisites": "LAW204", "Corequisites": ""}}
+{"LAW317": {"Prerequisites": "LAW316", "Corequisites": ""}}
+{"LAW442": {"Prerequisites": "12cp in LAW units at 200 level and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"LAW448": {"Prerequisites": "LAW316 and 3cp in LAW units at 300 level", "Corequisites": ""}}
+{"LAW452": {"Prerequisites": "(6cp in LAW or LAWS units at 300 level) or (39cp including LAWS260) or admission to GDipArts", "Corequisites": ""}}
+{"LAW454": {"Prerequisites": "LAW315(P)", "Corequisites": ""}}
+{"LAW456": {"Prerequisites": "LAW204 and LAW314 and (admission prior to 2014 to LLB or BAppFinLLB or BALLB or BA-MediaLLB or BA-PsychLLB or BBALLB or BComLLB or BCom-ProfAccgLLB or BEnvLLB or BITLLB or BIntStudLLB or BPsych(Hons)LLB or BScLLB or BSocScLLB)", "Corequisites": "LAW315"}}
+{"LAW457": {"Prerequisites": "(6cp in LAW or LAWS units at 300 level and (LAWS256 or LAW456 or LAW406)) or (39cp including BUSL250 and BUSL301)", "Corequisites": ""}}
+{"LAW459": {"Prerequisites": "18cp in LAW or LAWS units and (admission prior to 2014 to LLB or BAppFinLLB or BALLB or BA-MediaLLB or BA-PsychLLB or BBALLB or BComLLB or BCom-ProfAccgLLB or BEnvLLB or BITLLB or BIntStudLLB or BPsych(Hons)LLB or BScLLB or BSocScLLB)", "Corequisites": ""}}
+{"LAW460": {"Prerequisites": "39cp or (6cp in LAW or LAWS units at 300 level)", "Corequisites": "LAWS259 or LAW409 or LAW459 or LAW509"}}
+{"LAW461": {"Prerequisites": "(6cp in LAW or LAWS units at 300 level) or (39cp including LAWS260) or admission to GDipArts", "Corequisites": ""}}
+{"LAW462": {"Prerequisites": "(6cp in LAW or LAWS units at 300 level) or (39cp including LAWS260) or admission to GDipArts", "Corequisites": ""}}
+{"LAW463": {"Prerequisites": "6cp at 200 level including (HIST216 or HIST217 or MHIS217) or (6cp in LAW units at 300 level (P))", "Corequisites": ""}}
+{"LAW465": {"Prerequisites": "6cp in LAW units at 300 level (P)", "Corequisites": ""}}
+{"LAW466": {"Prerequisites": "39cp or (6cp in LAW or LAWS units at 300 level)", "Corequisites": "LAWS259 or LAW409 or LAW459 or LAW509"}}
+{"LAW468": {"Prerequisites": "(6cp in LAW or LAWS units at 300 level) or (39cp including LAWS260) or (12cp in ABST units at 200 level)", "Corequisites": ""}}
+{"LAW469": {"Prerequisites": "39cp or (6cp in LAW or LAWS units at 300 level)", "Corequisites": "LAWS259 or LAW409 or LAW459 or LAW509"}}
+{"LAW470": {"Prerequisites": "6cp at 200 level including (PHIL242(P) or PHL242(P) or POL206(P) or POL264(P)) or (6cp in LAW units at 300 level (P))", "Corequisites": ""}}
+{"LAW471": {"Prerequisites": "(6cp in LAW or LAWS units at 300 level and (LAWS256 or LAW456 or LAW406)) or (39cp including BUSL250 and BUSL301)", "Corequisites": ""}}
+{"LAW473": {"Prerequisites": "(6cp in LAW or LAWS units at 300 level) or (39cp including MAS214) or (39cp including BUSL250 and BUSL301)", "Corequisites": ""}}
+{"LAW477": {"Prerequisites": "6cp in LAW units at 300 level (P)", "Corequisites": "LAW500 or LAW550"}}
+{"LAW478": {"Prerequisites": "(6cp in LAW or LAWS units at 300 level and (LAWS256 or LAW456 or LAW406)) or (39cp including BUSL250 and BUSL301)", "Corequisites": ""}}
+{"LAW479": {"Prerequisites": "(6cp in LAW or LAWS units at 300 level) or (39cp including MAS214)", "Corequisites": ""}}
+{"LAW480": {"Prerequisites": "6cp in LAW units at 300 level (P) and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"LAW482": {"Prerequisites": "(6cp in LAW or LAWS units at 300 level) or (39cp including LAWS260)", "Corequisites": ""}}
+{"LAW483": {"Prerequisites": "6cp in LAW units at 300 level (P) and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"LAW484": {"Prerequisites": "(6cp in LAW or LAWS units at 300 level) or (39cp including MAS214)", "Corequisites": ""}}
+{"LAW486": {"Prerequisites": "(6cp in LAW or LAWS units at 300 level and (LAWS256 or LAW456 or LAW406)) or (39cp including BUSL250 and BUSL301)", "Corequisites": ""}}
+{"LAW488": {"Prerequisites": "48cp in LAW or LAWS units and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"LAW490": {"Prerequisites": "(6cp in LAW or LAWS units at 300-level) or (39cp including ENV267) or (ENVG212 and 6cp at 300 level and admission to BPlan)", "Corequisites": ""}}
+{"LAW491": {"Prerequisites": "(6cp in LAW or LAWS units at 300 level) or (39cp including POL207)", "Corequisites": ""}}
+{"LAW496": {"Prerequisites": "6cp in LAW units at 300 level (P) and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"LAW497": {"Prerequisites": "6cp in LAW units at 300 level (P) and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"LAW543": {"Prerequisites": "(6cp in LAW or LAWS units at 300 level) or (39cp including ENV267)", "Corequisites": ""}}
+{"LAW550": {"Prerequisites": "12cp in LAW units at 300 level and (admission prior to 2014 to LLB or BAppFinLLB or BALLB or BA-MediaLLB or BA-PsychLLB or BBALLB or BComLLB or BCom-ProfAccgLLB or BEnvLLB or BITLLB or BIntStudLLB or BScLLB or BSocScLLB)", "Corequisites": "LAW315 and (LAW406 or LAW456)"}}
+{"LAW551": {"Prerequisites": "48cp in LAW or LAWS units and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"LAW553": {"Prerequisites": "(6cp in LAW or LAWS units at 300 level and (LAWS256 or LAW456 or LAW406)) or (39cp including BUSL250 and BUSL301)", "Corequisites": ""}}
+{"LAW555": {"Prerequisites": "(48cp in LAW or LAWS units) including (LAWS217 and LAWS256 and LAWS259 and LAW315 and LAWS399) or (LAW203 and LAW315 and LAW317 and LAW459)", "Corequisites": "LAW409 or LAW459 or LAW509"}}
+{"LAW556": {"Prerequisites": "LAW316(P) and LAW317(P)", "Corequisites": ""}}
+{"LAW557": {"Prerequisites": "6cp in LAW units at 300 level(P)", "Corequisites": ""}}
+{"LAW558": {"Prerequisites": "6cp in LAW units at 300 level(P)", "Corequisites": ""}}
+{"LAW560": {"Prerequisites": "(6cp in LAW or LAWS units at 300 level) or (39cp including ENV267)", "Corequisites": ""}}
+{"LAW561": {"Prerequisites": "48cp in LAW or LAWS units and (GPA in LAW units of 3.2) and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"LAW562": {"Prerequisites": "39cp or (6cp in LAW or LAWS units at 300 level)", "Corequisites": "LAWS259 or LAW409 or LAW459 or LAW509"}}
+{"LAW564": {"Prerequisites": "48cp in LAW or LAWS units and (GPA in LAW units of 3.25) and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"LAW569": {"Prerequisites": "(6cp in LAW or LAWS units at 300 level) or (39cp including ENV267 or LAWS259)", "Corequisites": ""}}
+{"LAW570": {"Prerequisites": "(6cp in LAW or LAWS units at 300 level) or (39cp including LAWS260) or admission to GDipArts", "Corequisites": ""}}
+{"LAW571": {"Prerequisites": "(6cp in LAW or LAWS units at 300 level) or (39cp including LAWS260)", "Corequisites": ""}}
+{"LAW572": {"Prerequisites": "LAW203(P) and 6cp in LAW units at 300 level(P)", "Corequisites": ""}}
+{"LAW575": {"Prerequisites": "(6cp in LAW or LAWS units at 300 level) or (39cp including ENV267)", "Corequisites": ""}}
+{"LAW580": {"Prerequisites": "6cp in LAW units at 300 level(P)", "Corequisites": ""}}
+{"LAW582": {"Prerequisites": "6cp in LAW units at 300 level(P) and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"LAW583": {"Prerequisites": "6cp in LAW units at 300 level(P) and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"LAW586": {"Prerequisites": "39cp or (6cp in LAW or LAWS units at 300 level)", "Corequisites": "LAWS259 or LAW409 or LAW459 or LAW509"}}
+{"LAW587": {"Prerequisites": "39cp or (6cp in LAW or LAWS units at 300 level)", "Corequisites": "LAWS259 or LAW409 or LAW459 or LAW509"}}
+{"LAW588": {"Prerequisites": "39cp or (6cp in LAW or LAWS units at 300 level)", "Corequisites": "LAWS259 or LAW409 or LAW459 or LAW509"}}
+{"LAW592": {"Prerequisites": "(6cp in LAW or LAWS units at 300 level) or (39cp including ENV267)", "Corequisites": ""}}
+{"LAW599": {"Prerequisites": "48cp in LAW or LAWS units and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"LAWS104": {"Prerequisites": "LAW115", "Corequisites": ""}}
+{"LAWS108": {"Prerequisites": "LAW115", "Corequisites": ""}}
+{"LAWS250": {"Prerequisites": "12cp including (LAW109 or LEX101 or LEX102 or PICT101)", "Corequisites": ""}}
+{"LAWS300": {"Prerequisites": "39cp including (LAWS250 or LAWS260) and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"LAWS398": {"Prerequisites": "39cp including LAW203", "Corequisites": ""}}
+{"LAWS399": {"Prerequisites": "LAWS398", "Corequisites": ""}}
+{"LAWS552": {"Prerequisites": "48cp in LAW or LAWS units and permission of Executive Dean of Faculty ", "Corequisites": ""}}
+{"LAWZ448": {"Prerequisites": "(48cp in LAW or LAWS units) including (LAWS216 or LAW316) and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"LEX101": {"Prerequisites": "", "Corequisites": ""}}
+{"LEX102": {"Prerequisites": "", "Corequisites": ""}}
+{"LING109": {"Prerequisites": "", "Corequisites": ""}}
+{"LING111": {"Prerequisites": "", "Corequisites": ""}}
+{"LING120": {"Prerequisites": "", "Corequisites": ""}}
+{"LING214": {"Prerequisites": "LING110(P) or [(PSY104(P) or PSYC104) and (PSY105(P) or PSYC105)]", "Corequisites": ""}}
+{"LING217": {"Prerequisites": "LING110(P) or admission to GDipSphComm", "Corequisites": ""}}
+{"LING218": {"Prerequisites": "LING109(P) or LING110(P) or LING120(P)", "Corequisites": ""}}
+{"LING219": {"Prerequisites": "LING110(P) or SSC100", "Corequisites": ""}}
+{"LING220": {"Prerequisites": "LING110(P)", "Corequisites": ""}}
+{"LING248": {"Prerequisites": "12cp", "Corequisites": ""}}
+{"LING289": {"Prerequisites": "12cp", "Corequisites": ""}}
+{"LING290": {"Prerequisites": "12cp", "Corequisites": ""}}
+{"LING291": {"Prerequisites": "12cp", "Corequisites": ""}}
+{"LING324": {"Prerequisites": "39cp or 6cp in LING units at 200 level", "Corequisites": ""}}
+{"LING325": {"Prerequisites": "39cp or 6cp at 200 level including (LING210 or LING211 or LING216 or LING217 or LING218 or LING219)", "Corequisites": ""}}
+{"LING326": {"Prerequisites": "[6cp in LING units at 200 level including (LING211(P) or LING218(P))] or [6cp in CHN or CRO or FRN or GMN or ITL or JPN or JPS or MCD or MGK or PLH or RSN or SPN units at 200 level]", "Corequisites": ""}}
+{"LING327": {"Prerequisites": "6cp at 200 level including (LING211(P) or LING218(P))", "Corequisites": ""}}
+{"LING328": {"Prerequisites": "6cp at 200 level including (LING211(P) or LING218(P))", "Corequisites": ""}}
+{"LING332": {"Prerequisites": "39cp", "Corequisites": ""}}
+{"LING334": {"Prerequisites": "6cp in LING units at 200 level including (LING220 or LING214 or LING217 or PSY238) or admission to the GCertSphComm or GDipSphComm", "Corequisites": ""}}
+{"LING337": {"Prerequisites": "39cp", "Corequisites": ""}}
+{"LING390": {"Prerequisites": "(39cp including LING217) or admission to GDipSphComm", "Corequisites": ""}}
+{"LING397": {"Prerequisites": "39cp", "Corequisites": ""}}
+{"LING398": {"Prerequisites": "Admission to GDipSphComm", "Corequisites": ""}}
+{"LING399": {"Prerequisites": "39cp including 6cp from [(LING210(P) or LING217(P)) or (LING211(P) or LING218(P)) or LING214(P) or PSY238(P) or (LING216(P) or LING219(P) or LING220)]", "Corequisites": "6cp in LING or SPH units at 300 level"}}
+{"MAR202": {"Prerequisites": "6cp from (BIOL114 or BIOL121 or ENV118 or ENVE117 or GEOS126)", "Corequisites": ""}}
+{"MAR303": {"Prerequisites": "39cp including (MAR201(P) or ELS201(P)) and admission to BMarSc", "Corequisites": ""}}
+{"MAS104": {"Prerequisites": "", "Corequisites": ""}}
+{"MAS105": {"Prerequisites": "", "Corequisites": ""}}
+{"MAS110": {"Prerequisites": "", "Corequisites": ""}}
+{"MAS111": {"Prerequisites": "", "Corequisites": ""}}
+{"MAS202": {"Prerequisites": "12cp", "Corequisites": ""}}
+{"MAS203": {"Prerequisites": "12cp", "Corequisites": ""}}
+{"MAS205": {"Prerequisites": "12cp", "Corequisites": ""}}
+{"MAS206": {"Prerequisites": "MAS110", "Corequisites": ""}}
+{"MAS207": {"Prerequisites": "MAS206 or MAS223", "Corequisites": ""}}
+{"MAS210": {"Prerequisites": "12cp", "Corequisites": "CUL240"}}
+{"MAS211": {"Prerequisites": "15cp", "Corequisites": "MAS215"}}
+{"MAS212": {"Prerequisites": "MAS110 and admission to (BA-Media or BA-MediaLLB or BA in Media or BMktgMedia)", "Corequisites": ""}}
+{"MAS213": {"Prerequisites": "MAS202 and MAS212", "Corequisites": ""}}
+{"MAS214": {"Prerequisites": "15cp", "Corequisites": ""}}
+{"MAS215": {"Prerequisites": "15cp", "Corequisites": ""}}
+{"MAS240": {"Prerequisites": "12cp", "Corequisites": ""}}
+{"MAS241": {"Prerequisites": "MAS240 or COMP249", "Corequisites": ""}}
+{"MAS302": {"Prerequisites": "39cp or admission to GDipArts", "Corequisites": ""}}
+{"MAS304": {"Prerequisites": "39cp", "Corequisites": ""}}
+{"MAS310": {"Prerequisites": "CUL240 and (MAS210 or MAS211)", "Corequisites": ""}}
+{"MAS311": {"Prerequisites": "CUL240 and (MAS210 or MAS211)", "Corequisites": ""}}
+{"MAS312": {"Prerequisites": "MAS213 and MMCS260 and (admission to BA-Media or BA-MediaLLB or BA in Media or BMktgMedia)", "Corequisites": ""}}
+{"MAS313": {"Prerequisites": "MAS312", "Corequisites": ""}}
+{"MAS314": {"Prerequisites": "39cp including MAS202", "Corequisites": ""}}
+{"MAS316": {"Prerequisites": "39cp including 12cp in MAS units", "Corequisites": ""}}
+{"MAS330": {"Prerequisites": "39cp", "Corequisites": ""}}
+{"MAS331": {"Prerequisites": "39cp", "Corequisites": ""}}
+{"MAS337": {"Prerequisites": "6cp at 200 level including MAS207", "Corequisites": ""}}
+{"MAS340": {"Prerequisites": "6cp at 200 level including (MAS241 or COMP249)", "Corequisites": ""}}
+{"MAS341": {"Prerequisites": "MAS340", "Corequisites": ""}}
+{"MAS350": {"Prerequisites": "39cp and (admission to BA-Media or BA-MediaLLB or BMktgMedia or BA in Media)", "Corequisites": ""}}
+{"MAS389": {"Prerequisites": "6cp at 200 level", "Corequisites": ""}}
+{"MAS390": {"Prerequisites": "MAS389", "Corequisites": ""}}
+{"MATH106": {"Prerequisites": "Admission to BEd(ECE) or BEd(Prim) or BEd(Sec) or BEd(TESOL) or BTeach(BS) or BTeach(0-5) or BTeach(ECS) or BABEd(Prim) or BA DipEd or BA-Psych DipEd or GDipEd or GDipEarlyChildhood", "Corequisites": ""}}
+{"MATH109": {"Prerequisites": "", "Corequisites": ""}}
+{"MATH123": {"Prerequisites": "", "Corequisites": ""}}
+{"MATH130": {"Prerequisites": "", "Corequisites": ""}}
+{"MATH132": {"Prerequisites": "HSC Mathematics Extension 1 Band E3 or HSC Mathematics Extension 2 or admission to BSc in Advanced Mathematics or BAdvSc or BCom-ActStud or BActStud", "Corequisites": ""}}
+{"MATH133": {"Prerequisites": "MATH132 or MATH135(HD)", "Corequisites": ""}}
+{"MATH135": {"Prerequisites": "HSC Mathematics Band 4 or HSC Mathematics Extension 1 Band E2 or HSC Mathematics Extension 2 or MATH130", "Corequisites": ""}}
+{"MATH136": {"Prerequisites": "MATH132 or MATH135", "Corequisites": ""}}
+{"MATH188": {"Prerequisites": "Admission to BAdvSc", "Corequisites": "MATH132"}}
+{"MATH232": {"Prerequisites": "MATH133 or MATH136", "Corequisites": ""}}
+{"MATH235": {"Prerequisites": "MATH133 or MATH136", "Corequisites": ""}}
+{"MATH236": {"Prerequisites": "MATH235", "Corequisites": ""}}
+{"MATH288": {"Prerequisites": "(MATH133 or MATH136(HD)) and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"MATH300": {"Prerequisites": "39cp including MATH235", "Corequisites": ""}}
+{"MATH331": {"Prerequisites": "MATH235 and (MATH232 or MATH236)", "Corequisites": ""}}
+{"MATH332": {"Prerequisites": "MATH235 and (MATH232 or MATH236)", "Corequisites": ""}}
+{"MATH335": {"Prerequisites": "MATH235 and (MATH232 or MATH236)", "Corequisites": ""}}
+{"MATH336": {"Prerequisites": "MATH235 and (MATH232 or MATH236)", "Corequisites": ""}}
+{"MATH337": {"Prerequisites": "39cp including MATH235", "Corequisites": ""}}
+{"MATH338": {"Prerequisites": "", "Corequisites": "MATH337"}}
+{"MATH339": {"Prerequisites": "(MATH235 and MATH236) or MATH331 or MATH332 or MATH335 or MATH336", "Corequisites": ""}}
+{"MATH388": {"Prerequisites": "(Admission to Advanced Program BSc or BAdvSc) and GPA of 3.0", "Corequisites": "MATH335 and MATH337"}}
+{"MATH399": {"Prerequisites": "(MATH235 or MATH232) and permission of Executive Dean of Faculty", "Corequisites": "MATH236"}}
+{"MECH201": {"Prerequisites": "(ENGG170(P) or ELEC170(P) or ENGG150(P)) and (MATH132 or MATH135(P)) and ((PHYS140(P) and PHYS143(P)) or (PHYS106 and PHYS107))", "Corequisites": "MATH133 or MATH136(P)"}}
+{"MECH202": {"Prerequisites": "(ENGG170(P) or ELEC170(P) or ENGG150(P)) and ((PHYS140(P) and PHYS143(P)) or (PHYS106 and PHYS107)) and (MATH132 or MATH135(P))", "Corequisites": ""}}
+{"MECH203": {"Prerequisites": "12cp including (ENGG170(P) or ELEC170(P) or ENGG150(P))", "Corequisites": ""}}
+{"MECH204": {"Prerequisites": "(ENGG170(P) or ELEC170(P) or ENGG150(P)) and (MATH132(P) or MATH135(P)) and ((PHYS140(P) and PHYS143(P)) or (PHYS106(P) and PHYS107(P))", "Corequisites": ""}}
+{"MECO319": {"Prerequisites": "39cp", "Corequisites": ""}}
+{"MECO329": {"Prerequisites": "39cp including MAS240", "Corequisites": ""}}
+{"MECO399": {"Prerequisites": "39cp and admission to BMktgMedia", "Corequisites": "MAS390 and MKTG303"}}
+{"MGK101": {"Prerequisites": "", "Corequisites": ""}}
+{"MGK102": {"Prerequisites": "MGK101", "Corequisites": ""}}
+{"MGK121": {"Prerequisites": "", "Corequisites": ""}}
+{"MGK130": {"Prerequisites": "GPA of 2.5 and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"MGK205": {"Prerequisites": "MGK102 or HSC Greek Extension or Continuers Band 4 or 5 or 6", "Corequisites": ""}}
+{"MGK206": {"Prerequisites": "MGK205", "Corequisites": ""}}
+{"MGK230": {"Prerequisites": "GPA of 2.5 and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"MGK231": {"Prerequisites": "12cp", "Corequisites": ""}}
+{"MGK304": {"Prerequisites": "6cp at 200 level including MGK206", "Corequisites": ""}}
+{"MGK306": {"Prerequisites": "6cp at 200 level including MGK206", "Corequisites": ""}}
+{"MGK330": {"Prerequisites": "GPA of 2.5 and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"MGK336": {"Prerequisites": "6cp at 200 level including MGK206", "Corequisites": ""}}
+{"MGK337": {"Prerequisites": "MGK336", "Corequisites": ""}}
+{"MGK348": {"Prerequisites": "MGK337", "Corequisites": ""}}
+{"MGK349": {"Prerequisites": "MGK348", "Corequisites": ""}}
+{"MGK378": {"Prerequisites": "Permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"MGMT255": {"Prerequisites": "18cp", "Corequisites": ""}}
+{"MGMT256": {"Prerequisites": "12cp including (DEM127 or HRM107)", "Corequisites": ""}}
+{"MGMT300": {"Prerequisites": "39cp including (6cp in BUS or HRM or MKTG units at 200 level)\n", "Corequisites": ""}}
+{"MGMT315": {"Prerequisites": "48cp and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"MHIS101": {"Prerequisites": "", "Corequisites": ""}}
+{"MHIS109": {"Prerequisites": "", "Corequisites": ""}}
+{"MHIS114": {"Prerequisites": "", "Corequisites": ""}}
+{"MHIS115": {"Prerequisites": "", "Corequisites": ""}}
+{"MHIS121": {"Prerequisites": "", "Corequisites": ""}}
+{"MHIS201": {"Prerequisites": "12cp or (3cp in HIST or MHIS or POL units)", "Corequisites": ""}}
+{"MHIS202": {"Prerequisites": "12cp or (3cp in HIST or MHIS or POL units)", "Corequisites": ""}}
+{"MHIS203": {"Prerequisites": "12cp or (3cp in HIST or MHIS or POL units)", "Corequisites": ""}}
+{"MHIS204": {"Prerequisites": "12cp or (3cp in HIST or MHIS or POL units)", "Corequisites": ""}}
+{"MHIS211": {"Prerequisites": "12cp or (3cp in HIST or MHIS or POL units)", "Corequisites": ""}}
+{"MHIS217": {"Prerequisites": "12cp or (3cp in HIST or MHIS or POL units)", "Corequisites": ""}}
+{"MHIS221": {"Prerequisites": "12cp or (3cp in HIST or MHIS or POL units)", "Corequisites": ""}}
+{"MHIS222": {"Prerequisites": "12cp or (3cp in HIST or MHIS or POL units)", "Corequisites": ""}}
+{"MHIS264": {"Prerequisites": "12cp or (3cp in HIST or MHIS or POL units)", "Corequisites": ""}}
+{"MHIS300": {"Prerequisites": "(39cp including 3cp in HIST or MHIS units at 300 level) or (3cp in HIST or MHIS units at 300 level and (6cp in HIST or MHIS or POL units at 200 level including 3cp in HIST or MHIS units at 200 level))", "Corequisites": ""}}
+{"MHIS302": {"Prerequisites": "39cp or (6cp in HIST or MHIS or POL units at 200 level including 3cp in HIST or MHIS)", "Corequisites": ""}}
+{"MHIS304": {"Prerequisites": "39cp or (6cp in HIST or MHIS or POL units at 200 level including 3cp in HIST or MHIS)", "Corequisites": ""}}
+{"MHIS305": {"Prerequisites": "39cp or (6cp in HIST or MHIS or POL units at 200 level including 3cp in HIST or MHIS units)", "Corequisites": ""}}
+{"MHIS321": {"Prerequisites": "39cp or (6cp in HIST or MHIS or POL units at 200 level including 3cp in HIST or MHIS)", "Corequisites": ""}}
+{"MHIS322": {"Prerequisites": "39cp or (6cp in MHIS or HIST or POL at 200 level including 3cp in MHIS)", "Corequisites": ""}}
+{"MHIS365": {"Prerequisites": "39cp or (6cp in HIST or MHIS or POL units at 200 level including 3cp in HIST or MHIS)", "Corequisites": ""}}
+{"MHIS375": {"Prerequisites": "39cp or (6cp in HIST or MHIS or POL units at 200 level including 3cp in HIST or MHIS)", "Corequisites": ""}}
+{"MKTG101": {"Prerequisites": "", "Corequisites": ""}}
+{"MKTG127": {"Prerequisites": "", "Corequisites": ""}}
+{"MKTG202": {"Prerequisites": "MKTG101 and (STAT122 or STAT170 or STAT171 or PSY122)", "Corequisites": ""}}
+{"MKTG203": {"Prerequisites": "MKTG101", "Corequisites": ""}}
+{"MKTG204": {"Prerequisites": "MKTG101", "Corequisites": ""}}
+{"MKTG205": {"Prerequisites": "MKTG101", "Corequisites": ""}}
+{"MKTG207": {"Prerequisites": "MKTG101", "Corequisites": ""}}
+{"MKTG208": {"Prerequisites": "MKTG101", "Corequisites": ""}}
+{"MKTG209": {"Prerequisites": "MKTG101", "Corequisites": ""}}
+{"MKTG216": {"Prerequisites": "24cp", "Corequisites": ""}}
+{"MKTG303": {"Prerequisites": "MKTG202 and MKTG203 and (ACCG100 or ACCG105 or ACCG106 or MMCS105) and (BBA103 or ECON110 or ECON111 or admission to BMktgMedia) and 6cp in MKTG units at 300 level", "Corequisites": ""}}
+{"MKTG304": {"Prerequisites": "(MKTG202 or MKTG203 or MKTG204 or MKTG208 or MKTG210 or MKTG213 or BBA203 or BBA213) and (STAT122 or STAT170 or STAT171 or PSY122)", "Corequisites": "MKTG303"}}
+{"MKTG305": {"Prerequisites": "(MKTG202 or MKTG203 or MKTG204 or MKTG208 or MKTG210 or MKTG213 or BBA203 or BBA213) and (STAT122 or STAT170 or STAT171 or PSY122)", "Corequisites": "MKTG303"}}
+{"MKTG306": {"Prerequisites": "(STAT122 or STAT170 or STAT171 or PSY122) and 6cp at 200 level including (MKTG202 or MKTG203 or MKTG204 or MKTG208 or MKTG210 or MKTG213 or BBA203 or BBA213) ", "Corequisites": ""}}
+{"MKTG307": {"Prerequisites": "(STAT122 or STAT170 or STAT171 or PSY122) and 6cp at 200 level including (MKTG202 or MKTG203 or MKTG204 or MKTG208 or MKTG210 or MKTG213 or BBA203 or BBA213)", "Corequisites": ""}}
+{"MKTG308": {"Prerequisites": "(STAT122 or STAT170 or STAT171 or PSY122) and 6cp at 200 level including (MKTG202 or MKTG203 or MKTG204 or MKTG208 or MKTG210 or MKTG213 or BBA203 or BBA213)", "Corequisites": ""}}
+{"MKTG309": {"Prerequisites": "39cp", "Corequisites": ""}}
+{"MKTG310": {"Prerequisites": "MKTG101 and MKTG202 and MKTG203", "Corequisites": ""}}
+{"MKTG311": {"Prerequisites": "MKTG202 and MKTG203 and (STAT122 or STAT170 or STAT171 or PSY122)", "Corequisites": ""}}
+{"MKTG350": {"Prerequisites": "39cp", "Corequisites": ""}}
+{"MMCS105": {"Prerequisites": "", "Corequisites": ""}}
+{"MMCS115": {"Prerequisites": "", "Corequisites": ""}}
+{"MMCS120": {"Prerequisites": "", "Corequisites": ""}}
+{"MMCS132": {"Prerequisites": "", "Corequisites": ""}}
+{"MMCS220": {"Prerequisites": "12cp", "Corequisites": ""}}
+{"MMCS260": {"Prerequisites": "15cp", "Corequisites": ""}}
+{"MMCS261": {"Prerequisites": "12cp", "Corequisites": ""}}
+{"MMCS303": {"Prerequisites": "39cp", "Corequisites": ""}}
+{"MMCS320": {"Prerequisites": "39cp including (ARTS210 or MMCS220)", "Corequisites": ""}}
+{"MMCS321": {"Prerequisites": "ARTS210 or MMCS220", "Corequisites": "ARTS300 or MMCS320"}}
+{"MMCS330": {"Prerequisites": "39cp", "Corequisites": ""}}
+{"MMCS380": {"Prerequisites": "39cp including (MAS207 or MAS337 or MUS203)", "Corequisites": ""}}
+{"MPP401": {"Prerequisites": "Admission to BEd(TESOL) and 60cp", "Corequisites": ""}}
+{"MPP402": {"Prerequisites": "Admission to BEd(TESOL) and 60cp", "Corequisites": ""}}
+{"MPP403": {"Prerequisites": "Admission to BEd(TESOL) and 60cp", "Corequisites": ""}}
+{"MPP421": {"Prerequisites": "Admission to BEd(TESOL) and 60cp", "Corequisites": ""}}
+{"MPP431": {"Prerequisites": "Admission to BEd(TESOL) and 60cp", "Corequisites": ""}}
+{"MSM306": {"Prerequisites": "39cp including (3cp in MSM units at 200 level and 3cp in MSM units at 300 level)", "Corequisites": ""}}
+{"MSM310": {"Prerequisites": "Permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"MSM311": {"Prerequisites": "39cp including ((MSM202 or ELS202) and (MSM306 or MSM310))", "Corequisites": ""}}
+{"MUS100": {"Prerequisites": "", "Corequisites": ""}}
+{"MUS102": {"Prerequisites": "", "Corequisites": ""}}
+{"MUS202": {"Prerequisites": "MUS100 or MUS102 or ECHL115", "Corequisites": ""}}
+{"MUS203": {"Prerequisites": "MUS202", "Corequisites": ""}}
+{"MUS204": {"Prerequisites": "15cp", "Corequisites": ""}}
+{"MUS205": {"Prerequisites": "12cp or admission to GCertArts", "Corequisites": ""}}
+{"MUS206": {"Prerequisites": "MUS205 or admission to GCertArts", "Corequisites": ""}}
+{"MUS207": {"Prerequisites": "15cp", "Corequisites": ""}}
+{"MUS209": {"Prerequisites": "15cp", "Corequisites": ""}}
+{"MUS211": {"Prerequisites": "12cp", "Corequisites": ""}}
+{"MUS229": {"Prerequisites": "12cp", "Corequisites": ""}}
+{"MUS230": {"Prerequisites": "15cp or MUS229", "Corequisites": ""}}
+{"MUS300": {"Prerequisites": "MUS203 and MUS204", "Corequisites": ""}}
+{"MUS301": {"Prerequisites": "39cp", "Corequisites": ""}}
+{"MUS302": {"Prerequisites": "39cp", "Corequisites": ""}}
+{"MUS304": {"Prerequisites": "(MUS205 and MUS206) or admission to GCertArts", "Corequisites": ""}}
+{"MUS305": {"Prerequisites": "39cp including MUS207", "Corequisites": ""}}
+{"MUS306": {"Prerequisites": "(39cp including 3cp in MUS units at 300 level) or admission to GCertArts", "Corequisites": ""}}
+{"MUS311": {"Prerequisites": "39cp", "Corequisites": ""}}
+{"MUS325": {"Prerequisites": "39cp", "Corequisites": ""}}
+{"PHIL201": {"Prerequisites": "12cp or admission to GDipArts", "Corequisites": ""}}
+{"PHIL226": {"Prerequisites": "12cp or admission to GDipArts", "Corequisites": ""}}
+{"PHL131": {"Prerequisites": "", "Corequisites": ""}}
+{"PHL132": {"Prerequisites": "", "Corequisites": ""}}
+{"PHL134": {"Prerequisites": "", "Corequisites": ""}}
+{"PHL137": {"Prerequisites": "", "Corequisites": ""}}
+{"PHL225": {"Prerequisites": "12cp or admission to GDipArts", "Corequisites": ""}}
+{"PHL232": {"Prerequisites": "12cp or admission to GDipArts", "Corequisites": ""}}
+{"PHL238": {"Prerequisites": "12cp or admission to GDipArts", "Corequisites": ""}}
+{"PHL242": {"Prerequisites": "12cp or admission to GDipArts", "Corequisites": ""}}
+{"PHL245": {"Prerequisites": "12cp or admission to GDipArts", "Corequisites": ""}}
+{"PHL246": {"Prerequisites": "12cp or admission to GDipArts", "Corequisites": ""}}
+{"PHL249": {"Prerequisites": "12cp or admission to GDipArts", "Corequisites": ""}}
+{"PHL250": {"Prerequisites": "12cp or admission to GDipArts", "Corequisites": ""}}
+{"PHL254": {"Prerequisites": "12cp or admission to GDipArts", "Corequisites": ""}}
+{"PHL256": {"Prerequisites": "12cp or admission to GDipArts", "Corequisites": ""}}
+{"PHL260": {"Prerequisites": "12cp or admission to GDipArts", "Corequisites": ""}}
+{"PHL262": {"Prerequisites": "12cp or admission to GDipArts", "Corequisites": ""}}
+{"PHL280": {"Prerequisites": "12cp or admission to GDipArts", "Corequisites": ""}}
+{"PHL281": {"Prerequisites": "12cp or admission to GDipArts", "Corequisites": ""}}
+{"PHL341": {"Prerequisites": "39cp or admission to GDipArts", "Corequisites": ""}}
+{"PHL351": {"Prerequisites": "39cp or admission to GDipArts", "Corequisites": ""}}
+{"PHL352": {"Prerequisites": "39cp or admission to GDipArts", "Corequisites": ""}}
+{"PHL354": {"Prerequisites": "(39cp or admission to GDipArts in Philosophy) and (12cp in PHIL or PHL units)", "Corequisites": "6cp in PHL units at 300 level"}}
+{"PHL356": {"Prerequisites": "39cp or admission to GDipArts", "Corequisites": ""}}
+{"PHL357": {"Prerequisites": "39cp or admission to GDipArts", "Corequisites": ""}}
+{"PHL358": {"Prerequisites": "39cp or admission to GDipArts", "Corequisites": ""}}
+{"PHL359": {"Prerequisites": "39cp or admission to GDipArts", "Corequisites": ""}}
+{"PHL363": {"Prerequisites": "39cp or admission to GDipArts", "Corequisites": ""}}
+{"PHL365": {"Prerequisites": "39cp or admission to GDipArts", "Corequisites": ""}}
+{"PHL382": {"Prerequisites": "39cp or admission to GDipArts", "Corequisites": ""}}
+{"PHTN221": {"Prerequisites": "(MATH135(P) or MATH132(P) or MATH136 or MATH133) and [(PHYS140(P) and PHYS143(P)) or (PHYS106(P) and PHYS107(P)) or PHYS149(P)]", "Corequisites": ""}}
+{"PHTN310": {"Prerequisites": "PHTN321(P) or OPTO300(P) or OPTO321(P)", "Corequisites": "PHTN322"}}
+{"PHTN321": {"Prerequisites": "PHYS201(P) and PHYS202(P)", "Corequisites": ""}}
+{"PHTN322": {"Prerequisites": "(OPTO221(P) or PHTN221(P)) and (OPTO300(P) or OPTO321(P) or PHTN321(P))", "Corequisites": ""}}
+{"PHYS106": {"Prerequisites": "PHYS107", "Corequisites": "MATH132 or MATH133 or MATH135 or MATH136"}}
+{"PHYS107": {"Prerequisites": "HSC Mathematics Band 4 or HSC Mathematics Extension 1 Band E3 or HSC Mathematics Extension 2", "Corequisites": "MATH132 or MATH133 or MATH135 or MATH136"}}
+{"PHYS108": {"Prerequisites": "", "Corequisites": ""}}
+{"PHYS140": {"Prerequisites": "(HSC Mathematics Band 4 or HSC Mathematics Extension 1 Band E3 or HSC Mathematics Extension 2 or equivalent) or corequisite of (MATH132 or MATH133 or MATH135 or MATH136)", "Corequisites": ""}}
+{"PHYS143": {"Prerequisites": "(HSC Mathematics Extension 1 Band E3 or HSC Mathematics Extension 2 or equivalent) or corequisite of (MATH130 or MATH132 or MATH133 or MATH135 or MATH136)", "Corequisites": ""}}
+{"PHYS149": {"Prerequisites": "(HSC Mathematics Band 4 or HSC Mathematics Extension 1 Band E3 or HSC Mathematics Extension 2) or corequisite of (MATH132 or MATH133 or MATH135 or MATH136) or MATH130(P)", "Corequisites": ""}}
+{"PHYS159": {"Prerequisites": "", "Corequisites": ""}}
+{"PHYS188": {"Prerequisites": "Admission to BAdvSc", "Corequisites": ""}}
+{"PHYS201": {"Prerequisites": "[(PHYS140(P) and PHYS143(P)) or (PHYS106 and PHYS107)] and (MATH133 or corequisite MATH136)", "Corequisites": ""}}
+{"PHYS202": {"Prerequisites": "(MATH136(P) or MATH235(P) or MATH133(P)) and [PHYS201(P) or (admission to BE or BEBA or BEBBA or BEBCom or BEBSc) and [(PHYS140(P) and PHYS143(P)) or (PHYS106(P) and PHYS107(P))] and MATH235(P))]", "Corequisites": ""}}
+{"PHYS242": {"Prerequisites": "12cp", "Corequisites": ""}}
+{"PHYS246": {"Prerequisites": "GPA of 3.0", "Corequisites": "PHYS201"}}
+{"PHYS301": {"Prerequisites": "PHYS201(P) and PHYS202(P)", "Corequisites": "MATH235"}}
+{"PHYS303": {"Prerequisites": "PHYS201(P) and PHYS202(P)", "Corequisites": ""}}
+{"PHYS304": {"Prerequisites": "PHYS301(Cr) and MATH235(P)", "Corequisites": ""}}
+{"PHYS306": {"Prerequisites": "PHYS201(P) and PHYS202(P) and MATH235(P)", "Corequisites": ""}}
+{"PHYS310": {"Prerequisites": "PHYS301(P)", "Corequisites": ""}}
+{"PHYS388": {"Prerequisites": "PHYS188 and PHYS201(P) and PHYS202(P) and GPA of 3.20", "Corequisites": ""}}
+{"PICT101": {"Prerequisites": "", "Corequisites": ""}}
+{"PICT102": {"Prerequisites": "", "Corequisites": ""}}
+{"PICT201": {"Prerequisites": "", "Corequisites": ""}}
+{"PICT301": {"Prerequisites": "PICT101 and PICT102 and LAWS250 and SOC226 ", "Corequisites": ""}}
+{"PLH120": {"Prerequisites": "", "Corequisites": ""}}
+{"PLH121": {"Prerequisites": "PLH120", "Corequisites": ""}}
+{"PLH125": {"Prerequisites": "PLH121", "Corequisites": ""}}
+{"PLH131": {"Prerequisites": "GPA of 2.5 and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"PLH220": {"Prerequisites": "PLH121 or HSC Polish", "Corequisites": ""}}
+{"PLH221": {"Prerequisites": "PLH220", "Corequisites": ""}}
+{"PLH222": {"Prerequisites": "PLH221", "Corequisites": ""}}
+{"PLH231": {"Prerequisites": "GPA of 2.5 and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"PLH302": {"Prerequisites": "Permission of Executive Dean of Faculty", "Corequisites": "PLH324"}}
+{"PLH324": {"Prerequisites": "6cp at 200 level including PLH221", "Corequisites": ""}}
+{"PLH325": {"Prerequisites": "6cp in units at 200 level", "Corequisites": ""}}
+{"PLH326": {"Prerequisites": "6cp in units at 200 level", "Corequisites": ""}}
+{"PLH331": {"Prerequisites": "GPA of 2.5 and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"POL101": {"Prerequisites": "", "Corequisites": ""}}
+{"POL107": {"Prerequisites": "", "Corequisites": ""}}
+{"POL108": {"Prerequisites": "", "Corequisites": ""}}
+{"POL201": {"Prerequisites": "12cp or (3cp in HIST or MHIS or POL units)", "Corequisites": ""}}
+{"POL206": {"Prerequisites": "12cp or (3cp in HIST or MHIS or POL units)", "Corequisites": ""}}
+{"POL207": {"Prerequisites": "12cp or (3cp in HIST or MHIS or POL units)", "Corequisites": ""}}
+{"POL255": {"Prerequisites": "12cp or (3cp in HIST or MHIS or POL units)", "Corequisites": ""}}
+{"POL258": {"Prerequisites": "12cp or (3cp in HIST or MHIS or POL units)", "Corequisites": ""}}
+{"POL277": {"Prerequisites": "12cp or (3cp in HIST or MHIS or POL units)", "Corequisites": ""}}
+{"POL278": {"Prerequisites": "12cp or (3cp in HIST or MHIS or POL units)", "Corequisites": ""}}
+{"POL279": {"Prerequisites": "12cp or (3cp in HIST or MHIS or POL units)", "Corequisites": ""}}
+{"POL283": {"Prerequisites": "12cp or (3cp in HIST or MHIS or POL units)", "Corequisites": ""}}
+{"POL302": {"Prerequisites": "39cp or (6cp in HIST or MHIS or POL units at 200 level including 3cp in POL)", "Corequisites": ""}}
+{"POL303": {"Prerequisites": "39cp or (6cp in HIST or MHIS or POL units at 200 level including 3cp in POL)", "Corequisites": ""}}
+{"POL304": {"Prerequisites": "39cp or (6cp in HIST or MHIS or POL units at 200 level including 3cp in POL)", "Corequisites": ""}}
+{"POL305": {"Prerequisites": "39cp or (6cp in HIST or MHIS or POL units at 200 level including 3cp in POL)", "Corequisites": ""}}
+{"POL306": {"Prerequisites": "39cp or (6cp in HIST or MHIS or POL units at 200 level including 3cp in POL)", "Corequisites": ""}}
+{"POL308": {"Prerequisites": "39cp or (6cp in HIST or MHIS or POL units at 200 level including 3cp in POL)", "Corequisites": ""}}
+{"POL322": {"Prerequisites": "39cp or (6cp in HIST or MHIS or POL units at 200 level including 3cp in POL)", "Corequisites": ""}}
+{"POL372": {"Prerequisites": "39cp or (6cp in HIST or MHIS or POL units at 200 level including 3cp in POL)", "Corequisites": ""}}
+{"POL389": {"Prerequisites": "39cp or (6cp in HIST or MHIS or POL units at 200 level including 3cp in POL)", "Corequisites": ""}}
+{"POL392": {"Prerequisites": "39cp or (6cp in HIST or MHIS or POL units at 200 level including 3cp in POL)", "Corequisites": ""}}
+{"POL395": {"Prerequisites": "39cp or (6cp in HIST or MHIS or POL units at 200 level including 3cp in POL)", "Corequisites": ""}}
+{"POL397": {"Prerequisites": "39cp or (6cp in HIST or MHIS or POL units at 200 level including 3cp in POL units)\n", "Corequisites": ""}}
+{"POL399": {"Prerequisites": "39cp or (6cp in HIST or MHIS or POL units at 200 level including 3cp in POL)", "Corequisites": ""}}
+{"PSY224": {"Prerequisites": "[PSYC104(P) and PSYC105(P)] or [(STAT122(P) or STAT170(P) or STAT171(P) or PSY122(P)) and (PSY104(P) or PSYC104(P)) and (PSY105(P) or PSYC105(P))] or admission to GDipPsych", "Corequisites": ""}}
+{"PSY234": {"Prerequisites": "[PSYC104(P) and PSYC105(P)] or [(STAT122(P) or STAT170(P) or STAT171(P) or PSY122(P)) and (PSY104(P) or PSYC104(P)) and (PSY105(P) or PSYC105(P))] or admission to GDipPsych", "Corequisites": ""}}
+{"PSY235": {"Prerequisites": "[(PSY104(P) and PSY105(P)) and (STAT122(P) or STAT170(P) or STAT171(P) or PSY122(P))] or [admission to GDipPsych] or [((PSY104(P) and PSY122(P)) or PSYC104(P))) and (admission to BA-PsychLLB or GradCertSpComm or GradDipSpComm)] or [(PSYC104(P) and PSYC105(P)] or [PSY104(P) and PSYC105(P) and STAT170(P)] or [PSYC104(P) and PSY105(P) and STAT170(P)]", "Corequisites": ""}}
+{"PSY236": {"Prerequisites": "[PSYC104(P) and PSYC105(P)] or [(STAT122(P) or STAT170(P) or STAT171(P) or PSY122(P)) and (PSY104(P) or PSYC104(P)) and (PSY105(P) or PSYC105(P))] or [admission to GDipPsych] or [((PSY104(P) and PSY122(P)) or PSYC104(P)) and admission to BA-PsychLLB]", "Corequisites": ""}}
+{"PSY238": {"Prerequisites": "LING110(P) or [(PSY104(P) or PSYC104) and (PSY105(P) or PSYC105)]", "Corequisites": ""}}
+{"PSY246": {"Prerequisites": "[PSYC104(P) and PSYC105(P)] or [(STAT122(P) or STAT170(P) or STAT171(P) or PSY122(P)) and (PSY104(P) or PSYC104(P)) and (PSY105(P) or PSYC105(P))] or admission to GDipPsych", "Corequisites": ""}}
+{"PSY247": {"Prerequisites": "[PSYC104(P) and PSYC105(P)] or [(STAT122(P) or STAT170(P) or STAT171(P) or PSY122(P)) and (PSY104(P) or PSYC104(P)) and (PSY105(P) or PSYC105(P))] or admission to GDipPsych", "Corequisites": ""}}
+{"PSY248": {"Prerequisites": "STAT122(P) or STAT170(P) or STAT171(P) or PSY122(P) or (PSYC104 and PSYC105) or admission to GDipPsych", "Corequisites": ""}}
+{"PSY250": {"Prerequisites": "24cp", "Corequisites": ""}}
+{"PSY335": {"Prerequisites": "6cp at 200 level including (PSY237(P) or PSY246(P))", "Corequisites": "PSY222 or PSY248"}}
+{"PSY336": {"Prerequisites": "6cp at 200 level including PSY234(P)", "Corequisites": "PSY222 or PSY248"}}
+{"PSY337": {"Prerequisites": "(PSY234(P) or PSY236(P)) and (PSY222 or PSY248)", "Corequisites": ""}}
+{"PSY338": {"Prerequisites": "39cp including [(PSY104(P) or PSYC104) and (PSY105(P) or PSYC105) and (PSY222(P) or PSY248(P) or admission to BBA or BHRM)]", "Corequisites": ""}}
+{"PSY339": {"Prerequisites": "6cp at 200 level including PSY235(P)", "Corequisites": "PSY222 or PSY248"}}
+{"PSY342": {"Prerequisites": "(PSY237(P) or PSY247(P)) and PSY248(P)", "Corequisites": ""}}
+{"PSY344": {"Prerequisites": "6cp at 200 level including (PSY236(P) or PSY246(P) or PSY237(P) or PSY247(P))", "Corequisites": "PSY222 or PSY248"}}
+{"PSY348": {"Prerequisites": "6cp at 200 level including PSY236(P)", "Corequisites": "PSY222 or PSY248"}}
+{"PSY349": {"Prerequisites": "GPA of 2.5 and 18cp in PSY units at 200 level including (PSY222(P) or PSY248(P))", "Corequisites": ""}}
+{"PSY350": {"Prerequisites": "39cp", "Corequisites": ""}}
+{"PSY351": {"Prerequisites": "GPA of 2.5 and [(PSY222(P) or PSY248(P)) and PSY234(P) and PSY235(P) and PSY236(P) and (PSY237(P) or (PSY246(P) and PSY247(P))and (PSYC332(P) or PSY245(P) or PSY332(p))]", "Corequisites": ""}}
+{"PSY352": {"Prerequisites": "(PSY222 or PSY248) and PSY236", "Corequisites": ""}}
+{"PSY353": {"Prerequisites": "39cp", "Corequisites": ""}}
+{"PSY354": {"Prerequisites": "39cp including (BIOL246 or BIOL247 or BIOL257 or PSY236 or (BBE100 and BBE101))", "Corequisites": ""}}
+{"PSY399": {"Prerequisites": "[PSY234 and PSY235 and PSY236 and PSY246 and PSY247 and PSY248] or [(6cp from PSY234 or PSY235 or PSY236 or PSY246 or PSY247 or PSY248) and (admission to BA or BSc)]", "Corequisites": "3cp in PSY units at 300 level"}}
+{"PSY418": {"Prerequisites": "", "Corequisites": "PSY490 or PSY495"}}
+{"PSY432": {"Prerequisites": "", "Corequisites": "PSY490 or PSY495"}}
+{"PSY434": {"Prerequisites": "", "Corequisites": "PSY490 or PSY495"}}
+{"PSY435": {"Prerequisites": "", "Corequisites": "PSY490 or PSY495"}}
+{"PSY436": {"Prerequisites": "", "Corequisites": "PSY490 or PSY495"}}
+{"PSY437": {"Prerequisites": "", "Corequisites": "PSY490 or PSY495"}}
+{"PSY438": {"Prerequisites": "", "Corequisites": "PSY490 or PSY495"}}
+{"PSY440": {"Prerequisites": "", "Corequisites": "PSY490 or PSY495"}}
+{"PSY441": {"Prerequisites": "", "Corequisites": "PSY490 or PSY495"}}
+{"PSY460": {"Prerequisites": "", "Corequisites": "PSY490 or PSY495"}}
+{"PSY461": {"Prerequisites": "", "Corequisites": "PSY490 or PSY495"}}
+{"PSY462": {"Prerequisites": "", "Corequisites": "PSY490 or PSY495"}}
+{"PSY463": {"Prerequisites": "", "Corequisites": "PSY490 or PSY495"}}
+{"PSY464": {"Prerequisites": "", "Corequisites": "PSY490 or PSY495\t"}}
+{"PSY465": {"Prerequisites": "", "Corequisites": "PSY490 or PSY495"}}
+{"PSY466": {"Prerequisites": "", "Corequisites": "PSY490 or PSY495"}}
+{"PSY468": {"Prerequisites": "", "Corequisites": "PSY490 or PSY495"}}
+{"PSY471": {"Prerequisites": "", "Corequisites": "PSY490 or PSY495"}}
+{"PSYC104": {"Prerequisites": "[Admission to BPsych(Hons) or BA-Psych or BA-PsychBEd(Prim) or BA-PsychBHlth or BA-PsychLLB or BBABA-Psych or BBABPsych(Hons) or BComBA-Psych or BComBPsych(Hons) or BPsych(Hons)BHlth or BPsych(Hons)LLB or BSc-Psych or BHlth or BHumanSc or BSpHearingSc or BSpHLSc or BMedSci or GDipSphComm] or [an equivalent admission rank (or aggregate)] or [for all continuing students 12cp and a GPA of 2.0] or PSY105(P) or PSYC105", "Corequisites": ""}}
+{"PSYC105": {"Prerequisites": "[Admission to BPsych(Hons) or BA-Psych or BA-PsychBEd(Prim) or BA-PsychBHlth or BA-PsychLLB or BBABA-Psych or BBABPsych(Hons) or BComBA-Psych or BComBPsych(Hons) or BPsych(Hons)BHlth or BPsych(Hons)LLB or BSc-Psych or BHlth or BHumanSc or BSpHearingSc or BSpHLSc or BMedSci or GDipSphComm] or [an equivalent admission rank (or aggregate)] or [for all continuing students 12cp and a GPA of 2.0] or PSY104(P) or PSYC104", "Corequisites": ""}}
+{"PSYC332": {"Prerequisites": "PSY248 and (PSY234 or PSY246)", "Corequisites": ""}}
+{"RSN105": {"Prerequisites": "", "Corequisites": ""}}
+{"RSN140": {"Prerequisites": "GPA of 2.5 and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"RSN150": {"Prerequisites": "", "Corequisites": ""}}
+{"RSN155": {"Prerequisites": "RSN150", "Corequisites": ""}}
+{"RSN160": {"Prerequisites": "RSN155", "Corequisites": ""}}
+{"RSN240": {"Prerequisites": "GPA of 2.5 and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"RSN250": {"Prerequisites": "RSN155 or HSC Russian", "Corequisites": ""}}
+{"RSN255": {"Prerequisites": "RSN122 or RSN250", "Corequisites": ""}}
+{"RSN280": {"Prerequisites": "12cp", "Corequisites": ""}}
+{"RSN290": {"Prerequisites": "RSN250", "Corequisites": ""}}
+{"RSN305": {"Prerequisites": "39cp", "Corequisites": ""}}
+{"RSN325": {"Prerequisites": "39cp", "Corequisites": ""}}
+{"RSN340": {"Prerequisites": "GPA of 2.5 and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"RSN350": {"Prerequisites": "6cp at 200 level including RSN255", "Corequisites": ""}}
+{"RSN355": {"Prerequisites": "RSN350", "Corequisites": ""}}
+{"RSN360": {"Prerequisites": "RSN355", "Corequisites": ""}}
+{"RSN365": {"Prerequisites": "RSN360", "Corequisites": ""}}
+{"RSN378": {"Prerequisites": "Permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"SCOM100": {"Prerequisites": "", "Corequisites": ""}}
+{"SCOM201": {"Prerequisites": "SCOM100 or 12cp", "Corequisites": ""}}
+{"SCOM300": {"Prerequisites": "39cp including (SCOM200 or SCOM201)", "Corequisites": ""}}
+{"SCOM301": {"Prerequisites": "SCOM300", "Corequisites": ""}}
+{"SOC175": {"Prerequisites": "", "Corequisites": ""}}
+{"SOC180": {"Prerequisites": "", "Corequisites": ""}}
+{"SOC182": {"Prerequisites": "", "Corequisites": ""}}
+{"SOC220": {"Prerequisites": "12cp", "Corequisites": ""}}
+{"SOC221": {"Prerequisites": "12cp", "Corequisites": ""}}
+{"SOC222": {"Prerequisites": "12cp", "Corequisites": ""}}
+{"SOC223": {"Prerequisites": "12cp", "Corequisites": ""}}
+{"SOC224": {"Prerequisites": "12cp", "Corequisites": ""}}
+{"SOC225": {"Prerequisites": "12cp", "Corequisites": ""}}
+{"SOC226": {"Prerequisites": "12cp", "Corequisites": ""}}
+{"SOC254": {"Prerequisites": "12cp", "Corequisites": ""}}
+{"SOC279": {"Prerequisites": "12cp", "Corequisites": ""}}
+{"SOC295": {"Prerequisites": "12cp", "Corequisites": ""}}
+{"SOC297": {"Prerequisites": "12cp", "Corequisites": ""}}
+{"SOC298": {"Prerequisites": "12cp", "Corequisites": ""}}
+{"SOC301": {"Prerequisites": "39cp and SOC224 or SOC234 or SSC200 or SOC350", "Corequisites": ""}}
+{"SOC302": {"Prerequisites": "39cp", "Corequisites": ""}}
+{"SOC311": {"Prerequisites": "39cp", "Corequisites": ""}}
+{"SOC315": {"Prerequisites": "39cp or admission to GDipArts\n", "Corequisites": ""}}
+{"SOC316": {"Prerequisites": "39cp", "Corequisites": ""}}
+{"SOC317": {"Prerequisites": "39cp", "Corequisites": ""}}
+{"SOC320": {"Prerequisites": "39cp", "Corequisites": ""}}
+{"SOC322": {"Prerequisites": "39cp", "Corequisites": ""}}
+{"SOC325": {"Prerequisites": "39cp including 12cp in SOC units", "Corequisites": ""}}
+{"SOC329": {"Prerequisites": "39cp", "Corequisites": ""}}
+{"SOC341": {"Prerequisites": "39cp", "Corequisites": ""}}
+{"SOC346": {"Prerequisites": "39cp", "Corequisites": ""}}
+{"SOC350": {"Prerequisites": "39cp or admission to GDipArts", "Corequisites": ""}}
+{"SOC352": {"Prerequisites": "39cp or admission to GDipArts", "Corequisites": "SOC350 or SOC390"}}
+{"SPED101": {"Prerequisites": "", "Corequisites": ""}}
+{"SPED102": {"Prerequisites": "", "Corequisites": ""}}
+{"SPED301": {"Prerequisites": "39cp", "Corequisites": ""}}
+{"SPH308": {"Prerequisites": "6cp in LING units at 200 level including (LING210(P) or LING217(P)) or admission to GDipSphComm", "Corequisites": ""}}
+{"SPH309": {"Prerequisites": "6cp in LING units at 200 level including (LING210(P) or LING217(P))", "Corequisites": ""}}
+{"SPH310": {"Prerequisites": "6cp in LING units at 200 level including (LING210(P) or LING217(P)) or admission to GDipSphComm", "Corequisites": ""}}
+{"SPH311": {"Prerequisites": "39cp or admission to GDipSphComm", "Corequisites": ""}}
+{"SPH312": {"Prerequisites": "", "Corequisites": "6cp in LING units at 200 level including (LING210(P) or LING217(P))"}}
+{"SPH399": {"Prerequisites": "6cp in LING units at 200 level including (LING210(P) or LING217(P))", "Corequisites": "6cp in SPH units at 300 level"}}
+{"SPN101": {"Prerequisites": "", "Corequisites": ""}}
+{"SPN102": {"Prerequisites": "SPN101", "Corequisites": ""}}
+{"SPN103": {"Prerequisites": "SPN102", "Corequisites": ""}}
+{"SPN120": {"Prerequisites": "GPA of 2.5 and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"SPN201": {"Prerequisites": "SPN103 or SPN120 or HSC Spanish extension or continuers band 4 Spanish or above", "Corequisites": ""}}
+{"SPN202": {"Prerequisites": "SPN201", "Corequisites": ""}}
+{"SPN210": {"Prerequisites": "SPN201", "Corequisites": ""}}
+{"SPN220": {"Prerequisites": "GPA of 2.5 and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"SPN300": {"Prerequisites": "Permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"SPN301": {"Prerequisites": "6cp at 200 level including (SPN202 or SPN210)", "Corequisites": ""}}
+{"SPN302": {"Prerequisites": "SPN301", "Corequisites": ""}}
+{"SPN303": {"Prerequisites": "SPN302", "Corequisites": ""}}
+{"SPN304": {"Prerequisites": "SPN303", "Corequisites": ""}}
+{"SPN315": {"Prerequisites": "6cp at 200 level including SPN202", "Corequisites": ""}}
+{"SPN320": {"Prerequisites": "GPA of 2.5 and permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"SPN325": {"Prerequisites": "SPN301", "Corequisites": ""}}
+{"SSC100": {"Prerequisites": "", "Corequisites": ""}}
+{"SSC200": {"Prerequisites": "SSC100 and SOC224 and admission to BSocSc", "Corequisites": ""}}
+{"SSC300": {"Prerequisites": "30cp including (SOC224 and SSC200) and admission to BSocSc", "Corequisites": ""}}
+{"STAE170": {"Prerequisites": "Admission to GCertSc", "Corequisites": ""}}
+{"STAE270": {"Prerequisites": "Admission to GCertSc", "Corequisites": ""}}
+{"STAE273": {"Prerequisites": "Admission to GCertSc", "Corequisites": ""}}
+{"STAT170": {"Prerequisites": "", "Corequisites": ""}}
+{"STAT171": {"Prerequisites": "HSC Mathematics extension 1 or (3cp from MATH130-MATH136(P)) or admission to BActStud", "Corequisites": ""}}
+{"STAT175": {"Prerequisites": "", "Corequisites": ""}}
+{"STAT270": {"Prerequisites": "[(STAT170(P) or STAT171(P)) and (STAT175(P) or GPA of 1.5)] or admission to GCertSc", "Corequisites": ""}}
+{"STAT271": {"Prerequisites": "STAT272(P)", "Corequisites": ""}}
+{"STAT272": {"Prerequisites": "STAT171(P) and\n(MATH133(P) or MATH136(P))", "Corequisites": ""}}
+{"STAT273": {"Prerequisites": "[(STAT170(P) or STAT171(P)) and (HSC Mathematics or 3cp from MATH123-MATH339) and (STAT175(P) or GPA of 1.5)] or admission to GCertSc", "Corequisites": ""}}
+{"STAT278": {"Prerequisites": "[(STAT170(P) or STAT171(P)) and (STAT175(P) or GPA of 1.5) and (ACST151(P) or ACST152(P) or 3cp(P) from COMP or ISYS units at 100 level)] or admission to GCertSc", "Corequisites": ""}}
+{"STAT279": {"Prerequisites": "STAT170(P) or STAT171(P) or admission to GCertSc", "Corequisites": ""}}
+{"STAT302": {"Prerequisites": "39cp including (STAT270(P) or STAT271(P) or BIOL235(P) or PSY222(P) or PSY248(P))", "Corequisites": ""}}
+{"STAT306": {"Prerequisites": "39cp including (STAT272(P) or STAT273(P))", "Corequisites": ""}}
+{"STAT321": {"Prerequisites": "", "Corequisites": "STAT379"}}
+{"STAT328": {"Prerequisites": "39cp including (STAT270(P) or STAT271(P) or BIOL235(P) or PSY222(P) or PSY248(P))", "Corequisites": ""}}
+{"STAT373": {"Prerequisites": "39cp including (STAT270(P) or STAT271(P) or BIOL235(P) or PSY222(P) or PSY248(P))", "Corequisites": ""}}
+{"STAT375": {"Prerequisites": "39cp including (STAT270(P) or STAT271(P) or BIOL235(P) or PSY222(P) or PSY248(P))", "Corequisites": ""}}
+{"STAT378": {"Prerequisites": "39cp including (STAT272(P) or STAT273(P) or STAT278(P))", "Corequisites": ""}}
+{"STAT379": {"Prerequisites": "39cp including STAT279(P)", "Corequisites": ""}}
+{"STAT395": {"Prerequisites": "39cp including (STAT270(P) or STAT271(P) or BIOL235(P) or PSY222(P) or PSY248(P))", "Corequisites": ""}}
+{"STAT399": {"Prerequisites": "STAT375", "Corequisites": ""}}
+{"STAT402": {"Prerequisites": "39cp including (STAT272(P) or STAT306(P) or STAT371(P))", "Corequisites": ""}}
+{"STAT411": {"Prerequisites": "39cp including (STAT272(P) or STAT306(P) or STAT371(P))", "Corequisites": ""}}
+{"TEP244": {"Prerequisites": "6cp in EDUC units", "Corequisites": ""}}
+{"TEP248": {"Prerequisites": "EDUC107 or (EDUC105 and EDUC106)", "Corequisites": "EDUC262 or EDUC264 or admission to BEd(Prim) or BEd(Sec)"}}
+{"TEP387": {"Prerequisites": "(39cp including (EDUC105 and EDUC106)) or (admission to BEd(Sec) or GDipEd)", "Corequisites": ""}}
+{"TEP388": {"Prerequisites": "TEP282(P) or TEP387(P)", "Corequisites": ""}}
+{"TEP395": {"Prerequisites": "60cp or admission to GDipEd", "Corequisites": ""}}
+{"TEP401": {"Prerequisites": "TEP283(P) or TEP295(P) or TEP388(P) or enrolment in TEP395", "Corequisites": "3cp from TEP421-TEP433"}}
+{"TEP402": {"Prerequisites": "TEP401(S) or TEP414(S)", "Corequisites": "3cp from TEP422-TEP434"}}
+{"TEP421": {"Prerequisites": "TEP283(P) or TEP295(P) or TEP388(P) or enrolment in TEP395", "Corequisites": "TEP401"}}
+{"TEP422": {"Prerequisites": "TEP421(P) and (TEP401(S) or TEP414(S))", "Corequisites": "TEP402"}}
+{"TEP423": {"Prerequisites": "TEP283(P) or TEP295(P) or TEP388(P) or enrolment in TEP395", "Corequisites": "TEP401"}}
+{"TEP424": {"Prerequisites": "TEP423(P) and (TEP401(S) or TEP414(S))", "Corequisites": "TEP402"}}
+{"TEP425": {"Prerequisites": "TEP283(P) or TEP295(P) or TEP388(P) or enrolment in TEP395", "Corequisites": "TEP401"}}
+{"TEP426": {"Prerequisites": "TEP425(P) and (TEP401(S) or TEP414(S))", "Corequisites": "TEP402"}}
+{"TEP427": {"Prerequisites": "TEP283(P) or TEP295(P) or TEP388(P) or enrolment in TEP395", "Corequisites": "TEP401"}}
+{"TEP428": {"Prerequisites": "TEP427(P) and (TEP401(S) or TEP414(S))", "Corequisites": "TEP402"}}
+{"TEP429": {"Prerequisites": "(EDUC258 and TEP388) or enrolment in TEP395", "Corequisites": "TEP401"}}
+{"TEP430": {"Prerequisites": "TEP429(P) and (TEP401(S) or TEP414(S))", "Corequisites": "TEP402"}}
+{"TEP431": {"Prerequisites": "TEP283(P) or TEP295(P) or TEP388(P) or enrolment in TEP395", "Corequisites": "TEP401"}}
+{"TEP432": {"Prerequisites": "TEP431(P) and (TEP401(S) or TEP414(S))", "Corequisites": "TEP402 or (TEP404 and EDTE456)"}}
+{"TEP433": {"Prerequisites": "TEP283(P) or TEP295(P) or TEP388(P) or enrolment in TEP395", "Corequisites": "TEP401"}}
+{"TEP434": {"Prerequisites": "TEP433(P) and (TEP401(S) or TEP414(S))", "Corequisites": "TEP402"}}
+{"TEP440": {"Prerequisites": "3cp from TEP421(P)-TEP433(P) or EDTE410", "Corequisites": "TEP402"}}
+{"TEP441": {"Prerequisites": "TEP283(P) or TEP295(P) or TEP388(P) or enrolment in TEP395", "Corequisites": "TEP401"}}
+{"TEP442": {"Prerequisites": "(6cp in LING units including 3cp at 200 level) or admission to GDipEd or BEd(Prim) or BEd(Sec)", "Corequisites": "TEP402 or EDTE404"}}
