@@ -1,0 +1,36 @@
+{"COMP111": {"Prerequisites": "", "Corequisites": ""}}
+{"COMP115": {"Prerequisites": "", "Corequisites": ""}}
+{"COMP125": {"Prerequisites": "COMP115(P) or COMP155(P) or [admission to (BCom-ActStud or BActStud or BAdvSc or Advanced Program BSc) or (an equivalent admission rank or aggregate)]", "Corequisites": ""}}
+{"COMP188": {"Prerequisites": "Admission to BAdvSc", "Corequisites": ""}}
+{"COMP202": {"Prerequisites": "COMP125", "Corequisites": ""}}
+{"COMP225": {"Prerequisites": "(COMP125(P) or COMP165(P)) and (3cp(P) from MATH132-MATH136 or DMTH137)", "Corequisites": ""}}
+{"COMP226": {"Prerequisites": "COMP225(P) or COMP229(P) or COMP125(Cr)", "Corequisites": ""}}
+{"COMP229": {"Prerequisites": "COMP125(P) or COMP165(P)", "Corequisites": ""}}
+{"COMP233": {"Prerequisites": "18cp including (COMP115(P) or COMP155(P))", "Corequisites": ""}}
+{"COMP247": {"Prerequisites": "3cp(P) from COMP or ISYS units at 100 level", "Corequisites": ""}}
+{"COMP249": {"Prerequisites": "(COMP115(P) or COMP155(P)) and (ISYS114(P) or ISYS154(P))", "Corequisites": ""}}
+{"COMP255": {"Prerequisites": "18cp including (COMP115(P) or COMP155(P))", "Corequisites": ""}}
+{"COMP260": {"Prerequisites": "COMP115 and (COMP111 or INFO111 or MAS111)", "Corequisites": ""}}
+{"COMP329": {"Prerequisites": "39cp and COMP125(P) or COMP249(P)", "Corequisites": ""}}
+{"COMP330": {"Prerequisites": "39cp and (COMP225(P) or COMP229(P)) and (DMTH137(P) or MATH237(P) or DMTH237(P))", "Corequisites": ""}}
+{"COMP332": {"Prerequisites": "39cp and (COMP225(P) or COMP229(P))", "Corequisites": ""}}
+{"COMP333": {"Prerequisites": "39cp and COMP225(P) and (DMTH237(P) or MATH237(P))", "Corequisites": ""}}
+{"COMP334": {"Prerequisites": "39cp and COMP226(P) and (COMP225(P) or COMP229(P))", "Corequisites": ""}}
+{"COMP343": {"Prerequisites": "39cp and (COMP125(P) or COMP165(P)) and (DMTH137(P) or MATH237(P) or DMTH237(P))", "Corequisites": ""}}
+{"COMP344": {"Prerequisites": "39cp and (COMP224(P) or ISYS224(P)) and COMP249(P)", "Corequisites": ""}}
+{"COMP347": {"Prerequisites": "39cp and COMP247(P) and COMP125(P) and (MATH237(P) or DMTH237(P) or DMTH137(P) or ELEC240(P))", "Corequisites": ""}}
+{"COMP348": {"Prerequisites": "39cp and COMP249(P)", "Corequisites": ""}}
+{"COMP350": {"Prerequisites": "Permission of Executive Dean of Faculty", "Corequisites": ""}}
+{"COMP352": {"Prerequisites": "39cp and COMP260 and MECO319", "Corequisites": "COMP330 or MECO329"}}
+{"COMP355": {"Prerequisites": "39cp including ((COMP225(P) or COMP229(P)) and (COMP255(P) or COMP227(P) or ISYS227(P)))", "Corequisites": "9cp from (COMP323(P) or COMP329(P) or COMP330(P) or COMP332(P) or COMP333(P) or COMP341(P) or COMP342(P) or COMP343(P) or COMP344(P) or COMP347(P) or COMP348(P) or COMP349(P) or COMP350(P) or ISYS326(P))"}}
+{"COMP365": {"Prerequisites": "39cp and COMP225(P) and (COMP227(P) or COMP255(P) or ISYS227(P)) and (admission to BCS or BBABCIS or BBABIT or BITLLB)", "Corequisites": ""}}
+{"COMP388": {"Prerequisites": "39cp and COMP188 and admission to BAdvSc and GPA of 2.75", "Corequisites": ""}}
+
+
+18cp including (COMP115(P) or COMP155(P))
+
+3cp(P) from COMP or ISYS units at 100 level
+
+39cp and COMP125(P) or COMP249(P)
+
+39cp including ((COMP225(P) or COMP229(P)) and (COMP255(P) or COMP227(P) or ISYS227(P)))
