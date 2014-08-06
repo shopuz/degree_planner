@@ -27,7 +27,7 @@
 {"COMP388": {"Prerequisites": "39cp and COMP188 and admission to BAdvSc and GPA of 2.75", "Corequisites": ""}}
 
 
-18cp including (COMP115(P) or COMP155(P))
+18cp including (COMP115 or COMP155)
 
 3cp(P) from COMP or ISYS units at 100 level
 
