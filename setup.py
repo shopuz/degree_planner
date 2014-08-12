@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 def readme():
 	with open('README.md') as f:
@@ -8,7 +8,7 @@ def readme():
 setup(	name='degree_planner',
 		version='0.1',
 		description="A tool to plan and check degree for university students",
-		long_descrioption=readme(),
+		long_description=readme(),
 		url='https://github.com/shopuz/degree_planner',
 		maintainer='',
 		maintainer_email='',
@@ -19,5 +19,7 @@ setup(	name='degree_planner',
 		install_requires=[
 			'pyparsing'
 		],
+		test_suite='nose.collector',
+    	tests_require=['nose'],
 		include_package_data=True,
 		zip_safe=False)
