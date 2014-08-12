@@ -89,7 +89,6 @@ class ParseTestCase(unittest.TestCase):
 		self.assertFalse(pp.evaluate_prerequisite(pre_req_tree, student_units))
 
 		student_units = ['COMP115', 'MATH132']
-		pre_req_tree = ['AND', ['OR', 'COMP115', 'COMP125'], 'MATH132']
 		self.assertTrue(pp.evaluate_prerequisite(pre_req_tree, student_units))		
 
 if __name__ == "__main__":
