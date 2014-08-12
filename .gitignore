@@ -1,2 +1,7 @@
 .DS_Store
 *.pyc
+bool_parser.py
+imp_parser_bak.py
+prereq_parser_BAK.py
+prerequisite_parser_BAK.py
+scratch.txt

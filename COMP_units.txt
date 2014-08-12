@@ -27,10 +27,71 @@
 {"COMP388": {"Prerequisites": "39cp and COMP188 and admission to BAdvSc and GPA of 2.75", "Corequisites": ""}}
 
 
-18cp including (COMP115 or COMP155)
+Analysis
+==========
+18cp including (COMP115 or COMP155) => 18cp and (COMP115 or COMP155)
 
-3cp(P) from COMP or ISYS units at 100 level
+3cp from COMP or ISYS units at 100 level
 
-39cp and COMP125(P) or COMP249(P)
 
-39cp including ((COMP225(P) or COMP229(P)) and (COMP255(P) or COMP227(P) or ISYS227(P)))
+
+39cp and COMP125 or COMP249
+
+39cp including ((COMP225 or COMP229) and (COMP255 or COMP227 or ISYS227)) => 39cp and ((COMP225 or COMP229) and (COMP255 or COMP227 or ISYS227)) 
+
+Modules Required
+==================
+1. Module 1
+Break down the student units to Unit_Code (COMP) and Unit_Number (125).
+For each unit in Student_Units, count the cp for each Unit_Code and Level.
+Eg: { Unit_code: COMP, Level: 200, Total_CP : 6 }
+
+student_units = [ 'COMP115', 'COMP165', 'MATH132', 'DMTH137', 'MATH134', 'MATH135', 'MATH136']
+RESULT = {
+			'100' :{
+				'COMP' : 6,
+				'MATH': 12,
+				'DMTH' : 3
+			},
+
+		}
+
+Other Units Except Computing
+============================
+6cp in AHIS units at 200 level
+cp = 6
+level = 200
+unit_code = AHIS
+Find AHIS units in Student Units, see if it is 200 level, count the number and calculate the cp.
+
+
+
+3cp in ACST or AFIN units at 300 level
+Calculate the total cp in ACST and AFIN units at 300 level and check if its > 3
+
+
+
+39cp including 21cp in AHIS or AHST units
+=> 39cp and 21cp in AHIS or AHST units
+total_cp_required = 39
+{
+	total_cp_required = 21
+	units = AHIS or AHST
+}
+
+
+
+
+9cp from ANTH units including 3cp from ANTH units at 300 level
+
+
+6cp in ACCG or ACST or AFIN or ECON or FOBE or MGMT or MKTG units at 200 level
+6cp in BBE or BIOL or ENV or ENVE or ENVG or GEOS units
+ECON110 and ECON111 and 6cp at 200 level in units offered by the Faculty of Business and Economics
+3cp from ENVE or ENVG or ENV units at 300-level
+6cp in LAW or LAWS units including LAW115 
+6cp in LING units at 200 level including (LING211(P) or LING218(P)) 
+
+
+
+
