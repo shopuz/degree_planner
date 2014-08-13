@@ -115,12 +115,22 @@ class Evaluate_Prerequisite():
 		return total_cp_gained
 
 	def evaluate_from(self, pre_req_tree, student_units):
+		"""
+			Evaluate statements containing 'from'
+			Eg: 9cp from (ACCG355 or ACCG358 or ISYS301 or ISYS302 or ISYS360 or MPCE360)
+		"""
 		# TOdo : find the level (undergrad/postgrad) from student_units
 		level = "undergraduate"
+		# Flatten the deeply nested list into a single top level list
+		# [[[[['ACCG355', 'or', 'ACCG358'], 'or', 'ISYS301'], 'or', 'ISYS302'], 'or', 'ISYS360'], 'or', 'MPCE360'] 
+		# into ['ACCG355', 'or', 'ACCG358', 'or', 'ISYS301', 'or', 'ISYS302', 'or', 'ISYS360', 'or', 'MPCE360']
 		pre_req_units = flatten(pre_req_tree)
+		# Get the common units from student units and prereq_units so that 
+		# total cp from prereq_units can be calculated
 		common_units = list(set(pre_req_units).intersection(set(student_units)))
 		total_cp_gained = len(common_units) * self.cp_rule[level]
 
+		# Find the required cp from pre_req_tree
 		for item in pre_req_tree:
 		    if 'cp' in item:
 		        required_cp = int(self.ncp.parseString(item)[0])
@@ -142,7 +152,7 @@ class Evaluate_Prerequisite():
 			else:
 				if 'cp' in pre_req_tree:
 					cp = int(self.ncp.parseString(pre_req_tree)[0])
-					if cp <= self.total_cp(student_units):
+					if self.total_cp(student_units) >= cp:
 						return True
 
 				return False
