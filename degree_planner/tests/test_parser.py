@@ -14,7 +14,8 @@ class ParseTestCase(unittest.TestCase):
 			'(COMP125 or COMP165) and (DMTH137 or MATH237 or DMTH237)' 	: [['COMP125', 'or', 'COMP165'], 'and', [['DMTH137', 'or', 'MATH237'], 'or', 'DMTH237']],
 			'COMP247 and COMP125 and (MATH237 or DMTH237 or DMTH137 or ELEC240)' : [['COMP247', 'and', 'COMP125'],'and', [[['MATH237', 'or', 'DMTH237'], 'or', 'DMTH137'], 'or', 'ELEC240']],
 			# Some advanced structures
-			'18cp including (COMP115 or COMP155)'						: ['18cp', 'including', ['COMP115', 'or', 'COMP155']]
+			'18cp including (COMP115 or COMP155)'						: ['18cp', 'including', ['COMP115', 'or', 'COMP155']],
+			'39cp including ((COMP225 or COMP229) and (COMP255 or COMP227 or ISYS227))': ['39cp', 'including', [['COMP225', 'or', 'COMP229'], 'and', [['COMP255', 'or', 'COMP227'], 'or', 'ISYS227']]]
 			}
 
 		for pre_req in test_samples.keys():
@@ -53,6 +54,11 @@ class ParseTestCase(unittest.TestCase):
 		# Fourth Student Units
 		student_units = ['COMP125', 'COMP115', 'COMP165', 'MAS111', 'INFO111', 'DMTH237']
 		pre_req_tree = ['18cp', 'including', ['COMP115', 'or', 'COMP155']]
+		self.assertTrue(ev.evaluate_prerequisite(pre_req_tree, student_units))
+
+		# Fifth Student Units
+		student_units = ['COMP125', 'COMP115', 'COMP165', 'MAS111', 'INFO111', 'DMTH237', 'COMP225', 'COMP227', 'ISYS100', 'ISYS104', 'ISYS114', 'ISYS224', 'ISYS254']
+		pre_req_tree = ['39cp', 'including', [['COMP225', 'or', 'COMP229'], 'and', [['COMP255', 'or', 'COMP227'], 'or', 'ISYS227']]]
 		self.assertTrue(ev.evaluate_prerequisite(pre_req_tree, student_units))
 
 #if __name__ == '__main__':
