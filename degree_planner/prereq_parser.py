@@ -1,5 +1,7 @@
-from pyparsing import *
 import re
+from pyparsing import *
+from compiler.ast import flatten
+
 
 class Prereq_Parser():
 	def __init__(self):
@@ -27,11 +29,16 @@ class Prereq_Parser():
 			return result[0]
 			
 		else:
-			split_list = re.split(" including | from ", prereq)
+			if 'including' in prereq:
+				keyword = 'including'
+			elif 'from' in prereq:
+				keyword = 'from'
+
+			split_list = re.split(' ' + keyword + ' ', prereq)
 
 			result = ParseResults([])
 			result  += ParseResults(self.parse_string(split_list[0]))
-			result += ParseResults(['including'])
+			result += ParseResults([keyword])
 
 			split_list = split_list[1:]
 			
@@ -107,6 +114,23 @@ class Evaluate_Prerequisite():
 		total_cp_gained = len(student_units) * self.cp_rule[level]
 		return total_cp_gained
 
+	def evaluate_from(self, pre_req_tree, student_units):
+		# TOdo : find the level (undergrad/postgrad) from student_units
+		level = "undergraduate"
+		pre_req_units = flatten(pre_req_tree)
+		common_units = list(set(pre_req_units).intersection(set(student_units)))
+		total_cp_gained = len(common_units) * self.cp_rule[level]
+
+		for item in pre_req_tree:
+		    if 'cp' in item:
+		        required_cp = int(self.ncp.parseString(item)[0])
+
+		if total_cp_gained >= required_cp:
+			return True
+		else:
+			return False
+
+
 	def evaluate_prerequisite(self, pre_req_tree, student_units ):
 		""" 
 			['COMP125', 'or', 'COMP165'] 
@@ -118,11 +142,15 @@ class Evaluate_Prerequisite():
 			else:
 				if 'cp' in pre_req_tree:
 					cp = int(self.ncp.parseString(pre_req_tree)[0])
-					if cp == self.total_cp(student_units):
+					if cp <= self.total_cp(student_units):
 						return True
 
 				return False
 		elif isinstance(pre_req_tree, list):
+			
+			if 'from' in pre_req_tree:
+				return self.evaluate_from(pre_req_tree, student_units)
+
 			# do recursive call
 			if pre_req_tree[1] == 'or':
 				temp = str(self.evaluate_prerequisite(pre_req_tree[0], student_units) or self.evaluate_prerequisite(pre_req_tree[2], student_units))

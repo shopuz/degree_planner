@@ -15,7 +15,10 @@ class ParseTestCase(unittest.TestCase):
 			'COMP247 and COMP125 and (MATH237 or DMTH237 or DMTH137 or ELEC240)' : [['COMP247', 'and', 'COMP125'],'and', [[['MATH237', 'or', 'DMTH237'], 'or', 'DMTH137'], 'or', 'ELEC240']],
 			# Some advanced structures
 			'18cp including (COMP115 or COMP155)'						: ['18cp', 'including', ['COMP115', 'or', 'COMP155']],
-			'39cp including ((COMP225 or COMP229) and (COMP255 or COMP227 or ISYS227))': ['39cp', 'including', [['COMP225', 'or', 'COMP229'], 'and', [['COMP255', 'or', 'COMP227'], 'or', 'ISYS227']]]
+			'39cp including ((COMP225 or COMP229) and (COMP255 or COMP227 or ISYS227))': ['39cp', 'including', [['COMP225', 'or', 'COMP229'], 'and', [['COMP255', 'or', 'COMP227'], 'or', 'ISYS227']]],
+
+			# keyword : from
+			'9cp from (ACCG355 or ACCG358 or ISYS301 or ISYS302 or ISYS360 or MPCE360)' : ['9cp', 'from', [[[[['ACCG355', 'or', 'ACCG358'], 'or', 'ISYS301'], 'or', 'ISYS302'], 'or', 'ISYS360'], 'or', 'MPCE360']]
 			}
 
 		for pre_req in test_samples.keys():
@@ -57,9 +60,15 @@ class ParseTestCase(unittest.TestCase):
 		self.assertTrue(ev.evaluate_prerequisite(pre_req_tree, student_units))
 
 		# Fifth Student Units
-		student_units = ['COMP125', 'COMP115', 'COMP165', 'MAS111', 'INFO111', 'DMTH237', 'COMP225', 'COMP227', 'ISYS100', 'ISYS104', 'ISYS114', 'ISYS224', 'ISYS254']
+		student_units = ['COMP125', 'COMP115', 'COMP165', 'MAS111', 'INFO111', 'DMTH237', 'COMP225', 'COMP227', 'ISYS100', 'ISYS104', 'ISYS114', 'ISYS224', 'ISYS254', 'ISYS301', 'MPCE360']
 		pre_req_tree = ['39cp', 'including', [['COMP225', 'or', 'COMP229'], 'and', [['COMP255', 'or', 'COMP227'], 'or', 'ISYS227']]]
 		self.assertTrue(ev.evaluate_prerequisite(pre_req_tree, student_units))
 
+		pre_req_tree = ['9cp', 'from', [[[[['ACCG355', 'or', 'ACCG358'], 'or', 'ISYS301'], 'or', 'ISYS302'], 'or', 'ISYS360'], 'or', 'MPCE360']]
+		self.assertFalse(ev.evaluate_prerequisite(pre_req_tree, student_units))
+
+		# Sixth Student units
+		student_units = ['COMP125', 'COMP115', 'COMP165', 'MAS111', 'INFO111', 'DMTH237', 'COMP225', 'ACCG355', 'ISYS100', 'ISYS104', 'ISYS114', 'ISYS224', 'ISYS254', 'ISYS301', 'MPCE360']
+		self.assertTrue(ev.evaluate_prerequisite(pre_req_tree, student_units))
 #if __name__ == '__main__':
 #	unittest.main(verbosity=2)
