@@ -1,21 +1,50 @@
 from pyparsing import *
+import re
 
 class Prereq_Parser():
 	def __init__(self):
 		self.atomic = Word(alphanums)
-		self.expr = operatorPrecedence(self.atomic, [
+		self.obr = oneOf('[(')
+		self.cbr = oneOf(')]')
+		self.complex = (self.atomic + self.obr + self.cbr)
+		self.complex_expr = OneOrMore(self.complex)
+		self.simple_expr = operatorPrecedence(self.atomic, [
 									("and", 2, opAssoc.LEFT, self.expandChainedExpr),
 									("or", 2, opAssoc.LEFT, self.expandChainedExpr ),
 								])
-		self.parsed_list = None
+
+		self.complex_keywords = ['from', 'including', '-']
+		#self.parsed_list = None
 		
 	def parse_string(self, prereq=None):
 		""" Pyparsing module to tokenize the prerequisite with 'and' and 'or' logical operators
 			Parses the structure into a binary tree representation
 		"""
-		result =  self.expr.parseString(prereq).asList()
-		#result = self.arrange_operator(result[0])
-		return result[0]
+		if  self.prereq_check(prereq):
+
+			result =  self.simple_expr.parseString(prereq).asList()
+			#result = self.arrange_operator(result[0])
+			return result[0]
+			
+		else:
+			split_list = re.split(" including | from ", prereq)
+
+			result = ParseResults([])
+			result  += ParseResults(self.parse_string(split_list[0]))
+			result += ParseResults(['including'])
+
+			split_list = split_list[1:]
+			
+			for item in split_list:
+				result += ParseResults([self.parse_string(item)])
+				#result = self.complex_expr.parseString(prereq).asList()
+			return list(result)
+
+	def prereq_check(self, prereq):
+		for word in self.complex_keywords:
+			if word in prereq:
+				return False
+		return True
 
 	def expandChainedExpr(self, tokens):
 		"""
@@ -65,6 +94,19 @@ class Prereq_Parser():
 
 
 class Evaluate_Prerequisite():
+	def __init__(self):
+		self.cp_rule = {"undergraduate": 3, "postgraduate": 4}
+		word = Word(alphas)
+		num = Word(nums)
+ 		self.ncp = num + word
+		
+
+
+	# Calculate the total credit points obtained by the student based on his completed units
+	def total_cp(self, student_units, level="undergraduate"):
+		total_cp_gained = len(student_units) * self.cp_rule[level]
+		return total_cp_gained
+
 	def evaluate_prerequisite(self, pre_req_tree, student_units ):
 		""" 
 			['COMP125', 'or', 'COMP165'] 
@@ -74,13 +116,18 @@ class Evaluate_Prerequisite():
 			if pre_req_tree in student_units:
 				return True
 			else:
+				if 'cp' in pre_req_tree:
+					cp = int(self.ncp.parseString(pre_req_tree)[0])
+					if cp == self.total_cp(student_units):
+						return True
+
 				return False
 		elif isinstance(pre_req_tree, list):
 			# do recursive call
 			if pre_req_tree[1] == 'or':
 				temp = str(self.evaluate_prerequisite(pre_req_tree[0], student_units) or self.evaluate_prerequisite(pre_req_tree[2], student_units))
 				return eval(temp)
-			elif pre_req_tree[1] == 'and':
+			elif pre_req_tree[1] == 'and' or pre_req_tree[1] == 'including':
 				temp = str(self.evaluate_prerequisite(pre_req_tree[0], student_units) and self.evaluate_prerequisite(pre_req_tree[2], student_units))
 				print temp
 				return eval(temp)
@@ -88,4 +135,8 @@ class Evaluate_Prerequisite():
 
 if __name__ == '__main__':
 	pp = Prereq_Parser()
-	print pp.parse_string('COMP247 and COMP125 and (MATH237 or DMTH237 or DMTH137 or ELEC240)')
+	pre_req = '18cp including (COMP115 or COMP155)'
+	#pre_req = 'COMP125 or COMP165'
+	#pre_req = 'COMP225 or COMP229 or COMP125'
+
+	print pp.parse_string(pre_req)
