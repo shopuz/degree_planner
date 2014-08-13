@@ -24,15 +24,16 @@ class ParseTestCase(unittest.TestCase):
 
 	def test_evaluate_prereq(self):
 		pp = Prereq_Parser()
+		ev = Evaluate_Prerequisite()
 		pre_req_tree = ['COMP115', 'or', 'COMP125']
 		student_units = ['COMP125', 'COMP115', 'COMP165']
-		self.assertTrue(pp.evaluate_prerequisite(pre_req_tree, student_units))
+		self.assertTrue(ev.evaluate_prerequisite(pre_req_tree, student_units))
 
 		pre_req_tree = [['COMP225', 'or', 'COMP229'], 'or', 'COMP125']
-		self.assertTrue(pp.evaluate_prerequisite(pre_req_tree, student_units))
+		self.assertTrue(ev.evaluate_prerequisite(pre_req_tree, student_units))
 
 		student_units =['COMP115', 'and', [['COMP111' , 'or', 'INFO111'], 'or', 'MAS111']]
-		self.assertFalse(pp.evaluate_prerequisite(pre_req_tree, student_units))		
+		self.assertFalse(ev.evaluate_prerequisite(pre_req_tree, student_units))		
 
 if __name__ == '__main__':
 	unittest.main(verbosity=2)

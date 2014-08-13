@@ -63,6 +63,7 @@ class Prereq_Parser():
 		return parsed_list
 
 
+class Evaluate_Prerequisite():
 	def evaluate_prerequisite(self, pre_req_tree, student_units ):
 		""" 
 			['COMP125', 'or', 'COMP165'] 
