@@ -83,3 +83,8 @@ class Evaluate_Prerequisite():
 				temp = str(self.evaluate_prerequisite(pre_req_tree[0], student_units) and self.evaluate_prerequisite(pre_req_tree[2], student_units))
 				print temp
 				return eval(temp)
+
+
+if __name__ == '__main__':
+	pp = Prereq_Parser()
+	print pp.parse_string('(COMP125 or COMP165) and (DMTH137 or MATH237 or DMTH237)')
