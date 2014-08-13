@@ -42,6 +42,7 @@ class Prereq_Parser():
 		
 		return [ret]
 
+	# Not used for now but might require later
 	def arrange_operator(self, parsed_list):
 		"""
 		Input: 	Parsed List from pyparsing
@@ -87,4 +88,4 @@ class Evaluate_Prerequisite():
 
 if __name__ == '__main__':
 	pp = Prereq_Parser()
-	print pp.parse_string('(COMP125 or COMP165) and (DMTH137 or MATH237 or DMTH237)')
+	print pp.parse_string('COMP247 and COMP125 and (MATH237 or DMTH237 or DMTH137 or ELEC240)')
