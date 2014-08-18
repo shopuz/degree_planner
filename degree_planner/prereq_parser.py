@@ -5,6 +5,10 @@ from compiler.ast import flatten
 
 class Prereq_Parser():
 	def __init__(self):
+		self.word = Word(alphas)
+		self.nums = Word(nums)
+		self.wn = self.word + self.nums
+
 		self.atomic = Word(alphanums)
 		self.obr = oneOf('[(')
 		self.cbr = oneOf(')]')
@@ -17,11 +21,33 @@ class Prereq_Parser():
 
 		self.complex_keywords = ['from', 'including', '-']
 		#self.parsed_list = None
+
+	def parse_unit_range(self, unit_range):
+		"""
+		Return the list of units from within a given unit_range
+		Input: MATH132-MATH136
+		Output: "MATH132 or MATH133 or MATH134 or MATH135 or MATH136"
+
+		"""
+		unit_range_list = unit_range.split("-")
+		[unit_code, initial_unit_number] = self.wn.parseString(unit_range_list[0]).asList()
+		[unit_code, final_unit_number] = self.wn.parseString(unit_range_list[1]).asList()
+
+		result_string = unit_range_list[0] + " "
+		i = int(initial_unit_number) + 1
+		while i <= int(final_unit_number):
+			result_string += "or " + unit_code + str(i) + " "
+			i = i + 1
+
+
+		return result_string[:-1]
+
 		
 	def parse_string(self, prereq=None):
 		""" Pyparsing module to tokenize the prerequisite with 'and' and 'or' logical operators
 			Parses the structure into a binary tree representation
 		"""
+		
 		if  self.prereq_check(prereq):
 
 			result =  self.simple_expr.parseString(prereq).asList()
@@ -29,18 +55,35 @@ class Prereq_Parser():
 			return result[0]
 			
 		else:
-			if 'including' in prereq:
+			if '-' in prereq:
+				keyword = None
+				split_list = prereq.split(" ")
+
+				unit_range = [word for word in split_list if '-' in word][0]
+				# remove brackets [()] from unit_range
+				unit_range = re.sub(r"[\[()\]]", "", unit_range)
+
+				parsed_unit_range = self.parse_unit_range(unit_range)
+				prereq = prereq.replace(unit_range, parsed_unit_range)
+				
+				return self.parse_string(prereq)
+
+			elif 'including' in prereq:
 				keyword = 'including'
+				split_list = re.split(' ' + keyword + ' ', prereq)
 			elif 'from' in prereq:
 				keyword = 'from'
-
-			split_list = re.split(' ' + keyword + ' ', prereq)
+				split_list = re.split(' ' + keyword + ' ', prereq)
+			
+			
 
 			result = ParseResults([])
 			result  += ParseResults(self.parse_string(split_list[0]))
-			result += ParseResults([keyword])
+			if keyword:
+				result += ParseResults([keyword]) 
 
 			split_list = split_list[1:]
+			
 			
 			for item in split_list:
 				result += ParseResults([self.parse_string(item)])
@@ -173,8 +216,11 @@ class Evaluate_Prerequisite():
 
 if __name__ == '__main__':
 	pp = Prereq_Parser()
-	pre_req = '18cp including (COMP115 or COMP155)'
+	#pre_req = '18cp including (COMP115 or COMP155)'
 	#pre_req = 'COMP125 or COMP165'
 	#pre_req = 'COMP225 or COMP229 or COMP125'
+	#pre_req = '(COMP125 or COMP165 and (3cp from MATH132-MATH136 or DMTH137))'
+	pre_req = '3cp from (MATH132-MATH136 or DMTH137)'
+	#pre_req = '(MATH132 or MATH133 or MATH134 or MATH135 or MATH136) or DMTH137'
 
 	print pp.parse_string(pre_req)

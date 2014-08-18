@@ -46,7 +46,7 @@ class DegreePlanner:
 		outfile = open(filename, 'w')
 		for unit in units:
 			unit_code = unit['Code']
-			individual_unit_url = "http://api.prod.handbook.mq.edu.au/Unit/JSON/%s/2014/9f9ef28dea630ae6311cc730207b2b59" % unit_code
+			individual_unit_url = "http://api.prod.handbook.mq.edu.au/PGUnit/JSON/%s/2014/9f9ef28dea630ae6311cc730207b2b59" % unit_code
 			response = urllib.urlopen(individual_unit_url)
 			unit_info = json.loads(response.read())
 			#req_list.append({ unit_code: unit_info['Prerequisites'] })
@@ -112,15 +112,15 @@ if __name__ == "__main__":
 	#url = "http://api.prod.handbook.mq.edu.au/Degrees/JSON/2015/9f9ef28dea630ae6311cc730207b2b59"
 	#extract_degree_req(url, 'DegreeRequirement.txt')
 
-	#all_units_url = "http://api.prod.handbook.mq.edu.au/Units/JSON/2014/9f9ef28dea630ae6311cc730207b2b59"
-	#dp.extract_pre_corequisite(all_units_url, 'UnitsRequisites.txt')
-
-	specific_units = dp.extract_all_units_from_department("Department of Computing", 2014, 'undergraduate')
+	all_units_url = "http://api.prod.handbook.mq.edu.au/PGUnits/JSON/2014/9f9ef28dea630ae6311cc730207b2b59"
+	dp.extract_pre_corequisite(all_units_url, 'PGUnitsRequisites.txt')
+	'''
+	specific_units = dp.extract_all_units_from_department("Department of Computing", 2014, "undergraduate")
 	if len(specific_units) != 0:
 		print json.dumps(specific_units, indent=4)
 		print "Total Number of Units: ", len(specific_units)
 	else:
 		print "Error: Please check level of units (undergraduate, postgraduate, research, graduate, all)"
 
-
+	'''
 
