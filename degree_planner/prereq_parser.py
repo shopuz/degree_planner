@@ -2,6 +2,8 @@ import re
 from pyparsing import *
 from compiler.ast import flatten
 import time
+import urllib, json
+from extract import *
 
 class Prereq_Parser():
 	def __init__(self):
@@ -19,7 +21,7 @@ class Prereq_Parser():
 									("or", 2, opAssoc.LEFT, self.expandChainedExpr ),
 								])
 
-		self.complex_keywords = ['from', 'including', '-']
+		self.complex_keywords = ['from', 'including', '-', 'units']
 		#self.parsed_list = None
 
 	def parse_unit_range(self, unit_range):
@@ -42,7 +44,42 @@ class Prereq_Parser():
 
 		return result_string[:-1]
 
+	
+	def parse_unit_levels(self, prereq=None):
+		"""
+		Parse the structure like : "3cp from COMP or ISYS units at 100 level"
+		Get the units of that level from Handbook API
+
+		Input: "3cp from COMP or ISYS units at 100 level"
+		Todo:
+		Output: "3cp from COMP111 or COMP115 or COMP125 or COMP188 or ISYS104 or ISYS114"
+
+		"""
+		[cp, units, level] = filter(None, re.split(" from | units at | level", prereq))
+		level = int(level)
+
+		prereq_units = re.split(" and | or ", units)
+		handbook = Handbook()
+		# Todo: check undergraduate / postgraduate from level and pass into the following function
+		all_units_at_level =  handbook.extract_all_units_of_level(2014, level, "undergraduate")
+
+		filtered_unit_list = [unit for unit in all_units_at_level if self.wn.parseString(unit)[0] in prereq_units]
 		
+		new_prereq_string = filtered_unit_list[0] + " "
+ 		for unit in filtered_unit_list[1:]:
+			new_prereq_string += 'or ' + unit + ' '
+		new_prereq_string = new_prereq_string[:-1]
+		string_to_be_replaced = prereq.split(" from ")[1]
+		new_prereq = prereq.replace(string_to_be_replaced, new_prereq_string)
+		
+		return new_prereq
+
+
+
+
+
+
+
 	def parse_string(self, prereq=None):
 		""" Pyparsing module to tokenize the prerequisite with 'and' and 'or' logical operators
 			Parses the structure into a binary tree representation
@@ -71,6 +108,9 @@ class Prereq_Parser():
 			elif 'including' in prereq:
 				keyword = 'including'
 				split_list = re.split(' ' + keyword + ' ', prereq)
+			elif 'units' in prereq:
+				return self.parse_string(self.parse_unit_levels(prereq))
+
 			elif 'from' in prereq:
 				keyword = 'from'
 				temp_pre_req_list = prereq.split(" ")
@@ -93,7 +133,7 @@ class Prereq_Parser():
 
 				else:
 					split_list = re.split(' ' + keyword + ' ', prereq)
-
+			
 				#split_list = ['(COMP125 or COMP165)', 'and', '(3cp from MATH132-MATH136 or DMTH137)']
 			
 			#time.sleep(5)
@@ -247,7 +287,7 @@ if __name__ == '__main__':
 	#pre_req = '3cp from (MATH132-MATH136 or DMTH137)'
 	#pre_req = '(COMP125 or COMP165) and (3cp from MATH132-MATH136 or DMTH137)'
 	#[['COMP125', 'or', 'COMP165'], 'and', ['3cp', 'from', [[[[['MATH132', 'or', 'MATH133'], 'or', 'MATH134'], 'or', 'MATH135'], 'or', 'MATH136'], 'or', 'DMTH137']]]
-	pre_req = '3cp from COMP125 or COMP165 or COMP155 or MATH111'
+	pre_req = '3cp from COMP or ISYS units at 100 level'
 	print 'result: '
 	print pp.parse_string(pre_req)
 	

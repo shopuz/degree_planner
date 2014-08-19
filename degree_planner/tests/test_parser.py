@@ -21,7 +21,10 @@ class ParseTestCase(unittest.TestCase):
 			'9cp from (ACCG355 or ACCG358 or ISYS301 or ISYS302 or ISYS360 or MPCE360)' : ['9cp', 'from', [[[[['ACCG355', 'or', 'ACCG358'], 'or', 'ISYS301'], 'or', 'ISYS302'], 'or', 'ISYS360'], 'or', 'MPCE360']],
 			'3cp from MATH132-MATH136 or DMTH137'	: ['3cp', 'from', [[[[['MATH132', 'or', 'MATH133'], 'or', 'MATH134'], 'or', 'MATH135'], 'or', 'MATH136'], 'or', 'DMTH137']],
 			'3cp from (MATH132-MATH136 or DMTH137)'	: ['3cp', 'from', [[[[['MATH132', 'or', 'MATH133'], 'or', 'MATH134'], 'or', 'MATH135'], 'or', 'MATH136'], 'or', 'DMTH137']],
-			'(COMP125 or COMP165) and (3cp from MATH132-MATH136 or DMTH137)'	:	[['COMP125', 'or', 'COMP165'], 'and', ['3cp', 'from', [[[[['MATH132', 'or', 'MATH133'], 'or', 'MATH134'], 'or', 'MATH135'], 'or', 'MATH136'], 'or', 'DMTH137']]]
+			'(COMP125 or COMP165) and (3cp from MATH132-MATH136 or DMTH137)'	:	[['COMP125', 'or', 'COMP165'], 'and', ['3cp', 'from', [[[[['MATH132', 'or', 'MATH133'], 'or', 'MATH134'], 'or', 'MATH135'], 'or', 'MATH136'], 'or', 'DMTH137']]],
+
+			# advanced keyword : from
+			'3cp from COMP or ISYS units at 100 level'	: 	['3cp', 'from', [[[[['COMP111', 'or', 'COMP115'], 'or', 'COMP125'], 'or', 'COMP188'], 'or', 'ISYS104'], 'or', 'ISYS114']]
 			}
 
 		for pre_req in test_samples.keys():

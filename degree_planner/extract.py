@@ -4,8 +4,14 @@ Desc	: Get all the requirements for all the degrees from Handbook API
 
 """
 import urllib, json
+from pyparsing import *
 
-class DegreePlanner:
+class Handbook:
+	def __init__(self):
+		self.word = Word(alphas)
+		self.nums = Word(nums)
+		self.wn = self.word + self.nums
+
 	def extract_degree_req(self, url, filename):
 		"""
 		Extracts the list of all the degree requirements in a year. Degree Code is not mentioned in the output file
@@ -97,9 +103,69 @@ class DegreePlanner:
 		specific_units = [ unit for unit in units if unit['Department'].lower() == department.lower() ]
 		
 		return specific_units
-		
+	
 
+	def extract_all_units(self, year, type='undergraduate'):
+		"""
+		Extract all the units in a given year.
+		Input : year = 2014
+				type = undergraduate / postgraduate / research / graduate / all
+
+		Return: List of Units
+				[ 'COMP115', 'COMP125', ''... ]
+				
+		"""
+		# ToDO: get all the units
+
+		if type == 'undergraduate':
+			level_code = 'Units'
+		elif type == 'postgraduate':
+			level_code = 'PGUnits'
+		elif type == 'research':
+			level_code = 'ResearchUnits'
+		elif type == 'graduate':
+			level_code = 'GradUnits'
+		else:
+			return None
+			
+		units_url = "http://api.prod.handbook.mq.edu.au/%s/JSON/%s/9f9ef28dea630ae6311cc730207b2b59" % (level_code, year)
+		response = urllib.urlopen(units_url)
+		units = json.loads(response.read())
+
+		all_unit_codes = [ unit['Code'] for unit in units]
 		
+		return all_unit_codes
+
+	def extract_all_units_of_level(self, year, level, type='undergraduate'):
+		"""
+		Extract all the units of a particular level in a given year.
+		Input : year = 2014
+				type = undergraduate / postgraduate / research / graduate / all
+
+		Return: List of Units
+				[ 'COMP115', 'COMP125', ''... ]
+				
+		"""
+		# ToDO: get all the units
+
+		if type == 'undergraduate':
+			level_code = 'Units'
+		elif type == 'postgraduate':
+			level_code = 'PGUnits'
+		elif type == 'research':
+			level_code = 'ResearchUnits'
+		elif type == 'graduate':
+			level_code = 'GradUnits'
+		else:
+			return None
+			
+		units_url = "http://api.prod.handbook.mq.edu.au/%s/JSON/%s/9f9ef28dea630ae6311cc730207b2b59" % (level_code, year)
+		response = urllib.urlopen(units_url)
+		units = json.loads(response.read())
+
+		all_unit_codes = [ unit['Code'].encode('utf-8') for unit in units if int(self.wn.parseString(unit['Code'])[1]) > level and int(self.wn.parseString(unit['Code'])[1]) <= level + 99 ]
+		
+		return all_unit_codes
 		
 
 	
@@ -107,20 +173,21 @@ class DegreePlanner:
 
 
 if __name__ == "__main__":
-	dp = DegreePlanner()
+	dp = Handbook()
 	
 	#url = "http://api.prod.handbook.mq.edu.au/Degrees/JSON/2015/9f9ef28dea630ae6311cc730207b2b59"
 	#extract_degree_req(url, 'DegreeRequirement.txt')
 
-	all_units_url = "http://api.prod.handbook.mq.edu.au/PGUnits/JSON/2014/9f9ef28dea630ae6311cc730207b2b59"
-	dp.extract_pre_corequisite(all_units_url, 'PGUnitsRequisites.txt')
-	'''
-	specific_units = dp.extract_all_units_from_department("Department of Computing", 2014, "undergraduate")
+	#all_units_url = "http://api.prod.handbook.mq.edu.au/PGUnits/JSON/2014/9f9ef28dea630ae6311cc730207b2b59"
+	#dp.extract_pre_corequisite(all_units_url, 'PGUnitsRequisites.txt')
+	
+	#specific_units = dp.extract_all_units_from_department("Department of Computing", 2014, "undergraduate")
+	specific_units = dp.extract_all_units(2014, "undergraduate")
 	if len(specific_units) != 0:
 		print json.dumps(specific_units, indent=4)
 		print "Total Number of Units: ", len(specific_units)
 	else:
 		print "Error: Please check level of units (undergraduate, postgraduate, research, graduate, all)"
 
-	'''
+	
 
