@@ -1,7 +1,7 @@
 import re
 from pyparsing import *
 from compiler.ast import flatten
-
+import time
 
 class Prereq_Parser():
 	def __init__(self):
@@ -47,9 +47,9 @@ class Prereq_Parser():
 		""" Pyparsing module to tokenize the prerequisite with 'and' and 'or' logical operators
 			Parses the structure into a binary tree representation
 		"""
-		
+		from_flag = False
 		if  self.prereq_check(prereq):
-
+			
 			result =  self.simple_expr.parseString(prereq).asList()
 			#result = self.arrange_operator(result[0])
 			return result[0]
@@ -73,12 +73,35 @@ class Prereq_Parser():
 				split_list = re.split(' ' + keyword + ' ', prereq)
 			elif 'from' in prereq:
 				keyword = 'from'
-				split_list = re.split(' ' + keyword + ' ', prereq)
-			
-			
+				temp_pre_req_list = prereq.split(" ")
+				from_index = temp_pre_req_list.index("from")
+				
+				if from_index > 1:
+					split_keyword = temp_pre_req_list[from_index -2]
+					
+					split_list = prereq.split(split_keyword + " ")
+					split_list[0] = split_list[0] + split_keyword
+					
+					keyword = split_keyword
+					
 
-			result = ParseResults([])
-			result  += ParseResults(self.parse_string(split_list[0]))
+					split_list = [x.replace("(", "").replace(")", "") for x in split_list ]
+
+					result = ParseResults([])
+					result  += ParseResults([self.parse_string(split_list[0])])
+					from_flag = True
+
+				else:
+					split_list = re.split(' ' + keyword + ' ', prereq)
+
+				#split_list = ['(COMP125 or COMP165)', 'and', '(3cp from MATH132-MATH136 or DMTH137)']
+			
+			#time.sleep(5)
+			
+			if not from_flag:
+				result = ParseResults([])
+				result  += ParseResults(self.parse_string(split_list[0]))
+			
 			if keyword:
 				result += ParseResults([keyword]) 
 
@@ -103,6 +126,7 @@ class Prereq_Parser():
 			Input: tokens = ['COMP115', 'and', 'COMP111', 'or', 'INFO111', 'or', 'MAS111']
 			Output: ret = ['COMP115', 'and', [['COMP111' , 'or', 'INFO111'], 'or', 'MAS111']]
 		"""
+		
 		tokeniter = iter(tokens[0])
 		firstexpr = next(tokeniter)
 		# zips = [('or', 'COMP125'), ('and', 'MATH132')]
@@ -220,7 +244,11 @@ if __name__ == '__main__':
 	#pre_req = 'COMP125 or COMP165'
 	#pre_req = 'COMP225 or COMP229 or COMP125'
 	#pre_req = '(COMP125 or COMP165 and (3cp from MATH132-MATH136 or DMTH137))'
-	pre_req = '3cp from (MATH132-MATH136 or DMTH137)'
-	#pre_req = '(MATH132 or MATH133 or MATH134 or MATH135 or MATH136) or DMTH137'
-
+	#pre_req = '3cp from (MATH132-MATH136 or DMTH137)'
+	#pre_req = '(COMP125 or COMP165) and (3cp from MATH132-MATH136 or DMTH137)'
+	#[['COMP125', 'or', 'COMP165'], 'and', ['3cp', 'from', [[[[['MATH132', 'or', 'MATH133'], 'or', 'MATH134'], 'or', 'MATH135'], 'or', 'MATH136'], 'or', 'DMTH137']]]
+	pre_req = '3cp from COMP125 or COMP165 or COMP155 or MATH111'
+	print 'result: '
 	print pp.parse_string(pre_req)
+	
+	
