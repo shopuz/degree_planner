@@ -5,12 +5,14 @@ Desc	: Get all the requirements for all the degrees from Handbook API
 """
 import urllib, json
 from pyparsing import *
+from datetime import date
 
 class Handbook:
 	def __init__(self):
 		self.word = Word(alphas)
 		self.nums = Word(nums)
 		self.wn = self.word + self.nums
+		self.year = date.today().year
 
 	def extract_degree_req(self, url, filename):
 		"""
@@ -64,7 +66,26 @@ class Handbook:
 			outfile.write("\n")
 		
 		outfile.close()
-			
+	
+	def extract_pre_req_for_unit(self, unit_code, year=None):
+		"""
+		Extract the prerequisite for a single unit
+		Input : unit_code = COMP226
+		Output: "COMP225(P) or COMP229(P) or COMP125(Cr)"
+		"""
+		if not year:
+			year = self.year
+
+		individual_unit_url = "http://api.prod.handbook.mq.edu.au/PGUnit/JSON/%s/%s/9f9ef28dea630ae6311cc730207b2b59" % [unit_code, year]
+		response = urllib.urlopen(individual_unit_url)
+		unit_info = json.loads(response.read())
+		#req_list.append({ unit_code: unit_info['Prerequisites'] })
+		prereq = { unit_info['Prerequisites'] }
+		return prereq
+								
+
+	def extract_major_req(self, major_code):
+		
 
 	def extract_all_units_from_department(self, department, year, type='undergraduate'):
 		"""

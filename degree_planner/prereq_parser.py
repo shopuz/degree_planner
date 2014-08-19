@@ -71,7 +71,7 @@ class Prereq_Parser():
 		new_prereq_string = new_prereq_string[:-1]
 		string_to_be_replaced = prereq.split(" from ")[1]
 		new_prereq = prereq.replace(string_to_be_replaced, new_prereq_string)
-		
+
 		return new_prereq
 
 
@@ -154,6 +154,11 @@ class Prereq_Parser():
 			return list(result)
 
 	def prereq_check(self, prereq):
+		"""
+			Check if the prereq is complex (i.e 'from', 'including', '-', 'units at 100 level' etc)
+			Return : True (prereq is simple)
+					 False (prereq is complex)
+		"""
 		for word in self.complex_keywords:
 			if word in prereq:
 				return False
