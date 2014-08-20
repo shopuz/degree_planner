@@ -86,7 +86,7 @@ class Prereq_Parser():
 		"""
 		from_flag = False
 		if  self.prereq_check(prereq):
-			
+			#print 'pre_req in parser: ', prereq
 			result =  self.simple_expr.parseString(prereq).asList()
 			#result = self.arrange_operator(result[0])
 			return result[0]
@@ -279,7 +279,7 @@ class Evaluate_Prerequisite():
 				return eval(temp)
 			elif pre_req_tree[1] == 'and' or pre_req_tree[1] == 'including':
 				temp = str(self.evaluate_prerequisite(pre_req_tree[0], student_units) and self.evaluate_prerequisite(pre_req_tree[2], student_units))
-				print temp
+				#print temp
 				return eval(temp)
 
 
@@ -292,7 +292,8 @@ if __name__ == '__main__':
 	#pre_req = '3cp from (MATH132-MATH136 or DMTH137)'
 	#pre_req = '(COMP125 or COMP165) and (3cp from MATH132-MATH136 or DMTH137)'
 	#[['COMP125', 'or', 'COMP165'], 'and', ['3cp', 'from', [[[[['MATH132', 'or', 'MATH133'], 'or', 'MATH134'], 'or', 'MATH135'], 'or', 'MATH136'], 'or', 'DMTH137']]]
-	pre_req = '3cp from COMP or ISYS units at 100 level'
+	#pre_req = '3cp from COMP or ISYS units at 100 level'
+	pre_req = '39cp and COMP125 or COMP249'
 	print 'result: '
 	print pp.parse_string(pre_req)
 	
