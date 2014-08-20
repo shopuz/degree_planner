@@ -1,9 +1,12 @@
 import re
-from pyparsing import *
-from compiler.ast import flatten
 import time
 import urllib, json
+
 from extract import *
+from pyparsing import *
+from compiler.ast import flatten
+
+
 
 class Prereq_Parser():
 	def __init__(self):

@@ -111,15 +111,21 @@ class Handbook:
 				req_text_type = req_group['reqGp']['text']['type']
 				if not req_text_type or req_text_type == 'eo' :
 					for reqs in req_group['reqGp']['reqs']:
-						unit_list.append(reqs['unitPrefix'] + reqs['unitNumber'])
+						unit = reqs['unitPrefix'] + reqs['unitNumber']
+						if unit not in unit_list:
+							unit_list.append(unit)
 				else:
 
 					for req in req_group['reqGp']['reqs']:
 						if req['type'] == 'unit':
-							unit_list.append(req['unitPrefix'] + req['unitNumber'])
+							unit = req['unitPrefix'] + req['unitNumber']
+							if unit not in unit_list:
+								unit_list.append(unit)
 						elif req['type'] == 'prefixrange' or req['type'] == 'prefixlevel':
 							for reqDetail in req['reqDetails']:
-								unit_list.append(reqDetail['unitPrefix'] + reqDetail['unitNumber'])
+								unit = reqDetail['unitPrefix'] + reqDetail['unitNumber']
+								if unit not in unit_list:
+									unit_list.append(unit)
 
 		unit_list = [unit.encode('utf-8') for unit in unit_list]
 		return unit_list
@@ -229,7 +235,7 @@ class Handbook:
 	def extract_unit_offering_of_unit(self, unit_code, year, type="undergraduate"):
 		"""
 		Extract the unit offering information about a unit
-		Output: ['S1 Day', 'S1 Evening', 'S3 Day']
+		Output: ['s1 day', 's1 evening', 's3 day']
 		"""
 		# Todo: Get level code 'unit/ pgunit/ researchunit'
 		level_code = 'Unit'

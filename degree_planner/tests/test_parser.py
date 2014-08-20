@@ -1,5 +1,6 @@
 import unittest
 from degree_planner.prereq_parser import *
+from degree_planner.degree_planner import *
 
 class ParseTestCase(unittest.TestCase):
 	""" Various Tests related to Parsing a Prerequisite 	"""
@@ -76,5 +77,25 @@ class ParseTestCase(unittest.TestCase):
 		# Sixth Student units
 		student_units = ['COMP125', 'COMP115', 'COMP165', 'MAS111', 'INFO111', 'DMTH237', 'COMP225', 'ACCG355', 'ISYS100', 'ISYS104', 'ISYS114', 'ISYS224', 'ISYS254', 'ISYS301', 'MPCE360']
 		self.assertTrue(ev.evaluate_prerequisite(pre_req_tree, student_units))
+
+
+class DegreePlannerTestCases(unittest.TestCase):
+	""" Tests for Degree Planner / Checker """
+
+	def test_available_units(self):
+		dp = Degree_Planner('BIT', 'SOT01')
+		student_units = ['COMP115']
+		session = "S2"
+		available_units = dp.available_units(student_units, session)
+		expected_result = ['COMP125', 'DMTH137']
+		self.assertEqual(available_units, expected_result)
+
+		student_units = ['COMP125', 'COMP115', 'COMP165', 'MAS111', 'INFO111', 'DMTH237']
+		available_units = dp.available_units(student_units, session)
+		expected_result = ['DMTH137', 'COMP255', 'COMP229', 'COMP202']
+		self.assertEqual(available_units, expected_result)
+
+
+
 #if __name__ == '__main__':
 #	unittest.main(verbosity=2)
