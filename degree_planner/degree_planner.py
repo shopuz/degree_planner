@@ -1,5 +1,5 @@
 from prereq_parser import *
-from extract import *
+from handbook import *
 from datetime import date
 
 class Degree_Planner():

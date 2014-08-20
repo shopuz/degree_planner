@@ -2,7 +2,7 @@ import re
 import time
 import urllib, json
 
-from extract import *
+from handbook import *
 from pyparsing import *
 from compiler.ast import flatten
 

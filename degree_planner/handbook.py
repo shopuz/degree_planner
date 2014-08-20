@@ -7,12 +7,34 @@ import urllib, json
 from pyparsing import *
 from datetime import date
 
+# TOdo
+# Write a function to get the level_code PGUnit, Unit, ResearchUnits etc from unit_code		
+# Function to get the CP of a unit -- need it for cp_calculator
+
 class Handbook:
 	def __init__(self):
 		self.word = Word(alphas)
 		self.nums = Word(nums)
 		self.wn = self.word + self.nums
 		self.year = date.today().year
+
+		self.level_code_dict = {
+								'undergraduate' : 	'Units',
+								'postgraduate'	:	'PGUnits',
+								'research'		:	'ResearchUnits',
+								'graduate'		:	'GradUnits'
+								}
+
+	
+	def get_level_code_from_unit(self, unit_code):
+		# Find the level_code (Unit, PGUnit) from unit_code for Handbook API URL
+		unit_number = int(self.wn.parseString(unit_code).asList()[1])
+		if unit_number <= 499:
+			level_code = 'Unit'
+		else:
+			level_code = 'PGUnit'
+
+		return level_code
 
 	def extract_degree_req(self, url, filename):
 		"""
@@ -88,7 +110,9 @@ class Handbook:
 		"""
 		Extract the requirement UnitList of a major
 		Input : major_code = SOT01
-		Output: 
+		Output: ['COMP115', 'COMP125', 'DMTH137', 'COMP355', 'COMP329', 'COMP330', 'COMP332', 'COMP333', 
+				'COMP334', 'COMP343', 'COMP344', 'COMP347', 'COMP348', 'COMP350', 'ISYS326', 'COMP255', 
+				'DMTH237', 'COMP225', 'COMP229', 'COMP202', 'COMP226', 'COMP233', 'COMP247', 'COMP249', 'COMP260']
 		"""
 		if not year:
 			year = self.year
@@ -147,19 +171,9 @@ class Handbook:
 				]
 
 		"""
-		# ToDO: get all the units
+		
+		level_code  = self.level_code_dict[type]
 
-		if type == 'undergraduate':
-			level_code = 'Units'
-		elif type == 'postgraduate':
-			level_code = 'PGUnits'
-		elif type == 'research':
-			level_code = 'ResearchUnits'
-		elif type == 'graduate':
-			level_code = 'GradUnits'
-		else:
-			return None
-			
 		units_url = "http://api.prod.handbook.mq.edu.au/%s/JSON/%s/9f9ef28dea630ae6311cc730207b2b59" % (level_code, year)
 		response = urllib.urlopen(units_url)
 		units = json.loads(response.read())
@@ -181,16 +195,7 @@ class Handbook:
 		"""
 		# ToDO: get all the units
 
-		if type == 'undergraduate':
-			level_code = 'Units'
-		elif type == 'postgraduate':
-			level_code = 'PGUnits'
-		elif type == 'research':
-			level_code = 'ResearchUnits'
-		elif type == 'graduate':
-			level_code = 'GradUnits'
-		else:
-			return None
+		level_code  = self.level_code_dict[type]
 			
 		units_url = "http://api.prod.handbook.mq.edu.au/%s/JSON/%s/9f9ef28dea630ae6311cc730207b2b59" % (level_code, year)
 		response = urllib.urlopen(units_url)
@@ -212,16 +217,7 @@ class Handbook:
 		"""
 		# ToDO: get all the units
 
-		if type == 'undergraduate':
-			level_code = 'Units'
-		elif type == 'postgraduate':
-			level_code = 'PGUnits'
-		elif type == 'research':
-			level_code = 'ResearchUnits'
-		elif type == 'graduate':
-			level_code = 'GradUnits'
-		else:
-			return None
+		level_code  = self.level_code_dict[type]
 			
 		units_url = "http://api.prod.handbook.mq.edu.au/%s/JSON/%s/9f9ef28dea630ae6311cc730207b2b59" % (level_code, year)
 		response = urllib.urlopen(units_url)
@@ -248,6 +244,40 @@ class Handbook:
 
 		return unit_offerings
 
+	def extract_unit_designation(self, unit_code, year=None):
+		"""
+		Find the designation of a unit whether its IT, Science, Management etc
+		Input: extract_unit_designation('COMP115', '2014')
+		Output: ['Engineering', 'Information Technology', 'Science', 'Technology']
+		"""
+
+		if not year:
+			year = self.year
+
+		level_code = self.get_level_code_from_unit(unit_code)
+		unit_url = "http://api.prod.handbook.mq.edu.au/%s/JSON/%s/%s/9f9ef28dea630ae6311cc730207b2b59" % (level_code, unit_code, year)
+		response = urllib.urlopen(unit_url)
+		unit_info = json.loads(response.read())
+		unit_designations = [designation.encode('utf-8')  for designation in unit_info['UnitDesignations'] ]
+		
+		return unit_designations
+	
+	def calculate_cp_of_designation(self, student_units, designation):
+		"""
+		Calculate the total cp obtained by the student given the units he/she had completed
+		"""
+		filtered_unit_list = []
+		for unit in student_units:
+			unit_designations = self.extract_unit_designation(unit)
+			if designation in unit_designations:
+				filtered_unit_list.append(unit)
+		
+		# Todo: change 3 to actual cp depending on level
+		total_cp = len(filtered_unit_list) * 3
+		return total_cp
+
+
+
 
 
 
@@ -273,6 +303,10 @@ if __name__ == "__main__":
 	#major_units = hbook.extract_major_req_units('SOT01', '2014')
 	#print major_units
 
-	print hbook.extract_unit_offering_of_unit('COMP115', '2014')
+	#print hbook.extract_unit_offering_of_unit('COMP115', '2014')
+	#print hbook.extract_unit_designation('COMP115', '2014')
+
+	#student_units = ['COMP125', 'COMP115', 'MAS111', 'DMTH237', 'CBMS832']
+	#print hbook.calculate_cp_of_designation(student_units, "Information Technology")
 	
 
