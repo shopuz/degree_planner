@@ -15,10 +15,12 @@ class Prereq_Parser():
 		self.wn = self.word + self.nums
 
 		self.atomic = Word(alphanums)
-		self.obr = oneOf('[(')
-		self.cbr = oneOf(')]')
+		self.obr = oneOf('[ (')
+		self.cbr = oneOf(') ]')
 		self.complex = (self.atomic + self.obr + self.cbr)
+
 		self.complex_expr = OneOrMore(self.complex)
+
 		self.simple_expr = operatorPrecedence(self.atomic, [
 									("and", 2, opAssoc.LEFT, self.expandChainedExpr),
 									("or", 2, opAssoc.LEFT, self.expandChainedExpr ),
@@ -88,6 +90,8 @@ class Prereq_Parser():
 			Parses the structure into a binary tree representation
 		"""
 		from_flag = False
+		prereq = prereq.replace('[', '(').replace(']', ')')
+
 		if  self.prereq_check(prereq):
 			#print 'pre_req in parser: ', prereq
 			result =  self.simple_expr.parseString(prereq).asList()
@@ -140,7 +144,7 @@ class Prereq_Parser():
 				#split_list = ['(COMP125 or COMP165)', 'and', '(3cp from MATH132-MATH136 or DMTH137)']
 			
 			#time.sleep(5)
-			
+			#print 'split_list: ', split_list
 			if not from_flag:
 				result = ParseResults([])
 				result  += ParseResults(self.parse_string(split_list[0]))
@@ -296,7 +300,8 @@ if __name__ == '__main__':
 	#pre_req = '(COMP125 or COMP165) and (3cp from MATH132-MATH136 or DMTH137)'
 	#[['COMP125', 'or', 'COMP165'], 'and', ['3cp', 'from', [[[[['MATH132', 'or', 'MATH133'], 'or', 'MATH134'], 'or', 'MATH135'], 'or', 'MATH136'], 'or', 'DMTH137']]]
 	#pre_req = '3cp from COMP or ISYS units at 100 level'
-	pre_req = '39cp and COMP125 or COMP249'
+	#pre_req = '39cp and COMP125 or COMP249'
+	pre_req = ''
 	print 'result: '
 	print pp.parse_string(pre_req)
 	

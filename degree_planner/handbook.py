@@ -27,7 +27,10 @@ class Handbook:
 
 	
 	def get_level_code_from_unit(self, unit_code):
-		# Find the level_code (Unit, PGUnit) from unit_code for Handbook API URL
+		"""
+		Find the level_code (Unit, PGUnit) from unit_code for Handbook API URL
+		Example: COMP115 -> Unit, ITEC810 -> PGUnit
+		"""
 		unit_number = int(self.wn.parseString(unit_code).asList()[1])
 		if unit_number <= 499:
 			level_code = 'Unit'
