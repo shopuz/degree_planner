@@ -309,6 +309,10 @@ class Evaluate_Prerequisite():
 		if isinstance(pre_req_tree, str):
 			if pre_req_tree in student_units:
 				return True
+			elif pre_req_tree == 'True':
+				return True
+			elif pre_req_tree == 'False':
+				return False
 			else:
 				if 'cp' in pre_req_tree:
 					cp = int(self.ncp.parseString(pre_req_tree)[0])

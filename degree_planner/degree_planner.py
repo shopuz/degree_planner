@@ -35,15 +35,21 @@ class Degree_Planner():
 								'COMP365' : '39cp and COMP225(P) and (COMP227(P) or COMP255(P) or ISYS227(P))',
 								'COMP388' :	'39cp and COMP188'
 							}
+		degree_requirements = handbook.extract_degree_requirements('BIT', year)
+		major_requirements = handbook.extract_major_req_units('SOT01', year)
 
-		major_units = handbook.extract_major_req_units('SOT01', year)
+		major_units = [ unit for unit in major_requirements if len(unit.split(" ")) == 1 ]
+		degree_units = [ unit for unit in degree_requirements if len(unit.split(" ")) == 1 ]
+		remaining_requirements = list(set(degree_requirements).union(set(major_requirements)) - set(major_units).union(set(degree_units)) )
+		#print 'remaining_requirements: ', remaining_requirements
 		# print 'major_units: ', major_units
-
+		all_core_units =list(set(major_units).union(set(degree_units)))
+		#print 'core units: ', all_core_units
 		# filtered_unit_list : list of units available in the session
 		filtered_unit_list = []
 		#print 'student_units: ', student_units
 
-		for unit in major_units:
+		for unit in all_core_units:
 			try:
 				unit_offerings = handbook.extract_unit_offering_of_unit(unit, year)
 			except:
@@ -70,6 +76,11 @@ class Degree_Planner():
 
 			# Todo: Parse the grade  (P, Cr) as well
 			pre_req = pre_req.replace("(P)", "").replace("(Cr)", "")
+			
+			for complex_req in remaining_requirements:
+				pre_req = pre_req.replace(complex_req, 'True')
+
+			
 			#print unit, ' : ' , pre_req
 			
 			#print 'pre_req: ', pre_req
@@ -81,9 +92,11 @@ class Degree_Planner():
 			
 			#print 'trying to parse prereq'
 			pre_req_tree = parser.parse_string(pre_req)
-			#print unit , ' : ' , pre_req_tree
+			
 
 			evaluate_result = ev.evaluate_prerequisite(pre_req_tree, student_units)
+		
+			#print unit , ' : ' , pre_req_tree
 			#print 'evaluate_result: ', evaluate_result
 			#print '-----------------------------'
 			if evaluate_result and unit not in final_available_units:
@@ -114,30 +127,27 @@ if __name__ == '__main__':
 	print 'Available Units'
 	for i in range(0,6):
 
-		
+		additional_units = []
 		session = toggle()
 
 
 		
 
 		student_units = dp.available_units(aggregate_student_units, session, year)
-		aggregate_student_units += student_units
+		if len(student_units) < 4:
+			additional_units = [ 'True '] * ( 4 - len(student_units))
+		else:
+			additional_units = []
+		aggregate_student_units += student_units + additional_units
 		
 		
 		print "Session: ", year, " ",  session
 		print "Available Units: ", student_units
-		print 'aggregate_student_units: ', aggregate_student_units
+		#print 'aggregate_student_units: ', aggregate_student_units
 
 		if session.lower() == "s2":
 			year = str(int(year) + 1)
 
-	
-	major_units = handbook.extract_major_req_units('SOT01', '2013')
-
-	remaining_units = list(set(major_units) - set(aggregate_student_units))
-	for unit in remaining_units:
-		pre_req = handbook.extract_pre_req_for_unit(unit, '2013')
-		print unit, ' : ', pre_req
 
 
 
