@@ -101,13 +101,10 @@ if __name__ == '__main__':
 	student_units = aggregate_student_units = []
 	student_units = ['COMP125', 'COMP115', 'COMP165', 'MAS111', 'INFO111', 'DMTH237']
 
-	session = "S2"
-	year = '2012'
+	session = "S1"
+	year = '2011'
 	#print "Session: ", year, " ",  session
-	print "Available Units: ", dp.available_units(student_units, session, year)
 	
-
-	exit()
 
 	if session.lower() == 's1':
 		toggle = itertools.cycle(['s1', 's2']).next

@@ -109,54 +109,9 @@ class Handbook:
 		return prereq
 								
 
-	def extract_major_req_units(self, major_code, year=None):
-		"""
-		Extract the requirement UnitList of a major
-		Input : major_code = SOT01
-		Output: ['COMP115', 'COMP125', 'DMTH137', 'COMP355', 'COMP329', 'COMP330', 'COMP332', 'COMP333', 
-				'COMP334', 'COMP343', 'COMP344', 'COMP347', 'COMP348', 'COMP350', 'ISYS326', 'COMP255', 
-				'DMTH237', 'COMP225', 'COMP229', 'COMP202', 'COMP226', 'COMP233', 'COMP247', 'COMP249', 'COMP260']
-		"""
-		if not year:
-			year = self.year
+	
 
 		
-		individual_major_url = "http://api.prod.handbook.mq.edu.au/Major/JSON/%s/%s/9f9ef28dea630ae6311cc730207b2b59" % (major_code, year)
-
-		response = urllib.urlopen(individual_major_url)
-		major_info = json.loads(response.read())
-		#req_list.append({ unit_code: unit_info['Prerequisites'] })
-		unit_list = []
-		major_req = major_info['Requirements']
-		for level in major_req.keys():
-			if not major_req[level]:
-				continue
-
-			for req_group in major_req[level]:
-				# if major_req['level100'][0]['reqGp']['text']['type'] is null
-				# Get unitprefix from reqs
-				req_text_type = req_group['reqGp']['text']['type']
-				if not req_text_type or req_text_type == 'eo' :
-					for reqs in req_group['reqGp']['reqs']:
-						unit = reqs['unitPrefix'] + reqs['unitNumber']
-						if unit not in unit_list:
-							unit_list.append(unit)
-				else:
-
-					for req in req_group['reqGp']['reqs']:
-						if req['type'] == 'unit':
-							unit = req['unitPrefix'] + req['unitNumber']
-							if unit not in unit_list:
-								unit_list.append(unit)
-						elif req['type'] == 'prefixrange' or req['type'] == 'prefixlevel':
-							for reqDetail in req['reqDetails']:
-								unit = reqDetail['unitPrefix'] + reqDetail['unitNumber']
-								if unit not in unit_list:
-									unit_list.append(unit)
-
-		unit_list = [unit.encode('utf-8') for unit in unit_list]
-		return unit_list
-
 	def extract_all_units_from_department(self, department, year, type='undergraduate'):
 		"""
 		Extract all the units offered by the Department in a given year.
@@ -298,6 +253,83 @@ class Handbook:
 
 		return filtered_unit_list
 
+	def parse_major_degree_requirements(self, requirements):
+		"""
+		Parses the requirements and extract all the units from either major or degree requirements
+		Input: JSON data : 	major_info['Requirements'] 
+							or 
+							degree_info['Program'][0]['SpecificReqs']
+		Output: List of all the units
+
+		"""
+		unit_list = []
+		for level in requirements.keys():
+			if not requirements[level]:
+				continue
+
+			for req_group in requirements[level]:
+				# if major_req['level100'][0]['reqGp']['text']['type'] is null
+				# Get unitprefix from reqs
+				req_text_type = req_group['reqGp']['text']['type']
+				if not req_text_type or req_text_type == 'eo' :
+					for reqs in req_group['reqGp']['reqs']:
+						unit = reqs['unitPrefix'] + reqs['unitNumber']
+						if unit not in unit_list:
+							unit_list.append(unit)
+				else:
+
+					for req in req_group['reqGp']['reqs']:
+						if req['type'] == 'unit':
+							unit = req['unitPrefix'] + req['unitNumber']
+							if unit not in unit_list:
+								unit_list.append(unit)
+						elif req['type'] == 'prefixrange' or req['type'] == 'prefixlevel':
+							for reqDetail in req['reqDetails']:
+								unit = reqDetail['unitPrefix'] + reqDetail['unitNumber']
+								if unit not in unit_list:
+									unit_list.append(unit)
+
+		unit_list = [unit.encode('utf-8') for unit in unit_list]
+		return unit_list
+
+	def extract_units_from_degree_requirements(self, degree_code='BIT', year='2014'):
+		"""
+		Get all the core units from degree requirements
+
+		"""
+		degree_url = 'http://api.prod.handbook.mq.edu.au/Degree/JSON/%s/%s/9f9ef28dea630ae6311cc730207b2b59' % (degree_code, year)
+		response = urllib.urlopen(degree_url)
+		degree_info = json.loads(response.read())
+		unit_list = []
+		for program in degree_info['Program']:
+			unit_list += self.parse_major_degree_requirements(program['SpecificReqs'])
+
+		return unit_list
+
+	def extract_major_req_units(self, major_code, year=None):
+		"""
+		Extract the requirement UnitList of a major
+
+		Input : major_code = SOT01
+		Output: ['COMP115', 'COMP125', 'DMTH137', 'COMP355', 'COMP329', 'COMP330', 'COMP332', 'COMP333', 
+				'COMP334', 'COMP343', 'COMP344', 'COMP347', 'COMP348', 'COMP350', 'ISYS326', 'COMP255', 
+				'DMTH237', 'COMP225', 'COMP229', 'COMP202', 'COMP226', 'COMP233', 'COMP247', 'COMP249', 'COMP260']
+		"""
+		if not year:
+			year = self.year
+
+		
+		individual_major_url = "http://api.prod.handbook.mq.edu.au/Major/JSON/%s/%s/9f9ef28dea630ae6311cc730207b2b59" % (major_code, year)
+
+		response = urllib.urlopen(individual_major_url)
+		major_info = json.loads(response.read())
+		#req_list.append({ unit_code: unit_info['Prerequisites'] })
+		unit_list = []
+		major_req = major_info['Requirements']
+		unit_list = self.parse_major_degree_requirements(major_req)
+		return unit_list
+
+
 
 
 
@@ -320,8 +352,8 @@ if __name__ == "__main__":
 		print "Error: Please check level of units (undergraduate, postgraduate, research, graduate, all)"
 	'''
 
-	#major_units = hbook.extract_major_req_units('SOT01', '2014')
-	#print major_units
+	major_units = handbook.extract_major_req_units('SOT01', '2014')
+	print major_units
 
 	#print hbook.extract_unit_offering_of_unit('COMP115', '2014')
 	#print hbook.extract_unit_designation('COMP115', '2014')
@@ -329,4 +361,5 @@ if __name__ == "__main__":
 	#student_units = ['COMP125', 'COMP115', 'MAS111', 'DMTH237', 'CBMS832']
 	#print hbook.calculate_cp_of_designation(student_units, "Information Technology")
 	
-	print handbook.extract_all_units_of_type('planet')
+	#print handbook.extract_units_from_degree_requirements()
+	#print handbook.extract_major_req_units()
