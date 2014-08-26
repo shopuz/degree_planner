@@ -92,7 +92,8 @@ class DegreePlannerTestCases(unittest.TestCase):
 
 		student_units = ['COMP125', 'COMP115', 'COMP165', 'MAS111', 'INFO111', 'DMTH237']
 		available_units = dp.available_units(student_units, session)
-		expected_result = ['DMTH137', 'COMP255', 'COMP229', 'COMP202']
+		
+		expected_result = ['DMTH137', 'COMP255', 'COMP229', 'COMP226']
 		self.assertEqual(available_units, expected_result)
 
 

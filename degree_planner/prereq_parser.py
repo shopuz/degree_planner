@@ -218,6 +218,47 @@ class Prereq_Parser():
 
 		return parsed_list
 
+	def get_stored_cp(self, parsed_student_units, level, unit_code):
+		""" Return the cp stored in parsed_student_units """
+		if unit_code in parsed_student_units[level]:
+			cp = parsed_student_units[level][unit_code]
+		else:
+			cp = 0
+		
+		return cp
+
+	def process_student_units(self, student_units=[]):
+		""" 
+			RESULT = {
+				'100' :{
+					'COMP' : 6,
+					'MATH': 12,
+					'DMTH' : 3,
+					'TOTAL': 21
+				}
+			}
+		"""
+		parsed_student_units = {'100':{}, '200':{}, '300':{}}
+		total_cp_100 = total_cp_200 = total_cp_300 = 0
+		for unit in student_units:
+			[ unit_code, unit_number ] = self.wn.parseString(unit)
+			if unit_number.startswith('1'):
+				parsed_student_units['100'][unit_code] = self.get_stored_cp(parsed_student_units, '100', unit_code) + 3
+				total_cp_100 += 3
+			elif unit_number.startswith('2'):
+				parsed_student_units['200'][unit_code] = self.get_stored_cp(parsed_student_units, '200', unit_code) + 3
+				total_cp_200 += 3
+			elif unit_number.startswith('3'):
+				parsed_student_units['300'][unit_code] = self.get_stored_cp(parsed_student_units, '300', unit_code) + 3
+				total_cp_300 += 3
+
+		parsed_student_units['100']['TOTAL'] = total_cp_100
+		parsed_student_units['200']['TOTAL'] = total_cp_200
+		parsed_student_units['300']['TOTAL'] = total_cp_300
+
+		print parsed_student_units
+		return parsed_student_units
+
 
 class Evaluate_Prerequisite():
 	def __init__(self):

@@ -70,7 +70,7 @@ class Degree_Planner():
 
 			# Todo: Parse the grade  (P, Cr) as well
 			pre_req = pre_req.replace("(P)", "").replace("(Cr)", "")
-			print unit, ' : ' , pre_req
+			#print unit, ' : ' , pre_req
 			
 			#print 'pre_req: ', pre_req
 			
@@ -97,17 +97,18 @@ if __name__ == '__main__':
 	dp = Degree_Planner('BIT', 'SOT01')
 	handbook = Handbook()
 	major_units = handbook.extract_major_req_units('SOT01', '2013')
+	
+	student_units = aggregate_student_units = []
+	student_units = ['COMP125', 'COMP115', 'COMP165', 'MAS111', 'INFO111', 'DMTH237']
 
-
-	for unit in major_units:
-		pre_req = handbook.extract_pre_req_for_unit(unit, '2013')
-		print unit, ' : ', pre_req
+	session = "S2"
+	year = '2012'
+	#print "Session: ", year, " ",  session
+	print "Available Units: ", dp.available_units(student_units, session, year)
+	
 
 	exit()
 
-	student_units = aggregate_student_units = []
-	session = "S1"
-	year = '2011'
 	if session.lower() == 's1':
 		toggle = itertools.cycle(['s1', 's2']).next
 	elif session.lower() == 's2':
