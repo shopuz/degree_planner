@@ -281,11 +281,28 @@ class Handbook:
 
 
 
+	def extract_all_units_of_type(self, unit_type='people'):
+		""" 
+		Extract the list of Planet, People or Participation Units depending on the type
+		"""
+		all_units = self.extract_all_units(2014)
+		filtered_unit_list = []
+		for unit in all_units:
+			print unit
+			unit_url = 'http://api.prod.handbook.mq.edu.au/Unit/JSON/%s/2014/9f9ef28dea630ae6311cc730207b2b59' % unit
+			response = urllib.urlopen(unit_url)
+			unit_info = json.loads(response.read())
+			extracted_unit_type = unit_info['UnitType'].lower()
+			if unit_type == extracted_unit_type:
+				filtered_unit_list.append(unit.encode('utf-8'))
+
+		return filtered_unit_list
+
 
 
 
 if __name__ == "__main__":
-	hbook = Handbook()
+	handbook = Handbook()
 	
 	#url = "http://api.prod.handbook.mq.edu.au/Degrees/JSON/2015/9f9ef28dea630ae6311cc730207b2b59"
 	#extract_degree_req(url, 'DegreeRequirement.txt')
@@ -312,4 +329,4 @@ if __name__ == "__main__":
 	#student_units = ['COMP125', 'COMP115', 'MAS111', 'DMTH237', 'CBMS832']
 	#print hbook.calculate_cp_of_designation(student_units, "Information Technology")
 	
-
+	print handbook.extract_all_units_of_type('planet')
