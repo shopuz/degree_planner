@@ -1,8 +1,10 @@
-from prereq_parser import *
+from parser import *
 from handbook import *
 from datetime import date
 import math
 import itertools
+from compiler.ast import flatten
+import random
 
 class Degree_Planner():
 
@@ -11,7 +13,30 @@ class Degree_Planner():
 		self.major_code = major_code
 		self.year = year
 		self.session = session.lower()
+	
+	def filter_units_by_offerings(self, units, student_units):
+		# filtered_unit_list : list of units available in the session
+		filtered_unit_list = []
 		
+		for unit in units:
+
+			try:
+				unit_offerings = handbook.extract_unit_offering_of_unit(unit, self.year)
+			except:
+				continue
+			# unit_offerings : ['s1 day', 's1 evening', 's3 day']
+			# unit_offerings_session_codes : ['s1', 's1', 's3']
+			# Just to know whether the unit is offered in the session or not
+
+			unit_offerings_session_codes = [ unit_offering.split(" ")[0] for unit_offering in unit_offerings]
+			
+			for i in xrange(len(unit_offerings_session_codes)):
+				unit_offerings_session_codes[i] = unit_offerings_session_codes[i].replace('d', 's').replace('e', 's')
+
+			if self.session in unit_offerings_session_codes and unit not in student_units:
+				filtered_unit_list.append(unit)
+		return filtered_unit_list
+
 	def get_available_units(self, student_units=[], 
 								  all_core_units=None, remaining_requirements=None):
 		"""
@@ -129,13 +154,15 @@ class Degree_Planner():
 		#student_units = ['COMP125', 'COMP115', 'COMP165', 'MAS111', 'INFO111', 'DMTH237']
 
 		degree_requirements = handbook.extract_degree_requirements(self.degree_code, self.year)
-		major_requirements = handbook.extract_major_req_units(self.major_code, self.year)
+		major_requirements = handbook.extract_major_requirements(self.major_code, self.year)
+
 
 		major_units = [ unit for unit in major_requirements if len(unit.split(" ")) == 1 ]
 		degree_units = [ unit for unit in degree_requirements if len(unit.split(" ")) == 1 ]
 		remaining_requirements = list(set(degree_requirements).union(set(major_requirements)) - set(major_units).union(set(degree_units)) )
 		#print 'remaining_requirements: ', remaining_requirements
-		# print 'major_units: ', major_units
+		#print 'major_units: ', major_units
+		
 		all_core_units =list(set(major_units).union(set(degree_units)))
 		
 
@@ -170,20 +197,54 @@ class Degree_Planner():
 		if not final_available_units[self.year]:
 			final_available_units.pop(self.year, None)
 		
+		#satisfy_remaining_requirements(remaining_requirements, final_available_units)
+
 		return final_available_units
 
+	def satisfy_remaining_requirements(self, remaining_requirements, final_available_units):
+		# ['3cp from COMP units at 200 level', '9cp from COMP300-COMP350 or ISYS326', 'COMP225 or COMP229']
+		parser = Prereq_Parser()
+		evaluator = Evaluate_Prerequisite()
+		negative_keywords = ['or', 'from']
+		satisfiable_units = []
+		student_units = ['COMP115', 'COMP125', 'DMTH137', 'DMTH237', 'ISYS114', 'ISYS224', 'ISYS326', 'COMP355']
+		for req in remaining_requirements:
+			pre_req_tree = parser.parse_string(req)
+			pre_req_tree = list(set(flatten(pre_req_tree)))
+
+			required_cp = evaluator.find_required_cp(pre_req_tree)
+			all_unit_list = [pre_req for pre_req in pre_req_tree if 'cp' not in pre_req  and pre_req not in negative_keywords ]
+			#print 'all_units: ', all_unit_list
+
+
+			filtered_unit_list = self.filter_units_by_offerings(all_unit_list, student_units)
+			#print 'filtered_unit_list: ', filtered_unit_list
+			for unit in filtered_unit_list:
+				pre_req = handbook.extract_pre_req_for_unit(unit, self.year)
+				pre_req = pre_req.replace('(P)', '')
+				pre_req_tree = parser.parse_string(pre_req)
+				
+				evaluate_result = evaluator.evaluate_prerequisite(pre_req_tree, student_units )
+				if evaluate_result:
+					satisfiable_units.append(unit)
+					return satisfiable_units
+			
+
+
+
 if __name__ == '__main__':
-	dp = Degree_Planner('BIT', 'SOT01', '2011', 's1')
+	dp = Degree_Planner('BIT', 'SOT01', '2013', 's1')
 	handbook = Handbook()
-	final = dp.get_available_units_for_entire_degree()
-	print json.dumps(final, sort_keys=True, indent=4)
+	#final = dp.get_available_units_for_entire_degree()
+	#print json.dumps(final, sort_keys=True, indent=4)
 
 	#print "Session: ", year, " ",  session
 
 	#s1_units = dp.get_available_units(['COMP115'])
 	#print s1_units
-	
-
+	remaining_requirements = ['COMP225 or COMP229']
+	final_available_units = {'2011': [{'s1': ['COMP115']}, {'s2': ['COMP125', 'DMTH137', 'ISYS114']}], '2013': [{'s1': ['COMP355']}, {'s2': []}], '2012': [{'s1': ['DMTH237']}, {'s2': ['COMP255', 'ISYS224']}]}
+	print dp.satisfy_remaining_requirements(remaining_requirements, final_available_units)
 	
 
 

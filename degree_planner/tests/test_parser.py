@@ -1,5 +1,5 @@
 import unittest
-from degree_planner.prereq_parser import *
+from degree_planner.parser import *
 from degree_planner.degree_planner import *
 
 class ParseTestCase(unittest.TestCase):

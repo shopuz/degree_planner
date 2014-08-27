@@ -274,6 +274,13 @@ class Evaluate_Prerequisite():
 		total_cp_gained = len(student_units) * self.cp_rule[level]
 		return total_cp_gained
 
+	def find_required_cp(self, pre_req_tree):
+		# Find the required cp from pre_req_tree
+		for item in pre_req_tree:
+		    if 'cp' in item:
+		        required_cp = int(self.ncp.parseString(item)[0])
+		        return required_cp
+
 	def evaluate_from(self, pre_req_tree, student_units):
 		"""
 			Evaluate statements containing 'from'
