@@ -13,6 +13,7 @@ class Degree_Planner():
 		self.major_code = major_code
 		self.year = year
 		self.session = session.lower()
+		self.remaining_requirements = []
 	
 	def filter_units_by_offerings(self, units, student_units):
 		# filtered_unit_list : list of units available in the session
@@ -162,7 +163,8 @@ class Degree_Planner():
 		remaining_requirements = list(set(degree_requirements).union(set(major_requirements)) - set(major_units).union(set(degree_units)) )
 		#print 'remaining_requirements: ', remaining_requirements
 		#print 'major_units: ', major_units
-		
+		self.remaining_requirements = remaining_requirements
+
 		all_core_units =list(set(major_units).union(set(degree_units)))
 		
 
@@ -197,18 +199,19 @@ class Degree_Planner():
 		if not final_available_units[self.year]:
 			final_available_units.pop(self.year, None)
 		
-		#satisfy_remaining_requirements(remaining_requirements, final_available_units)
+		# satisfy_remaining_requirements(remaining_requirements, final_available_units)
 
 		return final_available_units
 
-	def satisfy_remaining_requirements(self, remaining_requirements, final_available_units):
+	def satisfy_remaining_requirements(self, final_available_units):
 		# ['3cp from COMP units at 200 level', '9cp from COMP300-COMP350 or ISYS326', 'COMP225 or COMP229']
 		parser = Prereq_Parser()
 		evaluator = Evaluate_Prerequisite()
 		negative_keywords = ['or', 'from']
 		satisfiable_units = []
 		student_units = ['COMP115', 'COMP125', 'DMTH137', 'DMTH237', 'ISYS114', 'ISYS224', 'ISYS326', 'COMP355']
-		for req in remaining_requirements:
+		
+		for req in self.remaining_requirements:
 			pre_req_tree = parser.parse_string(req)
 			pre_req_tree = list(set(flatten(pre_req_tree)))
 
