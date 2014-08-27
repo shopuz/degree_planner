@@ -13,10 +13,11 @@ class Degree_Planner():
 		self.session = session.lower()
 		
 	def get_available_units(self, student_units=[], 
-								all_core_units=None, remaining_requirements=None):
+								  all_core_units=None, remaining_requirements=None):
 		"""
 		Get the available units in the given year and session.
-		Output: ['COMP115']
+		Output: list type:
+				['COMP115']
 		"""
 		handbook = Handbook()
 		parser = Prereq_Parser()
@@ -33,7 +34,9 @@ class Degree_Planner():
 								'COMP365' : '39cp and COMP225(P) and (COMP227(P) or COMP255(P) or ISYS227(P))',
 								'COMP388' :	'39cp and COMP188'
 							}
-		if not all_core_units:
+		# all_core_units might be empty list passed from other function which is a desired
+		# if this function is called directly from main, then execute the following
+		if not isinstance(all_core_units, list):
 			degree_requirements = handbook.extract_degree_requirements(self.degree_code, self.year)
 			major_requirements = handbook.extract_major_req_units(self.major_code, self.year)
 
@@ -99,7 +102,8 @@ class Degree_Planner():
 	def get_available_units_for_entire_degree(self):
 		"""
 		Iterates over all sessions in three years for Bachelor and recommends the core units along with session
-		Output {
+		Output : dictionary type
+				{
 			    "2011": [
 					        { "s1": [ "COMP115" ] },
 					        { "s2": [ "COMP125", "DMTH137", "ISYS114" ] }
@@ -155,9 +159,9 @@ class Degree_Planner():
 
 			final_available_units[self.year].append(temp_dict)
 			
-			#print "Session: ", year, " ",  session
-			#print "Available Units: ", student_units
-			#print 'aggregate_student_units: ', aggregate_student_units
+
+			all_core_units = list(set(all_core_units) - set(aggregate_student_units))
+
 
 			if self.session == "s2":
 				self.year = str(int(self.year) + 1)
