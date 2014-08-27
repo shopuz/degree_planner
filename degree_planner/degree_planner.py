@@ -12,7 +12,7 @@ class Degree_Planner():
 		
 
 
-	def available_units(self, student_units=None, session="S1", year='2012'):
+	def get_available_units(self, student_units=None, session="S1", year='2012'):
 		# 1. Get all units from Major Requirements
 		# 2. Filter the list with current unit offerings
 		# 3. Get prereq of each unit
@@ -105,49 +105,59 @@ class Degree_Planner():
 		return final_available_units
 
 
+	def get_available_units_for_entire_degree(self, degree_code='BIT', major_code='SOT01', year='2011', session='S1'):
+		student_units = aggregate_student_units = []
+		final_available_units = {}
+		if session.lower() == 's1':
+			toggle = itertools.cycle(['s1', 's2']).next
+		elif session.lower() == 's2':
+			toggle = itertools.cycle(['s2', 's1']).next
+		#student_units = ['COMP125', 'COMP115', 'COMP165', 'MAS111', 'INFO111', 'DMTH237']
+		print 'Available Units'
+		final_available_units[year] = []
+		for i in range(0,6):
 
+			additional_units = []
+			session = toggle()
+
+			student_units = self.get_available_units(aggregate_student_units, session, year)
+			if len(student_units) < 4:
+				additional_units = [ 'True '] * ( 4 - len(student_units))
+			else:
+				additional_units = []
+			aggregate_student_units += student_units + additional_units
+			
+			temp_dict = {}
+			temp_dict[session] = student_units
+
+			final_available_units[year].append(temp_dict)
+			
+			print "Session: ", year, " ",  session
+			print "Available Units: ", student_units
+			#print 'aggregate_student_units: ', aggregate_student_units
+
+			if session.lower() == "s2":
+				year = str(int(year) + 1)
+				final_available_units[year] = []
+
+		return final_available_units
+
+"""
+li= { '2011':
+            [ { 's1' :  ['COMP111'] },
+              { 's2' : ['COMP125', 'DMTH137'] }
+            ]
+     }
+"""
 if __name__ == '__main__':
 	dp = Degree_Planner('BIT', 'SOT01')
 	handbook = Handbook()
-	major_units = handbook.extract_major_req_units('SOT01', '2013')
-	
-	student_units = aggregate_student_units = []
-	student_units = ['COMP125', 'COMP115', 'COMP165', 'MAS111', 'INFO111', 'DMTH237']
+	final = dp.get_available_units_for_entire_degree()
+	print json.dumps(final, indent=4)
 
-	session = "S1"
-	year = '2011'
 	#print "Session: ", year, " ",  session
 	
 
-	if session.lower() == 's1':
-		toggle = itertools.cycle(['s1', 's2']).next
-	elif session.lower() == 's2':
-		toggle = itertools.cycle(['s2', 's1']).next
-	#student_units = ['COMP125', 'COMP115', 'COMP165', 'MAS111', 'INFO111', 'DMTH237']
-	print 'Available Units'
-	for i in range(0,6):
-
-		additional_units = []
-		session = toggle()
-
-
-		
-
-		student_units = dp.available_units(aggregate_student_units, session, year)
-		if len(student_units) < 4:
-			additional_units = [ 'True '] * ( 4 - len(student_units))
-		else:
-			additional_units = []
-		aggregate_student_units += student_units + additional_units
-		
-		
-		print "Session: ", year, " ",  session
-		print "Available Units: ", student_units
-		#print 'aggregate_student_units: ', aggregate_student_units
-
-		if session.lower() == "s2":
-			year = str(int(year) + 1)
-
-
+	
 
 
