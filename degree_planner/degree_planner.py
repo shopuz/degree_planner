@@ -6,13 +6,13 @@ import itertools
 
 class Degree_Planner():
 
-	def __init__(self, degree_code=None, major_code=None):
+	def __init__(self, degree_code, major_code, year, session):
 		self.degree_code = degree_code
 		self.major_code = major_code
+		self.year = year
+		self.session = session.lower()
 		
-
-
-	def get_available_units(self, year, session, student_units=[], 
+	def get_available_units(self, student_units=[], 
 								all_core_units=None, remaining_requirements=None):
 		"""
 		Get the available units in the given year and session.
@@ -34,8 +34,8 @@ class Degree_Planner():
 								'COMP388' :	'39cp and COMP188'
 							}
 		if not all_core_units:
-			degree_requirements = handbook.extract_degree_requirements(self.degree_code, year)
-			major_requirements = handbook.extract_major_req_units(self.major_code, year)
+			degree_requirements = handbook.extract_degree_requirements(self.degree_code, self.year)
+			major_requirements = handbook.extract_major_req_units(self.major_code, self.year)
 
 			major_units = [ unit for unit in major_requirements if len(unit.split(" ")) == 1 ]
 			degree_units = [ unit for unit in degree_requirements if len(unit.split(" ")) == 1 ]
@@ -49,7 +49,7 @@ class Degree_Planner():
 		for unit in all_core_units:
 
 			try:
-				unit_offerings = handbook.extract_unit_offering_of_unit(unit, year)
+				unit_offerings = handbook.extract_unit_offering_of_unit(unit, self.year)
 			except:
 				continue
 			# unit_offerings : ['s1 day', 's1 evening', 's3 day']
@@ -61,7 +61,7 @@ class Degree_Planner():
 			for i in xrange(len(unit_offerings_session_codes)):
 				unit_offerings_session_codes[i] = unit_offerings_session_codes[i].replace('d', 's').replace('e', 's')
 
-			if session.lower() in unit_offerings_session_codes and unit not in student_units:
+			if self.session in unit_offerings_session_codes and unit not in student_units:
 				filtered_unit_list.append(unit)
 
 		
@@ -69,7 +69,7 @@ class Degree_Planner():
 			if unit in temp_complex_units.keys():
 				pre_req = temp_complex_units[unit]
 			else:
-				pre_req = handbook.extract_pre_req_for_unit(unit, year)
+				pre_req = handbook.extract_pre_req_for_unit(unit, self.year)
 
 			# Todo: Parse the grade  (P, Cr) as well
 			pre_req = pre_req.replace("(P)", "").replace("(Cr)", "")
@@ -96,7 +96,7 @@ class Degree_Planner():
 		return final_available_units
 
 
-	def get_available_units_for_entire_degree(self, year='2011', session='S1'):
+	def get_available_units_for_entire_degree(self):
 		"""
 		Iterates over all sessions in three years for Bachelor and recommends the core units along with session
 		Output {
@@ -118,14 +118,14 @@ class Degree_Planner():
 
 		student_units = aggregate_student_units = []
 		final_available_units = {}
-		if session.lower() == 's1':
+		if self.session == 's1':
 			toggle = itertools.cycle(['s1', 's2']).next
-		elif session.lower() == 's2':
+		elif self.session == 's2':
 			toggle = itertools.cycle(['s2', 's1']).next
 		#student_units = ['COMP125', 'COMP115', 'COMP165', 'MAS111', 'INFO111', 'DMTH237']
 
-		degree_requirements = handbook.extract_degree_requirements(self.degree_code, year)
-		major_requirements = handbook.extract_major_req_units(self.major_code, year)
+		degree_requirements = handbook.extract_degree_requirements(self.degree_code, self.year)
+		major_requirements = handbook.extract_major_req_units(self.major_code, self.year)
 
 		major_units = [ unit for unit in major_requirements if len(unit.split(" ")) == 1 ]
 		degree_units = [ unit for unit in degree_requirements if len(unit.split(" ")) == 1 ]
@@ -137,13 +137,13 @@ class Degree_Planner():
 
 
 		#print 'Available Units'
-		final_available_units[year] = []
+		final_available_units[self.year] = []
 		for i in range(0,6):
 
 			additional_units = []
-			session = toggle()
+			self.session = toggle()
 
-			student_units = self.get_available_units(year, session, aggregate_student_units, all_core_units, remaining_requirements)
+			student_units = self.get_available_units(aggregate_student_units, all_core_units, remaining_requirements)
 			if len(student_units) < 4:
 				additional_units = [ 'True '] * ( 4 - len(student_units))
 			else:
@@ -151,32 +151,32 @@ class Degree_Planner():
 			aggregate_student_units += student_units + additional_units
 			
 			temp_dict = {}
-			temp_dict[session] = student_units
+			temp_dict[self.session] = student_units
 
-			final_available_units[year].append(temp_dict)
+			final_available_units[self.year].append(temp_dict)
 			
 			#print "Session: ", year, " ",  session
 			#print "Available Units: ", student_units
 			#print 'aggregate_student_units: ', aggregate_student_units
 
-			if session.lower() == "s2":
-				year = str(int(year) + 1)
-				final_available_units[year] = []
+			if self.session == "s2":
+				self.year = str(int(self.year) + 1)
+				final_available_units[self.year] = []
 		
-		if not final_available_units[year]:
-			final_available_units.pop(year, None)
+		if not final_available_units[self.year]:
+			final_available_units.pop(self.year, None)
 		
 		return final_available_units
 
 if __name__ == '__main__':
-	dp = Degree_Planner('BIT', 'SOT01')
+	dp = Degree_Planner('BIT', 'SOT01', '2011', 's1')
 	handbook = Handbook()
 	final = dp.get_available_units_for_entire_degree()
 	print json.dumps(final, sort_keys=True, indent=4)
 
 	#print "Session: ", year, " ",  session
 
-	#s1_units = dp.get_available_units('2011', 's2', ['COMP115'])
+	#s1_units = dp.get_available_units(['COMP115'])
 	#print s1_units
 	
 

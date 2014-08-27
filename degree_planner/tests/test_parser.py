@@ -82,10 +82,26 @@ class ParseTestCase(unittest.TestCase):
 class DegreePlannerTestCases(unittest.TestCase):
 	""" Tests for Degree Planner / Checker """
 
-	def test_available_units(self):
-		dp = Degree_Planner('BIT', 'SOT01')
+	def test_available_units_in_session(self):
+		dp = Degree_Planner('BIT', 'SOT01', '2011', 's1')
+		
+		available_units = dp.get_available_units()
+		self.assertEqual(available_units, ['COMP115'])
+
 		student_units = ['COMP115']
-		session = "S2"
+		available_units = dp.get_available_units(student_units)
+		self.assertNotEqual(available_units, ['COMP125', 'DMTH137', 'ISYS114'])
+
+		dp = Degree_Planner('BIT', 'SOT01', '2011', 's2')
+		available_units = dp.get_available_units(student_units)
+		self.assertEqual(available_units, ['COMP125', 'DMTH137', 'ISYS114'])
+
+	def test_available_units_in_entire_degree(self):
+		dp = Degree_Planner('BIT', 'SOT01', '2011', 's1')
+		
+		available_units = dp.get_available_units_for_entire_degree()
+		expected_result = {'2011': [{'s1': ['COMP115']}, {'s2': ['COMP125', 'DMTH137', 'ISYS114']}], '2013': [{'s1': ['COMP355']}, {'s2': []}], '2012': [{'s1': ['DMTH237']}, {'s2': ['COMP255', 'ISYS224']}]}
+		self.assertEqual(available_units, expected_result)
 		
 
 
