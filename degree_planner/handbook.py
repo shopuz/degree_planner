@@ -413,7 +413,7 @@ class Handbook:
 		Output: {	'min_total_cp': 72,
 					'min_200_above': 42,
 					'min_300_above': 18,
-					'designation_information_technology': 42,
+					'min_designation_information_technology': 42,
 					'foundation_units': 12
 				}
 		"""
