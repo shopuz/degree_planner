@@ -71,7 +71,7 @@ class Prereq_Parser():
 		filtered_unit_list = [unit for unit in all_units_at_level if self.wn.parseString(unit)[0] in prereq_units]
 		
 		new_prereq_string = filtered_unit_list[0] + " "
- 		for unit in filtered_unit_list[1:]:
+		for unit in filtered_unit_list[1:]:
 			new_prereq_string += 'or ' + unit + ' '
 		new_prereq_string = new_prereq_string[:-1]
 		string_to_be_replaced = prereq.split(" from ")[1]
@@ -220,44 +220,152 @@ class Prereq_Parser():
 
 	def get_stored_cp(self, parsed_student_units, level, unit_code):
 		""" Return the cp stored in parsed_student_units """
-		if unit_code in parsed_student_units[level]:
-			cp = parsed_student_units[level][unit_code]
+		if unit_code in parsed_student_units['level'][level]:
+			cp = parsed_student_units['level'][level][unit_code]
 		else:
 			cp = 0
 		
 		return cp
 
-	def process_student_units(self, student_units=[]):
-		""" 
-			RESULT = {
-				'100' :{
-					'COMP' : 6,
-					'MATH': 12,
-					'DMTH' : 3,
-					'TOTAL': 21
-				}
-			}
+	def process_student_units(self, student_units=[], degree_code='BIT', year='2014'):
 		"""
-		parsed_student_units = {'100':{}, '200':{}, '300':{}}
-		total_cp_100 = total_cp_200 = total_cp_300 = 0
+		Get detailed information about student units.
+		Input :['COMP115', 'COMP125', 'DMTH137', 'ISYS114',  'DMTH237', 'COMP255', 'ISYS224', 'COMP355']
+		Output: {
+					'level': { 
+								'100': {
+										'COMP' : 6,
+										'DMTH' : 3,
+										'ISYS' : 3,
+										'TOTAL_CP': 12
+ 
+								},
+								'200': {
+										'COMP' : 3,
+										'DMTH' : 3,
+										'ISYS' : 3,
+										'TOTAL_CP': 9
+ 
+								}
+								'300': {
+										'COMP' : 3,
+										'TOTAL_CP': 3
+ 
+								}
+
+					},
+					'foundation_units' : 12,
+					'TOTAL_CP' : 24,
+					'min_designation_it': 24
+
+				}
+		"""
+
+		handbook = Handbook()
+
+		parsed_student_units ={ 'level': {'100':{}, '200':{}, '300':{}} }
+		total_cp_100 = total_cp_200 = total_cp_300 = foundation_units_total_cp = 0
+		unit_designations = []
+		foundation_units = handbook.get_foundation_units(degree_code, year)
+
 		for unit in student_units:
 			[ unit_code, unit_number ] = self.wn.parseString(unit)
 			if unit_number.startswith('1'):
-				parsed_student_units['100'][unit_code] = self.get_stored_cp(parsed_student_units, '100', unit_code) + 3
+				parsed_student_units['level']['100'][unit_code] = self.get_stored_cp(parsed_student_units, '100', unit_code) + 3
 				total_cp_100 += 3
 			elif unit_number.startswith('2'):
-				parsed_student_units['200'][unit_code] = self.get_stored_cp(parsed_student_units, '200', unit_code) + 3
+				parsed_student_units['level']['200'][unit_code] = self.get_stored_cp(parsed_student_units, '200', unit_code) + 3
 				total_cp_200 += 3
 			elif unit_number.startswith('3'):
-				parsed_student_units['300'][unit_code] = self.get_stored_cp(parsed_student_units, '300', unit_code) + 3
+				parsed_student_units['level']['300'][unit_code] = self.get_stored_cp(parsed_student_units, '300', unit_code) + 3
 				total_cp_300 += 3
 
-		parsed_student_units['100']['TOTAL'] = total_cp_100
-		parsed_student_units['200']['TOTAL'] = total_cp_200
-		parsed_student_units['300']['TOTAL'] = total_cp_300
+			if unit in foundation_units:
+				foundation_units_total_cp += 3
 
-		print parsed_student_units
+			# ['Engineering', 'Information Technology', 'Science', 'Technology']
+			unit_designations += handbook.extract_unit_designation(unit, year)
+
+
+		parsed_student_units['level']['100']['TOTAL_CP'] = total_cp_100
+		parsed_student_units['level']['200']['TOTAL_CP'] = total_cp_200
+		parsed_student_units['level']['300']['TOTAL_CP'] = total_cp_300
+
+		parsed_student_units['foundation_units'] = foundation_units_total_cp
+
+		for designation in list(set(unit_designations)):
+			parsed_student_units['designation_' + designation.lower().replace(' ', '_')] = unit_designations.count(designation) * 3
+
+		parsed_student_units['TOTAL_CP'] = parsed_student_units['level']['100']['TOTAL_CP'] + parsed_student_units['level']['200']['TOTAL_CP'] + parsed_student_units['level']['300']['TOTAL_CP']
+
+		#print parsed_student_units
 		return parsed_student_units
+
+	def update_general_requirements_of_degree(self, student_units, degree_code='BIT', year='2014'):
+		"""
+		Based on parsed student units, update the general requirements of the degree
+		Input : gen_reqs : {	'min_total_cp': 72,
+								'min_200_above': 42,
+								'min_300_above': 18,
+								'designation_information_technology': 42,
+								'foundation_units': 12
+							}
+				parsed_student_units : {
+										'level': { 
+													'100': {
+															'COMP' : 6,
+															'DMTH' : 3,
+															'ISYS' : 3,
+															'TOTAL_CP': 12
+					 
+													},
+													'200': {
+															'COMP' : 3,
+															'DMTH' : 3,
+															'ISYS' : 3,
+															'TOTAL_CP': 9
+					 
+													},
+													'300': {
+															'COMP' : 3,
+															'TOTAL_CP': 3
+					 
+													}
+
+										},
+										'foundation' : 12,
+										'TOTAL_CP' : 24,
+										'designation_information_technology': 24
+
+									}
+		Output:  modified_gen_reqs : {	'min_total_cp': 48,
+										'min_200_above': 30,
+										'min_300_above': 15,
+										'designation_information_technology': 18,
+										'foundation_units': 0
+									}
+
+		"""
+		handbook = Handbook()
+		parsed_student_units = self.process_student_units(student_units)
+		gen_reqs = handbook.extract_general_requirements_of_degree(degree_code, year)
+		
+		modified_gen_reqs = gen_reqs
+		modified_gen_reqs['min_total_cp'] = gen_reqs['min_total_cp'] - parsed_student_units['TOTAL_CP']
+		min_200_above_from_student_units = parsed_student_units['level']['200']['TOTAL_CP'] + parsed_student_units['level']['300']['TOTAL_CP']
+		modified_gen_reqs['min_200_above'] = gen_reqs['min_200_above'] - min_200_above_from_student_units
+		
+		min_300_above_from_student_units = parsed_student_units['level']['300']['TOTAL_CP']
+		modified_gen_reqs['min_300_above'] = gen_reqs['min_300_above'] - min_300_above_from_student_units
+
+		modified_gen_reqs['foundation_units'] = gen_reqs['foundation_units'] - parsed_student_units['foundation_units']
+
+		modified_gen_reqs['designation_information_technology'] = gen_reqs['designation_information_technology'] - parsed_student_units['designation_information_technology']		
+
+		return modified_gen_reqs
+
+
+
 
 
 class Evaluate_Prerequisite():
@@ -265,11 +373,12 @@ class Evaluate_Prerequisite():
 		self.cp_rule = {"undergraduate": 3, "postgraduate": 4}
 		word = Word(alphas)
 		num = Word(nums)
- 		self.ncp = num + word
+		self.ncp = num + word
 		
 
 
 	# Calculate the total credit points obtained by the student based on his completed units
+	#@staticmethod
 	def total_cp(self, student_units, level="undergraduate"):
 		total_cp_gained = len(student_units) * self.cp_rule[level]
 		return total_cp_gained
@@ -277,9 +386,9 @@ class Evaluate_Prerequisite():
 	def find_required_cp(self, pre_req_tree):
 		# Find the required cp from pre_req_tree
 		for item in pre_req_tree:
-		    if 'cp' in item:
-		        required_cp = int(self.ncp.parseString(item)[0])
-		        return required_cp
+			if 'cp' in item:
+				required_cp = int(self.ncp.parseString(item)[0])
+				return required_cp
 
 	def evaluate_from(self, pre_req_tree, student_units):
 		"""
@@ -299,8 +408,8 @@ class Evaluate_Prerequisite():
 
 		# Find the required cp from pre_req_tree
 		for item in pre_req_tree:
-		    if 'cp' in item:
-		        required_cp = int(self.ncp.parseString(item)[0])
+			if 'cp' in item:
+				required_cp = int(self.ncp.parseString(item)[0])
 
 		if total_cp_gained >= required_cp:
 			return True
@@ -341,6 +450,8 @@ class Evaluate_Prerequisite():
 				#print temp
 				return eval(temp)
 
+	
+
 
 if __name__ == '__main__':
 	pp = Prereq_Parser()
@@ -353,8 +464,10 @@ if __name__ == '__main__':
 	#[['COMP125', 'or', 'COMP165'], 'and', ['3cp', 'from', [[[[['MATH132', 'or', 'MATH133'], 'or', 'MATH134'], 'or', 'MATH135'], 'or', 'MATH136'], 'or', 'DMTH137']]]
 	#pre_req = '3cp from COMP or ISYS units at 100 level'
 	#pre_req = '39cp and COMP125 or COMP249'
-	pre_req = ''
-	print 'result: '
-	print pp.parse_string(pre_req)
+	#pre_req = ''
+	#print 'result: '
+	#print pp.parse_string(pre_req)
+	student_units = ['COMP115', 'COMP125', 'DMTH137', 'ISYS114',  'DMTH237', 'COMP255', 'ISYS224', 'COMP355']
+	print json.dumps(pp.process_student_units(student_units), indent=4, sort_keys=True)
 	
 	

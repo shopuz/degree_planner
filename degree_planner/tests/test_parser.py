@@ -1,6 +1,7 @@
 import unittest
 from degree_planner.parser import *
 from degree_planner.degree_planner import *
+from degree_planner.handbook import *
 
 class ParseTestCase(unittest.TestCase):
 	""" Various Tests related to Parsing a Prerequisite 	"""
@@ -78,6 +79,54 @@ class ParseTestCase(unittest.TestCase):
 		student_units = ['COMP125', 'COMP115', 'COMP165', 'MAS111', 'INFO111', 'DMTH237', 'COMP225', 'ACCG355', 'ISYS100', 'ISYS104', 'ISYS114', 'ISYS224', 'ISYS254', 'ISYS301', 'MPCE360']
 		self.assertTrue(ev.evaluate_prerequisite(pre_req_tree, student_units))
 
+
+	def test_process_students(self):
+		pp = Prereq_Parser()
+		print 'testing process students'
+		student_units = ['COMP115', 'COMP125', 'DMTH137', 'ISYS114',  'DMTH237', 'COMP255', 'ISYS224', 'COMP355']
+		result = pp.process_student_units(student_units)
+		expected_result = {
+						    "TOTAL_CP": 24,
+						    "designation_commerce": 3,
+						    "designation_engineering": 15,
+						    "designation_information_technology": 24,
+						    "designation_science": 24,
+						    "designation_technology": 18,
+						    "foundation_units": 12,
+						    "level": {
+						        "100": {
+						            "COMP": 6,
+						            "DMTH": 3,
+						            "ISYS": 3,
+						            "TOTAL_CP": 12
+						        },
+						        "200": {
+						            "COMP": 3,
+						            "DMTH": 3,
+						            "ISYS": 3,
+						            "TOTAL_CP": 9
+						        },
+						        "300": {
+						            "COMP": 3,
+						            "TOTAL_CP": 3
+						        }
+						    }
+						}
+		self.assertEqual(result,expected_result)
+
+	def test_update_general_requirements(self):
+		pp = Prereq_Parser()
+		student_units = ['COMP115', 'COMP125', 'DMTH137', 'ISYS114',  'DMTH237', 'COMP255', 'ISYS224', 'COMP355']
+		
+		result = pp.update_general_requirements_of_degree(student_units)
+		expected_result = {	'min_total_cp': 48,
+										'min_200_above': 30,
+										'min_300_above': 15,
+										'designation_information_technology': 18,
+										'foundation_units': 0
+									}
+
+		self.assertEqual(result, expected_result)
 
 class DegreePlannerTestCases(unittest.TestCase):
 	""" Tests for Degree Planner / Checker """

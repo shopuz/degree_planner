@@ -154,9 +154,10 @@ class Degree_Planner():
 			toggle = itertools.cycle(['s2', 's1']).next
 		#student_units = ['COMP125', 'COMP115', 'COMP165', 'MAS111', 'INFO111', 'DMTH237']
 
-		degree_requirements = handbook.extract_degree_requirements(self.degree_code, self.year)
+		degree_requirements = handbook.extract_degree_req_units(self.degree_code, self.year)
 		major_requirements = handbook.extract_major_requirements(self.major_code, self.year)
 
+		print 'degree_requirements: ', degree_requirements
 
 		major_units = [ unit for unit in major_requirements if len(unit.split(" ")) == 1 ]
 		degree_units = [ unit for unit in degree_requirements if len(unit.split(" ")) == 1 ]
@@ -231,23 +232,26 @@ class Degree_Planner():
 				if evaluate_result:
 					satisfiable_units.append(unit)
 					return satisfiable_units
-			
+	
+	
+	
+
 
 
 
 if __name__ == '__main__':
 	dp = Degree_Planner('BIT', 'SOT01', '2013', 's1')
 	handbook = Handbook()
-	#final = dp.get_available_units_for_entire_degree()
-	#print json.dumps(final, sort_keys=True, indent=4)
+	final = dp.get_available_units_for_entire_degree()
+	print json.dumps(final, sort_keys=True, indent=4)
 
 	#print "Session: ", year, " ",  session
 
 	#s1_units = dp.get_available_units(['COMP115'])
 	#print s1_units
-	remaining_requirements = ['COMP225 or COMP229']
-	final_available_units = {'2011': [{'s1': ['COMP115']}, {'s2': ['COMP125', 'DMTH137', 'ISYS114']}], '2013': [{'s1': ['COMP355']}, {'s2': []}], '2012': [{'s1': ['DMTH237']}, {'s2': ['COMP255', 'ISYS224']}]}
-	print dp.satisfy_remaining_requirements(remaining_requirements, final_available_units)
+	#remaining_requirements = ['COMP225 or COMP229']
+	#final_available_units = {'2011': [{'s1': ['COMP115']}, {'s2': ['COMP125', 'DMTH137', 'ISYS114']}], '2013': [{'s1': ['COMP355']}, {'s2': []}], '2012': [{'s1': ['DMTH237']}, {'s2': ['COMP255', 'ISYS224']}]}
+	#print dp.satisfy_remaining_requirements(remaining_requirements, final_available_units)
 	
 
 

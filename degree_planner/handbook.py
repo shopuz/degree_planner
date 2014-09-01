@@ -406,10 +406,61 @@ class Handbook:
 			unit_list += self.parse_major_degree_requirements(program['SpecificReqs'])
 
 		return unit_list
+
+	def extract_general_requirements_of_degree(self, degree_code='BIT', year='2014'):
+		"""
+		Extract all the general requirements of the degree. 
+		Output: {	'min_total_cp': 72,
+					'min_200_above': 42,
+					'min_300_above': 18,
+					'designation_information_technology': 42,
+					'foundation_units': 12
+				}
+		"""
+		general_requirements = { 	'min_total_cp' : [	'Minimum number of credit points', 
+														'Minimum number of credit points for the degree', 
+														'Minimum number of credit points for this degree', 
+														'Minimum number of credit points required for the degree'],
+									'min_200_above' : [	'Minimum number of credit points at 200 level or above',
+														'Minimum number of credit points required at 200 level or above'],
+									'min_300_above' : [	'Minimum number of credit points at 300 level or above',
+														'Minimum number of credit points required at 300 level or above'],
+									'designation_information_technology' : ['Minimum number of credit points designated as information technology'],
+									'foundation_units' 	: [ 'Completion of specified foundation units']	
+
+
+
+								}
+		parsed_req = {}
+		degree_url = 'http://api.prod.handbook.mq.edu.au/Degree/JSON/%s/%s/9f9ef28dea630ae6311cc730207b2b59' % (degree_code, year)
+		response = urllib.urlopen(degree_url)
+		degree_info = json.loads(response.read())
+		gen_reqs = degree_info['GenReqs']
+		for req in gen_reqs:
+			for key in general_requirements.keys():
+				if req['DegreeReq'] in general_requirements[key]:
+					parsed_req[key] = int(req['DegreeReqCP'])
+					break
+		return parsed_req
+
+
+	def get_foundation_units(self, degree_code='BIT', year='2014'):
+		"""
+		Extract the foundation units of the degree
+
+		"""
+		degree_url = 'http://api.prod.handbook.mq.edu.au/Degree/JSON/%s/%s/9f9ef28dea630ae6311cc730207b2b59' % (degree_code, year)
+		response = urllib.urlopen(degree_url)
+		degree_info = json.loads(response.read())
+		unit_list = []
+		for program in degree_info['Program']:
+			if program['Type'] == 'Foundation':
+				unit_list += self.parse_major_degree_requirements(program['SpecificReqs'])
+
+		return unit_list		
+
+
 	
-
-
-
 
 
 
@@ -433,10 +484,10 @@ if __name__ == "__main__":
 		print "Error: Please check level of units (undergraduate, postgraduate, research, graduate, all)"
 	'''
 
-	major_units = handbook.extract_major_requirements('SOT01', '2014')
-	print 'result: '
-	print '-------'
-	print major_units
+	#major_units = handbook.extract_major_requirements('SOT01', '2014')
+	#print 'result: '
+	#print '-------'
+	#print major_units
 
 	#print hbook.extract_unit_offering_of_unit('COMP115', '2014')
 	#print hbook.extract_unit_designation('COMP115', '2014')
@@ -446,3 +497,5 @@ if __name__ == "__main__":
 	
 	#print handbook.extract_degree_req_units()
 	#print handbook.extract_major_req_units()
+	
+	print handbook.extract_general_requirements_of_degree()
