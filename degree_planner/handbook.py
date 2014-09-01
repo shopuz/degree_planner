@@ -417,30 +417,47 @@ class Handbook:
 					'foundation_units': 12
 				}
 		"""
-		general_requirements = { 	'min_total_cp' : [	'Minimum number of credit points', 
-														'Minimum number of credit points for the degree', 
-														'Minimum number of credit points for this degree', 
-														'Minimum number of credit points required for the degree'],
-									'min_200_above' : [	'Minimum number of credit points at 200 level or above',
-														'Minimum number of credit points required at 200 level or above'],
-									'min_300_above' : [	'Minimum number of credit points at 300 level or above',
-														'Minimum number of credit points required at 300 level or above'],
-									'designation_information_technology' : ['Minimum number of credit points designated as information technology'],
-									'foundation_units' 	: [ 'Completion of specified foundation units']	
+		type1 = Literal("for the degree")
+		type2 = Literal("for this degree")
+		type3 = Literal("required for the degree")
 
+		min_cp = Literal('Minimum number of credit points') + ZeroOrMore(type1 | type2 | type3)
+		level = min_cp + Or([Literal('at'), Literal('required at')]) + Word(nums) + Literal('level') + ZeroOrMore(Literal('or above'))
+		designation = Or([min_cp, level]) + ZeroOrMore(Literal('from') + Word(alphas)) +  Or([Literal('designated'), Literal('designated units')]) + ZeroOrMore(Literal('as') +  OneOrMore(Word(alphas)))
+		designation_completion = Literal('Completion of a') + Literal('designated') + Word(alphas) + Literal('unit') + ZeroOrMore(Literal('with a')) +ZeroOrMore(OneOrMore(Word(alphas))) + ZeroOrMore(Literal('prefix'))
+		foundation = Literal('Completion of specified foundation units')
+		complex_statement = ( foundation | designation | designation_completion| level | min_cp )
 
+		negative_keywords = ['for the degree', 'for this degree', 'required for the degree', 'required for this degree', 'at', 'level', 'as', 'Completion of', 'a', 'unit', 'Completion of a']
 
-								}
 		parsed_req = {}
 		degree_url = 'http://api.prod.handbook.mq.edu.au/Degree/JSON/%s/%s/9f9ef28dea630ae6311cc730207b2b59' % (degree_code, year)
 		response = urllib.urlopen(degree_url)
 		degree_info = json.loads(response.read())
 		gen_reqs = degree_info['GenReqs']
 		for req in gen_reqs:
-			for key in general_requirements.keys():
-				if req['DegreeReq'] in general_requirements[key]:
-					parsed_req[key] = int(req['DegreeReqCP'])
-					break
+			try:
+				parsed_gen_req = complex_statement.parseString(req['DegreeReq']).asList()
+				print 'parsed: ', parsed_gen_req
+			except:
+				continue
+			
+			parsed_gen_req = [gen_req for gen_req in parsed_gen_req if gen_req not in negative_keywords]
+			final_parsed_gen_req = []
+			for filtered_gen_req in parsed_gen_req:
+				filtered_gen_req = filtered_gen_req.replace('Minimum number of credit points', 'min').replace('or above', 'above').replace('Completion of specified foundation units', 'foundation_units').replace('designated', 'designation')
+													
+				final_parsed_gen_req.append(filtered_gen_req)
+			if len(final_parsed_gen_req) == 1 and final_parsed_gen_req[0] == 'min':
+				keyword = 'min_total_cp'
+			else:
+				keyword = '_'.join(final_parsed_gen_req)
+
+			print "keyword: ", keyword
+			print (req['DegreeReqCP'])
+			if req['DegreeReqCP']:
+				parsed_req[keyword] = int(req['DegreeReqCP'])
+			
 		return parsed_req
 
 
@@ -460,7 +477,7 @@ class Handbook:
 		return unit_list		
 
 
-	
+
 
 
 
@@ -498,4 +515,4 @@ if __name__ == "__main__":
 	#print handbook.extract_degree_req_units()
 	#print handbook.extract_major_req_units()
 	
-	print handbook.extract_general_requirements_of_degree()
+	print handbook.extract_general_requirements_of_degree('BIT', '2014')

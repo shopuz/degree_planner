@@ -87,11 +87,11 @@ class ParseTestCase(unittest.TestCase):
 		result = pp.process_student_units(student_units)
 		expected_result = {
 						    "TOTAL_CP": 24,
-						    "designation_commerce": 3,
-						    "designation_engineering": 15,
-						    "designation_information_technology": 24,
-						    "designation_science": 24,
-						    "designation_technology": 18,
+						    "min_designation_commerce": 3,
+						    "min_designation_engineering": 15,
+						    "min_designation_information_technology": 24,
+						    "min_designation_science": 24,
+						    "min_designation_technology": 18,
 						    "foundation_units": 12,
 						    "level": {
 						        "100": {
@@ -122,7 +122,7 @@ class ParseTestCase(unittest.TestCase):
 		expected_result = {	'min_total_cp': 48,
 										'min_200_above': 30,
 										'min_300_above': 15,
-										'designation_information_technology': 18,
+										'min_designation_information_technology': 18,
 										'foundation_units': 0
 									}
 

@@ -294,7 +294,7 @@ class Prereq_Parser():
 		parsed_student_units['foundation_units'] = foundation_units_total_cp
 
 		for designation in list(set(unit_designations)):
-			parsed_student_units['designation_' + designation.lower().replace(' ', '_')] = unit_designations.count(designation) * 3
+			parsed_student_units['min_designation_' + designation.lower().replace(' ', '_')] = unit_designations.count(designation) * 3
 
 		parsed_student_units['TOTAL_CP'] = parsed_student_units['level']['100']['TOTAL_CP'] + parsed_student_units['level']['200']['TOTAL_CP'] + parsed_student_units['level']['300']['TOTAL_CP']
 
@@ -307,7 +307,7 @@ class Prereq_Parser():
 		Input : gen_reqs : {	'min_total_cp': 72,
 								'min_200_above': 42,
 								'min_300_above': 18,
-								'designation_information_technology': 42,
+								'min_designation_information_technology': 42,
 								'foundation_units': 12
 							}
 				parsed_student_units : {
@@ -341,7 +341,7 @@ class Prereq_Parser():
 		Output:  modified_gen_reqs : {	'min_total_cp': 48,
 										'min_200_above': 30,
 										'min_300_above': 15,
-										'designation_information_technology': 18,
+										'min_designation_information_technology': 18,
 										'foundation_units': 0
 									}
 
@@ -360,7 +360,7 @@ class Prereq_Parser():
 
 		modified_gen_reqs['foundation_units'] = gen_reqs['foundation_units'] - parsed_student_units['foundation_units']
 
-		modified_gen_reqs['designation_information_technology'] = gen_reqs['designation_information_technology'] - parsed_student_units['designation_information_technology']		
+		modified_gen_reqs['min_designation_information_technology'] = gen_reqs['min_designation_information_technology'] - parsed_student_units['min_designation_information_technology']		
 
 		return modified_gen_reqs
 
