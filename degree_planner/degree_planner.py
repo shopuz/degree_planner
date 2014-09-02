@@ -157,7 +157,7 @@ class Degree_Planner():
 		degree_requirements = handbook.extract_degree_req_units(self.degree_code, self.year)
 		major_requirements = handbook.extract_major_requirements(self.major_code, self.year)
 
-		print 'degree_requirements: ', degree_requirements
+		#print 'degree_requirements: ', degree_requirements
 
 		major_units = [ unit for unit in major_requirements if len(unit.split(" ")) == 1 ]
 		degree_units = [ unit for unit in degree_requirements if len(unit.split(" ")) == 1 ]
