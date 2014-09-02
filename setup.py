@@ -17,7 +17,8 @@ setup(	name='degree_planner',
 		packages = find_packages(exclude=['contrib', 'docs', 'tests*']),
 
 		install_requires=[
-			'pyparsing'
+			'pyparsing',
+			'bottle'
 		],
 		test_suite='nose.collector',
     	tests_require=['nose'],
