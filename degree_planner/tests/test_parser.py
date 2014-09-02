@@ -1,5 +1,5 @@
 import unittest
-from degree_planner.parser import *
+from degree_planner.degree_parser import *
 from degree_planner.degree_planner import *
 from degree_planner.handbook import *
 
@@ -116,10 +116,11 @@ class ParseTestCase(unittest.TestCase):
 
     def test_update_general_requirements(self):
         pp = Prereq_Parser()
+        handbook = Handbook()
         student_units = ['COMP115', 'COMP125', 'DMTH137', 'ISYS114',  'DMTH237', 'COMP255', 'ISYS224', 'COMP355']
-        
-        result = pp.update_general_requirements_of_degree(student_units)
-        expected_result = { 'min_total_cp': 48,
+        gen_degree_req = handbook.extract_general_requirements_of_degree('BIT', '2014')
+        result = pp.update_general_requirements_of_degree(student_units, gen_degree_req)
+        expected_result = {             'min_total_cp': 48,
                                         'min_200_above': 30,
                                         'min_300_above': 15,
                                         'min_designation_information_technology': 18,

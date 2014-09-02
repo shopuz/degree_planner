@@ -1,4 +1,4 @@
-from parser import *
+from degree_parser import *
 from handbook import *
 from datetime import date
 import math
@@ -14,6 +14,7 @@ class Degree_Planner():
 		self.year = year
 		self.session = session.lower()
 		self.remaining_requirements = []
+		self.aggregate_student_units = []
 	
 	def filter_units_by_offerings(self, units, student_units):
 		# filtered_unit_list : list of units available in the session
@@ -201,7 +202,7 @@ class Degree_Planner():
 			final_available_units.pop(self.year, None)
 		
 		# satisfy_remaining_requirements(remaining_requirements, final_available_units)
-
+		self.aggregate_student_units = aggregate_student_units
 		return final_available_units
 
 	def satisfy_remaining_requirements(self, final_available_units):
@@ -240,7 +241,7 @@ class Degree_Planner():
 
 
 if __name__ == '__main__':
-	dp = Degree_Planner('BIT', 'SOT01', '2013', 's1')
+	dp = Degree_Planner('BIT', 'WEB01', '2013', 's1')
 	handbook = Handbook()
 	final = dp.get_available_units_for_entire_degree()
 	print json.dumps(final, sort_keys=True, indent=4)

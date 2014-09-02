@@ -1,5 +1,5 @@
 import unittest
-from degree_planner.parser import *
+from degree_planner.degree_parser import *
 from degree_planner.handbook import *
 
 

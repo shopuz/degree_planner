@@ -39,6 +39,37 @@ class Handbook:
 
 		return level_code
 
+	def extract_all_degrees(self, year):
+		"""
+		Extract all the degrees of the year
+		Output: { 	'AssocDegIT' : 'Associate Degree in Information Technology',
+					'BActStud'	 :	'Bachelor of Actuarial Studies'
+				}
+		"""
+		url = 'http://api.prod.handbook.mq.edu.au/Degrees/JSON/%s/9f9ef28dea630ae6311cc730207b2b59' % year
+		response = urllib.urlopen(url)
+		all_degrees_info = json.loads(response.read())
+		all_degrees = {}
+		for degree in all_degrees_info:
+			all_degrees[degree['Code']] = degree['Name']
+
+		return all_degrees
+
+	def extract_all_majors_of_degree(self, degree_code, year):
+		"""
+		Extract all the majors of a particular degree
+		"""
+		all_majors = {}
+		url = 'http://api.prod.handbook.mq.edu.au/Degree/JSON/%s/%s/9f9ef28dea630ae6311cc730207b2b59' % (degree_code, year)
+		response = urllib.urlopen(url)
+		degree_info = json.loads(response.read())
+		for key in degree_info['QualifyingMajors'].keys():
+			all_majors_info = degree_info['QualifyingMajors'][key]
+			for major in all_majors_info:
+				all_majors[major['Code']] = major['Name']
+		
+		return all_majors
+
 	def extract_degree_req(self, url, filename):
 		"""
 		Extracts the list of all the degree requirements in a year. Degree Code is not mentioned in the output file
@@ -423,7 +454,7 @@ class Handbook:
 
 		min_cp = Literal('Minimum number of credit points') + ZeroOrMore(type1 | type2 | type3)
 		level = min_cp + Or([Literal('at'), Literal('required at')]) + Word(nums) + Literal('level') + ZeroOrMore(Literal('or above'))
-		designation = Or([min_cp, level]) + ZeroOrMore(Literal('from') + Word(alphas)) +  Or([Literal('designated'), Literal('designated units')]) + ZeroOrMore(Literal('as') +  OneOrMore(Word(alphas)))
+		designation = Or([min_cp, level]) + ZeroOrMore(Literal('from') + OneOrMore(Word(alphas))) +  Or([Literal('designated'), Literal('designated units')]) + ZeroOrMore(Literal('as') +  OneOrMore(Word(alphas)))
 		designation_completion = Literal('Completion of a') + Literal('designated') + Word(alphas) + Literal('unit') + ZeroOrMore(Literal('with a')) +ZeroOrMore(OneOrMore(Word(alphas))) + ZeroOrMore(Literal('prefix'))
 		foundation = Literal('Completion of specified foundation units')
 		complex_statement = ( foundation | designation | designation_completion| level | min_cp )
@@ -437,6 +468,7 @@ class Handbook:
 		gen_reqs = degree_info['GenReqs']
 		for req in gen_reqs:
 			try:
+				print 'req: ', req['DegreeReq']
 				parsed_gen_req = complex_statement.parseString(req['DegreeReq']).asList()
 				print 'parsed: ', parsed_gen_req
 			except:
@@ -516,3 +548,5 @@ if __name__ == "__main__":
 	#print handbook.extract_major_req_units()
 	
 	print handbook.extract_general_requirements_of_degree('BIT', '2014')
+	#print handbook.extract_all_majors_of_degree('BIT', '2014')
+	#print handbook.extract_degree_requirements()

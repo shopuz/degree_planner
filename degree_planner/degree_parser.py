@@ -6,8 +6,6 @@ from handbook import *
 from pyparsing import *
 from compiler.ast import flatten
 
-
-
 class Prereq_Parser():
     def __init__(self):
         self.word = Word(alphas)
@@ -300,7 +298,7 @@ class Prereq_Parser():
         #print parsed_student_units
         return parsed_student_units
 
-    def update_general_requirements_of_degree(self, student_units, degree_code='BIT', year='2014'):
+    def update_general_requirements_of_degree(self, student_units, gen_reqs):
         """
         Based on parsed student units, update the general requirements of the degree
         Input : gen_reqs : {    'min_total_cp': 72,
@@ -347,7 +345,7 @@ class Prereq_Parser():
         """
         handbook = Handbook()
         parsed_student_units = self.process_student_units(student_units)
-        gen_reqs = handbook.extract_general_requirements_of_degree(degree_code, year)
+        #gen_reqs = handbook.extract_general_requirements_of_degree(degree_code, year)
         
         modified_gen_reqs = gen_reqs
         keys = gen_reqs.keys()
@@ -366,6 +364,35 @@ class Prereq_Parser():
                 modified_gen_reqs['min_designation_information_technology'] = gen_reqs['min_designation_information_technology'] - parsed_student_units['designation_information_technology']       
 
         return modified_gen_reqs
+
+
+    def update_degree_req_units(self, student_units, degree_req_units):
+        """
+        Update the degree requirement units by verifying the requirement with student units
+        """
+        remaining_units = list(set(degree_req_units) - set(student_units))
+        return remaining_units
+
+    def update_major_reqs(self, student_units, major_reqs):
+        """
+        Update the major requirement units by verifying the requirement with student units
+        """
+        
+        remaining_reqs = list(set(major_reqs) - set(student_units))
+        complex_req_units = [req for req in major_reqs if " " in req]
+        final_remaining_reqs = []
+        evaluator = Evaluate_Prerequisite()
+        print student_units
+        for req in complex_req_units:
+            pre_req_tree = self.parse_string(req)
+
+            result = evaluator.evaluate_prerequisite(pre_req_tree, student_units)
+            if not result:
+                final_remaining_reqs.append(req)
+
+        return final_remaining_reqs
+
+
 
 
 
@@ -470,7 +497,10 @@ if __name__ == '__main__':
     #pre_req = ''
     #print 'result: '
     #print pp.parse_string(pre_req)
-    student_units = ['COMP115', 'COMP125', 'DMTH137', 'ISYS114',  'DMTH237', 'COMP255', 'ISYS224', 'COMP355']
-    print json.dumps(pp.process_student_units(student_units), indent=4, sort_keys=True)
+    student_units = ['COMP115', 'COMP125', 'DMTH137', 'ISYS114',  'DMTH237', 'COMP255', 'ISYS224', 'COMP355', 'COMP225', 'COMP333', 'COMP331', 'ISYS326']
+    #print json.dumps(pp.process_student_units(student_units), indent=4, sort_keys=True)
+    handbook = Handbook()
+    major_reqs = handbook.extract_major_requirements('SOT01', '2014')
+    print pp.update_major_reqs(student_units, major_reqs)
     
     
