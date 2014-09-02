@@ -1,0 +1,24 @@
+.prod td {
+text-align:center; 
+vertical-align: middle;
+width:200px;
+height: 100px;
+border: 1px solid #000;
+padding: 10px;
+
+}
+
+/**here's the magic part**/
+.prod td a {
+display:block;
+height:7em; /**adjust height in ems as required**/ 
+text-decoration:none; 
+
+}
+/**link states**/
+.prod td a:link {color: #000}
+.prod td a:visited {color:#666}
+.prod td a:hover, .prod td a:active, .prod td a:focus {
+background-color:#d6ebf2
+}
+
