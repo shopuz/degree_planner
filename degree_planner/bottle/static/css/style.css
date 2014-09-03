@@ -22,3 +22,11 @@ text-decoration:none;
 background-color:#d6ebf2
 }
 
+.req_unsatisfied {
+	color:red;
+	font-weight: 400 !important;
+}
+.req_satisfied {
+	color:green;
+	font-weight: 400 !important;
+}

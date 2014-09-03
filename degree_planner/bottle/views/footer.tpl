@@ -6,13 +6,36 @@
     <script>
     	var mytarget;
     	$('#myModal').on('show.bs.modal', function (e) {
-			  // do something...\
-			  //alert(e.relatedTarget);
 			  mytarget = e.relatedTarget;
+			  console.log(mytarget.id);
+			  $.ajax({
+	            type: 'POST',
+	            url: '/populate_modal',
+	            data: JSON.stringify({ 'year_session' : mytarget.id }),
+	            contentType: "application/json",
+	            //dataType: "json",
+	            success: function(response) {
+	                // Fill out the People Dropdown
+	                $('#people').empty().append('<option> Choose People Unit </option>');
+	                for (var k in response['people_units']){
+	                	var option = '<option value= "'+ k + '"> ' + response['people_units'][k] + '</option>';
+	                	$('#people').append(option);
+	                }
+	                 // Fill out the Planet Dropdown
+	                $('#planet').empty().append('<option> Choose Planet Unit </option>');
+	                for (var k in response['planet_units']){
+	                	var option = '<option value= "'+ k + '"> ' + response['planet_units'][k] + '</option>';
+	                	$('#planet').append(option);
+	                }
+	                
+	            }
+	        });
+
+
 			});
 
 			$(function() {
-			//twitter bootstrap script
+			// insert selected unit from modal into the table cell
 			    $("button#submit").click(function(){
 			    	$('.select_unit').each(function(){
 			    		if ($(this).val())
@@ -26,6 +49,7 @@
 			    });
 			  });
 			
+			// allow only one unit to be chosen from the modal popup
 			$(document).ready(function(){
 				$('.select_unit').change(function(){
 					console.log($(this).siblings('select'));

@@ -15,7 +15,7 @@
 						%for session in xrange(3):
 							<tr>
 							%if session == 0:
-								<td rowspan="3"> {{ 2014 + year }} </td>
+								<td rowspan="3"> {{ 2011 + year }} </td>
 							%end
 							<td>S{{session + 1}}</td>
 
@@ -32,6 +32,7 @@
 							%if session == 2:
 								% no_of_cells = 2
 								% units = []
+								% session_value = 's3'
 							%else:
 								%if sorted_years:
 								% units = all_available_units[sorted_years[year]][session][session_value]	
@@ -42,9 +43,9 @@
 
 							%for i in xrange(no_of_cells):
 								%if (i < len(units)):
-									<td> <a href="firstsub" data-toggle="modal" data-target="#myModal">{{ units[i] }}</a></td>	
+									<td> <a href="#" data-toggle="modal" data-target="#myModal" id="{{ str(2011+year) + '_' + session_value }}">{{ units[i] }}</a></td>	
 								%else:
-									<td> <a href="firstsub" data-toggle="modal" data-target="#myModal"> &nbsp;</a></td>	
+									<td> <a href="#" data-toggle="modal" data-target="#myModal" id="{{ str(2011+year) + '_' + session_value }}"> &nbsp;</a></td>	
 								%end
 							%end
 							</tr>
@@ -85,7 +86,11 @@
 
 				<div class="panel panel-primary">
 					<div class="panel-heading">
-				    	<h3 class="panel-title">Degree Requirements</h3>
+						%if selected_degree:
+				    		<h3 class="panel-title">Degree Requirements for {{ selected_degree }}</h3>
+				    	%else:
+				    		<h3 class="panel-title">Degree Requirements</h3>
+				    	%end
 				  	</div>
 				  	
 				  	%if degree_req_units:
@@ -94,9 +99,14 @@
 						    <li class="list-group-item"> 
 						    	%for req in degree_req_units:
 						    		%if req in updated_degree_req_units:
-						    			<input type="checkbox" > {{ req }} </input>  <br/>
+						    			<input type="checkbox" >
+						    				<label class="req_unsatisfied">  {{ req }} </label>
+						    			</input>  <br/>
 						    		%else:
-						    			<input type="checkbox" checked> {{ req }} </input>  <br/>
+						    			<input type="checkbox" disabled="disabled"  checked >
+						    				<label class="req_satisfied"> {{ req }}  </label>
+
+						    			</input>  <br/>
 									%end
 								%end
 							    
@@ -105,9 +115,13 @@
 						    <li class="list-group-item">
 							    %for req in gen_degree_req.keys():
 						    		%if updated_gen_degree_req[req] == 0:
-						    			<input type="checkbox" checked> {{ req }} : 0 </input>  <br/>
+						    			<input type="checkbox" disabled="disabled"  checked> 
+						    				<label class="req_satisfied"> {{ req }} : 0 </label>
+						    			</input>  <br/>
 						    		%else:
-						    			<input type="checkbox" > {{ req }} : {{ updated_gen_degree_req[req] }} </input>  <br/>
+						    			<input type="checkbox">
+						    				<label class="req_unsatisfied">  {{ req }} : {{ updated_gen_degree_req[req] }} </label>
+						    			</input>  <br/>
 									%end
 								%end
 							    
@@ -122,7 +136,11 @@
 
 				<div class="panel panel-primary">
 					<div class="panel-heading">
-				    <h3 class="panel-title">Major Requirements</h3>
+					%if selected_major:
+				    	<h3 class="panel-title">Major Requirements for {{ selected_major }}</h3>
+				    %else:
+				    	<h3 class="panel-title">Major Requirements</h3>
+				    %end
 				  </div>
 				  	
 				     <!-- List group -->
@@ -131,9 +149,13 @@
 					  	%if major_req_units:
 						    %for req in major_req_units:
 					    		%if req in updated_major_req_units:
-					    			<input type="checkbox" > {{ req }} </input>  <br/>
+					    			<input type="checkbox">
+					    				<label class="req_unsatisfied">  {{ req }} </label>
+					    			</input>  <br/>
 					    		%else:
-					    			<input type="checkbox" checked> {{ req }} </input>  <br/>
+					    			<input type="checkbox" disabled="disabled"  checked>
+					    				<label class="req_satisfied">  {{ req }} </label>
+					    			</input>  <br/>
 								%end
 							%end
 						%end
@@ -161,47 +183,51 @@
 							    
 							    <select class="form-control select_unit" id="planet">
 							    	<option value="">  Planet Units</option>
-							    	<option value="ACCG260">ACCG260</option>
-									<option value="AHIS230">AHIS230</option>
-									<option value="ANTH106">ANTH106</option>
-									<option value="ASTR170">ASTR170</option>
-									<option value="ASTR178">ASTR178</option>
-									<option value="BBE100">BBE100</option>
-									<option value="BIOL108">BIOL108</option>
-									<option value="BIOL260">BIOL260</option>
-									<option value="BIOL261">BIOL261</option>
-									<option value="BUSL100">BUSL100</option>
-									<option value="CBMS123">CBMS123</option>
-									<option value="ECON131">ECON131</option>
-									<option value="EDUC108">EDUC108</option>
-									<option value="EDUC261">EDUC261</option>
-									<option value="ENV200">ENV200</option>
-									<option value="ENVE214">ENVE214</option>
-									<option value="ENVE237">ENVE237</option>
-									<option value="ENVG262">ENVG262</option>
-									<option value="GEOS112">GEOS112</option>
-									<option value="GEOS126">GEOS126</option>
-									<option value="GEOS204">GEOS204</option>
-									<option value="ISYS100">ISYS100</option>
-									<option value="LEX102">LEX102</option>
-									<option value="LING337">LING337</option>
-									<option value="MATH109">MATH109</option>
-									<option value="MATH123">MATH123</option>
-									<option value="MSM310">MSM310</option>
-									<option value="PHL260">PHL260</option>
-									<option value="PHYS159">PHYS159</option>
-									<option value="PHYS242">PHYS242</option>
-									<option value="SCOM100">SCOM100</option>
-									<option value="SOC254">SOC254</option>
-									<option value="SPED102">SPED102</option>
-									<option value="STAT170">STAT170</option>
-									<option value="STAT175">STAT175</option>
+
+							    	<!--
+							    	<option value="ACCG260">	ACCG260	</option>
+									<option value="AHIS230">	AHIS230	</option>
+									<option value="ANTH106">	ANTH106	</option>
+									<option value="ASTR170">	ASTR170	</option>
+									<option value="ASTR178">	ASTR178	</option>
+									<option value="BBE100">		BBE100	</option>
+									<option value="BIOL108">	BIOL108	</option>
+									<option value="BIOL260">	BIOL260	</option>
+									<option value="BIOL261">	BIOL261	</option>
+									<option value="BUSL100">	BUSL100	</option>
+									<option value="CBMS123">	CBMS123	</option>
+									<option value="ECON131">	ECON131	</option>
+									<option value="EDUC108">	EDUC108	</option>
+									<option value="EDUC261">	EDUC261	</option>
+									<option value="ENV200">		ENV200	</option>
+									<option value="ENVE214">	ENVE214	</option>
+									<option value="ENVE237">	ENVE237	</option>
+									<option value="ENVG262">	ENVG262	</option>
+									<option value="GEOS112">	GEOS112	</option>
+									<option value="GEOS126">	GEOS126	</option>
+									<option value="GEOS204">	GEOS204	</option>
+									<option value="ISYS100">	ISYS100	</option>
+									<option value="LEX102">		LEX102	</option>
+									<option value="LING337">	LING337	</option>
+									<option value="MATH109">	MATH109	</option>
+									<option value="MATH123">	MATH123	</option>
+									<option value="MSM310">		MSM310	</option>
+									<option value="PHL260">		PHL260	</option>
+									<option value="PHYS159">	PHYS159	</option>
+									<option value="PHYS242">	PHYS242	</option>
+									<option value="SCOM100">	SCOM100	</option>
+									<option value="SOC254">		SOC254	</option>
+									<option value="SPED102">	SPED102	</option>
+									<option value="STAT170">	STAT170	</option>
+									<option value="STAT175">	STAT175	</option>
+									-->
 							    	</select>
 							  
 							   
 							    <br/>
 							    <select class="form-control select_unit" id="people">
 							    	<option value="">  People Units</option>
+							    	<!--
 							    	<option value="ABST100">ABST100</option>
 									<option value="ACBE100">ACBE100</option>
 									<option value="ACSC100">ACSC100</option>
@@ -259,7 +285,7 @@
 									<option value="SOC295">SOC295</option>
 									<option value="SOC297">SOC297</option>
 									<option value="SOC315">SOC315</option>
-							    	
+							    	-->
 									</select>
 							  
 							   <br/>

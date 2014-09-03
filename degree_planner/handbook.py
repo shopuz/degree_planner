@@ -228,10 +228,26 @@ class Handbook:
 		response = urllib.urlopen(unit_url)
 		unit_info = json.loads(response.read())
 		unit_offerings = []
+		if 'UnitOfferings' not in unit_info.keys():
+			return []
+			
 		for unit_offering in unit_info['UnitOfferings']:
 			unit_offerings.append(unit_offering['code'].encode('utf-8').lower())
 
 		return unit_offerings
+
+	def filter_units_by_offering(self, unit_list, year, session):
+		"""
+		Filter the unit_list by looking into its offerings
+		"""
+		filtered_unit_list = []
+		for unit in unit_list:
+			print 'Unit: ', unit
+			unit_offerings = self.extract_unit_offering_of_unit(unit, year)
+			unit_offerings_session_codes = [ unit_offering.split(" ")[0].replace('d', 's').replace('e', 's') for unit_offering in unit_offerings]
+			if session in unit_offerings_session_codes:
+				filtered_unit_list.append(unit)
+		return filtered_unit_list
 
 	def extract_unit_designation(self, unit_code, year=None):
 		"""

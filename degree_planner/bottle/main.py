@@ -9,6 +9,7 @@ from handbook import *
 from degree_planner import *
 from bottle import template, request, redirect, route, post, run, static_file
 
+dp = Degree_Planner('BIT', 'SOT01', '2011', 's1')
 
 @route('/static/<filepath:path>')
 def server_static(filepath):
@@ -32,8 +33,11 @@ def index():
     pp = Prereq_Parser()
     #degree_planner = Degree_Planner()
     year = '2011'
-    all_degrees = handbook.extract_all_degrees('2011')
+    
 
+
+    all_degrees = handbook.extract_all_degrees('2011')
+    
     if request.forms:
         degree_code = request.forms.get("degree")
         major_code = request.forms.get("major")
@@ -79,6 +83,23 @@ def index():
                     )
 
 
+@route("/populate_modal", method='POST')
+def index():
+    handbook = Handbook()
+    print 'request_json: ', request.json
+    year_session = str(request.json['year_session'])
+    print "year_session:", year_session
+    [year, session] = year_session.split('_')
+
+    people_units = dp.people_units
+    planet_units = dp.planet_units
+    
+    filtered_people_units = handbook.filter_units_by_offering(people_units, year, session)
+    filtered_planet_units = handbook.filter_units_by_offering(planet_units, year, session)
+
+    return {"planet_units": filtered_planet_units, "people_units": filtered_people_units}
+
+
 @route("/populate_major", method='POST')
 def index():
     handbook = Handbook()
@@ -88,128 +109,9 @@ def index():
 
 
 
-
-@route("/wordcloud")
-def index():
-    
-    client = hcsvlab.Client()
-    
-    wordfrequency = word_frequency.get_word_frequency_table(client)
-    
-    words = [word[0] for word in wordfrequency]
-    word_dict = dict(wordfrequency)
-    words =json.dumps(words)
-    word_dict = json.dumps(word_dict)
-    #words = ""
-    
-    #print words
-    
-    return template('wordcloud', 
-                    words=words, 
-                    word_dict=word_dict, 
-                    shared_item_list = get_shared_item_lists(client),
-                    personal_item_list = get_personal_item_lists(client)
-
-                    )
-
-@route("/heatmap", method="GET")
-@route("/heatmap", method="POST")
-def index():
-    client = hcsvlab.Client()
-    
-    words = request.forms.getall("words[]")
-    item_list_name = request.forms.get("item_list_name")
-
-    if words and item_list_name:
-        [row_words, col_words] = word_frequency.get_collocation_frequency(client, item_list_name, words)
-    else:
-        [row_words, col_words] = word_frequency.get_collocation_frequency(client, item_list_name)
-
-    row_words= json.dumps(row_words)
-    col_words = json.dumps(col_words)
-    print row_words
-
-    return template('heatmap', 
-                    row_words = row_words, 
-                    col_words = col_words, 
-                    personal_item_list = get_personal_item_lists(client)
-
-                    )
-
-
-@route("/visualise", method='POST')
-def index():
-    client = hcsvlab.Client()
-    item_list_name = str(request.json['item_list_name'])
-    
-    wordfrequency = word_frequency.get_word_frequency_table(client, item_list_name)
-    #wordfrequency = wordfrequency[0:10]
-    words = [word[0] for word in wordfrequency]
-    word_dict = dict(wordfrequency)
-    words =json.dumps(words)
-    word_dict = json.dumps(word_dict)
-    
-    #print item_list_name
-    #return { "list" : item_list_name}
-    return {"words": words, "word_dict": word_dict}
-
-@route("/timeline", method="POST")
-@route("/timeline", method="GET")
-def index():
-    
-
-    words = request.forms.getall("words[]")
-    pos = request.forms.getall("pos[]")
-    
-    print words
-    print pos
-
-    item_list_name = request.forms.get("item_list_name")
-
-    word_list = []
-    file = open("./static/timeline.tsv", "w")
-    file.write("date")
-    i=0
-    
-
-    for word in words:
-        file.write("\t" + word + '_' + pos[i])    
-        result = word_frequency.get_word_frequency_per_year(client, word, pos[i], item_list_name)
-        if result:
-            word_list.append(result)
-        i = i + 1
-    
-    #an_list = word_frequency.get_word_frequency_per_year(client,'an', 'cooee list')
-    #a_list = word_frequency.get_word_frequency_per_year(client,'a', 'cooee list')
-    file.write("\n")
-
-    if not word_list:
-        return template('timeline', rows=[], personal_item_list = get_personal_item_lists(client))
-
-
-    print word_list
-   
-    for key in sorted(word_list[0]):
-        file.write(key);
-        for i in range(len(word_list)):
-            file.write("\t" + str(word_list[i][key]))
-        file.write("\n")
-
-    file.close()
-
-    file = open("./static/timeline.tsv", "r")
-    content = file.read()
-
-    rows = content.split("\n")[:-1]
-    
-
-    file.close()
-    
-    print words
-    return template('timeline', rows=rows, personal_item_list = get_personal_item_lists(client))
-
 if __name__ == "__main__":
     # start a server but have it reload any files that
     # are changed
+    
     run(host="localhost", port=8000, reloader=True)
 
