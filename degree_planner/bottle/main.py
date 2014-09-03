@@ -15,16 +15,6 @@ dp = Degree_Planner('BIT', 'SOT01', '2011', 's1')
 def server_static(filepath):
     return static_file(filepath, root='./static')
 
-def get_shared_item_lists(client):
-    
-    lists = client.get_item_lists()
-    return lists['shared']
-
-def get_personal_item_lists(client):
-    
-    lists = client.get_item_lists()
-    return lists['own']
-
 # Procedure to handle the home page /
 @route("/", method='GET')
 @route("/", method='POST')
