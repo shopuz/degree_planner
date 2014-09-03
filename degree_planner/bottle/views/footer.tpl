@@ -45,6 +45,77 @@
 			    	//alert(selected_unit);
 			    	mytarget.text = selected_unit;
 
+			    	// update the degree/major requirements
+			    	$.ajax({
+			            type: 'POST',
+			            url: '/update_requirements',
+			            data: JSON.stringify({ "selected_unit" : selected_unit }),
+			            contentType: "application/json",
+			            //dataType: "json",
+			            success: function(response) {
+			            	// Update the Requirements on the right pane
+			            	// Degree Requirement Units
+			            	degree_req_units = response['updated_degree_req_units']
+			            	if (degree_req_units.length > 0)
+			            		{
+			            			$('#degree_req_units input:not(:checked) + label').each(function(){
+			            				if ($.inArray($(this).text(), degree_req_units) == -1) {
+			            					$(this).removeClass('req_unsatisfied').addClass('req_satisfied');
+			            					$(this).prev('input').prop('checked', true);
+			            					$(this).attr('disabled', 'disabled');
+			            				}
+
+			            			});
+			            		}
+			            		
+
+			            	// General Degree Requirements
+			            	gen_degree_req  = response['updated_gen_degree_req'];
+			            	$('#gen_degree_req').text("");
+			            	for (var k in gen_degree_req){
+		            			if (gen_degree_req[k] == 0)
+		            				{
+					    			$('#gen_degree_req').append('<input type="checkbox" disabled="disabled"  checked> <label class="req_satisfied">' + k + ': 0  </label></input>  <br/>');
+		            				}
+					    		else
+					    		{
+					    			$('#gen_degree_req').append('<input type="checkbox">  <label class="req_unsatisfied">' + k + ' : ' + gen_degree_req[k] +  '</label></input>  <br/>');
+					    		}
+								
+							
+			            	}
+
+
+			            	// Major Requirement Units
+			            	major_req_units = response['updated_major_req_units']
+			            	if  (major_req_units.length > 0)
+			            		{
+			            			console.log(major_req_units);
+			            			$('#major_req_units input:not(:checked) + label').each(function(){
+			            				
+			            				console.log($(this).text());
+			            				if ($.inArray($.trim($(this).text()), major_req_units) == -1) {
+			            					$(this).removeClass('req_unsatisfied').addClass('req_satisfied');
+			            					$(this).prev('input').prop('checked', true);
+			            					$(this).prev('input').prop('disabled', true);
+			            				}
+
+			            			});
+			            		}
+			            	else
+			            	{
+			            		$('#major_req_units input:not(:checked) + label').each(function(){
+			            			$(this).removeClass('req_unsatisfied').addClass('req_satisfied');
+			            					$(this).prev('input').prop('checked', true);
+			            					$(this).prev('input').prop('disabled', true);
+			            				});
+
+			            	}
+
+
+			            }
+			        });
+
 			    	$('#myModal').modal('hide');
 			    });
 			  });

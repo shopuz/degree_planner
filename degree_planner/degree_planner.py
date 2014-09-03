@@ -14,7 +14,10 @@ class Degree_Planner():
 		self.year = year
 		self.session = session.lower()
 		self.remaining_requirements = []
-		self.aggregate_student_units = []
+		self.gen_degree_req = {}
+		self.degree_req_units = []
+		self.major_req_units = []
+		self.planned_student_units = []
 		self.planet_units = ['ACCG260', 'AHIS230', 'ANTH106', 'ASTR170', 'ASTR178', 'BBE100', 'BIOL108', 'BIOL260', 'BIOL261', 'BUSL100', 'CBMS123', 'ECON131', 'EDUC108', 'EDUC261', 'ENV200', 'ENVE214', 'ENVE237', 'ENVG262', 'GEOS112', 'GEOS126', 'GEOS204', 'ISYS100', 'LEX102', 'LING337', 'MATH109', 'MATH123', 'MSM310', 'PHL260', 'PHYS159', 'PHYS242', 'SCOM100', 'SOC254', 'SPED102', 'STAT170', 'STAT175']
 		self.people_units = ['ABST100', 'ACBE100', 'ACSC100', 'ACSH100', 'AFAS300', 'AHIS120', 'AHIS140', 'AHMG101', 'ANTH151', 'ANTH202', 'ANTH305', 'ASN101', 'BBA340', 'BCM310', 'COGS201', 'COGS202', 'CUL260', 'CUL399', 'DANC101', 'ECH113', 'ECH126', 'ECH130', 'ECHL213', 'ENGL108', 'ENVG111', 'EUL101', 'FBE204', 'GEN110', 'GEOS251', 'HRM107', 'INTS204', 'LEX101', 'LING109', 'LING120', 'LING248', 'LING290', 'LING332', 'LING397', 'MAS214', 'MHIS115', 'MHIS202', 'MHIS211', 'MKTG127', 'MKTG309', 'MUS205', 'PHL132', 'PHL137', 'POL107', 'POL108', 'POL304', 'PSY250', 'PSY350', 'SOC175', 'SOC182', 'SOC295', 'SOC297', 'SOC315']
 	
@@ -204,7 +207,7 @@ class Degree_Planner():
 			final_available_units.pop(self.year, None)
 		
 		# satisfy_remaining_requirements(remaining_requirements, final_available_units)
-		self.aggregate_student_units = aggregate_student_units
+		self.planned_student_units = aggregate_student_units
 		return final_available_units
 
 	def satisfy_remaining_requirements(self, final_available_units):

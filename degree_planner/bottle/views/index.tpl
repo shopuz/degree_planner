@@ -94,25 +94,30 @@
 				  	</div>
 				  	
 				  	%if degree_req_units:
+
 					     <!-- List group -->
 						  <ul class="list-group">
-						    <li class="list-group-item"> 
+						    <li class="list-group-item" id="degree_req_units"> 
 						    	%for req in degree_req_units:
-						    		%if req in updated_degree_req_units:
-						    			<input type="checkbox" >
-						    				<label class="req_unsatisfied">  {{ req }} </label>
-						    			</input>  <br/>
-						    		%else:
-						    			<input type="checkbox" disabled="disabled"  checked >
-						    				<label class="req_satisfied"> {{ req }}  </label>
+						    		<span class="degree_req_unit">
+							    		%if req in updated_degree_req_units:
+							    			
+								    			<input type="checkbox" >
+								    				<label class="req_unsatisfied">  {{ req }} </label>
+								    			</input>  <br/>
+								    		
+							    		%else:
+							    			<input type="checkbox" disabled="disabled"  checked >
+							    				<label class="req_satisfied"> {{ req }}  </label>
 
-						    			</input>  <br/>
-									%end
+							    			</input>  <br/>
+										%end
+									</span>
 								%end
 							    
 						    </li>
 						  
-						    <li class="list-group-item">
+						    <li class="list-group-item" id="gen_degree_req">
 							    %for req in gen_degree_req.keys():
 						    		%if updated_gen_degree_req[req] == 0:
 						    			<input type="checkbox" disabled="disabled"  checked> 
@@ -134,7 +139,7 @@
 
 				</div>
 
-				<div class="panel panel-primary">
+				<div class="panel panel-primary" >
 					<div class="panel-heading">
 					%if selected_major:
 				    	<h3 class="panel-title">Major Requirements for {{ selected_major }}</h3>
@@ -145,7 +150,7 @@
 				  	
 				     <!-- List group -->
 					  <ul class="list-group">
-					  <li class="list-group-item"> 
+					  <li class="list-group-item" id="major_req_units"> 
 					  	%if major_req_units:
 						    %for req in major_req_units:
 					    		%if req in updated_major_req_units:

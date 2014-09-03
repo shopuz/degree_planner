@@ -347,22 +347,29 @@ class Prereq_Parser():
         parsed_student_units = self.process_student_units(student_units)
         #gen_reqs = handbook.extract_general_requirements_of_degree(degree_code, year)
         
-        modified_gen_reqs = gen_reqs
+        
+        modified_gen_reqs = gen_reqs.copy()
         keys = gen_reqs.keys()
         for key in gen_reqs.keys():
             if key == 'min_total_cp':
-                modified_gen_reqs['min_total_cp'] = gen_reqs['min_total_cp'] - parsed_student_units['TOTAL_CP']
+                updated_value = modified_gen_reqs['min_total_cp'] - parsed_student_units['TOTAL_CP']
+                modified_gen_reqs['min_total_cp'] = 0 if (updated_value < 0) else updated_value
             elif key == 'min_200_above':
                 min_200_above_from_student_units = parsed_student_units['level']['200']['TOTAL_CP'] + parsed_student_units['level']['300']['TOTAL_CP']
-                modified_gen_reqs['min_200_above'] = gen_reqs['min_200_above'] - min_200_above_from_student_units
+                updated_value =modified_gen_reqs['min_200_above'] - min_200_above_from_student_units
+                modified_gen_reqs['min_200_above'] = 0 if (updated_value < 0) else updated_value
             elif key == 'min_300_above':
                 min_300_above_from_student_units = parsed_student_units['level']['300']['TOTAL_CP']
-                modified_gen_reqs['min_300_above'] = gen_reqs['min_300_above'] - min_300_above_from_student_units
+                updated_value = modified_gen_reqs['min_300_above'] - min_300_above_from_student_units
+                modified_gen_reqs['min_300_above'] = 0 if (updated_value < 0) else updated_value
             elif key == 'foundation_units':
-                modified_gen_reqs['foundation_units'] = gen_reqs['foundation_units'] - parsed_student_units['foundation_units']
+                updated_value = modified_gen_reqs['foundation_units'] - parsed_student_units['foundation_units']
+                modified_gen_reqs['foundation_units'] = 0 if (updated_value < 0) else updated_value
             elif key == 'min_designation_information_technology':
-                modified_gen_reqs['min_designation_information_technology'] = gen_reqs['min_designation_information_technology'] - parsed_student_units['designation_information_technology']       
+                updated_value =  modified_gen_reqs['min_designation_information_technology'] - parsed_student_units['designation_information_technology']       
+                modified_gen_reqs['min_designation_information_technology'] = 0 if (updated_value < 0) else updated_value
 
+        
         return modified_gen_reqs
 
 
@@ -497,10 +504,12 @@ if __name__ == '__main__':
     #pre_req = ''
     #print 'result: '
     #print pp.parse_string(pre_req)
-    student_units = ['COMP115', 'COMP125', 'DMTH137', 'ISYS114',  'DMTH237', 'COMP255', 'ISYS224', 'COMP355', 'COMP225', 'COMP333', 'COMP331', 'ISYS326']
+    student_units = ['COMP115', 'COMP125', 'DMTH137', 'ISYS114',  'DMTH237', 'COMP255', 'ISYS224', 'COMP355']
     #print json.dumps(pp.process_student_units(student_units), indent=4, sort_keys=True)
     handbook = Handbook()
-    major_reqs = handbook.extract_major_requirements('SOT01', '2014')
-    print pp.update_major_reqs(student_units, major_reqs)
+    gen_req = handbook.extract_general_requirements_of_degree('BIT', '2014')
+    print 'result'
+    print '===================='
+    print pp.update_general_requirements_of_degree(student_units, gen_req)
     
     
