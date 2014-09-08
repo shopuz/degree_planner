@@ -25,8 +25,6 @@ def index():
     pp = Prereq_Parser()
     #degree_planner = Degree_Planner()
     year = '2011'
-    
-
 
     all_degrees = handbook.extract_all_degrees('2011')
     

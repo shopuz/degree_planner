@@ -12,3 +12,10 @@ class DegreePlannerTestCase(unittest.TestCase):
 		expected_result = ['COMP115', 'COMP125', 'DMTH137', 'ISYS114', 'DMTH237']
 
 		self.assertEqual(units_prior_2012_s2, expected_result)
+
+
+	#get_available_units_for_entire_degree
+	 # get_all_units_prior_to_session
+	 # student_units_in_same_session
+	 # filter_units_by_prereq
+	 

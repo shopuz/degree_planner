@@ -406,7 +406,7 @@ class Handbook:
 
 					
 					unit_list.append(' or '.join(temp_unit_list))
-					
+				
 				else:
 
 					for req in req_group['reqGp']['reqs']:
@@ -415,13 +415,18 @@ class Handbook:
 							if unit not in unit_list:
 								temp_string.append(unit)
 						elif req['type'] == 'prefixrange':
-							req_string = req_group['reqGp']['text']['label'] + ' ' + req['unitPrefix'] +  req['unitLowerNum'] + '-' + req['unitPrefix'] + req['unitHigherNum']
+							#req_group['reqGp']['text']['label'] + ' ' + 
+							req_string = req['unitPrefix'] +  req['unitLowerNum'] + '-' + req['unitPrefix'] + req['unitHigherNum']
 							temp_string.append(req_string)
 						elif req['type'] == 'prefixlevel':
-							req_string = req_group['reqGp']['text']['label'] + ' ' + req['unitPrefix'] + ' units at ' +  req['unitLevel'] + ' level'
+							# 
+							req_string = req_group['reqGp']['text']['label'] + ' ' +  req['unitPrefix'] + ' units at ' +  req['unitLevel'] + ' level'
 							unit_list.append(req_string)
 					if temp_string:
-						unit_list.append(' or '.join(temp_string))
+						if req_group['reqGp']['text']['type']:
+							unit_list.append(req_group['reqGp']['text']['cp'] + 'cp from ' +  ' or '.join(temp_string))
+						else:
+							unit_list.append(' or '.join(temp_string))
 						temp_string = ''
 
 		unit_list = [unit.encode('utf-8') for unit in unit_list]
@@ -539,9 +544,9 @@ if __name__ == "__main__":
 	#all_units_url = "http://api.prod.handbook.mq.edu.au/PGUnits/JSON/2014/9f9ef28dea630ae6311cc730207b2b59"
 	#dp.extract_pre_corequisite(all_units_url, 'PGUnitsRequisites.txt')
 	
-	specific_units = handbook.extract_all_units_from_department("Department of Computing", 2014, "undergraduate")
-	for unit in specific_units:
-		print unit['Code']
+	#specific_units = handbook.extract_all_units_from_department("Department of Computing", 2014, "undergraduate")
+	#for unit in specific_units:
+	#	print unit['Code']
 
 	#specific_units = dp.extract_all_units(2014, "undergraduate")
 	'''
@@ -569,3 +574,4 @@ if __name__ == "__main__":
 	#print handbook.extract_general_requirements_of_degree('BIT', '2014')
 	#print handbook.extract_all_majors_of_degree('BIT', '2014')
 	#print handbook.extract_degree_requirements()
+	print handbook.extract_major_requirements('SOT01', '2014')
