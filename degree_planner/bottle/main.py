@@ -8,9 +8,34 @@ sys.path.append('/Users/surendrashrestha/Projects/degree_planner/degree_planner'
 from degree_parser import *
 from handbook import *
 from degree_planner import *
-from bottle import template, request, redirect, route, post, run, static_file, view
+from bottle import template, request, redirect, route, post, run, static_file, view, app
+from beaker.middleware import SessionMiddleware
 
-dp = Degree_Planner('BIT', 'SOT01', '2011', 's1')
+
+session_opts = {
+'session.type': 'file',
+'session.cookie_expires': 300,
+'session.data_dir': './data',
+'session.auto': True
+}
+app = SessionMiddleware(app(), session_opts)
+
+
+
+
+
+@route('/test')
+def test():
+    dp = Degree_Planner('BIT', 'SOT01', '2011', 's1')
+    s = request.environ.get('beaker.session')
+    s['test'] = s.get('test', [])
+    all_available_units = {'2011': [{'s1': ['COMP115']}, {'s2': ['COMP125', 'DMTH137', 'ISYS114']}], '2013': [{'s1': ['COMP355']}, {'s2': []}], '2012': [{'s1': ['DMTH237']}, {'s2': ['COMP255', 'ISYS224']}]}
+    s['student_units_json'] =  all_available_units
+    s.save()
+
+    student_units_json = s['student_units_json']
+    return 'student_units_json : %s' %  student_units_json['2011'][0]['s1']
+
 
 @route('/static/<filepath:path>')
 def server_static(filepath):
@@ -20,18 +45,18 @@ def server_static(filepath):
 @route("/", method='GET')
 @route("/", method='POST')
 def index(): 
-    
+
     handbook = Handbook()
     pp = Prereq_Parser()
     #degree_planner = Degree_Planner()
     year = '2011'
 
     all_degrees = handbook.extract_all_degrees('2011')
-    
+    dp = Degree_Planner()
     if request.forms:
         degree_code = request.forms.get("degree")
         major_code = request.forms.get("major")
-        global dp
+        #global dp
 
         dp = Degree_Planner(degree_code, major_code, '2011', 's1')
         all_available_units = dp.get_available_units_for_entire_degree()
@@ -45,34 +70,41 @@ def index():
         planned_student_units = list(set(dp.planned_student_units))
         if "True " in planned_student_units:
             planned_student_units.remove("True ")
-        
+
+        s = request.environ.get('beaker.session')
         dp.planned_student_units = planned_student_units
+        s['planned_student_units'] = dp.planned_student_units
+        s['planned_student_units_json'] = dp.planned_student_units_json
+        s['gen_degree_req'] = dp.gen_degree_req
+        s['degree_req_units'] = dp.degree_req_units
+        s['major_req_units'] = dp.major_req_units
+        s.save()
 
         updated_gen_degree_req = pp.update_general_requirements_of_degree(dp.planned_student_units, dp.gen_degree_req)
         updated_degree_req_units = pp.update_degree_req_units(dp.planned_student_units, dp.degree_req_units)
         updated_major_req_units = pp.update_major_reqs(dp.planned_student_units, dp.major_req_units)
 
-        
+
         #print updated_gen_degree_req
     else:
         degree_code = major_code = all_available_units = sorted_years = gen_degree_req = degree_req_units = major_req_units = None
         updated_gen_degree_req = updated_degree_req_units = updated_major_req_units = None
 
-    
-    return template('index', 
-                    all_degrees=all_degrees, 
-                    selected_degree=degree_code,
-                    selected_major=major_code,
-                    all_available_units=all_available_units,
-                    sorted_years=sorted_years,
-                    gen_degree_req=dp.gen_degree_req,
-                    degree_req_units=dp.degree_req_units,
-                    major_req_units=dp.major_req_units,
-                    updated_gen_degree_req =updated_gen_degree_req,
-                    updated_degree_req_units=updated_degree_req_units,
-                    updated_major_req_units=updated_major_req_units
 
-                    )
+    return template('index', 
+        all_degrees=all_degrees, 
+        selected_degree=degree_code,
+        selected_major=major_code,
+        all_available_units=all_available_units,
+        sorted_years=sorted_years,
+        gen_degree_req=dp.gen_degree_req,
+        degree_req_units=dp.degree_req_units,
+        major_req_units=dp.major_req_units,
+        updated_gen_degree_req =updated_gen_degree_req,
+        updated_degree_req_units=updated_degree_req_units,
+        updated_major_req_units=updated_major_req_units
+
+        )
 
 
 @route("/populate_modal", method='POST')
@@ -83,19 +115,27 @@ def index():
     print "year_session:", year_session
     [year, session] = year_session.split('_')
 
+    dp = Degree_Planner()
     people_units = dp.people_units
     planet_units = dp.planet_units
     comp_units = dp.comp_units
     filtered_comp_units = handbook.filter_units_by_offering(comp_units, year, session)
     
+    s = request.environ.get('beaker.session')
+    s['planned_student_units_json'] = s.get('planned_student_units_json')
     # Get all the units prior to that particular session
-
-    student_units = dp.get_all_units_prior_to_session(dp.planned_student_units_json, year, session)
+    print 'in populate modal'
+    print 'session'
+    print  s['planned_student_units_json']
     
-    if session == 's1' and  year in dp.planned_student_units_json.keys():
-        student_units_in_same_session = dp.planned_student_units_json[year][0]['s1']
-    elif session == 's2' and  year in dp.planned_student_units_json.keys():
-        student_units_in_same_session = dp.planned_student_units_json[year][1]['s2']
+    student_units = dp.get_all_units_prior_to_session(s['planned_student_units_json'], year, session)
+    print 'student_units_prior_to_session: ', student_units
+    
+
+    if session == 's1' and  year in s['planned_student_units_json'].keys():
+        student_units_in_same_session = s['planned_student_units_json'][year][0]['s1']
+    elif session == 's2' and  year in s['planned_student_units_json'].keys():
+        student_units_in_same_session = s['planned_student_units_json'][year][1]['s2']
     else:
         student_units_in_same_session = []
 
@@ -103,6 +143,7 @@ def index():
     remaining_comp_units = list(set(filtered_comp_units) - set(student_units) - set(student_units_in_same_session))
     print 'student_units prior to session: ', student_units
 
+    print 'units in same session: ', student_units_in_same_session
     # Todo
     # Find the prereq and get all the units which satisfy the prereq
     available_comp_units = dp.filter_units_by_prereq(student_units, remaining_comp_units, year)
@@ -119,7 +160,7 @@ def index():
     return {    "planet_units": planet_units, 
                 "people_units": people_units,
                 "comp_units": available_comp_units
-            }
+                }
 
 
 @route("/populate_major", method='POST')
@@ -133,23 +174,30 @@ def index():
 
 @route("/update_requirements", method='POST')
 def index():
-    global dp
+    #global dp
     pp = Prereq_Parser()
+    s = request.environ.get('beaker.session')
 
     selected_unit = str(request.json['selected_unit']).strip()
-    dp.planned_student_units.append(selected_unit)
-    
+    s['planned_student_units'] = s.get('planned_student_units')
+    s['planned_student_units_json'] = s.get('planned_student_units_json')
+    s['planned_student_units'].append(selected_unit)
+
+
+
     # Update planned_student_units_json
     year_session = str(request.json['year_session'])
     [year, session] = year_session.split('_')
     if session == 's1':
-        dp.planned_student_units_json[year][0]['s1'].append(selected_unit)
+        s['planned_student_units_json'][year][0]['s1'].append(selected_unit)
     elif session == 's2':
-        dp.planned_student_units_json[year][1]['s2'].append(selected_unit)
+        s['planned_student_units_json'][year][1]['s2'].append(selected_unit)
 
-    updated_gen_degree_req = pp.update_general_requirements_of_degree(dp.planned_student_units, dp.gen_degree_req)
-    updated_degree_req_units = pp.update_degree_req_units(dp.planned_student_units, dp.degree_req_units)
-    updated_major_req_units = pp.update_major_reqs(dp.planned_student_units, dp.major_req_units)
+    updated_gen_degree_req = pp.update_general_requirements_of_degree(s['planned_student_units'], s['gen_degree_req'])
+    updated_degree_req_units = pp.update_degree_req_units(s['planned_student_units'], s['degree_req_units'])
+    updated_major_req_units = pp.update_major_reqs(s['planned_student_units'], s['major_req_units'])
+
+    s.save()
 
     return {"updated_gen_degree_req" : updated_gen_degree_req,
             "updated_degree_req_units" :updated_degree_req_units,
@@ -160,5 +208,5 @@ if __name__ == "__main__":
     # start a server but have it reload any files that
     # are changed
     setattr(BaseHTTPServer.HTTPServer,'allow_reuse_address',0)
-    run(host="localhost", port=8080, reloader=True)
+    run(app=app, host="localhost", port=8080, reloader=True)
 

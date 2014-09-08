@@ -18,7 +18,8 @@ setup(	name='degree_planner',
 
 		install_requires=[
 			'pyparsing',
-			'bottle'
+			'bottle',
+			'beaker'
 		],
 		test_suite='nose.collector',
     	tests_require=['nose'],

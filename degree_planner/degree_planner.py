@@ -8,7 +8,7 @@ import random
 
 class Degree_Planner():
 
-	def __init__(self, degree_code, major_code, year, session):
+	def __init__(self, degree_code='', major_code='', year='', session=''):
 		self.degree_code = degree_code
 		self.major_code = major_code
 		self.year = year
