@@ -79,7 +79,13 @@ class HandbookTestCase(unittest.TestCase):
 		self.assertEqual(sorted(major_reqs), sorted(expected_major_reqs))
 
 
-	# update_degree_req_units
-	# update_major_reqs
-	# filter_units_by_offering
+	def test_filter_units_by_offering(self):
+		handbook = Handbook()
+		unit_list = ['COMP111', 'COMP125', 'DMTH137', 'ISYS114']
+		filtered_units = handbook.filter_units_by_offering(unit_list, '2014', 's1')
+		self.assertEqual(filtered_units, ['COMP125'])
+
+		unit_list = ['ACST101', 'BBA102', 'ECON111', 'MKTG101', 'ACCG100', 'ACCG106' ]
+		filtered_units = handbook.filter_units_by_offering(unit_list, '2014', 's1')
+		self.assertEqual(filtered_units,  unit_list)
 	

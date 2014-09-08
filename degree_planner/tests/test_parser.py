@@ -114,46 +114,7 @@ class ParseTestCase(unittest.TestCase):
                         }
         self.assertEqual(result,expected_result)
 
-    def test_update_general_requirements(self):
-        pp = Prereq_Parser()
-        handbook = Handbook()
-        student_units = ['COMP115', 'COMP125', 'DMTH137', 'ISYS114',  'DMTH237', 'COMP255', 'ISYS224', 'COMP355']
-        gen_degree_req = handbook.extract_general_requirements_of_degree('BIT', '2014')
-        result = pp.update_general_requirements_of_degree(student_units, gen_degree_req)
-        expected_result = {             'min_total_cp': 48,
-                                        'min_200_above': 30,
-                                        'min_300_above': 15,
-                                        'min_designation_information_technology': 18,
-                                        'foundation_units': 0
-                                    }
-
-        self.assertEqual(result, expected_result)
-
-class DegreePlannerTestCases(unittest.TestCase):
-    """ Tests for Degree Planner / Checker """
-
-    def test_available_units_in_session(self):
-        dp = Degree_Planner('BIT', 'SOT01', '2011', 's1')
-        
-        available_units = dp.get_available_units()
-        self.assertEqual(available_units, ['COMP115'])
-
-        student_units = ['COMP115']
-        available_units = dp.get_available_units(student_units)
-        self.assertNotEqual(available_units, ['COMP125', 'DMTH137', 'ISYS114'])
-
-        dp = Degree_Planner('BIT', 'SOT01', '2011', 's2')
-        available_units = dp.get_available_units(student_units)
-        self.assertEqual(available_units, ['COMP125', 'DMTH137', 'ISYS114'])
-
-    def test_available_units_in_entire_degree(self):
-        dp = Degree_Planner('BIT', 'SOT01', '2011', 's1')
-        
-        available_units = dp.get_available_units_for_entire_degree()
-        expected_result = {'2011': [{'s1': ['COMP115']}, {'s2': ['COMP125', 'DMTH137', 'ISYS114']}], '2013': [{'s1': ['COMP355']}, {'s2': []}], '2012': [{'s1': ['DMTH237']}, {'s2': ['COMP255', 'ISYS224']}]}
-        self.assertEqual(available_units, expected_result)
-        
-
+    
 
 
 #if __name__ == '__main__':
