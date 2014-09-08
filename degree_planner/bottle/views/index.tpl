@@ -81,6 +81,7 @@
 					  </div>
 					   <div class="form-group">
 					   	<input type="submit" value="Plan Degree" class="btn btn-primary"/>
+					   	<span id="imgSpinner2" style="display:none;"> <img src="/static/images/loading_img.gif" width="25" height="25"/> </span>
 					   </div>
 					</form>
 
@@ -181,6 +182,7 @@
 			      <div class="modal-header">
 			        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
 			        <h4 class="modal-title" id="myModalLabel">Find a unit</h4>
+			        <span id="imgSpinner1"> <img src="/static/images/loading_img.gif" width="25" height="25"/> </span>
 			      </div>
 			      <div class="modal-body">
 			        <form role="form" >

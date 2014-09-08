@@ -30,3 +30,9 @@ background-color:#d6ebf2
 	color:green;
 	font-weight: 400 !important;
 }
+
+
+#imgSpinner1{
+	display: none;
+}
+

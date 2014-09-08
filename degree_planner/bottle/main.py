@@ -94,10 +94,12 @@ def index():
 
     student_units = dp.get_all_units_prior_to_session(dp.planned_student_units_json, year, session)
     
-    if session == 's1':
+    if session == 's1' and  year in dp.planned_student_units_json.keys():
         student_units_in_same_session = dp.planned_student_units_json[year][0]['s1']
-    else:
+    elif session == 's2' and  year in dp.planned_student_units_json.keys():
         student_units_in_same_session = dp.planned_student_units_json[year][1]['s2']
+    else:
+        student_units_in_same_session = []
 
     print 'student_units_in_same_session: ', student_units_in_same_session
     remaining_comp_units = list(set(filtered_comp_units) - set(student_units) - set(student_units_in_same_session))
@@ -145,7 +147,7 @@ def index():
     if session == 's1':
         dp.planned_student_units_json[year][0]['s1'].append(selected_unit)
     elif session == 's2':
-        dp.planned_student_units_json[year][1]['s1'].append(selected_unit)
+        dp.planned_student_units_json[year][1]['s2'].append(selected_unit)
 
     updated_gen_degree_req = pp.update_general_requirements_of_degree(dp.planned_student_units, dp.gen_degree_req)
     updated_degree_req_units = pp.update_degree_req_units(dp.planned_student_units, dp.degree_req_units)
@@ -160,5 +162,5 @@ if __name__ == "__main__":
     # start a server but have it reload any files that
     # are changed
     setattr(BaseHTTPServer.HTTPServer,'allow_reuse_address',0)
-    run(host="localhost", port=8000, reloader=True)
+    run(host="localhost", port=8080, reloader=True)
 

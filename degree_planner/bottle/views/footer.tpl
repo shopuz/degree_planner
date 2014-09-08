@@ -13,23 +13,26 @@
 	            url: '/populate_modal',
 	            data: JSON.stringify({ 'year_session' : mytarget.id }),
 	            contentType: "application/json",
+	            beforeSend: function () { $("#imgSpinner1").show(); },
+		        // hides the loader after completion of request, whether successfull or failor.             
+		        complete: function () { $("#imgSpinner1").hide(); },
 	            //dataType: "json",
 	            success: function(response) {
 	                // Fill out the People Dropdown
-	                $('#people').empty().append('<option> Choose People Unit </option>');
+	                $('#people').empty().append('<option value=""> Choose People Unit </option>');
 	                for (var k in response['people_units']){
 	                	var option = '<option value= "'+ response['people_units'][k] + '"> ' + response['people_units'][k] + '</option>';
 	                	$('#people').append(option);
 	                }
 	                 // Fill out the Planet Dropdown
-	                $('#planet').empty().append('<option> Choose Planet Unit </option>');
+	                $('#planet').empty().append('<option value=""> Choose Planet Unit </option>');
 	                for (var k in response['planet_units']){
 	                	var option = '<option value= "'+ response['planet_units'][k] + '"> ' + response['planet_units'][k] + '</option>';
 	                	$('#planet').append(option);
 	                }
 
 	                // Fill out COMP units
-	                $('#computing').empty().append('<option> Choose Computing Unit </option>');
+	                $('#computing').empty().append('<option value=""> Choose Computing Unit </option>');
 	                for (var k in response['comp_units']){
 	                	var option = '<option value= "'+ response['comp_units'][k] + '"> ' + response['comp_units'][k] + '</option>';
 	                	$('#computing').append(option);
@@ -58,6 +61,10 @@
 			            url: '/update_requirements',
 			            data: JSON.stringify({ "selected_unit" : selected_unit, 'year_session' : mytarget.id  }),
 			            contentType: "application/json",
+			            beforeSend: function () { $("#imgSpinner2").show(); },
+				        // hides the loader after completion of request, whether successfull or failor.             
+				        complete: function () { $("#imgSpinner2").hide(); },
+			            
 			            //dataType: "json",
 			            success: function(response) {
 			            	// Update the Requirements on the right pane
@@ -147,6 +154,10 @@
 	            url: '/populate_major',
 	            data: JSON.stringify({ "degree_code" : degree_code }),
 	            contentType: "application/json",
+	            beforeSend: function () { $("#imgSpinner2").show(); },
+		        // hides the loader after completion of request, whether successfull or failor.             
+		        complete: function () { $("#imgSpinner2").hide(); },
+	            
 	            //dataType: "json",
 	            success: function(response) {
 	                // Fill out the Major Dropdown
