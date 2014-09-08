@@ -94,11 +94,18 @@ def index():
 
     student_units = dp.get_all_units_prior_to_session(dp.planned_student_units_json, year, session)
     
+    if session == 's1':
+        student_units_in_same_session = dp.planned_student_units_json[year][0]['s1']
+    else:
+        student_units_in_same_session = dp.planned_student_units_json[year][1]['s2']
+
+    print 'student_units_in_same_session: ', student_units_in_same_session
+    remaining_comp_units = list(set(filtered_comp_units) - set(student_units) - set(student_units_in_same_session))
     print 'student_units prior to session: ', student_units
 
     # Todo
     # Find the prereq and get all the units which satisfy the prereq
-    available_comp_units = dp.filter_units_by_prereq(student_units, filtered_comp_units, year)
+    available_comp_units = dp.filter_units_by_prereq(student_units, remaining_comp_units, year)
     print 'available comp units: ', available_comp_units
 
 
@@ -136,9 +143,9 @@ def index():
     year_session = str(request.json['year_session'])
     [year, session] = year_session.split('_')
     if session == 's1':
-        dp.planned_student_units_json[year][0]['s1'] = selected_unit
+        dp.planned_student_units_json[year][0]['s1'].append(selected_unit)
     elif session == 's2':
-        dp.planned_student_units_json[year][1]['s1'] = selected_unit
+        dp.planned_student_units_json[year][1]['s1'].append(selected_unit)
 
     updated_gen_degree_req = pp.update_general_requirements_of_degree(dp.planned_student_units, dp.gen_degree_req)
     updated_degree_req_units = pp.update_degree_req_units(dp.planned_student_units, dp.degree_req_units)
