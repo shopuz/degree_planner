@@ -18,14 +18,21 @@
 	                // Fill out the People Dropdown
 	                $('#people').empty().append('<option> Choose People Unit </option>');
 	                for (var k in response['people_units']){
-	                	var option = '<option value= "'+ k + '"> ' + response['people_units'][k] + '</option>';
+	                	var option = '<option value= "'+ response['people_units'][k] + '"> ' + response['people_units'][k] + '</option>';
 	                	$('#people').append(option);
 	                }
 	                 // Fill out the Planet Dropdown
 	                $('#planet').empty().append('<option> Choose Planet Unit </option>');
 	                for (var k in response['planet_units']){
-	                	var option = '<option value= "'+ k + '"> ' + response['planet_units'][k] + '</option>';
+	                	var option = '<option value= "'+ response['planet_units'][k] + '"> ' + response['planet_units'][k] + '</option>';
 	                	$('#planet').append(option);
+	                }
+
+	                // Fill out COMP units
+	                $('#computing').empty().append('<option> Choose Computing Unit </option>');
+	                for (var k in response['comp_units']){
+	                	var option = '<option value= "'+ response['comp_units'][k] + '"> ' + response['comp_units'][k] + '</option>';
+	                	$('#computing').append(option);
 	                }
 	                
 	            }
@@ -49,7 +56,7 @@
 			    	$.ajax({
 			            type: 'POST',
 			            url: '/update_requirements',
-			            data: JSON.stringify({ "selected_unit" : selected_unit }),
+			            data: JSON.stringify({ "selected_unit" : selected_unit, 'year_session' : mytarget.id  }),
 			            contentType: "application/json",
 			            //dataType: "json",
 			            success: function(response) {

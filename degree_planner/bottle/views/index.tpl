@@ -295,8 +295,9 @@
 							  
 							   <br/>
 							    
-							    <select class="form-control select_unit" id="science"> 
-							    	<option value="">  Science Units</option>
+							    <select class="form-control select_unit" id="computing"> 
+							    	<option value="">  Computing Units</option>
+							    	<!--
 							    	<option value="COMP111">COMP111</option>
 									<option value="COMP115">COMP115</option>
 									<option value="COMP125">COMP125</option>
@@ -322,7 +323,7 @@
 									<option value="COMP350">COMP350</option>
 									<option value="COMP352">COMP352</option>
 									<option value="COMP355">COMP355</option>
-							    	
+							    	-->
 									</select>
 							  
 

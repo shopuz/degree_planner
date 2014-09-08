@@ -18,8 +18,20 @@ class Degree_Planner():
 		self.degree_req_units = []
 		self.major_req_units = []
 		self.planned_student_units = []
+		self.planned_student_units_json = {}
 		self.planet_units = ['ACCG260', 'AHIS230', 'ANTH106', 'ASTR170', 'ASTR178', 'BBE100', 'BIOL108', 'BIOL260', 'BIOL261', 'BUSL100', 'CBMS123', 'ECON131', 'EDUC108', 'EDUC261', 'ENV200', 'ENVE214', 'ENVE237', 'ENVG262', 'GEOS112', 'GEOS126', 'GEOS204', 'ISYS100', 'LEX102', 'LING337', 'MATH109', 'MATH123', 'MSM310', 'PHL260', 'PHYS159', 'PHYS242', 'SCOM100', 'SOC254', 'SPED102', 'STAT170', 'STAT175']
 		self.people_units = ['ABST100', 'ACBE100', 'ACSC100', 'ACSH100', 'AFAS300', 'AHIS120', 'AHIS140', 'AHMG101', 'ANTH151', 'ANTH202', 'ANTH305', 'ASN101', 'BBA340', 'BCM310', 'COGS201', 'COGS202', 'CUL260', 'CUL399', 'DANC101', 'ECH113', 'ECH126', 'ECH130', 'ECHL213', 'ENGL108', 'ENVG111', 'EUL101', 'FBE204', 'GEN110', 'GEOS251', 'HRM107', 'INTS204', 'LEX101', 'LING109', 'LING120', 'LING248', 'LING290', 'LING332', 'LING397', 'MAS214', 'MHIS115', 'MHIS202', 'MHIS211', 'MKTG127', 'MKTG309', 'MUS205', 'PHL132', 'PHL137', 'POL107', 'POL108', 'POL304', 'PSY250', 'PSY350', 'SOC175', 'SOC182', 'SOC295', 'SOC297', 'SOC315']
+		self.comp_units = ['COMP111','COMP115','COMP125','COMP188','COMP202','COMP225','COMP226','COMP229','COMP233','COMP247','COMP249','COMP255','COMP260','COMP329','COMP330','COMP332','COMP333','COMP334','COMP343','COMP344','COMP347','COMP348','COMP350','COMP352','COMP355','COMP365','COMP388','ISYS100','ISYS104','ISYS114','ISYS200','ISYS224','ISYS254','ISYS301','ISYS302','ISYS303','ISYS304','ISYS326','ISYS355','ISYS358','ISYS360']
+
+		# Todo: Remove this and make it more robust.
+		# Can be done only after the parser can handle situations like admission / permission etc.
+		self.temp_complex_units = {
+								'COMP125' : 'COMP115(P) or COMP155(P)', 
+								'COMP188' :	'', 
+								'COMP247' :	'3cp from COMP or ISYS units at 100 level',
+								'COMP365' : '39cp and COMP225(P) and (COMP227(P) or COMP255(P) or ISYS227(P))',
+								'COMP388' :	'39cp and COMP188'
+							}
 	
 	def filter_units_by_offerings(self, units, student_units):
 		# filtered_unit_list : list of units available in the session
@@ -57,15 +69,7 @@ class Degree_Planner():
 		
 		final_available_units = []
 
-		# Todo: Remove this and make it more robust.
-		# Can be done only after the parser can handle situations like admission / permission etc.
-		temp_complex_units = {
-								'COMP125' : 'COMP115(P) or COMP155(P)', 
-								'COMP188' :	'', 
-								'COMP247' :	'3cp from COMP or ISYS units at 100 level',
-								'COMP365' : '39cp and COMP225(P) and (COMP227(P) or COMP255(P) or ISYS227(P))',
-								'COMP388' :	'39cp and COMP188'
-							}
+		
 		# all_core_units might be empty list passed from other function which is a desired
 		# if this function is called directly from main, then execute the following
 		if not isinstance(all_core_units, list):
@@ -101,8 +105,8 @@ class Degree_Planner():
 
 		
 		for unit in filtered_unit_list:
-			if unit in temp_complex_units.keys():
-				pre_req = temp_complex_units[unit]
+			if unit in self.temp_complex_units.keys():
+				pre_req = self.temp_complex_units[unit]
 			else:
 				pre_req = handbook.extract_pre_req_for_unit(unit, self.year)
 
@@ -129,6 +133,44 @@ class Degree_Planner():
 				final_available_units.append(unit)
 
 		return final_available_units
+
+	def filter_units_by_prereq(self, student_units, units, year):
+		handbook = Handbook()
+		parser = Prereq_Parser()
+		ev = Evaluate_Prerequisite()
+		final_available_units = []
+
+		for unit in units:
+			print 'unit: ', unit
+			if unit in self.temp_complex_units.keys():
+				pre_req = self.temp_complex_units[unit]
+			else:
+				try:
+					pre_req = handbook.extract_pre_req_for_unit(unit, year)
+				except:
+					continue
+
+			# Todo: Parse the grade  (P, Cr) as well
+			pre_req = pre_req.replace("(P)", "").replace("(Cr)", "")
+			
+			if not pre_req and unit not in final_available_units:
+				final_available_units.append(unit)
+				continue
+			
+			try:
+				pre_req_tree = parser.parse_string(pre_req)
+			
+
+				evaluate_result = ev.evaluate_prerequisite(pre_req_tree, student_units)
+				print 'pre_req: ', pre_req
+				print 'evaluate_result: ', evaluate_result
+				if evaluate_result and unit not in final_available_units:
+					final_available_units.append(unit)
+			except:
+				continue
+
+		return final_available_units
+
 
 
 	def get_available_units_for_entire_degree(self):
@@ -208,7 +250,45 @@ class Degree_Planner():
 		
 		# satisfy_remaining_requirements(remaining_requirements, final_available_units)
 		self.planned_student_units = aggregate_student_units
+		self.planned_student_units_json = final_available_units
 		return final_available_units
+
+	def get_all_units_prior_to_session(self, student_units_json, year, session):
+		"""
+		{
+		    "2011": [
+				        { "s1": [ "COMP115" ] },
+				        { "s2": [ "COMP125", "DMTH137", "ISYS114" ] }
+		    		],
+		    "2012": [
+				        { "s1": [ "DMTH237" ] },
+				        { "s2": [ "COMP255", "ISYS224" ] }
+				    ],
+		    "2013": [
+				        { "s1": [ "COMP355" ] },
+				        { "s2": [] }
+				    ]
+		}
+		"""
+		final_student_units = []
+		print 'student_units_json : ', student_units_json
+		if not student_units_json:
+			student_units_json = self.planned_student_units_json
+
+		for key in student_units_json.keys():
+			if int(key) > int(year):
+				continue
+			if int(key) < int(year):
+				final_student_units += (student_units_json[key][0]["s1"])
+				final_student_units += (student_units_json[key][1]["s2"])
+			elif int(key) == int(year) and session == "s2":
+				final_student_units += (student_units_json[key][0]["s1"])
+				
+
+		return final_student_units
+
+
+
 
 	def satisfy_remaining_requirements(self, final_available_units):
 		# ['3cp from COMP units at 200 level', '9cp from COMP300-COMP350 or ISYS326', 'COMP225 or COMP229']
@@ -246,7 +326,7 @@ class Degree_Planner():
 
 
 if __name__ == '__main__':
-	dp = Degree_Planner('BIT', 'WEB01', '2013', 's1')
+	dp = Degree_Planner('BIT', 'SOT01', '2011', 's1')
 	handbook = Handbook()
 	final = dp.get_available_units_for_entire_degree()
 	print json.dumps(final, sort_keys=True, indent=4)

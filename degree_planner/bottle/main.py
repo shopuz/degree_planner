@@ -2,6 +2,7 @@
 
 import sys
 import json
+import BaseHTTPServer
 sys.path.append('/Users/surendrashrestha/Projects/degree_planner/degree_planner')
 
 from degree_parser import *
@@ -86,12 +87,32 @@ def index():
 
     people_units = dp.people_units
     planet_units = dp.planet_units
+    comp_units = dp.comp_units
+    filtered_comp_units = handbook.filter_units_by_offering(comp_units, year, session)
     
+    # Get all the units prior to that particular session
+
+    student_units = dp.get_all_units_prior_to_session(dp.planned_student_units_json, year, session)
+    
+    print 'student_units prior to session: ', student_units
+
+    # Todo
+    # Find the prereq and get all the units which satisfy the prereq
+    available_comp_units = dp.filter_units_by_prereq(student_units, filtered_comp_units, year)
+    print 'available comp units: ', available_comp_units
+
+
+
+
     #filtered_people_units = handbook.filter_units_by_offering(people_units, year, session)
     #filtered_planet_units = handbook.filter_units_by_offering(planet_units, year, session)
+    
 
     #return {"planet_units": filtered_planet_units, "people_units": filtered_people_units}
-    return {"planet_units": planet_units, "people_units": people_units}
+    return {    "planet_units": planet_units, 
+                "people_units": people_units,
+                "comp_units": available_comp_units
+            }
 
 
 @route("/populate_major", method='POST')
@@ -111,6 +132,14 @@ def index():
     selected_unit = str(request.json['selected_unit']).strip()
     dp.planned_student_units.append(selected_unit)
     
+    # Update planned_student_units_json
+    year_session = str(request.json['year_session'])
+    [year, session] = year_session.split('_')
+    if session == 's1':
+        dp.planned_student_units_json[year][0]['s1'] = selected_unit
+    elif session == 's2':
+        dp.planned_student_units_json[year][1]['s1'] = selected_unit
+
     updated_gen_degree_req = pp.update_general_requirements_of_degree(dp.planned_student_units, dp.gen_degree_req)
     updated_degree_req_units = pp.update_degree_req_units(dp.planned_student_units, dp.degree_req_units)
     updated_major_req_units = pp.update_major_reqs(dp.planned_student_units, dp.major_req_units)
@@ -123,6 +152,6 @@ def index():
 if __name__ == "__main__":
     # start a server but have it reload any files that
     # are changed
-    
+    setattr(BaseHTTPServer.HTTPServer,'allow_reuse_address',0)
     run(host="localhost", port=8000, reloader=True)
 

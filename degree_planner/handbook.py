@@ -230,7 +230,7 @@ class Handbook:
 		unit_offerings = []
 		if 'UnitOfferings' not in unit_info.keys():
 			return []
-			
+
 		for unit_offering in unit_info['UnitOfferings']:
 			unit_offerings.append(unit_offering['code'].encode('utf-8').lower())
 
@@ -539,7 +539,10 @@ if __name__ == "__main__":
 	#all_units_url = "http://api.prod.handbook.mq.edu.au/PGUnits/JSON/2014/9f9ef28dea630ae6311cc730207b2b59"
 	#dp.extract_pre_corequisite(all_units_url, 'PGUnitsRequisites.txt')
 	
-	#specific_units = dp.extract_all_units_from_department("Department of Computing", 2014, "undergraduate")
+	specific_units = handbook.extract_all_units_from_department("Department of Computing", 2014, "undergraduate")
+	for unit in specific_units:
+		print unit['Code']
+
 	#specific_units = dp.extract_all_units(2014, "undergraduate")
 	'''
 	if len(specific_units) != 0:
@@ -563,6 +566,6 @@ if __name__ == "__main__":
 	#print handbook.extract_degree_req_units()
 	#print handbook.extract_major_req_units()
 	
-	print handbook.extract_general_requirements_of_degree('BIT', '2014')
+	#print handbook.extract_general_requirements_of_degree('BIT', '2014')
 	#print handbook.extract_all_majors_of_degree('BIT', '2014')
 	#print handbook.extract_degree_requirements()

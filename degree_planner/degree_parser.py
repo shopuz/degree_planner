@@ -504,6 +504,11 @@ if __name__ == '__main__':
     #pre_req = ''
     #print 'result: '
     #print pp.parse_string(pre_req)
+
+    pre_req = '6cp from COMP or ISYS or ACCG or STAT or BUS or BBA units at 200 level'
+    print pre_req
+    print pp.parse_string(pre_req)
+    """
     student_units = ['COMP115', 'COMP125', 'DMTH137', 'ISYS114',  'DMTH237', 'COMP255', 'ISYS224', 'COMP355']
     #print json.dumps(pp.process_student_units(student_units), indent=4, sort_keys=True)
     handbook = Handbook()
@@ -511,5 +516,5 @@ if __name__ == '__main__':
     print 'result'
     print '===================='
     print pp.update_general_requirements_of_degree(student_units, gen_req)
-    
+    """
     
