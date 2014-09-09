@@ -13,28 +13,13 @@ from beaker.middleware import SessionMiddleware
 
 
 session_opts = {
-'session.type': 'file',
-'session.cookie_expires': 300,
-'session.data_dir': './data',
-'session.auto': True
+    'session.type': 'file',
+    'session.cookie_expires': 5000,
+    'session.data_dir': './data',
+    'session.auto': True
 }
+
 app = SessionMiddleware(app(), session_opts)
-
-
-
-
-
-@route('/test')
-def test():
-    dp = Degree_Planner('BIT', 'SOT01', '2011', 's1')
-    s = request.environ.get('beaker.session')
-    s['test'] = s.get('test', [])
-    all_available_units = {'2011': [{'s1': ['COMP115']}, {'s2': ['COMP125', 'DMTH137', 'ISYS114']}], '2013': [{'s1': ['COMP355']}, {'s2': []}], '2012': [{'s1': ['DMTH237']}, {'s2': ['COMP255', 'ISYS224']}]}
-    s['student_units_json'] =  all_available_units
-    s.save()
-
-    student_units_json = s['student_units_json']
-    return 'student_units_json : %s' %  student_units_json['2011'][0]['s1']
 
 
 @route('/static/<filepath:path>')
@@ -51,21 +36,24 @@ def index():
     #degree_planner = Degree_Planner()
     year = '2014'
 
-    all_degrees = handbook.extract_all_degrees('2011')
+    all_degrees = handbook.extract_all_degrees('2014')
     dp = Degree_Planner()
     if request.forms:
         degree_code = request.forms.get("degree")
         major_code = request.forms.get("major")
         #global dp
 
-        dp = Degree_Planner(degree_code, major_code, '2011', 's1')
+        dp = Degree_Planner(degree_code, major_code, year, 's1')
         all_available_units = dp.get_available_units_for_entire_degree()
         sorted_years = sorted(all_available_units.keys())
 
         dp.gen_degree_req = handbook.extract_general_requirements_of_degree(degree_code, '2014')
         dp.degree_req_units = handbook.extract_degree_requirements(degree_code, year)
         print 'degree_req_units: ', dp.degree_req_units
-        dp.major_req_units = handbook.extract_major_requirements(major_code, year)
+        if major_code:
+            dp.major_req_units = handbook.extract_major_requirements(major_code, year)
+        else:
+            dp.major_req_units = []
 
         print 'dp.gen_degree_req: ', dp.gen_degree_req
         planned_student_units = list(set(dp.planned_student_units))
@@ -86,6 +74,7 @@ def index():
         updated_major_req_units = pp.update_major_reqs(dp.planned_student_units, dp.major_req_units)
         print 'degree_req_units: ', dp.degree_req_units
         print 'updated_gen_degree_req: ', updated_gen_degree_req
+        print 'planned_student_units_json: ', dp.planned_student_units_json
 
         #print updated_gen_degree_req
     else:
@@ -93,7 +82,8 @@ def index():
         updated_gen_degree_req = updated_degree_req_units = updated_major_req_units = None
 
 
-    return template('index', 
+    return template('index',
+        degree_year = year,
         all_degrees=all_degrees, 
         selected_degree=degree_code,
         selected_major=major_code,
@@ -116,12 +106,20 @@ def index():
     year_session = str(request.json['year_session'])
     print "year_session:", year_session
     [year, session] = year_session.split('_')
+    
+    # TOdo : fix it to work for any year.. but not possible due to handbook
+    if int(year) > 2014:
+        handbook_year = '2014'
+    else:
+        handbook_year = year
 
     dp = Degree_Planner()
     people_units = dp.people_units
     planet_units = dp.planet_units
     comp_units = dp.comp_units
-    filtered_comp_units = handbook.filter_units_by_offering(comp_units, year, session)
+    filtered_comp_units = handbook.filter_units_by_offering(comp_units, handbook_year, session)
+    
+    print 'filtered_comp_units: ', filtered_comp_units
     
     s = request.environ.get('beaker.session')
     s['planned_student_units_json'] = s.get('planned_student_units_json')
@@ -143,12 +141,12 @@ def index():
 
     print 'student_units_in_same_session: ', student_units_in_same_session
     remaining_comp_units = list(set(filtered_comp_units) - set(student_units) - set(student_units_in_same_session))
-    print 'student_units prior to session: ', student_units
+    print 'remaining_comp_units: ', remaining_comp_units
 
     print 'units in same session: ', student_units_in_same_session
     # Todo
     # Find the prereq and get all the units which satisfy the prereq
-    available_comp_units = dp.filter_units_by_prereq(student_units, remaining_comp_units, year)
+    available_comp_units = dp.filter_units_by_prereq(student_units, remaining_comp_units, handbook_year)
     print 'available comp units: ', available_comp_units
 
 
@@ -185,21 +183,34 @@ def index():
     s['planned_student_units_json'] = s.get('planned_student_units_json')
     s['planned_student_units'].append(selected_unit)
 
-
+    
+    
 
     # Update planned_student_units_json
     year_session = str(request.json['year_session'])
     [year, session] = year_session.split('_')
+    print '[year, session] : ', year_session
+
     if session == 's1':
         s['planned_student_units_json'][year][0]['s1'].append(selected_unit)
     elif session == 's2':
         s['planned_student_units_json'][year][1]['s2'].append(selected_unit)
 
+    s.save()
+
+    print "s['planned_student_units']: ", s['planned_student_units']
+    print "s['planned_student_units_json']: ", s['planned_student_units_json']
+    print "s['degree_req_units']: ", s['degree_req_units']
+
     updated_gen_degree_req = pp.update_general_requirements_of_degree(s['planned_student_units'], s['gen_degree_req'])
-    updated_degree_req_units = pp.update_degree_req_units(s['planned_student_units'], s['degree_req_units'])
+    updated_degree_req_units = pp.update_degree_major_reqs(s['planned_student_units'], s['degree_req_units'])
     updated_major_req_units = pp.update_major_reqs(s['planned_student_units'], s['major_req_units'])
 
-    s.save()
+    print 'updated_gen_degree_req: ', updated_gen_degree_req
+    
+    print 'updated_degree_req_units: ', updated_degree_req_units
+    print 'updated_major_req_units: ', updated_major_req_units
+    
 
     return {"updated_gen_degree_req" : updated_gen_degree_req,
             "updated_degree_req_units" :updated_degree_req_units,

@@ -427,7 +427,7 @@ class Handbook:
 							unit_list.append(req_group['reqGp']['text']['cp'] + 'cp from ' +  ' or '.join(temp_string))
 						else:
 							unit_list.append(' or '.join(temp_string))
-						temp_string = ''
+						temp_string = []
 
 		unit_list = [unit.encode('utf-8') for unit in unit_list]
 		return unit_list

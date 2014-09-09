@@ -15,7 +15,7 @@
 						%for session in xrange(3):
 							<tr>
 							%if session == 0:
-								<td rowspan="3"> {{ 2011 + year }} </td>
+								<td rowspan="3"> {{ int(degree_year) + year }} </td>
 							%end
 							<td>S{{session + 1}}</td>
 
@@ -43,9 +43,9 @@
 
 							%for i in xrange(no_of_cells):
 								%if (i < len(units)):
-									<td> <a href="#" data-toggle="modal" data-target="#myModal" id="{{ str(2011+year) + '_' + session_value }}">{{ units[i] }}</a></td>	
+									<td> <a href="#" data-toggle="modal" data-target="#myModal" id="{{ str(int(degree_year)+year) + '_' + session_value }}">{{ units[i] }}</a></td>	
 								%else:
-									<td> <a href="#" data-toggle="modal" data-target="#myModal" id="{{ str(2011+year) + '_' + session_value }}"> &nbsp;</a></td>	
+									<td> <a href="#" data-toggle="modal" data-target="#myModal" id="{{ str(int(degree_year)+year) + '_' + session_value }}"> &nbsp;</a></td>	
 								%end
 							%end
 							</tr>

@@ -4,3 +4,5 @@
 /*.egg-info
 /*.egg
 /degree_planner/bottle/data/
+/build/
+/dist/

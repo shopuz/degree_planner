@@ -69,11 +69,13 @@
 			            success: function(response) {
 			            	// Update the Requirements on the right pane
 			            	// Degree Requirement Units
-			            	degree_req_units = response['updated_degree_req_units']
+			            	degree_req_units = response['updated_degree_req_units'];
+			            	console.log(degree_req_units);
 			            	if (degree_req_units.length > 0)
 			            		{
 			            			$('#degree_req_units input:not(:checked) + label').each(function(){
-			            				if ($.inArray($(this).text(), degree_req_units) == -1) {
+			            				// If req displayed cant be found in updated req, it means the req is satisfied
+			            				if ($.inArray($.trim($(this).text()), degree_req_units) == -1) {
 			            					$(this).removeClass('req_unsatisfied').addClass('req_satisfied');
 			            					$(this).prev('input').prop('checked', true);
 			            					$(this).attr('disabled', 'disabled');

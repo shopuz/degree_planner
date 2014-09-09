@@ -88,7 +88,7 @@ class Prereq_Parser():
             Parses the structure into a binary tree representation
         """
         from_flag = False
-        prereq = prereq.replace('[', '(').replace(']', ')')
+        prereq = prereq.replace('[', '(').replace(']', ')').replace(' in ', ' from ').strip()
 
         if  self.prereq_check(prereq):
             #print 'pre_req in parser: ', prereq
@@ -404,6 +404,25 @@ class Prereq_Parser():
 
         return final_remaining_reqs
 
+    def update_degree_major_reqs(self, student_units, degree_major_reqs):
+        """
+        Update the major requirement units by verifying the requirement with student units
+        """
+        
+        remaining_reqs = list(set(degree_major_reqs) - set(student_units))
+        complex_req_units = [req for req in degree_major_reqs if " " in req]
+        satisfied_reqs = []
+        evaluator = Evaluate_Prerequisite()
+        print student_units
+        for req in complex_req_units:
+            pre_req_tree = self.parse_string(req)
+
+            result = evaluator.evaluate_prerequisite(pre_req_tree, student_units)
+            if result:
+                satisfied_reqs.append(req)
+
+        return list(set(remaining_reqs) - set(satisfied_reqs))
+
 
 
 
@@ -510,7 +529,9 @@ if __name__ == '__main__':
     #print 'result: '
     #print pp.parse_string(pre_req)
 
-    pre_req = '6cp from COMP or ISYS or ACCG or STAT or BUS or BBA units at 200 level'
+    #pre_req = '6cp from COMP or ISYS or ACCG or STAT or BUS or BBA units at 200 level'
+    #print pre_req
+    pre_req = '6cp in LAW units at 300 level'
     print pre_req
     print pp.parse_string(pre_req)
     """

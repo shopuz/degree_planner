@@ -167,6 +167,7 @@ class Degree_Planner():
 				if evaluate_result and unit not in final_available_units:
 					final_available_units.append(unit)
 			except:
+				print unit,  ' : Prereq Parsing/Evaluation Error'
 				continue
 
 		return final_available_units
@@ -203,7 +204,11 @@ class Degree_Planner():
 		#student_units = ['COMP125', 'COMP115', 'COMP165', 'MAS111', 'INFO111', 'DMTH237']
 
 		degree_requirements = handbook.extract_degree_req_units(self.degree_code, self.year)
-		major_requirements = handbook.extract_major_requirements(self.major_code, self.year)
+		
+		if self.major_code:
+			major_requirements = handbook.extract_major_requirements(self.major_code, self.year)
+		else:
+			major_requirements = []
 
 		#print 'degree_requirements: ', degree_requirements
 
