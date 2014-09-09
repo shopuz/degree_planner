@@ -94,7 +94,7 @@
 				    	%end
 				  	</div>
 				  	
-				  	%if degree_req_units:
+				  	%if gen_degree_req:
 
 					     <!-- List group -->
 						  <ul class="list-group">

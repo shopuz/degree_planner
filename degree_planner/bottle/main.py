@@ -49,7 +49,7 @@ def index():
     handbook = Handbook()
     pp = Prereq_Parser()
     #degree_planner = Degree_Planner()
-    year = '2011'
+    year = '2014'
 
     all_degrees = handbook.extract_all_degrees('2011')
     dp = Degree_Planner()
@@ -64,9 +64,10 @@ def index():
 
         dp.gen_degree_req = handbook.extract_general_requirements_of_degree(degree_code, '2014')
         dp.degree_req_units = handbook.extract_degree_requirements(degree_code, year)
+        print 'degree_req_units: ', dp.degree_req_units
         dp.major_req_units = handbook.extract_major_requirements(major_code, year)
 
-        
+        print 'dp.gen_degree_req: ', dp.gen_degree_req
         planned_student_units = list(set(dp.planned_student_units))
         if "True " in planned_student_units:
             planned_student_units.remove("True ")
@@ -83,7 +84,8 @@ def index():
         updated_gen_degree_req = pp.update_general_requirements_of_degree(dp.planned_student_units, dp.gen_degree_req)
         updated_degree_req_units = pp.update_degree_req_units(dp.planned_student_units, dp.degree_req_units)
         updated_major_req_units = pp.update_major_reqs(dp.planned_student_units, dp.major_req_units)
-
+        print 'degree_req_units: ', dp.degree_req_units
+        print 'updated_gen_degree_req: ', updated_gen_degree_req
 
         #print updated_gen_degree_req
     else:

@@ -347,7 +347,8 @@ class Prereq_Parser():
         parsed_student_units = self.process_student_units(student_units)
         #gen_reqs = handbook.extract_general_requirements_of_degree(degree_code, year)
         
-        
+        print 'parsed_student_units: ', parsed_student_units
+
         modified_gen_reqs = gen_reqs.copy()
         keys = gen_reqs.keys()
         for key in gen_reqs.keys():
@@ -368,6 +369,10 @@ class Prereq_Parser():
             elif key == 'min_designation_information_technology':
                 updated_value =  modified_gen_reqs['min_designation_information_technology'] - parsed_student_units['designation_information_technology']       
                 modified_gen_reqs['min_designation_information_technology'] = 0 if (updated_value < 0) else updated_value
+            elif 'designation' in key:
+                updated_key = key.split('min_')[1].lower()
+                updated_value = modified_gen_reqs[key] - parsed_student_units[updated_key]
+                modified_gen_reqs[key] = 0 if (updated_value<0) else updated_value
 
         
         return modified_gen_reqs

@@ -498,7 +498,7 @@ class Handbook:
 			parsed_gen_req = [gen_req for gen_req in parsed_gen_req if gen_req not in negative_keywords]
 			final_parsed_gen_req = []
 			for filtered_gen_req in parsed_gen_req:
-				filtered_gen_req = filtered_gen_req.replace('Minimum number of credit points', 'min').replace('or above', 'above').replace('Completion of specified foundation units', 'foundation_units').replace('designated', 'designation')
+				filtered_gen_req = filtered_gen_req.replace('Minimum number of credit points', 'min').replace('or above', 'above').replace('Completion of specified foundation units', 'foundation_units').replace('designated', 'designation').lower()
 													
 				final_parsed_gen_req.append(filtered_gen_req)
 			if len(final_parsed_gen_req) == 1 and final_parsed_gen_req[0] == 'min':
