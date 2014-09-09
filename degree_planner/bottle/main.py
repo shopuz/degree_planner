@@ -117,8 +117,11 @@ def index():
     people_units = dp.people_units
     planet_units = dp.planet_units
     comp_units = dp.comp_units
+    bus_eco_units = dp.bus_eco_units
+
     filtered_comp_units = handbook.filter_units_by_offering(comp_units, handbook_year, session)
-    
+    filtered_bus_eco_units = handbook.filter_units_by_offering(bus_eco_units, handbook_year, session)
+
     print 'filtered_comp_units: ', filtered_comp_units
     
     s = request.environ.get('beaker.session')
@@ -140,14 +143,20 @@ def index():
         student_units_in_same_session = []
 
     print 'student_units_in_same_session: ', student_units_in_same_session
+
     remaining_comp_units = list(set(filtered_comp_units) - set(student_units) - set(student_units_in_same_session))
     print 'remaining_comp_units: ', remaining_comp_units
+
+    remaining_bus_eco_units = list(set(filtered_bus_eco_units) - set(student_units) - set(student_units_in_same_session))
 
     print 'units in same session: ', student_units_in_same_session
     # Todo
     # Find the prereq and get all the units which satisfy the prereq
     available_comp_units = dp.filter_units_by_prereq(student_units, remaining_comp_units, handbook_year)
     print 'available comp units: ', available_comp_units
+
+    available_bus_eco_units = dp.filter_units_by_prereq(student_units, remaining_bus_eco_units, handbook_year)
+    print 'available bus eco units: ', available_bus_eco_units
 
 
 
@@ -159,7 +168,8 @@ def index():
     #return {"planet_units": filtered_planet_units, "people_units": filtered_people_units}
     return {    "planet_units": planet_units, 
                 "people_units": people_units,
-                "comp_units": available_comp_units
+                "comp_units": available_comp_units,
+                "bus_eco_units": available_bus_eco_units
                 }
 
 

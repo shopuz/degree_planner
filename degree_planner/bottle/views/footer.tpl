@@ -37,6 +37,13 @@
 	                	var option = '<option value= "'+ response['comp_units'][k] + '"> ' + response['comp_units'][k] + '</option>';
 	                	$('#computing').append(option);
 	                }
+
+	                // Fill out BUS ECO units
+	                $('#business').empty().append('<option value=""> Choose Business / Economics Unit </option>');
+	                for (var k in response['bus_eco_units']){
+	                	var option = '<option value= "'+ response['bus_eco_units'][k] + '"> ' + response['bus_eco_units'][k] + '</option>';
+	                	$('#business').append(option);
+	                }
 	                
 	            }
 	        });
