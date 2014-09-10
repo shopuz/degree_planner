@@ -38,8 +38,8 @@ def index():
     #degree_planner = Degree_Planner()
     year = '2014'
     s = request.environ.get('beaker.session')
-    s.delete()
     
+
     all_degrees = handbook.extract_all_degrees('2014')
     dp = Degree_Planner()
     if request.forms:
@@ -52,6 +52,7 @@ def index():
         dp = Degree_Planner(degree_code, major_code, year, 's1')
         pp = Prereq_Parser(degree_code, year)    
 
+        #s.delete()
         all_available_units = dp.get_available_units_for_entire_degree()
         sorted_years = sorted(all_available_units.keys())
 
@@ -70,6 +71,8 @@ def index():
 
         
         dp.planned_student_units = planned_student_units
+        print 'planned_student_units_json: ', dp.planned_student_units_json
+
         s['planned_student_units'] = dp.planned_student_units
         s['planned_student_units_json'] = dp.planned_student_units_json
         s['gen_degree_req'] = dp.gen_degree_req
@@ -131,8 +134,15 @@ def index():
     comp_units = dp.comp_units
     bus_eco_units = dp.bus_eco_units
 
-    filtered_comp_units = handbook.filter_units_by_offering(comp_units, handbook_year, session)
-    filtered_bus_eco_units = handbook.filter_units_by_offering(bus_eco_units, handbook_year, session)
+    # TODO Uncomment these lines
+    #filtered_comp_units = handbook.filter_units_by_offering(comp_units, handbook_year, session)
+    #filtered_bus_eco_units = handbook.filter_units_by_offering(bus_eco_units, handbook_year, session)
+    if session == 's1':
+        filtered_comp_units = [unit for unit in comp_units if unit in dp.units_2014_s1 ]
+        filtered_bus_eco_units = [unit for unit in bus_eco_units if unit in dp.units_2014_s1 ]
+    elif session == 's2':
+        filtered_comp_units = [unit for unit in comp_units if unit in dp.units_2014_s2 ]
+        filtered_bus_eco_units = [unit for unit in bus_eco_units if unit in dp.units_2014_s2 ]
 
     print 'filtered_comp_units: ', filtered_comp_units
     
@@ -248,5 +258,5 @@ if __name__ == "__main__":
     # start a server but have it reload any files that
     # are changed
     setattr(BaseHTTPServer.HTTPServer,'allow_reuse_address',0)
-    run(app=app, host="localhost", port=8080, reloader=True)
+    run(app=app, host="localhost", port=8000, reloader=True)
 
