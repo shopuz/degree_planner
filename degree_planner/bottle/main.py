@@ -22,6 +22,7 @@ session_opts = {
 app = SessionMiddleware(app(), session_opts)
 
 
+
 @route('/static/<filepath:path>')
 def server_static(filepath):
     return static_file(filepath, root='./static')
@@ -30,20 +31,27 @@ def server_static(filepath):
 @route("/", method='GET')
 @route("/", method='POST')
 def index(): 
+    
 
     handbook = Handbook()
-    pp = Prereq_Parser()
+    
     #degree_planner = Degree_Planner()
     year = '2014'
-
+    s = request.environ.get('beaker.session')
+    s.delete()
+    
     all_degrees = handbook.extract_all_degrees('2014')
     dp = Degree_Planner()
     if request.forms:
+        
+
         degree_code = request.forms.get("degree")
         major_code = request.forms.get("major")
         #global dp
 
         dp = Degree_Planner(degree_code, major_code, year, 's1')
+        pp = Prereq_Parser(degree_code, year)    
+
         all_available_units = dp.get_available_units_for_entire_degree()
         sorted_years = sorted(all_available_units.keys())
 
@@ -60,19 +68,23 @@ def index():
         if "True " in planned_student_units:
             planned_student_units.remove("True ")
 
-        s = request.environ.get('beaker.session')
+        
         dp.planned_student_units = planned_student_units
         s['planned_student_units'] = dp.planned_student_units
         s['planned_student_units_json'] = dp.planned_student_units_json
         s['gen_degree_req'] = dp.gen_degree_req
         s['degree_req_units'] = dp.degree_req_units
         s['major_req_units'] = dp.major_req_units
+        s['degree_code'] =  degree_code
+        s['year'] = year
+
         s.save()
 
         updated_gen_degree_req = pp.update_general_requirements_of_degree(dp.planned_student_units, dp.gen_degree_req)
-        updated_degree_req_units = pp.update_degree_req_units(dp.planned_student_units, dp.degree_req_units)
+        updated_degree_req_units = pp.update_degree_major_reqs(dp.planned_student_units, dp.degree_req_units)
         updated_major_req_units = pp.update_major_reqs(dp.planned_student_units, dp.major_req_units)
         print 'degree_req_units: ', dp.degree_req_units
+        print 'updated_degree_req_units: ', updated_degree_req_units
         print 'updated_gen_degree_req: ', updated_gen_degree_req
         print 'planned_student_units_json: ', dp.planned_student_units_json
 
@@ -185,8 +197,13 @@ def index():
 @route("/update_requirements", method='POST')
 def index():
     #global dp
-    pp = Prereq_Parser()
+
+    
     s = request.environ.get('beaker.session')
+    degree_code = s.get('degree_code')
+    year = s.get('year')
+
+    pp = Prereq_Parser(degree_code, year)
 
     selected_unit = str(request.json['selected_unit']).strip()
     s['planned_student_units'] = s.get('planned_student_units')

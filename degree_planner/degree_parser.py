@@ -7,7 +7,7 @@ from pyparsing import *
 from compiler.ast import flatten
 
 class Prereq_Parser():
-    def __init__(self):
+    def __init__(self, degree_code='', year=''):
         self.word = Word(alphas)
         self.nums = Word(nums)
         self.wn = self.word + self.nums
@@ -25,6 +25,8 @@ class Prereq_Parser():
                                 ])
 
         self.complex_keywords = ['from', 'including', '-', 'units']
+        self.degree_code = degree_code
+        self.year = year
         #self.parsed_list = None
 
     def parse_unit_range(self, unit_range):
@@ -225,7 +227,7 @@ class Prereq_Parser():
         
         return cp
 
-    def process_student_units(self, student_units=[], degree_code='BIT', year='2014'):
+    def process_student_units(self, student_units=[]):
         """
         Get detailed information about student units.
         Input :['COMP115', 'COMP125', 'DMTH137', 'ISYS114',  'DMTH237', 'COMP255', 'ISYS224', 'COMP355']
@@ -263,7 +265,12 @@ class Prereq_Parser():
         parsed_student_units ={ 'level': {'100':{}, '200':{}, '300':{}} }
         total_cp_100 = total_cp_200 = total_cp_300 = foundation_units_total_cp = 0
         unit_designations = []
-        foundation_units = handbook.get_foundation_units(degree_code, year)
+        foundation_units = handbook.get_foundation_units(self.degree_code, self.year)
+        
+        ev = Evaluate_Prerequisite()
+        
+        print 'in process_student_units ', student_units
+        print 'foundation units: ', foundation_units
 
         for unit in student_units:
             [ unit_code, unit_number ] = self.wn.parseString(unit)
@@ -277,12 +284,20 @@ class Prereq_Parser():
                 parsed_student_units['level']['300'][unit_code] = self.get_stored_cp(parsed_student_units, '300', unit_code) + 3
                 total_cp_300 += 3
 
-            if unit in foundation_units:
-                foundation_units_total_cp += 3
+            
 
             # ['Engineering', 'Information Technology', 'Science', 'Technology']
-            unit_designations += handbook.extract_unit_designation(unit, year)
+            unit_designations += handbook.extract_unit_designation(unit, self.year)
 
+        # Evaluate Foundation Units
+        for foundation_unit in foundation_units:
+            pre_req_tree = self.parse_string(foundation_unit)
+
+            evaluate_result = ev.evaluate_prerequisite(pre_req_tree, student_units)
+
+            if evaluate_result:
+                foundation_units_total_cp += 3
+                
 
         parsed_student_units['level']['100']['TOTAL_CP'] = total_cp_100
         parsed_student_units['level']['200']['TOTAL_CP'] = total_cp_200

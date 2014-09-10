@@ -5,6 +5,8 @@
     <script src="/static/js/bootstrap.min.js"></script>
     <script>
     	var mytarget;
+    	
+
     	$('#myModal').on('show.bs.modal', function (e) {
 			  mytarget = e.relatedTarget;
 			  console.log(mytarget.id);
@@ -78,7 +80,7 @@
 			            	// Degree Requirement Units
 			            	degree_req_units = response['updated_degree_req_units'];
 			            	console.log(degree_req_units);
-			            	if (degree_req_units.length > 0)
+			            	if (degree_req_units.length >= 0)
 			            		{
 			            			$('#degree_req_units input:not(:checked) + label').each(function(){
 			            				// If req displayed cant be found in updated req, it means the req is satisfied
@@ -157,7 +159,7 @@
 
     <script>
 	    function populate_major(degree_code){
-	        
+
 	        $.ajax({
 	            type: 'POST',
 	            url: '/populate_major',
@@ -182,7 +184,8 @@
 	      }
 	    $(document).ready(function(){
 	    	$('#degree').change(function(){
-	    		populate_major($(this).val())
+	    		populate_major($(this).val());
+
 
 	    	});
 
