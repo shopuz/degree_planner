@@ -36,7 +36,7 @@ class DegreePlannerTestCase(unittest.TestCase):
 		self.assertEqual(available_units, expected_result)
 
 	def test_update_general_requirements(self):
-		pp = Prereq_Parser()
+		pp = Prereq_Parser('BIT', '2014')
 		handbook = Handbook()
 		student_units = ['COMP115', 'COMP125', 'DMTH137', 'ISYS114',  'DMTH237', 'COMP255', 'ISYS224', 'COMP355']
 		gen_degree_req = handbook.extract_general_requirements_of_degree('BIT', '2014')

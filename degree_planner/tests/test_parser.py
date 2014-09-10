@@ -81,7 +81,7 @@ class ParseTestCase(unittest.TestCase):
 
 
     def test_process_students(self):
-        pp = Prereq_Parser()
+        pp = Prereq_Parser('BIT', '2014')
         print 'testing process students'
         student_units = ['COMP115', 'COMP125', 'DMTH137', 'ISYS114',  'DMTH237', 'COMP255', 'ISYS224', 'COMP355']
         result = pp.process_student_units(student_units)
