@@ -3,6 +3,21 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="/static/js/bootstrap.min.js"></script>
+    <script src="/static/js/select2.js"></script>
+    <script>
+        $(document).ready(function() { 	$("#degree").select2({ width: '300px' });
+        								$("#major").select2({ width: '300px' });
+        								$("#people").select2({ width: '300px' });
+        								$("#planet").select2({ width: '300px' });
+        								$("#computing").select2({ width: '300px' });
+        								$("#business").select2({ width: '300px' });
+
+        							
+        							});
+        
+
+    </script>
+
     <script>
     	var mytarget;
     	

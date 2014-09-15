@@ -35,6 +35,9 @@ class DegreePlannerTestCase(unittest.TestCase):
 		expected_result = {'2011': [{'s1': ['COMP115']}, {'s2': ['COMP125', 'DMTH137', 'ISYS114']}], '2013': [{'s1': ['COMP355']}, {'s2': []}], '2012': [{'s1': ['DMTH237']}, {'s2': ['COMP255', 'ISYS224']}]}
 		self.assertEqual(available_units, expected_result)
 
+		
+
+
 	def test_update_general_requirements(self):
 		pp = Prereq_Parser('BIT', '2014')
 		handbook = Handbook()
