@@ -199,7 +199,11 @@ def index():
 def index():
     handbook = Handbook()
     degree_code = str(request.json['degree_code'])
-    majors = handbook.extract_all_majors_of_degree(degree_code, '2014')
+    try:
+        majors = handbook.extract_all_majors_of_degree(degree_code, '2014')
+    except:
+        majors = None
+
     return {"majors": majors}
 
 
@@ -218,6 +222,10 @@ def index():
     selected_unit = str(request.json['selected_unit']).strip()
     s['planned_student_units'] = s.get('planned_student_units')
     s['planned_student_units_json'] = s.get('planned_student_units_json')
+    
+    if selected_unit in s['planned_student_units']:
+        return {}
+    
     s['planned_student_units'].append(selected_unit)
 
     

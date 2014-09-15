@@ -92,6 +92,8 @@
 			            //dataType: "json",
 			            success: function(response) {
 			            	// Update the Requirements on the right pane
+			            	if (Object.keys(response).length == 0)
+			            		return true
 			            	// Degree Requirement Units
 			            	degree_req_units = response['updated_degree_req_units'];
 			            	console.log(degree_req_units);
