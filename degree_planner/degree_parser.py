@@ -404,13 +404,16 @@ class Prereq_Parser():
         """
         Update the major requirement units by verifying the requirement with student units
         """
+        print 'updating major requirements'
+        print 'student_units: ', student_units
+        print 'major_reqs: ', major_reqs
         
         remaining_reqs = list(set(major_reqs) - set(student_units))
-        complex_req_units = [req for req in major_reqs if " " in req]
+        #complex_req_units = [req for req in major_reqs if " " in req]
         final_remaining_reqs = []
         evaluator = Evaluate_Prerequisite()
-        print student_units
-        for req in complex_req_units:
+        
+        for req in remaining_reqs:
             pre_req_tree = self.parse_string(req)
 
             result = evaluator.evaluate_prerequisite(pre_req_tree, student_units)
@@ -425,11 +428,11 @@ class Prereq_Parser():
         """
         
         remaining_reqs = list(set(degree_major_reqs) - set(student_units))
-        complex_req_units = [req for req in degree_major_reqs if " " in req]
+        #complex_req_units = [req for req in degree_major_reqs if " " in req]
         satisfied_reqs = []
         evaluator = Evaluate_Prerequisite()
         print student_units
-        for req in complex_req_units:
+        for req in remaining_reqs:
             pre_req_tree = self.parse_string(req)
 
             result = evaluator.evaluate_prerequisite(pre_req_tree, student_units)

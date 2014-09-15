@@ -119,6 +119,9 @@ def index():
     handbook = Handbook()
     print 'request_json: ', request.json
     year_session = str(request.json['year_session'])
+    
+
+
     print "year_session:", year_session
     [year, session] = year_session.split('_')
     
@@ -220,12 +223,20 @@ def index():
     pp = Prereq_Parser(degree_code, year)
 
     selected_unit = str(request.json['selected_unit']).strip()
+    current_unit = str(request.json['current_unit']).strip()
+
     s['planned_student_units'] = s.get('planned_student_units')
     s['planned_student_units_json'] = s.get('planned_student_units_json')
     
+    print 'planned_student_units',  s['planned_student_units']
+    print 'planned_student_units_json',  s['planned_student_units_json']
+
+    print 'major_req_units: ', s['major_req_units']
     if selected_unit in s['planned_student_units']:
         return {}
     
+    
+
     s['planned_student_units'].append(selected_unit)
 
     
@@ -237,15 +248,28 @@ def index():
     print '[year, session] : ', year_session
 
     if session == 's1':
-        s['planned_student_units_json'][year][0]['s1'].append(selected_unit)
+        dict_code = 0
+        
     elif session == 's2':
-        s['planned_student_units_json'][year][1]['s2'].append(selected_unit)
+        dict_code = 1
+    
+    s['planned_student_units_json'][year][dict_code][session].append(selected_unit)
+
+    # Remove Current unit (unit which was already present in the cell before selecting a new unit)
+    if current_unit:
+        s['planned_student_units'].remove(current_unit)
+        s['planned_student_units_json'][year][dict_code][session].remove(current_unit)
+
+
+    print 'new planned_student_units',  s['planned_student_units']
+    print 'new planned_student_units_json',  s['planned_student_units_json']
+    
 
     s.save()
 
-    print "s['planned_student_units']: ", s['planned_student_units']
-    print "s['planned_student_units_json']: ", s['planned_student_units_json']
-    print "s['degree_req_units']: ", s['degree_req_units']
+    #print "s['planned_student_units']: ", s['planned_student_units']
+    #print "s['planned_student_units_json']: ", s['planned_student_units_json']
+    #print "s['degree_req_units']: ", s['degree_req_units']
 
     updated_gen_degree_req = pp.update_general_requirements_of_degree(s['planned_student_units'], s['gen_degree_req'])
     updated_degree_req_units = pp.update_degree_major_reqs(s['planned_student_units'], s['degree_req_units'])
@@ -266,5 +290,5 @@ if __name__ == "__main__":
     # start a server but have it reload any files that
     # are changed
     setattr(BaseHTTPServer.HTTPServer,'allow_reuse_address',0)
-    run(app=app, host="localhost", port=8000, reloader=True)
+    run(app=app, host="localhost", port=8003, reloader=True)
 

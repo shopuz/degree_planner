@@ -19,11 +19,12 @@
     </script>
 
     <script>
-    	var mytarget;
+    	var mytarget, current_unit;
     	
 
     	$('#myModal').on('show.bs.modal', function (e) {
 			  mytarget = e.relatedTarget;
+			  current_unit = mytarget.text;
 			  console.log(mytarget.id);
 			  $.ajax({
 	            type: 'POST',
@@ -83,7 +84,7 @@
 			    	$.ajax({
 			            type: 'POST',
 			            url: '/update_requirements',
-			            data: JSON.stringify({ "selected_unit" : selected_unit, 'year_session' : mytarget.id  }),
+			            data: JSON.stringify({ "selected_unit" : selected_unit, 'year_session' : mytarget.id, 'current_unit': current_unit  }),
 			            contentType: "application/json",
 			            beforeSend: function () { $("#imgSpinner2").show(); },
 				        // hides the loader after completion of request, whether successfull or failor.             
@@ -91,6 +92,7 @@
 			            
 			            //dataType: "json",
 			            success: function(response) {
+			            	current_unit = '';
 			            	// Update the Requirements on the right pane
 			            	if (Object.keys(response).length == 0)
 			            		return true
@@ -99,12 +101,16 @@
 			            	console.log(degree_req_units);
 			            	if (degree_req_units.length >= 0)
 			            		{
-			            			$('#degree_req_units input:not(:checked) + label').each(function(){
+			            			$('#degree_req_units input + label').each(function(){
 			            				// If req displayed cant be found in updated req, it means the req is satisfied
 			            				if ($.inArray($.trim($(this).text()), degree_req_units) == -1) {
 			            					$(this).removeClass('req_unsatisfied').addClass('req_satisfied');
 			            					$(this).prev('input').prop('checked', true);
 			            					$(this).attr('disabled', 'disabled');
+			            				}
+			            				else{
+			            					$(this).removeClass('req_satisfied').addClass('req_unsatisfied');
+			            					$(this).prev('input').prop('checked', false);
 			            				}
 
 			            			});
@@ -133,13 +139,17 @@
 			            	if  (major_req_units.length > 0)
 			            		{
 			            			console.log(major_req_units);
-			            			$('#major_req_units input:not(:checked) + label').each(function(){
+			            			$('#major_req_units input + label').each(function(){
 			            				
 			            				console.log($(this).text());
 			            				if ($.inArray($.trim($(this).text()), major_req_units) == -1) {
 			            					$(this).removeClass('req_unsatisfied').addClass('req_satisfied');
 			            					$(this).prev('input').prop('checked', true);
 			            					$(this).prev('input').prop('disabled', true);
+			            				}
+			            				else{
+			            					$(this).removeClass('req_satisfied').addClass('req_unsatisfied');
+			            					$(this).prev('input').prop('checked', false);
 			            				}
 
 			            			});
