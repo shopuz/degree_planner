@@ -1,5 +1,13 @@
 %include header
 <div class="col-md-8">
+			<div>
+				Degree Planner is an effort to ease a complex situation faced by each student while planning their entire degree. This is just a demo of a utility which can prove to be of great importance for all the students. Currently, the system is able to handle the following Degrees/Majors:
+				<ul>
+					<li> Bachelor of Information Technology - All Majors </li>
+					<li> Bachelor of Information Technology - Games Design and Development </li>
+					<li> Bachelor of Commerce - Accounting Major </li>
+				</ul>	
+			</div>
 		    %if selected_degree:
 				<h4>
 					Degree: {{ selected_degree }} <br/>
@@ -57,6 +65,8 @@
 
 
 				</table>
+			<div>
+</div>	
 			</div> <!-- col-md-8 -->
 
 			<div class="col-md-4">
@@ -171,7 +181,9 @@
 				  
 
 				</div>
-
+				<div>
+					Project Source : <a href="http://github.com/shopuz/degree_planner">Github</a>
+				</div>
 			</div><!-- col-md-4 -->
 
 			
@@ -222,4 +234,5 @@
 			    </div>
 			  </div>
 			</div>
+
 %include footer			

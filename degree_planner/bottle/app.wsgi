@@ -1,8 +1,20 @@
+activate_this = '/var/virtualenvs/degree_planner/bin/activate_this.py'
+execfile(activate_this, dict(__file__=activate_this))
+import os
+# Change working directory so relative paths (and template lookup) work again
+os.chdir(os.path.dirname(__file__))
+import bottle
+from bottle import template, request, redirect, route, post, run, static_file, view, app
+# ... build or import your bottle application here ...
+# Do NOT use bottle.run() with mod_wsgi
+
+import BaseHTTPServer
+setattr(BaseHTTPServer.HTTPServer,'allow_reuse_address',0)
+
 #!/usr/bin/env python
 
 import sys
 import json
-import BaseHTTPServer
 #sys.path.append('/Users/surendrashrestha/Projects/degree_planner/degree_planner')
 
 from degree_planner.degree_parser import *
@@ -22,6 +34,7 @@ session_opts = {
 app = SessionMiddleware(app(), session_opts)
 
 
+application = app
 
 @route('/static/<filepath:path>')
 def server_static(filepath):
@@ -38,7 +51,7 @@ def index():
     #degree_planner = Degree_Planner()
     year = '2014'
     s = request.environ.get('beaker.session')
-    
+    s['test'] = 'this is a test'
 
     all_degrees = handbook.extract_all_degrees('2014')
     dp = Degree_Planner()
@@ -222,8 +235,14 @@ def index():
 
     pp = Prereq_Parser(degree_code, year)
 
-    selected_unit = str(request.json['selected_unit']).strip()
-    current_unit = str(request.json['current_unit']).strip()
+    selected_unit = str(request.json['selected_unit'].decode('ascii', 'ignore')).strip()
+    try:
+    	current_unit = str(request.json['current_unit']).strip()
+    except:
+	current_unit = ''
+
+    print 'current_unit: ', current_unit
+    print 'selected_unit: ', selected_unit
 
     s['planned_student_units'] = s.get('planned_student_units')
     s['planned_student_units_json'] = s.get('planned_student_units_json')
@@ -256,7 +275,7 @@ def index():
     s['planned_student_units_json'][year][dict_code][session].append(selected_unit)
 
     # Remove Current unit (unit which was already present in the cell before selecting a new unit)
-    if current_unit:
+    if current_unit and '\\' not in current_unit :
         s['planned_student_units'].remove(current_unit)
         s['planned_student_units_json'][year][dict_code][session].remove(current_unit)
 
@@ -289,6 +308,6 @@ def index():
 if __name__ == "__main__":
     # start a server but have it reload any files that
     # are changed
-    setattr(BaseHTTPServer.HTTPServer,'allow_reuse_address',0)
-    run(app=app, host="0.0.0.0", port=80, reloader=True)
-
+    #setattr(BaseHTTPServer.HTTPServer,'allow_reuse_address',0)
+    #run(app=app, host="0.0.0.0", port=80, reloader=True)
+    pass

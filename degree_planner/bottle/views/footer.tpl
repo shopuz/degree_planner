@@ -199,7 +199,7 @@
 	            //dataType: "json",
 	            success: function(response) {
 	                // Fill out the Major Dropdown
-	                $('#major').empty().append('<option> Choose Major </option>');
+	                $('#major').empty().append('<option value=""> Choose Major </option>');
 	                for (var k in response['majors']){
 	                	var option = '<option value= "'+ k + '"> ' + response['majors'][k] + '</option>';
 	                	$('#major').append(option);
