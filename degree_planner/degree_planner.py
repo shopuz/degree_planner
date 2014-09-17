@@ -102,9 +102,31 @@ class Degree_Planner():
 			filtered_unit_list = [ unit for unit in all_core_units if unit in self.units_2014_s2]
 
 
+		
+
+		uncached_units = list(set(all_core_units) - set(filtered_unit_list) - set(self.units_2014_s1) - set(self.units_2014_s2))
+		print 'handling uncached units'
+		for unit in uncached_units:
+
+			try:
+				unit_offerings = handbook.extract_unit_offering_of_unit(unit, self.year)
+			except:
+				continue
+			# unit_offerings : ['s1 day', 's1 evening', 's3 day']
+			# unit_offerings_session_codes : ['s1', 's1', 's3']
+			# Just to know whether the unit is offered in the session or not
+
+			unit_offerings_session_codes = [ unit_offering.split(" ")[0] for unit_offering in unit_offerings]
+			
+			for i in xrange(len(unit_offerings_session_codes)):
+				unit_offerings_session_codes[i] = unit_offerings_session_codes[i].replace('d', 's').replace('e', 's')
+
+			if self.session in unit_offerings_session_codes and unit not in student_units:
+				filtered_unit_list.append(unit)
+
 		print 'filtered_unit_list: ', filtered_unit_list
 
-		
+		# Todo Uncomment this when implementing real cache
 		"""
 		filtered_unit_list = []
 		for unit in all_core_units:
@@ -137,7 +159,12 @@ class Degree_Planner():
 			pre_req = pre_req.replace("(P)", "").replace("(Cr)", "")
 			
 			for complex_req in remaining_requirements:
-				pre_req = pre_req.replace(complex_req, 'True')
+				print 'unit: ', unit, ' complex requirement: ', complex_req
+				#print 'inserting True for complex req'
+				print 'current prereq: ', pre_req
+
+				#pre_req = pre_req.replace(complex_req, 'True')
+				print 'simplified prereq: ', pre_req
 
 			
 			#print unit, ' : ' , pre_req
@@ -148,11 +175,17 @@ class Degree_Planner():
 				final_available_units.append(unit)
 				continue
 			
-			pre_req_tree = parser.parse_string(pre_req)
+			try:
+				pre_req_tree = parser.parse_string(pre_req)
+			except:
+				print 'Error parsing prereq'
+				continue
 			
 			evaluate_result = ev.evaluate_prerequisite(pre_req_tree, student_units)
 		
 			if evaluate_result and unit not in final_available_units:
+				print 'unit: ', unit, ' inserted in available units'
+				print 'prereq: ', pre_req
 				final_available_units.append(unit)
 
 		return final_available_units
