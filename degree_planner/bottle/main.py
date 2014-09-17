@@ -27,6 +27,11 @@ app = SessionMiddleware(app(), session_opts)
 def server_static(filepath):
     return static_file(filepath, root='./static')
 
+@route('/documentation', method='GET')
+def index():
+    return template('documentation')
+
+
 # Procedure to handle the home page /
 @route("/", method='GET')
 @route("/", method='POST')
@@ -290,5 +295,5 @@ if __name__ == "__main__":
     # start a server but have it reload any files that
     # are changed
     setattr(BaseHTTPServer.HTTPServer,'allow_reuse_address',0)
-    run(app=app, host="0.0.0.0", port=80, reloader=True)
+    run(app=app, host="localhost", port=8000, reloader=True)
 

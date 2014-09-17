@@ -29,16 +29,14 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Degree Planner</a>
+            <a class="navbar-brand" href="/">Degree Planner</a>
           </div>
           
           <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-            <!--
-              <li class="active"><a href="#"></a></li>
-              <li><a href="#about"></a></li>
-              <li><a href="#contact"></a></li>
-              -->
+              <li><a href="/">Home</a></li>
+              <li><a href="/documentation">Documentation</a></li>
+              
             </ul>
           </div>
         </div> 

@@ -24,7 +24,7 @@
 
     	$('#myModal').on('show.bs.modal', function (e) {
 			  mytarget = e.relatedTarget;
-			  current_unit = mytarget.text;
+			  current_unit = $.trim(mytarget.text);
 			  console.log(mytarget.id);
 			  $.ajax({
 	            type: 'POST',
