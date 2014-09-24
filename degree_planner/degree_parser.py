@@ -11,6 +11,8 @@ class Prereq_Parser():
         self.word = Word(alphas)
         self.nums = Word(nums)
         self.wn = self.word + self.nums
+        # unit with grade COMP125(P)
+        self.wn_grade = self.wn + '(' + oneOf('P Cr S') + ')'
 
         self.atomic = Word(alphanums)
         self.obr = oneOf('[ (')
@@ -27,6 +29,8 @@ class Prereq_Parser():
         self.complex_keywords = ['from', 'including', '-', 'units']
         self.degree_code = degree_code
         self.year = year
+        self.grades = ['P', 'Cr']
+        self.graded_pre_req = {}
         #self.parsed_list = None
 
     def parse_unit_range(self, unit_range):
@@ -89,8 +93,11 @@ class Prereq_Parser():
         """ Pyparsing module to tokenize the prerequisite with 'and' and 'or' logical operators
             Parses the structure into a binary tree representation
         """
+        # Store the graded pre requisite
+        self.store_graded_pre_req(prereq)
+
         from_flag = False
-        prereq = prereq.replace('[', '(').replace(']', ')').replace(' in ', ' from ').strip()
+        prereq = prereq.replace('(P)', '').replace('(Cr)', '').replace('[', '(').replace(']', ')').replace(' in ', ' from ').strip()
 
         if  self.prereq_check(prereq):
             #print 'pre_req in parser: ', prereq
@@ -227,6 +234,26 @@ class Prereq_Parser():
         
         return cp
 
+
+    def store_graded_pre_req(self, pre_req):
+        """ Store the graded pre_req """
+        
+        pre_req = pre_req.split(' ')
+        for grade in self.grades:
+            for req in pre_req:
+                if '(' + grade + ')' in req:
+                    req = req.replace('(' + grade + ')', '').replace('(', '').replace(')', '')
+                    self.graded_pre_req[req]= grade
+                else:
+                    req = req.replace('(', '').replace(')', '')
+                    self.graded_pre_req[req]= 'None'
+
+
+        
+
+
+  
+
     def process_student_units(self, student_units=[]):
         """
         Get detailed information about student units.
@@ -293,7 +320,7 @@ class Prereq_Parser():
         for foundation_unit in foundation_units:
             pre_req_tree = self.parse_string(foundation_unit)
 
-            evaluate_result = ev.evaluate_prerequisite(pre_req_tree, student_units)
+            evaluate_result = ev.evaluate_prerequisite(pre_req_tree, student_units, self.graded_pre_req)
 
             if evaluate_result:
                 foundation_units_total_cp += 3
@@ -453,13 +480,24 @@ class Evaluate_Prerequisite():
         word = Word(alphas)
         num = Word(nums)
         self.ncp = num + word
+        self.grade_values = {   'None' : -1,
+                                'F' : 0,
+                                'P' : 1,
+                                'Cr': 2,
+                                'D' : 3,
+                                'HD': 4
+                                }
         
 
 
     # Calculate the total credit points obtained by the student based on his completed units
     #@staticmethod
-    def total_cp(self, student_units, level="undergraduate"):
-        total_cp_gained = len(student_units) * self.cp_rule[level]
+    def total_cp(self, student_units, level="undergraduate", graded_pre_req={}):
+        total_cp_gained = 0
+        print 'student units in total_cp : ', student_units.keys()
+        for unit in student_units.keys():
+            total_cp_gained = total_cp_gained + self.cp_rule[level]
+            
         return total_cp_gained
 
     def find_required_cp(self, pre_req_tree):
@@ -469,7 +507,7 @@ class Evaluate_Prerequisite():
                 required_cp = int(self.ncp.parseString(item)[0])
                 return required_cp
 
-    def evaluate_from(self, pre_req_tree, student_units):
+    def evaluate_from(self, pre_req_tree, student_units, graded_pre_req={}):
         """
             Evaluate statements containing 'from'
             Eg: 9cp from (ACCG355 or ACCG358 or ISYS301 or ISYS302 or ISYS360 or MPCE360)
@@ -482,27 +520,56 @@ class Evaluate_Prerequisite():
         pre_req_units = flatten(pre_req_tree)
         # Get the common units from student units and prereq_units so that 
         # total cp from prereq_units can be calculated
-        common_units = list(set(pre_req_units).intersection(set(student_units)))
-        total_cp_gained = len(common_units) * self.cp_rule[level]
+        common_units = list(set(pre_req_units).intersection(set(student_units.keys())))
+        
+        common_student_units = {}
+
+        for unit in common_units:
+            common_student_units[unit] = student_units[unit]
+        
+        print 'student units: ', student_units
+        print 'common_student_units: ', common_student_units
+
+        common_student_units_grade = self.grade_values.keys()[self.grade_values.values().index(max([self.grade_values[grade] for grade in common_student_units.values()]))]
+
+        print 'common_student_units_grade: ', common_student_units_grade
+        total_cp_gained = self.total_cp(common_student_units, level, graded_pre_req)
 
         # Find the required cp from pre_req_tree
         for item in pre_req_tree:
             if 'cp' in item:
                 required_cp = int(self.ncp.parseString(item)[0])
 
-        if total_cp_gained >= required_cp:
+        print 'total_cp_gained: ', total_cp_gained
+        print 'required_cp: ', required_cp
+        print 'graded_pre_req: ', graded_pre_req
+        print "self.grade_values[graded_pre_req[str(required_cp)+'cp']]", self.grade_values[graded_pre_req[str(required_cp)+'cp']]
+        print "self.grade_values[common_student_units_grade] : ", self.grade_values[common_student_units_grade]
+        if total_cp_gained >= required_cp and self.grade_values[graded_pre_req[str(required_cp)+'cp']] <= self.grade_values[common_student_units_grade]:
             return True
         else:
             return False
 
 
-    def evaluate_prerequisite(self, pre_req_tree, student_units ):
+    def evaluate_prerequisite(self, pre_req_tree, student_units , graded_pre_req={}):
         """ 
             ['COMP125', 'or', 'COMP165'] 
             ['COMP225', 'or', 'COMP229', 'or', 'COMP125']
         """
+        print 'pre_req_tree : ',  pre_req_tree
+
+        if isinstance(student_units, list):
+            temp_student_units = student_units
+            student_units = {}
+            for unit in temp_student_units:
+                student_units[unit] = 'None'
+
+            print 'student_units: ', student_units
+
+        print 'graded_pre_req: ', graded_pre_req
         if isinstance(pre_req_tree, str):
-            if pre_req_tree in student_units:
+            
+            if pre_req_tree in student_units.keys() and self.grade_values[student_units[pre_req_tree]] >= self.grade_values[graded_pre_req[pre_req_tree]] :
                 return True
             elif pre_req_tree == 'True':
                 return True
@@ -518,14 +585,14 @@ class Evaluate_Prerequisite():
         elif isinstance(pre_req_tree, list):
             
             if 'from' in pre_req_tree:
-                return self.evaluate_from(pre_req_tree, student_units)
+                return self.evaluate_from(pre_req_tree, student_units, graded_pre_req)
 
             # do recursive call
             if pre_req_tree[1] == 'or':
-                temp = str(self.evaluate_prerequisite(pre_req_tree[0], student_units) or self.evaluate_prerequisite(pre_req_tree[2], student_units))
+                temp = str(self.evaluate_prerequisite(pre_req_tree[0], student_units, graded_pre_req) or self.evaluate_prerequisite(pre_req_tree[2], student_units, graded_pre_req))
                 return eval(temp)
             elif pre_req_tree[1] == 'and' or pre_req_tree[1] == 'including':
-                temp = str(self.evaluate_prerequisite(pre_req_tree[0], student_units) and self.evaluate_prerequisite(pre_req_tree[2], student_units))
+                temp = str(self.evaluate_prerequisite(pre_req_tree[0], student_units, graded_pre_req) and self.evaluate_prerequisite(pre_req_tree[2], student_units, graded_pre_req))
                 #print temp
                 return eval(temp)
 
@@ -539,19 +606,22 @@ if __name__ == '__main__':
     #pre_req = 'COMP225 or COMP229 or COMP125'
     #pre_req = '(COMP125 or COMP165 and (3cp from MATH132-MATH136 or DMTH137))'
     #pre_req = '3cp from (MATH132-MATH136 or DMTH137)'
-    #pre_req = '(COMP125 or COMP165) and (3cp from MATH132-MATH136 or DMTH137)'
-    #[['COMP125', 'or', 'COMP165'], 'and', ['3cp', 'from', [[[[['MATH132', 'or', 'MATH133'], 'or', 'MATH134'], 'or', 'MATH135'], 'or', 'MATH136'], 'or', 'DMTH137']]]
+    pre_req = '(COMP125(P) or COMP165(P)) and (3cp(P) from MATH132-MATH136 or DMTH137)'
+    # [['COMP125', 'or', 'COMP165'], 'and', ['3cp', 'from', [[[[['MATH132', 'or', 'MATH133'], 'or', 'MATH134'], 'or', 'MATH135'], 'or', 'MATH136'], 'or', 'DMTH137']]]
     #pre_req = '3cp from COMP or ISYS units at 100 level'
     #pre_req = '39cp and COMP125 or COMP249'
     #pre_req = ''
     #print 'result: '
-    #print pp.parse_string(pre_req)
-
+    print pp.parse_string(pre_req)
+    pre_req_tree = pp.parse_string(pre_req)
+    graded_pre_req = pp.graded_pre_req
+    print 'graded_pre_req: ', graded_pre_req
+    student_units = {'COMP125' : 'P', 'DMTH137' : 'D'}
+    ev = Evaluate_Prerequisite()
+    print ev.evaluate_prerequisite(pre_req_tree, student_units, graded_pre_req)
     #pre_req = '6cp from COMP or ISYS or ACCG or STAT or BUS or BBA units at 200 level'
     #print pre_req
-    pre_req = '6cp in LAW units at 300 level'
-    print pre_req
-    print pp.parse_string(pre_req)
+    
     """
     student_units = ['COMP115', 'COMP125', 'DMTH137', 'ISYS114',  'DMTH237', 'COMP255', 'ISYS224', 'COMP355']
     #print json.dumps(pp.process_student_units(student_units), indent=4, sort_keys=True)

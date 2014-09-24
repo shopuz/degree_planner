@@ -181,7 +181,7 @@ class Degree_Planner():
 				print 'Error parsing prereq'
 				continue
 			
-			evaluate_result = ev.evaluate_prerequisite(pre_req_tree, student_units)
+			evaluate_result = ev.evaluate_prerequisite(pre_req_tree, student_units, parser.graded_pre_req)
 		
 			if evaluate_result and unit not in final_available_units:
 				print 'unit: ', unit, ' inserted in available units'
@@ -220,7 +220,7 @@ class Degree_Planner():
 				pre_req_tree = parser.parse_string(pre_req)
 			
 
-				evaluate_result = ev.evaluate_prerequisite(pre_req_tree, student_units)
+				evaluate_result = ev.evaluate_prerequisite(pre_req_tree, student_units, parser.graded_pre_req)
 				print 'pre_req: ', pre_req
 				print 'evaluate_result: ', evaluate_result
 				if evaluate_result and unit not in final_available_units:

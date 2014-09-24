@@ -39,45 +39,49 @@ class ParseTestCase(unittest.TestCase):
         pp = Prereq_Parser()
         ev = Evaluate_Prerequisite()
         # First Student units
-        student_units = ['COMP125', 'COMP115', 'COMP165', 'MAS111']
+        student_units = {'COMP125' : 'P', 'COMP115' : 'P', 'COMP165' : 'P', 'MAS111' : 'P'}
 
         pre_req_tree = ['COMP115', 'or', 'COMP125']
-        self.assertTrue(ev.evaluate_prerequisite(pre_req_tree, student_units))
+        graded_pre_req = {'COMP111': 'P', 'INFO111': 'P', 'MAS111': 'P', 'COMP115': 'P', 'COMP125': 'P', 'COMP165': 'P', 
+                            'COMP225' : 'P', 'COMP227': 'P', 'COMP229': 'P', 'COMP247': 'P', 'MATH237': 'P', 'DMTH137': 'P', 'DMTH237': 'P', 'ELEC240' : 'P',
+                            'ISYS100': 'P', 'ISYS104': 'P', 'ISYS114': 'P', 'ISYS224': 'P', 'ISYS254': 'P', 'ISYS301': 'P', 'MPCE360': 'P', 'ACCG355': 'P',
+                            '9cp': 'P'}
+        self.assertTrue(ev.evaluate_prerequisite(pre_req_tree, student_units, graded_pre_req))
 
         pre_req_tree = [['COMP225', 'or', 'COMP229'], 'or', 'COMP125']
-        self.assertTrue(ev.evaluate_prerequisite(pre_req_tree, student_units))
+        self.assertTrue(ev.evaluate_prerequisite(pre_req_tree, student_units, graded_pre_req))
 
         
         pre_req_tree = ['COMP115', 'and', [['COMP111' , 'or', 'INFO111'], 'or', 'MAS111']]
-        self.assertTrue(ev.evaluate_prerequisite(pre_req_tree, student_units))
+        self.assertTrue(ev.evaluate_prerequisite(pre_req_tree, student_units, graded_pre_req))
 
         # Second Student units
-        student_units = ['COMP125', 'COMP115', 'COMP165']
+        student_units = {'COMP125' : 'P', 'COMP115' : 'P', 'COMP165' : 'P'}
         pre_req_tree = ['COMP115', 'and', [['COMP111' , 'or', 'INFO111'], 'or', 'MAS111']]
-        self.assertFalse(ev.evaluate_prerequisite(pre_req_tree, student_units))
+        self.assertFalse(ev.evaluate_prerequisite(pre_req_tree, student_units, graded_pre_req))
 
         # Third Student units
         pre_req_tree = [['COMP247', 'and', 'COMP125'],'and', [[['MATH237', 'or', 'DMTH237'], 'or', 'DMTH137'], 'or', 'ELEC240']]
-        self.assertFalse(ev.evaluate_prerequisite(pre_req_tree, student_units))
-        student_units = ['COMP247', 'COMP125', 'DMTH137']
-        self.assertTrue(ev.evaluate_prerequisite(pre_req_tree, student_units))
+        self.assertFalse(ev.evaluate_prerequisite(pre_req_tree, student_units, graded_pre_req))
+        student_units = {'COMP247': 'P', 'COMP125': 'P', 'DMTH137': 'P'}
+        self.assertTrue(ev.evaluate_prerequisite(pre_req_tree, student_units, graded_pre_req))
 
         # Fourth Student Units
-        student_units = ['COMP125', 'COMP115', 'COMP165', 'MAS111', 'INFO111', 'DMTH237']
+        student_units = {'COMP125': 'P', 'COMP115': 'P', 'COMP165': 'P', 'MAS111': 'P', 'INFO111': 'P', 'DMTH237': 'P'}
         pre_req_tree = ['18cp', 'including', ['COMP115', 'or', 'COMP155']]
-        self.assertTrue(ev.evaluate_prerequisite(pre_req_tree, student_units))
+        self.assertTrue(ev.evaluate_prerequisite(pre_req_tree, student_units, graded_pre_req))
 
         # Fifth Student Units
-        student_units = ['COMP125', 'COMP115', 'COMP165', 'MAS111', 'INFO111', 'DMTH237', 'COMP225', 'COMP227', 'ISYS100', 'ISYS104', 'ISYS114', 'ISYS224', 'ISYS254', 'ISYS301', 'MPCE360']
+        student_units = {'COMP125': 'P', 'COMP115': 'P', 'COMP165': 'P', 'MAS111': 'P', 'INFO111': 'P', 'DMTH237': 'P', 'COMP225': 'P', 'COMP227': 'P', 'ISYS100': 'P', 'ISYS104': 'P', 'ISYS114': 'P', 'ISYS224': 'P', 'ISYS254': 'P', 'ISYS301': 'P', 'MPCE360': 'P'}
         pre_req_tree = ['39cp', 'including', [['COMP225', 'or', 'COMP229'], 'and', [['COMP255', 'or', 'COMP227'], 'or', 'ISYS227']]]
-        self.assertTrue(ev.evaluate_prerequisite(pre_req_tree, student_units))
+        self.assertTrue(ev.evaluate_prerequisite(pre_req_tree, student_units, graded_pre_req))
 
         pre_req_tree = ['9cp', 'from', [[[[['ACCG355', 'or', 'ACCG358'], 'or', 'ISYS301'], 'or', 'ISYS302'], 'or', 'ISYS360'], 'or', 'MPCE360']]
-        self.assertFalse(ev.evaluate_prerequisite(pre_req_tree, student_units))
-
+        self.assertFalse(ev.evaluate_prerequisite(pre_req_tree, student_units, graded_pre_req))
+        
         # Sixth Student units
-        student_units = ['COMP125', 'COMP115', 'COMP165', 'MAS111', 'INFO111', 'DMTH237', 'COMP225', 'ACCG355', 'ISYS100', 'ISYS104', 'ISYS114', 'ISYS224', 'ISYS254', 'ISYS301', 'MPCE360']
-        self.assertTrue(ev.evaluate_prerequisite(pre_req_tree, student_units))
+        student_units = {'COMP125': 'P', 'COMP115': 'P', 'COMP165': 'P', 'MAS111': 'P', 'INFO111': 'P', 'DMTH237': 'P', 'COMP225': 'P', 'ACCG355': 'P', 'ISYS100': 'P', 'ISYS104': 'P', 'ISYS114': 'P', 'ISYS224': 'P', 'ISYS254': 'P', 'ISYS301': 'P', 'MPCE360': 'P'}
+        self.assertTrue(ev.evaluate_prerequisite(pre_req_tree, student_units, graded_pre_req))
 
 
     def test_process_students(self):

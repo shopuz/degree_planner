@@ -32,7 +32,7 @@ class DegreePlannerTestCase(unittest.TestCase):
 		dp = Degree_Planner('BIT', 'SOT01', '2011', 's1')
 		
 		available_units = dp.get_available_units_for_entire_degree()
-		expected_result = {'2011': [{'s1': ['COMP115']}, {'s2': ['COMP125', 'DMTH137', 'ISYS114']}], '2013': [{'s1': ['COMP355']}, {'s2': []}], '2012': [{'s1': ['DMTH237']}, {'s2': ['COMP255', 'ISYS224']}]}
+		expected_result = {'2011': [{'s1': ['COMP115']}, {'s2': ['COMP125', 'DMTH137', 'ISYS114']}], '2013': [{'s1': []}, {'s2': []}], '2012': [{'s1': ['DMTH237']}, {'s2': ['COMP255', 'ISYS224']}]}
 		self.assertEqual(available_units, expected_result)
 
 		
