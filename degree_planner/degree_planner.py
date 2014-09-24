@@ -156,12 +156,12 @@ class Degree_Planner():
 				pre_req = handbook.extract_pre_req_for_unit(unit, self.year)
 
 			# Todo: Parse the grade  (P, Cr) as well
-			pre_req = pre_req.replace("(P)", "").replace("(Cr)", "")
+			# pre_req = pre_req.replace("(P)", "").replace("(Cr)", "")
 			
 			for complex_req in remaining_requirements:
 				print 'unit: ', unit, ' complex requirement: ', complex_req
 				#print 'inserting True for complex req'
-				print 'current prereq: ', pre_req
+				
 
 				#pre_req = pre_req.replace(complex_req, 'True')
 				print 'simplified prereq: ', pre_req
@@ -175,12 +175,16 @@ class Degree_Planner():
 				final_available_units.append(unit)
 				continue
 			
+			print 'current prereq: ', pre_req
+			
 			try:
 				pre_req_tree = parser.parse_string(pre_req)
 			except:
 				print 'Error parsing prereq'
 				continue
 			
+			print 'current prereq tree in degree planner: ', pre_req_tree
+			print 'current graded pre req in degree planner: ', parser.graded_pre_req
 			evaluate_result = ev.evaluate_prerequisite(pre_req_tree, student_units, parser.graded_pre_req)
 		
 			if evaluate_result and unit not in final_available_units:
@@ -210,7 +214,7 @@ class Degree_Planner():
 					continue
 
 			# Todo: Parse the grade  (P, Cr) as well
-			pre_req = pre_req.replace("(P)", "").replace("(Cr)", "")
+			# pre_req = pre_req.replace("(P)", "").replace("(Cr)", "")
 			
 			if not pre_req and unit not in final_available_units:
 				final_available_units.append(unit)
@@ -389,7 +393,7 @@ class Degree_Planner():
 			#print 'filtered_unit_list: ', filtered_unit_list
 			for unit in filtered_unit_list:
 				pre_req = handbook.extract_pre_req_for_unit(unit, self.year)
-				pre_req = pre_req.replace('(P)', '')
+				#pre_req = pre_req.replace('(P)', '')
 				pre_req_tree = parser.parse_string(pre_req)
 				
 				evaluate_result = evaluator.evaluate_prerequisite(pre_req_tree, student_units )

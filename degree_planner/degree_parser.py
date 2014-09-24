@@ -95,6 +95,8 @@ class Prereq_Parser():
         """
         # Store the graded pre requisite
         self.store_graded_pre_req(prereq)
+        print 'prereq before storing graded_pre_req: ', prereq
+        print 'storing graded_pre_req: ', self.graded_pre_req
 
         from_flag = False
         prereq = prereq.replace('(P)', '').replace('(Cr)', '').replace('[', '(').replace(']', ')').replace(' in ', ' from ').strip()
@@ -443,7 +445,7 @@ class Prereq_Parser():
         for req in remaining_reqs:
             pre_req_tree = self.parse_string(req)
 
-            result = evaluator.evaluate_prerequisite(pre_req_tree, student_units)
+            result = evaluator.evaluate_prerequisite(pre_req_tree, student_units, self.graded_pre_req)
             if not result:
                 final_remaining_reqs.append(req)
 
@@ -462,7 +464,7 @@ class Prereq_Parser():
         for req in remaining_reqs:
             pre_req_tree = self.parse_string(req)
 
-            result = evaluator.evaluate_prerequisite(pre_req_tree, student_units)
+            result = evaluator.evaluate_prerequisite(pre_req_tree, student_units, self.graded_pre_req)
             if result:
                 satisfied_reqs.append(req)
 
@@ -530,7 +532,10 @@ class Evaluate_Prerequisite():
         print 'student units: ', student_units
         print 'common_student_units: ', common_student_units
 
-        common_student_units_grade = self.grade_values.keys()[self.grade_values.values().index(max([self.grade_values[grade] for grade in common_student_units.values()]))]
+        try:
+            common_student_units_grade = self.grade_values.keys()[self.grade_values.values().index(max([self.grade_values[grade] for grade in common_student_units.values()]))]
+        except:
+            common_student_units_grade = 'None'
 
         print 'common_student_units_grade: ', common_student_units_grade
         total_cp_gained = self.total_cp(common_student_units, level, graded_pre_req)
@@ -562,7 +567,7 @@ class Evaluate_Prerequisite():
             temp_student_units = student_units
             student_units = {}
             for unit in temp_student_units:
-                student_units[unit] = 'None'
+                student_units[unit] = 'P'
 
             print 'student_units: ', student_units
 
